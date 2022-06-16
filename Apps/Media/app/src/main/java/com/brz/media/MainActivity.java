@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentContainerView;
 
 import android.os.Bundle;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         right_fragment_container = requireViewById(R.id.right_fragment_container);
 
         left_fragment_container.addView(View.inflate(this, R.layout.fragment_navigation_fragment, null));
-        right_fragment_container.addView(View.inflate(this, R.layout.fragment_media_fragment, null));
     }
 
     private void hideSystemBars() {

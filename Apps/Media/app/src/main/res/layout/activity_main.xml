@@ -16,6 +16,7 @@
         android:layout_width="640dp"
         android:layout_height="match_parent"
         android:id="@+id/right_fragment_container"
+        android:name="com.brz.media.right_fragments.media_fragment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

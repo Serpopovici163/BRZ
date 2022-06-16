@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".right_fragments.media_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</fragment>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="32sp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/all_systems_nominal"/>
+
+        </FrameLayout>
+
+        <!--Album icon, song name, and artist name-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="40dp"
+                android:contentDescription="@string/album_cover_description"
+                android:scaleType="centerInside"
+                android:src="@drawable/sample_album_cover" />
+
+            <LinearLayout
+                android:layout_width="360dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/media_fragment_song_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="Song name"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/media_fragment_artist_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Artist name"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Media buttons (play, skip) and track progress bar-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:orientation="vertical">
+
+            <!--media buttons-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/media_skip_back"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="#0000"
+                    android:contentDescription="@string/skip_backward"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/skip_left" />
+
+                <ImageButton
+                    android:id="@+id/media_play"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="#0000"
+                    android:contentDescription="@string/play_pause"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/play" />
+
+                <ImageButton
+                    android:id="@+id/media_skip_forward"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="#0000"
+                    android:contentDescription="@string/skip_forward"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/skip_right" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:paddingTop="40dp"
+                android:progress="60" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
