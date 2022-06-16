@@ -8,6 +8,7 @@
         android:layout_width="1280dp"
         android:layout_height="match_parent"
         android:id="@+id/left_fragment_container"
+        android:name="com.brz.media.left_fragments.navigation_fragment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />

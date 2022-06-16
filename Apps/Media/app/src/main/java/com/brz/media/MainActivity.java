@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         left_fragment_container = requireViewById(R.id.left_fragment_container);
         right_fragment_container = requireViewById(R.id.right_fragment_container);
 
-        left_fragment_container.addView(View.inflate(this, R.layout.fragment_navigation_fragment, null));
+
     }
 
     private void hideSystemBars() {
