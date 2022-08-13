@@ -1,4 +1,4 @@
-package com.brz.headunit;
+package com.brz.diagnosticdisplay;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.brz.headunit.databinding.ActivityFullscreenBinding;
+import com.brz.diagnosticdisplay.databinding.ActivityFullscreenBinding;
 
 public class FullscreenActivity extends AppCompatActivity {
 
@@ -33,25 +32,7 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        //initialize fragments now that activity is created
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-        //add fragments to their containers
-        DefenseFragment defenseFragment = new DefenseFragment();
-        DiagnosticFragment diagnosticFragment = new DiagnosticFragment();
-        MediaFragment mediaFragment = new MediaFragment();
-        NavigationFragment navigationFragment = new NavigationFragment();
-
-        fragmentTransaction.add(R.id.big_fragment, navigationFragment);
-        fragmentTransaction.add(R.id.big_fragment, diagnosticFragment);
-        fragmentTransaction.add(R.id.small_fragment, mediaFragment);
-        fragmentTransaction.add(R.id.small_fragment, defenseFragment);
-
-        //show specific fragments
-        fragmentTransaction.hide(diagnosticFragment);
-        fragmentTransaction.hide(defenseFragment);
-
-        fragmentTransaction.commit();
     }
 
     private void hide() {
