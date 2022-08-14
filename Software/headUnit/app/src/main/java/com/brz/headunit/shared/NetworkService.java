@@ -1,4 +1,4 @@
-package com.brz.headunit.network;
+package com.brz.headunit.shared;
 
 import org.json.JSONObject;
 

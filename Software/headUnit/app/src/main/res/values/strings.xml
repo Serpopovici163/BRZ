@@ -1,3 +1,19 @@
 <resources>
+    <!-- miscellaneous -->
     <string name="app_name">Head Unit</string>
+
+    <!-- defense fragment countermeasure states -->
+    <string name="offline_caps">OFFLINE</string>
+    <string name="error_caps">ERROR</string>
+    <string name="clear_caps">CLEAR</string>
+    <string name="warn_caps">WARNING</string>
+    <string name="alert_caps">DETECTED</string>
+    <string name="radar">RADAR: </string>
+    <string name="lidar">LIDAR: </string>
+    <string name="transponder">TRNSPDR: </string>
+    <string name="cell_sniffer">CELL_SNIFF: </string>
+
+    <!-- defense fragment other strings -->
+    <string name="cell_sniffer_title">Nearby cellular devices:</string>
+    <string name="no_aircraft">No nearby aircraft.</string>
 </resources>

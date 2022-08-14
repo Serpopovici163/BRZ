@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.brz.headunit.network.NetworkService;
+import com.brz.headunit.shared.NetworkService;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -2,6 +2,7 @@ package com.brz.headunit;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,25 +34,35 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        //get fragment highlight views
+        ImageView bigFragmentHighlight = requireViewById(R.id.big_fragment_highlight_view);
+        ImageView smallFragmentHighlight = requireViewById(R.id.small_fragment_highlight_view);
+
         //initialize fragments now that activity is created
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         //add fragments to their containers
         DefenseFragment defenseFragment = new DefenseFragment();
+        PopUpDefenseFragment popUpDefenseFragment = new PopUpDefenseFragment();
         DiagnosticFragment diagnosticFragment = new DiagnosticFragment();
         MediaFragment mediaFragment = new MediaFragment();
         NavigationFragment navigationFragment = new NavigationFragment();
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment);
         fragmentTransaction.add(R.id.big_fragment, diagnosticFragment);
+        fragmentTransaction.add(R.id.big_fragment, defenseFragment);
         fragmentTransaction.add(R.id.small_fragment, mediaFragment);
-        fragmentTransaction.add(R.id.small_fragment, defenseFragment);
+        fragmentTransaction.add(R.id.small_fragment, popUpDefenseFragment);
 
         //show specific fragments
         fragmentTransaction.hide(diagnosticFragment);
-        fragmentTransaction.hide(defenseFragment);
+        fragmentTransaction.hide(navigationFragment);
+        fragmentTransaction.hide(mediaFragment);
 
         fragmentTransaction.commit();
+
+        //initialize keyboard listener here
+
     }
 
     private void hide() {

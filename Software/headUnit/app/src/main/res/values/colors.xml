@@ -3,9 +3,12 @@
     <color name="day_theme_text">#FF000000</color>
     <color name="day_theme_window">#AAB0C4DE</color>
     <color name="day_theme_background">#FF708090</color>
+    <color name="day_theme_highlight">#FFFFFFFF</color> <!-- TODO: change highlight colours -->
+
     <color name="night_theme_text">#FFC0C0C0</color>
     <color name="night_theme_window">#99696969</color>
     <color name="night_theme_background">#FF000000</color>
+    <color name="night_theme_highlight">#FFFFFFFF</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

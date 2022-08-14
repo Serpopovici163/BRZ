@@ -4,13 +4,13 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/day_theme_window</item>
         <item name="colorPrimaryVariant">@color/day_theme_background</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/day_theme_highlight</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/day_theme_window</item>
         <item name="colorSecondaryVariant">@color/day_theme_background</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/day_theme_text</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -23,5 +23,10 @@
     <style name="ThemeOverlay.HeadUnit.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/day_theme_background</item>
         <item name="fullscreenTextColor">@color/day_theme_text</item>
+    </style>
+
+    <style name="Theme.HeadUnit.TransponderContainer" parent="">
+        <item name="colorPrimary">@color/day_theme_window</item>
+        <item name="colorAccent">@color/day_theme_text</item>
     </style>
 </resources>

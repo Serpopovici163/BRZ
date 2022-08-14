@@ -5,10 +5,143 @@
     android:layout_height="match_parent"
     tools:context=".DefenseFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Defense fragment" />
+        android:orientation="horizontal"
+        android:weightSum="2"> <!-- TODO: ADJUST LAYOUT WEIGHTS -->
 
+        <!-- TODO: add transponder diagram - should work by showing a drawable dot around a radar-like map to scale -->
+
+        <FrameLayout
+            android:id="@+id/transponder_diagram_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!-- not sure how this is gonna work just yet -->
+
+            <!-- TODO: fix/improve transponder image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/transponder_background" />
+
+            <!-- TODO: add layout to contain aircraft markers but not sure what type of layout -->
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <!-- have cell sniffer topside alongside jammer status icons and aircraft list below but smaller -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:weightSum="4"
+                    android:background="@drawable/rounded_background"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp">
+
+                    <!-- cell sniffer stuff in here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/cell_sniffer_title"
+                        android:gravity="center"
+                        android:textSize="26dp" />
+
+                    <TextView
+                        android:id="@+id/aircraft_list_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="@string/no_aircraft"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4"
+                    android:layout_margin="25dp">
+
+                    <!-- TODO: add icons for each type of jammer, scale icons, make other colours, add driving code -->
+
+                    <ImageButton
+                        android:id="@+id/cell_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/cell_jam_icon"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageButton
+                        android:id="@+id/radio_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/radio_jam_icon"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageButton
+                        android:id="@+id/lidar_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/laser_jam_icon"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageButton
+                        android:id="@+id/radar_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/radar_jam_icon"
+                        android:scaleType="fitCenter"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+
+
+            </LinearLayout>
+
+            <!-- textview displays distance of nearby aircraft -->
+            <TextView
+                android:id="@+id/aircraft_distance_textview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center" /> <!-- TODO: make text gravitate towards center -->
+
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
