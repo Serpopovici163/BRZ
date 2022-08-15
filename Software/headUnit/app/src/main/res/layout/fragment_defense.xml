@@ -54,7 +54,7 @@
                     android:orientation="vertical"
                     android:weightSum="4"
                     android:background="@drawable/rounded_background"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="0dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="30dp">
 
@@ -65,15 +65,15 @@
                         android:layout_weight="1"
                         android:text="@string/cell_sniffer_title"
                         android:gravity="center"
-                        android:textSize="26dp" />
+                        android:textSize="26sp" />
 
                     <TextView
-                        android:id="@+id/aircraft_list_textview"
+                        android:id="@+id/cell_list_textview"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="3"
                         android:gravity="center"
-                        android:text="@string/no_aircraft"/>
+                        android:text="@string/no_cell_devices"/>
 
 
                 </LinearLayout>
@@ -94,7 +94,8 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:src="@drawable/cell_jam_icon"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
 
                     <ImageButton
                         android:id="@+id/radio_jammer_button"
@@ -102,15 +103,17 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:src="@drawable/radio_jam_icon"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
 
                     <ImageButton
                         android:id="@+id/lidar_jammer_button"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:src="@drawable/laser_jam_icon"
-                        android:scaleType="fitCenter"/>
+                        android:src="@drawable/lidar_jam_icon"
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
 
                     <ImageButton
                         android:id="@+id/radar_jammer_button"
@@ -118,7 +121,8 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:src="@drawable/radar_jam_icon"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
 
                 </LinearLayout>
 
@@ -128,20 +132,72 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:background="@drawable/rounded_background"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp">
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:weightSum="3">
 
+                    <!-- here is text list for nearby aircraft -->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/transponder_title"
+                        android:textSize="26sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/aircraft_list_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="@string/no_aircraft"/>
+
+                </LinearLayout>
+
+                <!-- here are icons for whether lines are on pavement and whether aircraft is too close -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/nearby_aircraft_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/plane_icon"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="7.5dp"/>
+
+                    <ImageView
+                        android:id="@+id/pavement_line_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pavement_line_icon"
+                        android:layout_marginTop="7.5dp"
+                        android:layout_marginBottom="15dp"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-            <!-- textview displays distance of nearby aircraft -->
-            <TextView
-                android:id="@+id/aircraft_distance_textview"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center" /> <!-- TODO: make text gravitate towards center -->
-
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

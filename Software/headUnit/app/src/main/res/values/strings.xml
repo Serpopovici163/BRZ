@@ -15,5 +15,7 @@
 
     <!-- defense fragment other strings -->
     <string name="cell_sniffer_title">Nearby cellular devices:</string>
+    <string name="transponder_title">Nearby transponders:</string>
     <string name="no_aircraft">No nearby aircraft.</string>
+    <string name="no_cell_devices">No cellular devices detected.</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class DefenseFragment extends Fragment {
@@ -33,11 +34,13 @@ public class DefenseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         //add transponder view here
-        TextView aircraftDistanceTextView = requireView().requireViewById(R.id.aircraft_distance_textview);
+        TextView aircraftDistanceTextView = requireView().requireViewById(R.id.aircraft_list_textview);
 
-        //sample text for UI design
-        aircraftDistanceTextView.setText(R.string.no_aircraft);
-
+        //jammer image buttons
+        ImageButton cellJamImageButton = requireView().requireViewById(R.id.cell_jammer_button);
+        ImageButton radioJamImageButton = requireView().requireViewById(R.id.radio_jammer_button);
+        ImageButton lidarJamImageButton = requireView().requireViewById(R.id.lidar_jammer_button);
+        ImageButton radarJamImageButton = requireView().requireViewById(R.id.radar_jammer_button);
         super.onViewCreated(view, savedInstanceState);
     }
 }
