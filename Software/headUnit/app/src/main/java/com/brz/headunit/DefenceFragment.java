@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class DefenseFragment extends Fragment {
+import com.brz.headunit.defence.DefenceService;
 
-    public DefenseFragment() {
+public class DefenceFragment extends Fragment {
+
+    public DefenceFragment() {
         // Required empty public constructor
     }
 
@@ -41,6 +43,11 @@ public class DefenseFragment extends Fragment {
         ImageButton radioJamImageButton = requireView().requireViewById(R.id.radio_jammer_button);
         ImageButton lidarJamImageButton = requireView().requireViewById(R.id.lidar_jammer_button);
         ImageButton radarJamImageButton = requireView().requireViewById(R.id.radar_jammer_button);
+
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public void displayJamState(int jammerID, boolean jamState) {
+        //TODO left off here aug 15
     }
 }

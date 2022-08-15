@@ -1,7 +1,6 @@
 package com.brz.headunit;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,14 +13,15 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.brz.headunit.databinding.ActivityFullscreenBinding;
+import com.brz.headunit.defence.DefenceService;
 import com.brz.headunit.media.MediaService;
-
-import java.security.Key;
 
 public class FullscreenActivity extends AppCompatActivity {
 
     public boolean legalMode = false;
     private View mControlsView;
+    DefenceService defenceService = new DefenceService();
+    MediaService mediaService = new MediaService();
 
     //keyboard letters are defined here for ease during coding
     int rs_key_up = KeyEvent.KEYCODE_A;
@@ -43,7 +43,7 @@ public class FullscreenActivity extends AppCompatActivity {
     ImageView bigFragmentHighlight;
     ImageView smallFragmentHighlight;
 
-    private DefenseFragment defenseFragment;
+    private DefenceFragment defenseFragment;
     private PopUpDefenseFragment popUpDefenseFragment;
     private DiagnosticFragment diagnosticFragment;
     private MediaFragment mediaFragment;
@@ -79,7 +79,7 @@ public class FullscreenActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         //add fragments to their containers
-        defenseFragment = new DefenseFragment();
+        defenseFragment = new DefenceFragment();
         popUpDefenseFragment = new PopUpDefenseFragment();
         diagnosticFragment = new DiagnosticFragment();
         mediaFragment = new MediaFragment();
@@ -138,6 +138,11 @@ public class FullscreenActivity extends AppCompatActivity {
                     bigFragmentHighlight.setVisibility(View.INVISIBLE);
                     smallFragmentHighlight.setVisibility(View.INVISIBLE);
                     fragmentSwapState = false;
+                } else if (!legalMode) { //hail mary
+                    defenceService.setRadioJamState(true);
+                    defenceService.setRadarJamState(true);
+                    defenceService.setCellJamState(true);
+                    defenceService.setLidarJamState(true);
                 }
             } else if (keyCode == rs_key_up) { //swap fragment in current container
                 if (fragmentSwapState) {
@@ -179,7 +184,8 @@ public class FullscreenActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                }
+                } else if (!legalMode) //if not swapping fragments, then act as button but check legalMode
+                    defenceService.setCellJamState(true);
             } else if (keyCode == rs_key_down) { //swap fragment in current container
                 if (fragmentSwapState) {
                     if (highlightedFragmentID == 0) { //manage big fragments
@@ -219,8 +225,9 @@ public class FullscreenActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                }
-            } else if (keyCode == rs_key_right || keyCode == rs_key_left) { //change selected fragment
+                } else if (!legalMode)
+                    defenceService.setLidarJamState(true);
+            } else if (keyCode == rs_key_right) { //change selected fragment
                 if (fragmentSwapState) {
                     if (highlightedFragmentID == 0) { //big fragment highlighted so go to small
                         highlightedFragmentID++;
@@ -231,7 +238,26 @@ public class FullscreenActivity extends AppCompatActivity {
                         bigFragmentHighlight.setVisibility(View.VISIBLE);
                         smallFragmentHighlight.setVisibility(View.INVISIBLE);
                     }
-                }
+                } else if (!legalMode)
+                    defenceService.setRadioJamState(true);
+            } else if (keyCode == rs_key_left) {
+                if (fragmentSwapState) { //same as rs_key_right
+                    if (highlightedFragmentID == 0) { //big fragment highlighted so go to small
+                        highlightedFragmentID++;
+                        bigFragmentHighlight.setVisibility(View.INVISIBLE);
+                        smallFragmentHighlight.setVisibility(View.VISIBLE);
+                    } else {
+                        highlightedFragmentID = 0;
+                        bigFragmentHighlight.setVisibility(View.VISIBLE);
+                        smallFragmentHighlight.setVisibility(View.INVISIBLE);
+                    }
+                } else if (!legalMode)
+                    defenceService.setRadarJamState(true);
+            } else if (keyCode == rs_key_voice) { //cancel all jammers
+                defenceService.setLidarJamState(false);
+                defenceService.setRadioJamState(false);
+                defenceService.setRadarJamState(false);
+                defenceService.setCellJamState(false);
             } else if (keyCode == ls_key_source) //media stuff
                 MediaService.toggleSource();
             else if (keyCode == ls_key_enter)
