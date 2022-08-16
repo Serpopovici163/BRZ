@@ -1,5 +1,6 @@
 package com.brz.headunit;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,8 +14,12 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.brz.headunit.databinding.ActivityFullscreenBinding;
-import com.brz.headunit.defence.DefenceService;
-import com.brz.headunit.media.MediaService;
+import com.brz.headunit.services.DefenceService;
+import com.brz.headunit.services.DiagnosticService;
+import com.brz.headunit.services.MediaService;
+import com.brz.headunit.services.NavigationService;
+import com.brz.headunit.services.SafetyService;
+import com.brz.headunit.services.TrafficAdvisorService;
 
 public class FullscreenActivity extends AppCompatActivity {
 
@@ -23,8 +28,13 @@ public class FullscreenActivity extends AppCompatActivity {
     //any time the right key is hit, the counter goes up unless the wrong key is hit in which case it goes to 0 again
     int legalModeUnlockCounter = 0;
     private View mControlsView;
+
     DefenceService defenceService = new DefenceService();
+    DiagnosticService diagnosticService = new DiagnosticService();
     MediaService mediaService = new MediaService();
+    NavigationService navigationService = new NavigationService();
+    SafetyService safetyService = new SafetyService();
+    TrafficAdvisorService trafficAdvisorService = new TrafficAdvisorService();
 
     //keyboard letters are defined here for ease during coding
     int rs_key_up = KeyEvent.KEYCODE_A;
@@ -43,19 +53,23 @@ public class FullscreenActivity extends AppCompatActivity {
     int ls_key_left = KeyEvent.KEYCODE_N;
     int ls_key_enter = KeyEvent.KEYCODE_O;
 
-    ImageView bigFragmentHighlight;
-    ImageView smallFragmentHighlight;
+    //TODO: investigate implications of this
+    static ImageView bigFragmentHighlight;
+    static ImageView smallFragmentHighlight;
 
     private DefenceFragment defenseFragment;
     private PopUpDefenseFragment popUpDefenseFragment;
     private DiagnosticFragment diagnosticFragment;
     private MediaFragment mediaFragment;
     private NavigationFragment navigationFragment;
+    private LightFragment lightFragment;
 
     private int highlightedFragmentID = 0;
     private boolean fragmentSwapState = false;
-    private int liveBigFragmentID = 0;
-    private int liveSmallFragmentID = 0;
+    public static int liveBigFragmentID = 0;
+    public static int liveSmallFragmentID = 0;
+
+    boolean hornState = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,17 +101,20 @@ public class FullscreenActivity extends AppCompatActivity {
         diagnosticFragment = new DiagnosticFragment();
         mediaFragment = new MediaFragment();
         navigationFragment = new NavigationFragment();
+        lightFragment = new LightFragment();
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment); //ID 0
         fragmentTransaction.add(R.id.big_fragment, diagnosticFragment); //ID 1
         fragmentTransaction.add(R.id.big_fragment, defenseFragment); //ID 2
         fragmentTransaction.add(R.id.small_fragment, mediaFragment); //ID 0
         fragmentTransaction.add(R.id.small_fragment, popUpDefenseFragment); //ID 1
+        fragmentTransaction.add(R.id.small_fragment, lightFragment); //ID 2
 
-        //show specific fragments
+        //show navigation and media fragments
         fragmentTransaction.hide(diagnosticFragment);
         fragmentTransaction.hide(defenseFragment);
         fragmentTransaction.hide(popUpDefenseFragment);
+        fragmentTransaction.hide(lightFragment);
 
         liveBigFragmentID = 0;
         liveSmallFragmentID = 0;
@@ -128,12 +145,12 @@ public class FullscreenActivity extends AppCompatActivity {
                 smallFragmentHighlight.setVisibility(View.INVISIBLE);
                 fragmentSwapState = false;
             }
-        } else if (keyCode == rs_key_enter) { //end fragment swap
-            if (fragmentSwapState) {
+        } else if (keyCode == rs_key_enter) {
+            if (fragmentSwapState) { //end fragment swap
                 bigFragmentHighlight.setVisibility(View.INVISIBLE);
                 smallFragmentHighlight.setVisibility(View.INVISIBLE);
                 fragmentSwapState = false;
-            } else if (!legalMode) { //hail mary
+            } else if (liveBigFragmentID == 2 && !legalMode) { //toggle jammer hail mary
                 if ((defenceService.isCellJamState() && defenceService.isRadioJamState()) && (defenceService.isLidarJamState() && defenceService.isRadarJamState())) {
                     defenceService.setCellJamState(false);
                     defenceService.setRadioJamState(false);
@@ -145,58 +162,102 @@ public class FullscreenActivity extends AppCompatActivity {
                     defenceService.setLidarJamState(true);
                     defenceService.setRadarJamState(true);
                 }
-
             }
-        } else if (keyCode == rs_key_up) { //swap fragment in current container
-            if (fragmentSwapState)
+        } else if (keyCode == rs_key_up) {
+            if (fragmentSwapState) //swap fragment in current container
                 fragmentChange(true); //up
-            else if (!legalMode) //if not swapping fragments, then act as button but check legalMode
+            else if (liveBigFragmentID == 2 && !legalMode) //if not swapping fragments, then act as button but check legalMode
                 if (defenceService.isCellJamState())
                     defenceService.setCellJamState(false);
                 else
                     defenceService.setCellJamState(true);
-        } else if (keyCode == rs_key_down) { //swap fragment in current container
-            if (fragmentSwapState)
+        } else if (keyCode == rs_key_down) {
+            if (fragmentSwapState) //swap fragment in current container
                 fragmentChange(false);
-            else if (!legalMode)
+            else if (liveBigFragmentID == 2 && !legalMode)
                 if (defenceService.isLidarJamState())
                     defenceService.setLidarJamState(false);
                 else
                     defenceService.setLidarJamState(true);
-        } else if (keyCode == rs_key_right) { //change selected fragment
-            if (fragmentSwapState) {
+        } else if (keyCode == rs_key_right) {
+            if (fragmentSwapState) //change selected fragment
                 fragmentSelectionChange();
-            } else if (!legalMode)
+            else if (liveBigFragmentID == 2 && !legalMode)
                 if (defenceService.isRadioJamState())
                     defenceService.setRadioJamState(false);
                 else
                     defenceService.setRadioJamState(true);
         } else if (keyCode == rs_key_left) {
-            if (fragmentSwapState) { //same as rs_key_right
+            if (fragmentSwapState) //same as rs_key_right
                 fragmentSelectionChange();
-            } else if (!legalMode)
+            else if (liveBigFragmentID == 2 && !legalMode)
                 if (defenceService.isRadarJamState())
                     defenceService.setRadarJamState(false);
                 else
                     defenceService.setRadarJamState(true);
         } else if (keyCode == rs_key_voice) { //panic button
-            setLegalMode();
-        } else if (keyCode == ls_key_source) //media stuff
-            mediaService.toggleSource();
-        else if (keyCode == ls_key_enter)
-            mediaService.togglePlay();
-        else if (keyCode == ls_key_right)
-            mediaService.skipSong(true);
+            if (liveBigFragmentID == 2) { //defence fragment
+                defenceService.setCellJamState(false);
+                defenceService.setRadioJamState(false);
+                defenceService.setLidarJamState(false);
+                defenceService.setRadarJamState(false);
+            }
+        } else if (keyCode == ls_key_source) {
+            if (liveSmallFragmentID <= 1) //media stuff
+                mediaService.toggleSource();
+            else if (liveSmallFragmentID == 2) //panic
+                setLegalMode(); //TODO: investigate error
+
+        } else if (keyCode == ls_key_enter) {
+            if (liveSmallFragmentID <= 1)
+                mediaService.togglePlay();
+            else if (liveSmallFragmentID == 2 && !legalMode) { //handle light keystroke here
+                //police horn
+                hornState = false;
+                trafficAdvisorService.setHornState(false);
+            }
+        }
+        else if (keyCode == ls_key_right) {
+            if (liveSmallFragmentID <= 1)
+                mediaService.skipSong(true);
+            else if (liveSmallFragmentID == 2 && !legalMode) //handle light keystroke
+                trafficAdvisorService.toggleLightCycle(0); //fast police cycle
+        }
         else if (keyCode == ls_key_left)
-            mediaService.skipSong(false);
+            if (liveSmallFragmentID <= 1)
+                mediaService.skipSong(false);
+            else if (liveSmallFragmentID == 2 && !legalMode) //slow police cycle
+                trafficAdvisorService.toggleLightCycle(1);
         else if (keyCode == ls_key_volume_up)
             mediaService.changeVolume(true);
         else if (keyCode == ls_key_volume_down)
             mediaService.changeVolume(false);
+
         //check for legalMode unlock code
         //do this at end to prevent any the final keystroke (Enter) from enabling all jammers
         legalModeUnlock(keyCode);
+
         return super.onKeyUp(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (liveSmallFragmentID == 2 && keyCode == ls_key_enter) {
+            hornState = true;
+            trafficAdvisorService.setHornState(true);
+        } else if (liveSmallFragmentID == 2 && keyCode == ls_key_left)
+            trafficAdvisorService.toggleLightCycle(3);
+        else if (liveSmallFragmentID == 2 && keyCode == ls_key_right)
+            trafficAdvisorService.toggleLightCycle(1);
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        if (keyCode == rs_key_back) //TODO: check if this is valid key choice (doesn't trigger any illegal things)
+            setLegalMode();
+        return super.onKeyLongPress(keyCode, event);
     }
 
     void fragmentSelectionChange() {
@@ -209,6 +270,53 @@ public class FullscreenActivity extends AppCompatActivity {
             bigFragmentHighlight.setVisibility(View.VISIBLE);
             smallFragmentHighlight.setVisibility(View.INVISIBLE);
         }
+    }
+
+    public static void fragmentAlert(boolean isBigFragment, int alertLevel) { //TODO: not sure if this is correct syntax
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                //TODO: replace with thread
+                boolean localIsBigFragment = isBigFragment; //may be needed since thread will be detached from UI thread and function may run a second time after that
+                int localAlertLevel = alertLevel;
+                if (localIsBigFragment) {
+                    if (localAlertLevel == 0) //warn
+                        bigFragmentHighlight.setColorFilter(Color.YELLOW);
+                     else
+                        bigFragmentHighlight.setColorFilter(Color.RED);
+                    bigFragmentHighlight.setVisibility(View.VISIBLE);
+                    //sleep here
+                    bigFragmentHighlight.setVisibility(View.INVISIBLE);
+                    //sleep again and repeat until thread is killed
+                } else {
+                    if (localAlertLevel == 0) //warn
+                        smallFragmentHighlight.setColorFilter(Color.YELLOW);
+                    else
+                        smallFragmentHighlight.setColorFilter(Color.RED);
+                    smallFragmentHighlight.setVisibility(View.VISIBLE);
+                    //sleep here
+                    smallFragmentHighlight.setVisibility(View.INVISIBLE);
+                    //sleep again and repeat until thread is killed
+                }
+            }
+        };
+        runnable.run();
+    }
+
+    public static void displayPopUpDefenceFragment() {
+        if (liveSmallFragmentID != 1) {
+            //display fragment is media fragment is live
+            //TODO: change fragment from static context???
+        }
+    }
+
+    public static void cancelAlert(boolean isBigFragment) {
+        //TODO: integrate thread stuff here
+        //kill appropriate thread
+        if (isBigFragment)
+            bigFragmentHighlight.setColorFilter(Color.WHITE); //replace with theme colour?
+        else
+            smallFragmentHighlight.setColorFilter(Color.WHITE);
     }
 
     void fragmentChange(boolean direction) {
@@ -236,14 +344,27 @@ public class FullscreenActivity extends AppCompatActivity {
                     liveBigFragmentID = 0;
                 }
             } else { //manage small fragments
-                if (liveSmallFragmentID == 0) { //media fragment is live, switch to popupdefense
-                    if (!legalMode) { //if legal mode is active, do nothing
+                if (liveSmallFragmentID == 0) { //media fragment is live, switch to popupdefence
+                    //check if illegal features enabled
+                    if (legalMode) { //if legal mode is active, do nothing
+                        return;
+                    } else { //if legal mode is inactive, move to popupdefence fragment
                         fragmentTransaction.hide(mediaFragment);
                         fragmentTransaction.show(popUpDefenseFragment);
                         liveSmallFragmentID++;
                     }
-                } else if (liveSmallFragmentID == 1) { //popupdefense fragment live, swap back to media fragment
+                } else if (liveSmallFragmentID == 1) { //popupdefence fragment live, show light fragment
                     fragmentTransaction.hide(popUpDefenseFragment);
+                    //check if illegal features enabled
+                    if (legalMode) { //if legal mode is active, swap back to media fragment
+                        fragmentTransaction.show(mediaFragment);
+                        liveSmallFragmentID = 0;
+                    } else { //if legal mode is inactive, move to defense fragment
+                        fragmentTransaction.show(lightFragment);
+                        liveSmallFragmentID++;
+                    }
+                } else {
+                    fragmentTransaction.hide(lightFragment);
                     fragmentTransaction.show(mediaFragment);
                     liveSmallFragmentID = 0;
                 }
@@ -269,16 +390,29 @@ public class FullscreenActivity extends AppCompatActivity {
                     liveBigFragmentID = 1;
                 }
             } else { //manage small fragments
-                if (liveSmallFragmentID == 0) { //media fragment is live, switch to popupdefense
-                    if (!legalMode) { //if legal mode is active, do nothing
+                if (liveSmallFragmentID == 0) { //media fragment is live, switch to light
+                    //check if illegal features enabled
+                    if (legalMode) { //if legal mode is active, do nothing
+                        return;
+                    } else { //if legal mode is inactive, move to light fragment
                         fragmentTransaction.hide(mediaFragment);
-                        fragmentTransaction.show(popUpDefenseFragment);
-                        liveSmallFragmentID++;
+                        fragmentTransaction.show(lightFragment);
+                        liveSmallFragmentID = 2;
                     }
-                } else if (liveSmallFragmentID == 1) { //popupdefense fragment live, swap back to media fragment
+                } else if (liveSmallFragmentID == 1) { //popupdefence fragment live, show media fragment
                     fragmentTransaction.hide(popUpDefenseFragment);
                     fragmentTransaction.show(mediaFragment);
-                    liveSmallFragmentID = 0;
+                    liveSmallFragmentID--;
+                } else { //light fragment live, show popupdefence
+                    fragmentTransaction.hide(lightFragment);
+                    //check if illegal features enabled
+                    if (legalMode) { //if legal mode is active, swap back to media fragment
+                        fragmentTransaction.show(mediaFragment);
+                        liveSmallFragmentID = 0;
+                    } else { //if legal mode is inactive, move to popupdefense fragment
+                        fragmentTransaction.show(popUpDefenseFragment);
+                        liveSmallFragmentID--;
+                    }
                 }
             }
         }
@@ -311,6 +445,7 @@ public class FullscreenActivity extends AppCompatActivity {
             fragmentTransaction.commit();
             liveSmallFragmentID = 0;
         }
+        //TODO: broadcast packet to Arduino such that it can hide any illegal functions on its end
     }
 
     void legalModeUnlock(int keyCode) {
