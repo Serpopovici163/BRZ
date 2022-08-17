@@ -16,6 +16,10 @@ public class DefenceService {
         networkService.initiateClient(NetworkService.DEFENCE_SERVICE);
     }
 
+    public void setLegalMode() {
+        networkService.sendData();
+    }
+
     //TODO: make thread to handle incoming data
 
     public boolean isCellJamState() {

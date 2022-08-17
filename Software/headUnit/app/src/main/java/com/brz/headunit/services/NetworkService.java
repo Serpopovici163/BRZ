@@ -25,4 +25,8 @@ public class NetworkService {
 
         return null;
     }
+
+    public void sendData() {
+
+    }
 }

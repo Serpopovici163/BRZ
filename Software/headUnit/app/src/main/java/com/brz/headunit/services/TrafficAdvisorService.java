@@ -37,4 +37,13 @@ public class TrafficAdvisorService {
     public void killLights() {
 
     }
+
+    public void killSiren() {
+
+    }
+
+    public void setLegalMode() {
+        killLights();
+        killSiren();
+    }
 }

@@ -50,13 +50,13 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="3.25"
                     android:orientation="vertical"
                     android:weightSum="4"
                     android:background="@drawable/rounded_background"
                     android:layout_marginStart="0dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp">
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp">
 
                     <!-- cell sniffer stuff in here -->
                     <TextView
@@ -84,7 +84,10 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:weightSum="4"
-                    android:layout_margin="25dp">
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp">
 
                     <!-- TODO: add icons for each type of jammer, scale icons, make other colours, add driving code -->
 
@@ -104,6 +107,7 @@
                         android:layout_weight="1"
                         android:src="@drawable/radio_jam_icon"
                         android:scaleType="fitCenter"
+                        android:layout_margin="5dp"
                         android:background="#00000000"/>
 
                     <ImageButton
@@ -122,6 +126,7 @@
                         android:layout_weight="1"
                         android:src="@drawable/radar_jam_icon"
                         android:scaleType="fitCenter"
+                        android:layout_margin="7dp"
                         android:background="#00000000"/>
 
                 </LinearLayout>
@@ -136,8 +141,8 @@
                 android:weightSum="5"
                 android:background="@drawable/rounded_background"
                 android:layout_marginStart="0dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="30dp">
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp">
 
                 <LinearLayout
                     android:layout_width="0dp"

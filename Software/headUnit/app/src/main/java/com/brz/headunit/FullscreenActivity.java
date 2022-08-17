@@ -2,6 +2,7 @@ package com.brz.headunit;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.brz.headunit.databinding.ActivityFullscreenBinding;
@@ -57,12 +59,12 @@ public class FullscreenActivity extends AppCompatActivity {
     static ImageView bigFragmentHighlight;
     static ImageView smallFragmentHighlight;
 
-    private DefenceFragment defenseFragment;
-    private PopUpDefenseFragment popUpDefenseFragment;
-    private DiagnosticFragment diagnosticFragment;
-    private MediaFragment mediaFragment;
-    private NavigationFragment navigationFragment;
-    private LightFragment lightFragment;
+    private static DefenceFragment defenseFragment;
+    private static PopUpDefenseFragment popUpDefenseFragment;
+    private static DiagnosticFragment diagnosticFragment;
+    private static MediaFragment mediaFragment;
+    private static NavigationFragment navigationFragment;
+    private static TrafficAdvisorFragment lightFragment;
 
     private int highlightedFragmentID = 0;
     private boolean fragmentSwapState = false;
@@ -70,6 +72,9 @@ public class FullscreenActivity extends AppCompatActivity {
     public static int liveSmallFragmentID = 0;
 
     boolean hornState = false;
+    boolean popUpDefenseFragmentState = false;
+    static boolean isBigFragmentAlerting = false;
+    static boolean isSmallFragmentAlerting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +106,7 @@ public class FullscreenActivity extends AppCompatActivity {
         diagnosticFragment = new DiagnosticFragment();
         mediaFragment = new MediaFragment();
         navigationFragment = new NavigationFragment();
-        lightFragment = new LightFragment();
+        lightFragment = new TrafficAdvisorFragment();
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment); //ID 0
         fragmentTransaction.add(R.id.big_fragment, diagnosticFragment); //ID 1
@@ -112,9 +117,9 @@ public class FullscreenActivity extends AppCompatActivity {
 
         //show navigation and media fragments
         fragmentTransaction.hide(diagnosticFragment);
-        fragmentTransaction.hide(defenseFragment);
+        fragmentTransaction.hide(navigationFragment); //should be defence fragment
         fragmentTransaction.hide(popUpDefenseFragment);
-        fragmentTransaction.hide(lightFragment);
+        fragmentTransaction.hide(mediaFragment); //for debug to show lightFragment, should be lightfragment
 
         liveBigFragmentID = 0;
         liveSmallFragmentID = 0;
@@ -206,7 +211,7 @@ public class FullscreenActivity extends AppCompatActivity {
             if (liveSmallFragmentID <= 1) //media stuff
                 mediaService.toggleSource();
             else if (liveSmallFragmentID == 2) //panic
-                setLegalMode(); //TODO: investigate error
+                setLegalMode();
 
         } else if (keyCode == ls_key_enter) {
             if (liveSmallFragmentID <= 1)
@@ -272,51 +277,97 @@ public class FullscreenActivity extends AppCompatActivity {
         }
     }
 
-    public static void fragmentAlert(boolean isBigFragment, int alertLevel) { //TODO: not sure if this is correct syntax
-        Runnable runnable = new Runnable() {
+    public static void fragmentAlert(boolean isBigFragment, int alertLevel) {
+        //ensure multiple alerts can't be called at once
+        if ((isBigFragmentAlerting && isBigFragment) || (isSmallFragmentAlerting && !isBigFragment))
+            return;
+
+        //TODO: probably also want to nullify fragment swap state if active
+
+        //set state variable which gets checked inside thread loop
+        if (isBigFragment)
+            isBigFragmentAlerting = true;
+        else
+            isSmallFragmentAlerting = true;
+
+        Thread thread = new Thread() {
             @Override
             public void run() {
-                //TODO: replace with thread
-                boolean localIsBigFragment = isBigFragment; //may be needed since thread will be detached from UI thread and function may run a second time after that
-                int localAlertLevel = alertLevel;
-                if (localIsBigFragment) {
-                    if (localAlertLevel == 0) //warn
-                        bigFragmentHighlight.setColorFilter(Color.YELLOW);
-                     else
-                        bigFragmentHighlight.setColorFilter(Color.RED);
-                    bigFragmentHighlight.setVisibility(View.VISIBLE);
-                    //sleep here
+                //remember alertLevel by setting highlight colour
+                int highlightColor;
+                if (alertLevel == 1)
+                    highlightColor = Color.YELLOW;
+                else
+                    highlightColor = Color.RED;
+
+                //do alert animation
+                if (isBigFragment) {
+                    while (isBigFragmentAlerting) {
+                        bigFragmentHighlight.setColorFilter(highlightColor);
+                        bigFragmentHighlight.setVisibility(View.VISIBLE);
+                        SystemClock.sleep(250);
+                        bigFragmentHighlight.setVisibility(View.INVISIBLE);
+                        SystemClock.sleep(250);
+                    }
+                    bigFragmentHighlight.setColorFilter(Color.BLACK);
                     bigFragmentHighlight.setVisibility(View.INVISIBLE);
-                    //sleep again and repeat until thread is killed
                 } else {
-                    if (localAlertLevel == 0) //warn
-                        smallFragmentHighlight.setColorFilter(Color.YELLOW);
-                    else
-                        smallFragmentHighlight.setColorFilter(Color.RED);
-                    smallFragmentHighlight.setVisibility(View.VISIBLE);
-                    //sleep here
+                    while (isSmallFragmentAlerting) {
+                        smallFragmentHighlight.setColorFilter(highlightColor);
+                        smallFragmentHighlight.setVisibility(View.VISIBLE);
+                        SystemClock.sleep(250);
+                        smallFragmentHighlight.setVisibility(View.INVISIBLE);
+                        SystemClock.sleep(250);
+                    }
+                    smallFragmentHighlight.setColorFilter(Color.BLACK);
                     smallFragmentHighlight.setVisibility(View.INVISIBLE);
-                    //sleep again and repeat until thread is killed
                 }
             }
         };
-        runnable.run();
     }
 
-    public static void displayPopUpDefenceFragment() {
-        if (liveSmallFragmentID != 1) {
-            //display fragment is media fragment is live
-            //TODO: change fragment from static context???
+    public void setPopUpDefenceFragmentState(boolean state) {
+        if (state) {
+            popUpDefenseFragmentState = true;
+            displayPopUpDefenceFragment();
+        } else {
+            hidePopUpDefenceFragment();
+            popUpDefenseFragmentState = false;
         }
     }
 
-    public static void cancelAlert(boolean isBigFragment) {
-        //TODO: integrate thread stuff here
-        //kill appropriate thread
-        if (isBigFragment)
-            bigFragmentHighlight.setColorFilter(Color.WHITE); //replace with theme colour?
+    void displayPopUpDefenceFragment() {
+        if (liveSmallFragmentID != 1) {
+            //display fragment if media fragment is live
+            //TODO: change fragment from static context???
+            //TODO: solution --> created variable behind is/set function pair for this
+            //TODO: ineffective, figure something out
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.hide(mediaFragment);
+            fragmentTransaction.hide(lightFragment);
+            fragmentTransaction.show(popUpDefenseFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    void hidePopUpDefenceFragment() {
+        if (!popUpDefenseFragmentState) //safety check, if it's not active then just exit
+            return;
+        //change fragment
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.hide(popUpDefenseFragment);
+        if (liveSmallFragmentID == 2 && !legalMode)
+            fragmentTransaction.show(lightFragment);
         else
-            smallFragmentHighlight.setColorFilter(Color.WHITE);
+            fragmentTransaction.show(mediaFragment);
+        fragmentTransaction.commit();
+    }
+
+    public static void cancelAlert(boolean isBigFragment) {
+        if (isBigFragment)
+            isBigFragmentAlerting = false;
+        else
+            isSmallFragmentAlerting = false;
     }
 
     void fragmentChange(boolean direction) {
@@ -419,9 +470,6 @@ public class FullscreenActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public boolean isLegalMode() {
-        return legalMode;
-    }
 
     void setLegalMode() {
         //set variables and disable all jammers here
@@ -446,6 +494,8 @@ public class FullscreenActivity extends AppCompatActivity {
             liveSmallFragmentID = 0;
         }
         //TODO: broadcast packet to Arduino such that it can hide any illegal functions on its end
+        defenceService.setLegalMode();
+        trafficAdvisorService.setLegalMode();
     }
 
     void legalModeUnlock(int keyCode) {
