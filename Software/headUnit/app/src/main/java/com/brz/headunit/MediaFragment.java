@@ -35,6 +35,7 @@ public class MediaFragment extends Fragment {
         //load network service here
         //this is used to communicate with arduino controlling amp and bluetooth Rx
         NetworkService networkService = new NetworkService();
+        networkService.initiateClient(NetworkService.ARDUINO_ID);
 
         JSONObject requestData = new JSONObject();
         JSONObject returnData = new JSONObject();
@@ -44,7 +45,7 @@ public class MediaFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        returnData = networkService.getData(requestData, NetworkService.ARDUINO_ID);
+        returnData = networkService.getData(requestData);
 
     }
 

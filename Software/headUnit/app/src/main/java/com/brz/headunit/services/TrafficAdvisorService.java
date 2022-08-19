@@ -1,28 +1,28 @@
 package com.brz.headunit.services;
 
+import com.brz.headunit.FullscreenActivity;
+
 public class TrafficAdvisorService {
 
     NetworkService networkService = new NetworkService();
+
+    private boolean sirenState = false;
+
+    public boolean getSirenState() { return sirenState; }
 
     public void initiateService() {
         networkService.initiateClient(NetworkService.TRAFFIC_ADVISOR_SERVICE);
     }
 
+    public void setSirenState(boolean state) {
 
-
-    public void toggleLightCycle(int cycleID) {
-        if (cycleID == 0) { //fast police cycle
-
-        } else if (cycleID == 1) { //slow police cycle
-
-        } else if (cycleID == 2) { //fast hazard cycle
-
-        } else if (cycleID == 3) { //slow hazard cycle
-
-        }
     }
 
     public void setHornState(boolean state) {
+
+    }
+
+    public void setLightState(int selectedLightCycle, boolean state) {
 
     }
 
@@ -30,20 +30,7 @@ public class TrafficAdvisorService {
         //TODO: make this a runnable thread that runs all the time?
     }
 
-    public void toggleSiren() {
-
-    }
-
-    public void killLights() {
-
-    }
-
-    public void killSiren() {
-
-    }
-
     public void setLegalMode() {
-        killLights();
-        killSiren();
+        //kill all lights here
     }
 }

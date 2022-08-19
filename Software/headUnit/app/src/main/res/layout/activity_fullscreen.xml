@@ -57,15 +57,19 @@
             android:id="@+id/big_fragment_highlight_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="2.02"
             android:src="@drawable/highlight_outline"
             android:visibility="invisible"/>
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent"/>
 
         <ImageView
             android:id="@+id/small_fragment_highlight_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.98"
             android:src="@drawable/highlight_outline"
             android:visibility="invisible"/>
 

@@ -7,6 +7,12 @@ public class DefenceService {
 
     NetworkService networkService = new NetworkService();
 
+    FullscreenActivity fullscreenActivity;
+
+    public DefenceService(FullscreenActivity fullscreenActivity) {
+        this.fullscreenActivity = fullscreenActivity;
+    }
+
     boolean cellJamState = false; //ID 0
     boolean radioJamState = false; //ID 1
     boolean lidarJamState = false; //ID 2

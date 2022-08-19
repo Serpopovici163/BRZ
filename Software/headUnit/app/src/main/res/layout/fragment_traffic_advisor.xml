@@ -103,7 +103,6 @@
 
     <!-- 2x2 table containing brief descriptions of all countermeasure states -->
     <!-- padding is awkward here since bottom and right side of container already contains padding technically -->
-    <!-- TODO: get icons for countermeasure states -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -113,8 +112,6 @@
         android:paddingTop="15dp"
         android:weightSum="2">
 
-        <!-- TODO: change textviews to buttons -->
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -122,29 +119,55 @@
             android:orientation="vertical"
             android:weightSum="2">
 
-            <Button
-                android:id="@+id/fast_police_cycle_state_textview"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="28sp"
-                android:text="@string/fast_police_title"
-                android:background="@drawable/rounded_background"/>
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/fast_hazard_cycle_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:text="@string/fast_hazard_title"
+                    android:background="@drawable/rounded_background"/>
+
+                <ImageView
+                    android:id="@+id/fast_hazard_cycle_highlight_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/highlight_outline"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
 
-            <Button
-                android:id="@+id/slow_police_cycle_state_textview"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="28sp"
-                android:text="@string/slow_police_title"
-                android:background="@drawable/rounded_background"/>
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/slow_hazard_cycle_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:text="@string/slow_hazard_title"
+                    android:background="@drawable/rounded_background"/>
+
+                <ImageView
+                    android:id="@+id/slow_hazard_cycle_highlight_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/highlight_outline"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -159,29 +182,55 @@
             android:orientation="vertical"
             android:weightSum="2">
 
-            <Button
-                android:id="@+id/fast_hazard_cycle_state_textview"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="28sp"
-                android:text="@string/fast_hazard_title"
-                android:background="@drawable/rounded_background"/>
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/fast_police_cycle_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:text="@string/fast_police_title"
+                    android:background="@drawable/rounded_background"/>
+
+                <ImageView
+                    android:id="@+id/fast_police_cycle_highlight_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/highlight_outline"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
 
-            <Button
-                android:id="@+id/slow_hazard_cycle_state_textview"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="28sp"
-                android:text="@string/slow_hazard_title"
-                android:background="@drawable/rounded_background"/>
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/slow_police_cycle_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="28sp"
+                    android:text="@string/slow_police_title"
+                    android:background="@drawable/rounded_background"/>
+
+                <ImageView
+                    android:id="@+id/slow_police_cycle_highlight_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/highlight_outline"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 

@@ -11,14 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class PopUpDefenseFragment extends Fragment {
+public class PopUpDefenceFragment extends Fragment {
 
     TextView counterMeasureTextView1;
     TextView counterMeasureTextView2;
     TextView counterMeasureTextView3;
     TextView counterMeasureTextView4;
 
-    public PopUpDefenseFragment() {
+    public PopUpDefenceFragment() {
         // Required empty public constructor
     }
 
