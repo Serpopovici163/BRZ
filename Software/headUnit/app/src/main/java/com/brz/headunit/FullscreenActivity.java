@@ -34,13 +34,6 @@ public class FullscreenActivity extends AppCompatActivity {
     int legalModeUnlockCounter = 0;
     private View mControlsView;
 
-    DefenceService defenceService = new DefenceService(this);
-    DiagnosticService diagnosticService = new DiagnosticService(this);
-    MediaService mediaService = new MediaService();
-    NavigationService navigationService = new NavigationService();
-    SafetyService safetyService = new SafetyService(this);
-    TrafficAdvisorService trafficAdvisorService = new TrafficAdvisorService();
-
     //keyboard letters are defined here for ease during coding
     int rs_key_up = KeyEvent.KEYCODE_A;
     int rs_key_right = KeyEvent.KEYCODE_B;
@@ -58,9 +51,6 @@ public class FullscreenActivity extends AppCompatActivity {
     int ls_key_left = KeyEvent.KEYCODE_N;
     int ls_key_enter = KeyEvent.KEYCODE_O;
 
-    ImageView bigFragmentHighlight;
-    ImageView smallFragmentHighlight;
-
     private NavigationFragment navigationFragment;
     private DiagnosticFragment diagnosticFragment;
     private DefenceFragment defenceFragment;
@@ -68,6 +58,16 @@ public class FullscreenActivity extends AppCompatActivity {
     private SoundBoardFragment soundBoardFragment;
     private PopUpDefenceFragment popUpDefenceFragment;
     private TrafficAdvisorFragment trafficAdvisorFragment;
+
+    DefenceService defenceService = new DefenceService(this);
+    DiagnosticService diagnosticService = new DiagnosticService(this);
+    MediaService mediaService = new MediaService();
+    NavigationService navigationService = new NavigationService();
+    SafetyService safetyService = new SafetyService(this);
+    TrafficAdvisorService trafficAdvisorService = new TrafficAdvisorService(this);
+
+    ImageView bigFragmentHighlight;
+    ImageView smallFragmentHighlight;
 
     private final int navigationFragmentID = 0;
     private final int diagnosticFragmentID = 1;
@@ -82,7 +82,6 @@ public class FullscreenActivity extends AppCompatActivity {
     public static int liveBigFragmentID = 0;
     public static int liveSmallFragmentID = 0;
 
-    boolean hornState = false;
     boolean popUpDefenseFragmentState = false;
     static boolean isBigFragmentAlerting = false;
     static boolean isSmallFragmentAlerting = false;
@@ -214,45 +213,32 @@ public class FullscreenActivity extends AppCompatActivity {
                 mediaService.toggleSource();
             else if (liveSmallFragmentID == trafficAdvisorFragmentID) //panic within trafficAdvisorFragment
                 setLegalMode();
+            else if (legalMode) //if legal mode is enabled, this button becomes jammer toggle
+                defenceService.toggleLegalJammers();
 
         } else if (keyCode == ls_key_enter) {
             if (liveSmallFragmentID == mediaFragmentID || liveSmallFragmentID == popUpDefenceFragmentID)
                 mediaService.togglePlay();
-            else if (liveSmallFragmentID == trafficAdvisorFragmentID) { //handle light keystroke here
-                //police horn disable
-                Log.e("onKeyUp", "disable executed");
-                hornState = false;
-                trafficAdvisorService.setHornState(false);
-                trafficAdvisorFragment.updateHornState(false);
-            }
+            //used to be code to disable police horn but removed since onKeyDown got called repeatedly and it was a mess
         } else if (keyCode == ls_key_right) {
             if (liveSmallFragmentID == mediaFragmentID || liveSmallFragmentID == popUpDefenceFragmentID)
                 mediaService.skipSong(true);
-            else if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode) { //start light cycle
-                trafficAdvisorService.setLightState(trafficAdvisorFragment.getSelectedLightPattern(), true);
-                trafficAdvisorFragment.updateLightState(true);
-            }
+            else if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode) //toggle light cycle
+                trafficAdvisorService.setLightState(trafficAdvisorFragment.getSelectedLightPattern(), !trafficAdvisorService.getLightState());
         } else if (keyCode == ls_key_left) {
             if (liveSmallFragmentID == mediaFragmentID || liveSmallFragmentID == popUpDefenceFragmentID)
                 mediaService.skipSong(false);
-            else if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode) { //stop light cycle
-                trafficAdvisorService.setLightState(trafficAdvisorFragment.getSelectedLightPattern(), false);
-                trafficAdvisorFragment.updateLightState(false);
-            }
+            else if (liveSmallFragmentID == trafficAdvisorFragmentID)
+                trafficAdvisorService.setLegalMode();
         } else if (keyCode == ls_key_volume_up)
             mediaService.changeVolume(true);
         else if (keyCode == ls_key_volume_down)
             mediaService.changeVolume(false);
         else if (keyCode == ls_key_call_pickup) {
-            if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode) {
-                trafficAdvisorService.setLightState(trafficAdvisorFragment.getSelectedLightPattern(), false);
-                trafficAdvisorFragment.updateLightState(false);
-            }
+            //nothing to be done, removed code for canceling sirenState since it is useless
         } else if (keyCode == ls_key_call_hangup)
-            if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode) {
+            if (liveSmallFragmentID == trafficAdvisorFragmentID && !legalMode)
                 trafficAdvisorService.setSirenState(!trafficAdvisorService.getSirenState());
-                trafficAdvisorFragment.updateSirenState(trafficAdvisorService.getSirenState());
-            }
 
         //check for legalMode unlock code
         //do this at end to prevent any the final keystroke (Enter) from enabling all jammers
@@ -263,18 +249,39 @@ public class FullscreenActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.e("onKeyDown", String.valueOf(keyCode));
-        if (liveSmallFragmentID == trafficAdvisorFragmentID && keyCode == ls_key_enter) {
-            hornState = true;
-            trafficAdvisorService.setHornState(true);
-            trafficAdvisorFragment.updateHornState(true);
-            Log.e("onKeyDown", "executed");
-        } else if (liveSmallFragmentID == trafficAdvisorFragmentID && keyCode == ls_key_call_pickup) {
-            trafficAdvisorService.setLightState(trafficAdvisorFragment.getSelectedLightPattern(), true);
-            trafficAdvisorFragment.updateLightState(true);
-        }
-
+        if (liveSmallFragmentID == trafficAdvisorFragmentID && keyCode == ls_key_enter)
+            trafficAdvisorService.affirmHornState();
+        else if (liveSmallFragmentID == trafficAdvisorFragmentID && keyCode == ls_key_call_pickup)
+            trafficAdvisorService.affirmLightState();
         return super.onKeyDown(keyCode, event);
+    }
+
+    //forwards data from service to fragment since passing fragment to service did not work
+    public void forwardHornState(boolean state) {
+        trafficAdvisorFragment.updateHornState(state);
+    }
+
+    public void forwardLightState(boolean state) {
+        trafficAdvisorFragment.updateLightState(state);
+
+        //also alert fragment if using illegal light pattern
+        if (state) {
+            if (trafficAdvisorFragment.getSelectedLightPattern() <= 1) //legal but still shouldn't be used
+                fragmentAlert(false, 1);
+            else
+                fragmentAlert(false, 2);
+        } else if (!trafficAdvisorService.getSirenState())
+            cancelAlert(false);
+    }
+
+    public void forwardSirenState(boolean state) {
+        trafficAdvisorFragment.updateSirenState(state);
+
+        //also alert fragment
+        if (state)
+            fragmentAlert(false, 2);
+        else if (!trafficAdvisorService.getLightState())
+            cancelAlert(false);
     }
 
     @Override
@@ -553,7 +560,9 @@ public class FullscreenActivity extends AppCompatActivity {
             legalModeUnlockCounter++;
         else if (legalModeUnlockCounter == 4 && keyCode == rs_key_voice)
             legalModeUnlockCounter++;
-        else if (legalModeUnlockCounter == 5 && keyCode == rs_key_enter)
+        else if (legalModeUnlockCounter == 5 && keyCode == ls_key_call_hangup)
+            legalModeUnlockCounter++;
+        else if (legalModeUnlockCounter == 6 && keyCode == rs_key_enter)
             legalMode = false;
         else
             legalModeUnlockCounter = 0;

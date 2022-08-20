@@ -18,12 +18,27 @@ public class DefenceService {
     boolean lidarJamState = false; //ID 2
     boolean radarJamState = false; //ID 3
 
+    boolean legalJamState = false;
+
     public void initiateService() {
         networkService.initiateClient(NetworkService.DEFENCE_SERVICE);
     }
 
     public void setLegalMode() {
+        cellJamState = false;
+        radarJamState = false;
+        radioJamState = false;
+        lidarJamState = false;
+
+        //broadcast to network
         networkService.sendData();
+    }
+
+    public void resetJamState() { //required to make sure legal jammers are reset once legalMode is disabled
+        cellJamState = false;
+        radarJamState = false;
+        radioJamState = false;
+        lidarJamState = false;
     }
 
     //TODO: make thread to handle incoming data
@@ -62,6 +77,14 @@ public class DefenceService {
     public void setRadarJamState(boolean radarJamState) {
         DefenceFragment.displayJamState(3, radarJamState);
         this.radarJamState = radarJamState;
+    }
+
+    public void toggleLegalJammers() {
+        legalJamState = !legalJamState;
+        cellJamState = true;
+        radioJamState = true;
+
+        //handle jammer startup here
     }
 
     void triggerAlert(int countermeasureID) { //red highlight

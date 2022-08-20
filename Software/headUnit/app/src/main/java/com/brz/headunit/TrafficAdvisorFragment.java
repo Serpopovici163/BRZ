@@ -21,6 +21,7 @@ public class TrafficAdvisorFragment extends Fragment {
     //hazard are on left such that the initial patternID, 0, is legal if accidentally triggered
     private int selectedLightPattern = 0;
     private boolean sirenState = false;
+    private boolean lightState = false;
     private boolean hornState = false;
 
     ImageView fastPoliceHighlight;
@@ -33,19 +34,33 @@ public class TrafficAdvisorFragment extends Fragment {
     ImageView sirenIcon;
 
     private void updateIcons() {
-        //set to green initially which will be overwritten by yellow if necessary
-        sirenIcon.setColorFilter(Color.GREEN);
-        if (!hornState)
-            hornIcon.clearColorFilter(); //reset horn icon
-
+        //siren icon
         if (selectedLightPattern >= 2) {
             legalIcon.setColorFilter(Color.RED);
             sirenIcon.setColorFilter(Color.YELLOW);
         }
-        else if (selectedLightPattern == 1)
+        else if (selectedLightPattern == 1) {
             legalIcon.setColorFilter(Color.GREEN);
-        else
+            sirenIcon.setColorFilter(Color.GREEN);
+        } else {
             legalIcon.setColorFilter(Color.YELLOW);
+            sirenIcon.setColorFilter(Color.YELLOW);
+        }
+
+        //override siren icon if siren active
+        if (lightState)
+            if (selectedLightPattern <= 1)
+                sirenIcon.setColorFilter(Color.YELLOW);
+            else
+                sirenIcon.setColorFilter(Color.RED);
+
+        //horn icon
+        if (sirenState)
+            hornIcon.setColorFilter(Color.RED);
+        else if (hornState)
+            hornIcon.setColorFilter(Color.YELLOW);
+        else
+            hornIcon.setColorFilter(Color.BLACK);
     }
 
     public int getSelectedLightPattern() {return selectedLightPattern;}
@@ -74,38 +89,18 @@ public class TrafficAdvisorFragment extends Fragment {
     }
 
     void updateLightState(boolean state) {
-        if (state)
-            sirenIcon.setColorFilter(Color.RED);
-        else //reset colour otherwise
-            updateIcons();
+        lightState = state;
+        updateIcons();
     }
 
     void updateSirenState(boolean state) {
-        if (state) {
-            hornIcon.setColorFilter(Color.RED);
-            sirenState = true;
-        } else {
-            updateIcons();
-            sirenState = false;
-        }
+        sirenState = state;
+        updateIcons();
     }
 
-    void updateHornState(boolean state) {
-        if (sirenState)
-            return; //do nothing because siren state is more critical than horn state
-
-        if (hornState && state)
-            return; //do nothing because horn is already running and this is desired
-
-        Log.e("horntest","running");
-
-        if (state) {
-            hornState = true;
-            hornIcon.setColorFilter(Color.YELLOW);
-        } else {
-            hornState = false;
-            updateIcons();
-        }
+    public void updateHornState(boolean state) {
+        hornState = state;
+        updateIcons();
     }
 
     public TrafficAdvisorFragment() {
