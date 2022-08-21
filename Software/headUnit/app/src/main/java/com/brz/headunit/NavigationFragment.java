@@ -12,6 +12,8 @@ public class NavigationFragment extends Fragment {
 
     //tutorial for google map directions? Won't be proper but close enough
     //https://www.youtube.com/watch?v=KOBJkkhH9QY
+    //https://stackoverflow.com/questions/32810495/google-direction-route-from-current-location-to-known-location
+    //https://www.dropbox.com/s/tqwc62cn4dcr7wh/MapDemo.zip
 
     public NavigationFragment() {
         // Required empty public constructor
