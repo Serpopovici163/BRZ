@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SoundBoardFragment">
+    android:orientation="vertical"
+    android:weightSum="6"
+    tools:context=".SoundBoardFragment"
+    android:background="@drawable/rounded_background"
+    android:padding="15dp"
+    android:layout_marginStart="15dp">
 
+    <!-- part that shows selected sound -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
+        <!-- textviews -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:weightSum="3">
 
-</FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="@string/sound_title"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/selected_sound_textview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/no_sound_selected"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <!-- horn icon -->
+        <ImageView
+            android:id="@+id/soundboard_horn_imageview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/horn_icon"
+            android:padding="20dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sound_list_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
+    </ScrollView>
+
+</LinearLayout>

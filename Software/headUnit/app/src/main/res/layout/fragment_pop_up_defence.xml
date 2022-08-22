@@ -9,13 +9,63 @@
     android:weightSum="5"
     tools:context=".PopUpDefenceFragment">
 
-    <!-- car diagram -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:weightSum="4">
 
-        <!-- TODO: build car diagram in here -->
+        <!-- car diagram -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <!-- TODO: build car diagram in here -->
+            <!-- car image -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/car_outline"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"/>
+
+        </FrameLayout>
+
+        <!-- general icons, probably for legal status and such -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3"> <!-- 3 icons or 4? -->
+
+            <ImageView
+                android:id="@+id/pud_legal_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/handcuff_icon"
+                android:padding="20dp"/>
+
+            <ImageView
+                android:id="@+id/pud_siren_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/siren_icon"
+                android:padding="25dp"/>
+
+            <ImageView
+                android:id="@+id/pud_speeding_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/speedometer_icon"
+                android:padding="20dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

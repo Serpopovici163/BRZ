@@ -22,6 +22,8 @@
     <string name="slow_police_title">Slow police cycle</string>
     <string name="fast_hazard_title">Fast hazard cycle</string>
     <string name="slow_hazard_title">Slow hazard cycle</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- soundboard fragment -->
+    <string name="no_sound_selected">No sound selected.</string>
+    <string name="sound_title">Selected sound:</string>
 </resources>
