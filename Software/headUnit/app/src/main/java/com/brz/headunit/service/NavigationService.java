@@ -1,4 +1,4 @@
-package com.brz.headunit.services;
+package com.brz.headunit.service;
 
 public class NavigationService {
 

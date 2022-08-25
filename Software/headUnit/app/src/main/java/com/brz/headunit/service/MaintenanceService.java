@@ -1,4 +1,4 @@
-package com.brz.headunit.services;
+package com.brz.headunit.service;
 
 //Extends DiagnosticService but kept separate for simplicity
 public class MaintenanceService {

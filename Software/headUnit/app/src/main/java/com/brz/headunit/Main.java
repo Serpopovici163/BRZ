@@ -18,14 +18,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.brz.headunit.databinding.ActivityFullscreenBinding;
-import com.brz.headunit.services.DefenceService;
-import com.brz.headunit.services.DiagnosticService;
-import com.brz.headunit.services.MediaService;
-import com.brz.headunit.services.NavigationService;
-import com.brz.headunit.services.SafetyService;
-import com.brz.headunit.services.TrafficAdvisorService;
+import com.brz.headunit.service.DefenceService;
+import com.brz.headunit.service.DiagnosticService;
+import com.brz.headunit.service.MediaService;
+import com.brz.headunit.service.NavigationService;
+import com.brz.headunit.service.SafetyService;
+import com.brz.headunit.service.TrafficAdvisorService;
 
-public class FullscreenActivity extends AppCompatActivity {
+public class Main extends AppCompatActivity {
 
     //legal mode is true to begin with such that hidden features cannot be revealed by rebooting the system
     boolean legalMode = false; //TODO: set to true during final compilation
@@ -70,12 +70,12 @@ public class FullscreenActivity extends AppCompatActivity {
     ImageView smallFragmentHighlight;
 
     private final int navigationFragmentID = 0;
-    private final int diagnosticFragmentID = 1;
-    private final int defenceFragmentID = 2;
+    private final int defenceFragmentID = 1;
     private final int mediaFragmentID = 0;
-    private final int soundBoardFragmentID = 1;
-    private final int popUpDefenceFragmentID = 2;
-    private final int trafficAdvisorFragmentID = 3;
+    private final int diagnosticFragmentID = 1;
+    private final int soundBoardFragmentID = 2;
+    private final int popUpDefenceFragmentID = 3;
+    private final int trafficAdvisorFragmentID = 4;
 
     private int highlightedFragmentID = 0;
     private boolean fragmentSwapState = false;
@@ -121,12 +121,13 @@ public class FullscreenActivity extends AppCompatActivity {
 
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment); //ID 0
-        fragmentTransaction.add(R.id.big_fragment, diagnosticFragment); //ID 1
-        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 2
+        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 1
+        //add convenience fragment
         fragmentTransaction.add(R.id.small_fragment, mediaFragment); //ID 0
-        fragmentTransaction.add(R.id.small_fragment, soundBoardFragment); //ID 1
-        fragmentTransaction.add(R.id.small_fragment, popUpDefenceFragment); //ID 2
-        fragmentTransaction.add(R.id.small_fragment, trafficAdvisorFragment); //ID 3
+        fragmentTransaction.add(R.id.small_fragment, diagnosticFragment); //ID 1
+        fragmentTransaction.add(R.id.small_fragment, soundBoardFragment); //ID 2
+        fragmentTransaction.add(R.id.small_fragment, popUpDefenceFragment); //ID 3
+        fragmentTransaction.add(R.id.small_fragment, trafficAdvisorFragment); //ID 4
 
         //show navigation and media fragments
         fragmentTransaction.hide(diagnosticFragment);
@@ -322,28 +323,16 @@ public class FullscreenActivity extends AppCompatActivity {
         //here fragmentID is relative to whether bigFragment or smallFragment container is referenced
         Fragment outputFragment = new Fragment(); //had to add this because android studio gave me shit for returning fragments from nested if statements and not initializing it
         if (isBigFragment) { //return fragments from big fragment
-            if (fragmentID == -1) { //undershot
-                //was at navigation fragment and went backwards
-                //check legalMode
-                if (legalMode) { //show diagnostic fragment
-                    outputFragment = diagnosticFragment;
-                    liveBigFragmentID = 1;
-                } else {
-                    outputFragment = defenceFragment;
-                    liveBigFragmentID = 2;
-                }
-            } else if (fragmentID == 0)
-                outputFragment = navigationFragment;
-            else if (fragmentID == 1)
-                outputFragment = diagnosticFragment;
-            else if (fragmentID == 2) {
-                if (!legalMode)
-                    outputFragment = defenceFragment;
-                else {
+            if (fragmentID == defenceFragmentID || fragmentID == -1) { //return defence if not legalMode
+                if (legalMode) {
                     outputFragment = navigationFragment;
                     liveBigFragmentID = 0;
+                } else {
+                    outputFragment = defenceFragment;
                 }
-            } else { //overshot valid IDs
+            } else { //return navigation
+                //was at navigation fragment and went backwards
+                //check legalMode
                 outputFragment = navigationFragment;
                 liveBigFragmentID = 0;
             }
@@ -351,22 +340,24 @@ public class FullscreenActivity extends AppCompatActivity {
             if (fragmentID == -1) { //undershot
                 if (legalMode) {
                     outputFragment = soundBoardFragment;
-                    liveSmallFragmentID = 1;
+                    liveSmallFragmentID = 2;
                 } else {
                     outputFragment = trafficAdvisorFragment;
-                    liveSmallFragmentID = 3;
+                    liveSmallFragmentID = 4;
                 }
             } else if (fragmentID == 0)
                 outputFragment = mediaFragment;
             else if (fragmentID == 1)
+                outputFragment = diagnosticFragment;
+            else if (fragmentID == 2)
                 outputFragment = soundBoardFragment;
-            else if (fragmentID == 2) {
+            else if (fragmentID == 3) {
                 if (legalMode) {
                     outputFragment = mediaFragment;
                     liveSmallFragmentID = 0;
                 } else
                     outputFragment = popUpDefenceFragment;
-            } else if (fragmentID == 3) {
+            } else if (fragmentID == 4) {
                 if (legalMode) {
                     outputFragment = mediaFragment;
                     liveSmallFragmentID = 0;
@@ -384,6 +375,8 @@ public class FullscreenActivity extends AppCompatActivity {
         if (state) {
             //remember that fragment swap state is now active
             fragmentSwapState = true;
+            bigFragmentHighlight.setColorFilter(Color.BLACK); //reset in case another colour is applied
+            smallFragmentHighlight.setColorFilter(Color.BLACK);
             if (highlightedFragmentID == 0) {
                 //0 is big fragment and 1 is small fragment
                 //this is used just as an extra feature where the head unit remembers which fragment was highlighted prior

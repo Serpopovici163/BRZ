@@ -26,4 +26,22 @@
     <!-- soundboard fragment -->
     <string name="no_sound_selected">No sound selected.</string>
     <string name="sound_title">Selected sound:</string>
+
+    <!-- diagnostic fragment -->
+    <string name="primary_systems_title">Critical Systems</string>
+    <string name="secondary_systems_title">Auxiliary Systems</string>
+    <string name="engine">ENGINE</string>
+    <string name="stability">STABILITY</string>
+    <string name="fuel">FUEL</string>
+    <string name="maintenance">MAINTENANCE</string>
+    <string name="power">POWER</string>
+    <string name="network">NETWORK</string>
+    <string name="serial">SERIAL</string>
+    <string name="vision">VISION</string>
+    <string name="sensor">SENSOR</string>
+    <string name="defence">DEFENCE</string>
+    <string name="compute">COMPUTE</string>
+    <string name="vehicle">VEHICLE</string>
+    <string name="safety">SAFETY</string>
+    <string name="diagnostic_message_blank">Please select a subsystem to view its status.</string>
 </resources>

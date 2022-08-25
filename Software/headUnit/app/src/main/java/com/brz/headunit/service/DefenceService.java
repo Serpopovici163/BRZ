@@ -1,16 +1,16 @@
-package com.brz.headunit.services;
+package com.brz.headunit.service;
 
 import com.brz.headunit.DefenceFragment;
-import com.brz.headunit.FullscreenActivity;
+import com.brz.headunit.Main;
 
 public class DefenceService {
 
     NetworkService networkService = new NetworkService();
 
-    FullscreenActivity fullscreenActivity;
+    Main main;
 
-    public DefenceService(FullscreenActivity fullscreenActivity) {
-        this.fullscreenActivity = fullscreenActivity;
+    public DefenceService(Main main) {
+        this.main = main;
     }
 
     boolean cellJamState = false; //ID 0

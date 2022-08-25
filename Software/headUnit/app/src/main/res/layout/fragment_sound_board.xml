@@ -6,9 +6,7 @@
     android:orientation="vertical"
     android:weightSum="6"
     tools:context=".SoundBoardFragment"
-    android:background="@drawable/rounded_background"
-    android:padding="15dp"
-    android:layout_marginStart="15dp">
+    android:padding="15dp">
 
     <!-- part that shows selected sound -->
     <LinearLayout

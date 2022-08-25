@@ -1,6 +1,4 @@
-package com.brz.headunit.services;
-
-import android.util.Log;
+package com.brz.headunit.service;
 
 public class MediaService {
 

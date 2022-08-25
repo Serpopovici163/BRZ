@@ -1,14 +1,12 @@
-package com.brz.headunit.services;
+package com.brz.headunit.service;
 
 import android.os.SystemClock;
-import android.util.Log;
 
-import com.brz.headunit.FullscreenActivity;
-import com.brz.headunit.TrafficAdvisorFragment;
+import com.brz.headunit.Main;
 
 public class TrafficAdvisorService {
 
-    FullscreenActivity fullscreenActivity;
+    Main main;
     NetworkService networkService = new NetworkService();
 
     private boolean sirenState = false;
@@ -23,8 +21,8 @@ public class TrafficAdvisorService {
 
     private int androidProcessingDelay = 500;
 
-    public TrafficAdvisorService(FullscreenActivity parentActivity) {
-        this.fullscreenActivity = parentActivity;
+    public TrafficAdvisorService(Main parentActivity) {
+        this.main = parentActivity;
     }
 
     public void initiateService() {
@@ -43,7 +41,7 @@ public class TrafficAdvisorService {
             @Override
             public void run() {
                 hornTimerState = true;
-                fullscreenActivity.forwardHornState(true);
+                main.forwardHornState(true);
                 while (hornState) { //set horn on for n arbitrary amount of time
                     SystemClock.sleep(10);
 
@@ -55,7 +53,7 @@ public class TrafficAdvisorService {
                         hornState = false;
                 }
                 hornTimerState = false;
-                fullscreenActivity.forwardHornState(false);
+                main.forwardHornState(false);
             }
         };
         hornTimer.start();
@@ -66,7 +64,7 @@ public class TrafficAdvisorService {
 
     public void setSirenState(boolean state) {
         sirenState = state;
-        fullscreenActivity.forwardSirenState(state);
+        main.forwardSirenState(state);
     }
 
     //for momentary siren
@@ -82,7 +80,7 @@ public class TrafficAdvisorService {
             @Override
             public void run() {
                 lightTimerState = true;
-                fullscreenActivity.forwardLightState(true);
+                main.forwardLightState(true);
                 while (lightState) {
                     SystemClock.sleep(10); //keep siren on for an arbitrary amount of time
 
@@ -94,7 +92,7 @@ public class TrafficAdvisorService {
                         lightState = false;
                 }
                 lightTimerState = false;
-                fullscreenActivity.forwardLightState(false);
+                main.forwardLightState(false);
             }
         };
         lightTimer.start();
@@ -104,7 +102,7 @@ public class TrafficAdvisorService {
 
     public void setLightState(int selectedLightCycle, boolean state) {
         lightState = state;
-        fullscreenActivity.forwardLightState(state);
+        main.forwardLightState(state);
     }
 
     public void flashBrakeLight() {
@@ -116,8 +114,8 @@ public class TrafficAdvisorService {
         hornState = false;
         sirenState = false;
 
-        fullscreenActivity.forwardLightState(false);
-        fullscreenActivity.forwardHornState(false);
-        fullscreenActivity.forwardSirenState(false);
+        main.forwardLightState(false);
+        main.forwardHornState(false);
+        main.forwardSirenState(false);
     }
 }

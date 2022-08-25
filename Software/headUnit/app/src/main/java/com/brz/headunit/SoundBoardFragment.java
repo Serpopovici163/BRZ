@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.brz.headunit.R;
+
 public class SoundBoardFragment extends Fragment {
 
     private TextView selectedSoundTextView;

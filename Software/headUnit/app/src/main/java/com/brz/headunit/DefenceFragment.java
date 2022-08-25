@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.brz.headunit.R;
+
 public class DefenceFragment extends Fragment {
 
     static ImageButton cellJamImageButton; //ID 0
