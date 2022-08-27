@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TrafficAdvisorFragment"
     android:orientation="vertical"
     android:weightSum="5"
-    android:padding="15dp">
+    android:paddingStart="10dp">
 
     <!-- encompasses light status icons and car diagram -->
     <LinearLayout
@@ -56,42 +57,175 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
-            android:orientation="vertical"
-            android:weightSum="5">
-
-            <!-- icons above vehicle -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"/>
+            android:layout_weight="3"
+            android:orientation="vertical">
 
             <!-- vehicle itself -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="5">
 
-                <!-- bars to left of vehicle -->
-
-                <!-- vehicle -->
-                <ImageView
+                <!-- switches to left of vehicle -->
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:src="@drawable/car_outline"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2.75">
 
-                <!-- bars to right of vehicle -->
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/front_hazard_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/side_hazard_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/rear_hazard_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <!-- vehicle -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/car_outline"/>
+
+                    <!-- colour overlay -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <!-- yellow overlay -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <ImageView
+                                android:id="@+id/front_hazard_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#80FFFF00"/>
+
+                            <ImageView
+                                android:id="@+id/side_hazard_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#80FFFF00"/>
+
+                            <ImageView
+                                android:id="@+id/rear_hazard_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#80FFFF00"/>
+
+                        </LinearLayout>
+
+                        <!-- blue overlay -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:weightSum="3">
+
+                            <ImageView
+                                android:id="@+id/front_police_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#800000FF"/>
+
+                            <ImageView
+                                android:id="@+id/side_police_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#800000FF"/>
+
+                            <ImageView
+                                android:id="@+id/rear_police_highlight"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:src="#800000FF"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <!-- switches to right of vehicle -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2.75">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/front_police_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/side_police_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/rear_police_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
+                        android:rotation="270"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
 
             </LinearLayout>
-
-            <!-- bars below vehicle -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"/>
 
         </LinearLayout>
 
@@ -106,7 +240,6 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="horizontal"
-        android:paddingLeft="15dp"
         android:paddingTop="15dp"
         android:weightSum="2">
 

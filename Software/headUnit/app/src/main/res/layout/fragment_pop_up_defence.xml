@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
     android:weightSum="5"
+    android:paddingStart="10dp"
     tools:context=".PopUpDefenceFragment">
 
     <LinearLayout
@@ -21,7 +21,6 @@
             android:layout_height="match_parent"
             android:layout_weight="3">
 
-            <!-- TODO: build car diagram in here -->
             <!-- car image -->
             <ImageView
                 android:layout_width="150dp"
@@ -29,6 +28,138 @@
                 android:src="@drawable/car_outline"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"/>
+
+            <!-- left icon layout -->
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:weightSum="5"
+                android:layout_marginStart="25dp"
+                android:orientation="vertical">
+
+                <!-- top icons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/top_left_lidar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/lidar_jam_icon"
+                        android:padding="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/top_left_radar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/wave_icon"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"/>
+
+                <!-- bottom icons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/bottom_left_lidar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/lidar_jam_icon"
+                        android:padding="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/bottom_left_radar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/wave_icon"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- right icon layout -->
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:weightSum="5"
+                android:layout_marginEnd="25dp"
+                android:orientation="vertical">
+
+                <!-- top icons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/top_right_lidar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/lidar_jam_icon"
+                        android:padding="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/top_right_radar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/wave_icon"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"/>
+
+                <!-- bottom icons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/bottom_right_lidar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/lidar_jam_icon"
+                        android:padding="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/bottom_right_radar_icon"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/wave_icon"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </FrameLayout>
 
@@ -124,7 +255,9 @@
                     android:id="@+id/radar_state_imageview"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/radar_jam_icon"/>
 
             </LinearLayout>
 
@@ -170,7 +303,9 @@
                     android:id="@+id/lidar_state_imageview"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/lidar_jam_icon"/>
 
             </LinearLayout>
 
@@ -225,7 +360,9 @@
                     android:id="@+id/transponder_state_imageview"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:padding="15dp"
+                    android:src="@drawable/plane_icon"/>
 
             </LinearLayout>
 
@@ -271,7 +408,8 @@
                     android:id="@+id/cell_sniffer_state_imageview"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:src="@drawable/cell_jam_icon"/>
 
             </LinearLayout>
 

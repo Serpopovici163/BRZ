@@ -52,9 +52,12 @@ public class Main extends AppCompatActivity {
     int ls_key_enter = KeyEvent.KEYCODE_O;
 
     private NavigationFragment navigationFragment;
-    private DiagnosticFragment diagnosticFragment;
+    private LightFragment lightFragment;
+    private SettingsFragment settingsFragment;
     private DefenceFragment defenceFragment;
+
     private MediaFragment mediaFragment;
+    private DiagnosticFragment diagnosticFragment;
     private SoundBoardFragment soundBoardFragment;
     private PopUpDefenceFragment popUpDefenceFragment;
     private TrafficAdvisorFragment trafficAdvisorFragment;
@@ -70,7 +73,9 @@ public class Main extends AppCompatActivity {
     ImageView smallFragmentHighlight;
 
     private final int navigationFragmentID = 0;
-    private final int defenceFragmentID = 1;
+    private final int lightFragmentID = 1;
+    private final int settingsFragmentID = 2;
+    private final int defenceFragmentID = 3;
     private final int mediaFragmentID = 0;
     private final int diagnosticFragmentID = 1;
     private final int soundBoardFragmentID = 2;
@@ -111,18 +116,23 @@ public class Main extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         //add fragments to their containers
-        defenceFragment = new DefenceFragment();
-        popUpDefenceFragment = new PopUpDefenceFragment();
-        diagnosticFragment = new DiagnosticFragment();
-        mediaFragment = new MediaFragment();
         navigationFragment = new NavigationFragment();
-        trafficAdvisorFragment = new TrafficAdvisorFragment();
+        lightFragment = new LightFragment();
+        settingsFragment = new SettingsFragment();
+        defenceFragment = new DefenceFragment();
+
+        mediaFragment = new MediaFragment();
+        diagnosticFragment = new DiagnosticFragment();
         soundBoardFragment = new SoundBoardFragment();
+        trafficAdvisorFragment = new TrafficAdvisorFragment(this);
+        popUpDefenceFragment = new PopUpDefenceFragment();
 
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment); //ID 0
-        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 1
-        //add convenience fragment
+        fragmentTransaction.add(R.id.big_fragment, lightFragment); //ID 1
+        fragmentTransaction.add(R.id.big_fragment, settingsFragment); //ID 2
+        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 3
+        //TODO:add convenience fragment?
         fragmentTransaction.add(R.id.small_fragment, mediaFragment); //ID 0
         fragmentTransaction.add(R.id.small_fragment, diagnosticFragment); //ID 1
         fragmentTransaction.add(R.id.small_fragment, soundBoardFragment); //ID 2
@@ -130,10 +140,12 @@ public class Main extends AppCompatActivity {
         fragmentTransaction.add(R.id.small_fragment, trafficAdvisorFragment); //ID 4
 
         //show navigation and media fragments
-        fragmentTransaction.hide(diagnosticFragment);
+        fragmentTransaction.hide(lightFragment);
+        fragmentTransaction.hide(settingsFragment);
         fragmentTransaction.hide(defenceFragment);
-        fragmentTransaction.hide(popUpDefenceFragment);
+        fragmentTransaction.hide(diagnosticFragment);
         fragmentTransaction.hide(soundBoardFragment);
+        fragmentTransaction.hide(popUpDefenceFragment);
         fragmentTransaction.hide(trafficAdvisorFragment);
 
         liveBigFragmentID = 0;
@@ -285,6 +297,14 @@ public class Main extends AppCompatActivity {
             cancelAlert(false);
     }
 
+    public void forwardSelectedLightState(int lightState) {
+        //send state from fragment to trafficAdvisorService
+    }
+
+    public void forwardLightSettings(int lightID, boolean state) {
+
+    }
+
     @Override
     public boolean onKeyLongPress(int keyCode, KeyEvent event) {
         if (keyCode == rs_key_voice)
@@ -325,47 +345,45 @@ public class Main extends AppCompatActivity {
         if (isBigFragment) { //return fragments from big fragment
             if (fragmentID == defenceFragmentID || fragmentID == -1) { //return defence if not legalMode
                 if (legalMode) {
-                    outputFragment = navigationFragment;
-                    liveBigFragmentID = 0;
+                    outputFragment = settingsFragment;
+                    liveBigFragmentID = settingsFragmentID;
                 } else {
                     outputFragment = defenceFragment;
                 }
-            } else { //return navigation
-                //was at navigation fragment and went backwards
-                //check legalMode
+            } else if (fragmentID == navigationFragmentID)
                 outputFragment = navigationFragment;
-                liveBigFragmentID = 0;
+            else if (fragmentID == lightFragmentID)
+                outputFragment = lightFragment;
+            else if (fragmentID == settingsFragmentID)
+                outputFragment = settingsFragment;
+            else { //return navigation if overshot defence
+                outputFragment = navigationFragment;
+                liveBigFragmentID = navigationFragmentID;
             }
         } else {
-            if (fragmentID == -1) { //undershot
+            if (fragmentID == -1 || fragmentID == trafficAdvisorFragmentID) { //undershot
                 if (legalMode) {
                     outputFragment = soundBoardFragment;
-                    liveSmallFragmentID = 2;
+                    liveSmallFragmentID = soundBoardFragmentID;
                 } else {
                     outputFragment = trafficAdvisorFragment;
-                    liveSmallFragmentID = 4;
+                    liveSmallFragmentID = trafficAdvisorFragmentID;
                 }
-            } else if (fragmentID == 0)
+            } else if (fragmentID == mediaFragmentID)
                 outputFragment = mediaFragment;
-            else if (fragmentID == 1)
+            else if (fragmentID == diagnosticFragmentID)
                 outputFragment = diagnosticFragment;
-            else if (fragmentID == 2)
+            else if (fragmentID == soundBoardFragmentID)
                 outputFragment = soundBoardFragment;
-            else if (fragmentID == 3) {
+            else if (fragmentID == popUpDefenceFragmentID) {
                 if (legalMode) {
-                    outputFragment = mediaFragment;
-                    liveSmallFragmentID = 0;
+                    outputFragment = soundBoardFragment;
+                    liveSmallFragmentID = soundBoardFragmentID;
                 } else
                     outputFragment = popUpDefenceFragment;
-            } else if (fragmentID == 4) {
-                if (legalMode) {
-                    outputFragment = mediaFragment;
-                    liveSmallFragmentID = 0;
-                } else
-                    outputFragment = trafficAdvisorFragment;
             } else { //overshot
                 outputFragment = mediaFragment;
-                liveSmallFragmentID = 0;
+                liveSmallFragmentID = mediaFragmentID;
             }
         }
         return outputFragment;
@@ -495,7 +513,7 @@ public class Main extends AppCompatActivity {
     }
 
     void displayPopUpDefenceFragment() {
-        if (liveSmallFragmentID != 1) {
+        if (liveSmallFragmentID != popUpDefenceFragmentID) {
             //display fragment if another fragment is live
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.hide(mediaFragment);

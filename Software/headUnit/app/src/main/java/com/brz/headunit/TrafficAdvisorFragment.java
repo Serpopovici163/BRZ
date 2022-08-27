@@ -2,10 +2,12 @@ package com.brz.headunit;
 
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -13,9 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 public class TrafficAdvisorFragment extends Fragment {
+
+    Main main;
+    public TrafficAdvisorFragment(Main parent) {this.main = parent;}
 
     //0 fhc, 1 shc, 2 fpc, 3 spc
     //hazard are on left such that the initial patternID, 0, is legal if accidentally triggered
@@ -132,6 +138,20 @@ public class TrafficAdvisorFragment extends Fragment {
         Button fastHazardButton = requireView().requireViewById(R.id.fast_hazard_cycle_button);
         Button slowHazardButton = requireView().requireViewById(R.id.slow_hazard_cycle_button);
 
+        SwitchCompat frontHazardSwitch = requireView().requireViewById(R.id.front_hazard_switch);
+        SwitchCompat sideHazardSwitch = requireView().requireViewById(R.id.side_hazard_switch);
+        SwitchCompat rearHazardSwitch = requireView().requireViewById(R.id.rear_hazard_switch);
+        SwitchCompat frontPoliceSwitch = requireView().requireViewById(R.id.front_police_switch);
+        SwitchCompat sidePoliceSwitch = requireView().requireViewById(R.id.side_police_switch);
+        SwitchCompat rearPoliceSwitch = requireView().requireViewById(R.id.rear_police_switch);
+
+        ImageView frontHazardHighlight = requireView().requireViewById(R.id.front_hazard_highlight);
+        ImageView sideHazardHighlight = requireView().requireViewById(R.id.side_hazard_highlight);
+        ImageView rearHazardHighlight = requireView().requireViewById(R.id.rear_hazard_highlight);
+        ImageView frontPoliceHighlight = requireView().requireViewById(R.id.front_police_highlight);
+        ImageView sidePoliceHighlight = requireView().requireViewById(R.id.side_police_highlight);
+        ImageView rearPoliceHighlight = requireView().requireViewById(R.id.rear_police_highlight);
+
         legalIcon = requireView().requireViewById(R.id.legal_status_imageview);
         hornIcon = requireView().requireViewById(R.id.horn_status_imageview);
         sirenIcon = requireView().requireViewById(R.id.siren_status_imageview);
@@ -139,6 +159,14 @@ public class TrafficAdvisorFragment extends Fragment {
         //update any views that need updating
         updateIcons();
         setSelectedLightPattern(0);
+
+        //set default switch position
+        frontHazardSwitch.setChecked(true);
+        sideHazardSwitch.setChecked(true);
+        rearHazardSwitch.setChecked(true);
+        frontPoliceSwitch.setChecked(true);
+        sidePoliceHighlight.setVisibility(View.INVISIBLE);
+        rearPoliceHighlight.setVisibility(View.INVISIBLE);
 
         //button onclicklisteners
         fastPoliceButton.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +194,72 @@ public class TrafficAdvisorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 setSelectedLightPattern(1);
+            }
+        });
+
+        frontHazardSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(0, b);
+                if (b)
+                    frontHazardHighlight.setVisibility(View.VISIBLE);
+                else
+                    frontHazardHighlight.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        sideHazardSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(1, b);
+                if (b)
+                    sideHazardHighlight.setVisibility(View.VISIBLE);
+                else
+                    sideHazardHighlight.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        rearHazardSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(2, b);
+                if (b)
+                    rearHazardHighlight.setVisibility(View.VISIBLE);
+                else
+                    rearHazardHighlight.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        frontPoliceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(3, b);
+                if (b)
+                    frontPoliceHighlight.setVisibility(View.VISIBLE);
+                else
+                    frontPoliceHighlight.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        sidePoliceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(4, b);
+                if (b)
+                    sidePoliceHighlight.setVisibility(View.VISIBLE);
+                else
+                    sidePoliceHighlight.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        rearPoliceSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                main.forwardLightSettings(5, b);
+                if (b)
+                    rearPoliceHighlight.setVisibility(View.VISIBLE);
+                else
+                    rearPoliceHighlight.setVisibility(View.INVISIBLE);
             }
         });
 

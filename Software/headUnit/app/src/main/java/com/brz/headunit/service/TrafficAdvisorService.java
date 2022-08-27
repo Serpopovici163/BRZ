@@ -7,7 +7,6 @@ import com.brz.headunit.Main;
 public class TrafficAdvisorService {
 
     Main main;
-    NetworkService networkService = new NetworkService();
 
     private boolean sirenState = false;
 
@@ -19,14 +18,12 @@ public class TrafficAdvisorService {
     private Long lightTriggerTime;
     private boolean lightTimerState = false;
 
+    private boolean[] lightSettings = new boolean[]{true, true, true, true, false, false}; //keeps track of which lights are active
+
     private int androidProcessingDelay = 500;
 
     public TrafficAdvisorService(Main parentActivity) {
         this.main = parentActivity;
-    }
-
-    public void initiateService() {
-        networkService.initiateClient(NetworkService.TRAFFIC_ADVISOR_SERVICE);
     }
 
     public void affirmHornState() {
@@ -105,8 +102,8 @@ public class TrafficAdvisorService {
         main.forwardLightState(state);
     }
 
-    public void flashBrakeLight() {
-        //TODO: make this a runnable thread that runs all the time?
+    public void updateLightSettings(int lightID, boolean state) {
+        lightSettings[lightID] = state;
     }
 
     public void setLegalMode() {

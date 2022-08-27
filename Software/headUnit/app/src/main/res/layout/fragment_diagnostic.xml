@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="7.5"
+    android:paddingStart="5dp"
     tools:context=".DiagnosticFragment">
 
     <!-- car diagnostic thingies -->
@@ -32,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="11"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -64,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -106,7 +107,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -138,7 +139,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -170,7 +171,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -223,7 +224,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -255,7 +256,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -287,7 +288,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -329,7 +330,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -361,7 +362,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -393,7 +394,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -435,7 +436,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -467,7 +468,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -499,7 +500,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="10dp"
             app:cardUseCompatPadding="true"
             android:padding="5dp">
 
@@ -534,7 +535,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
+        android:layout_margin="5dp"
         android:gravity="center"
+        android:background="@drawable/rounded_background"
         android:text="@string/diagnostic_message_blank"
         android:textSize="26sp" />
 

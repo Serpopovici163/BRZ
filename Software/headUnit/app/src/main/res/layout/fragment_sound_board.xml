@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="6"
-    tools:context=".SoundBoardFragment"
-    android:padding="15dp">
+    android:paddingStart="10dp"
+    tools:context=".SoundBoardFragment">
 
     <!-- part that shows selected sound -->
     <LinearLayout
@@ -14,22 +14,23 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="5">
 
         <!-- textviews -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:orientation="vertical"
-            android:weightSum="3">
+            android:weightSum="5"
+            android:background="@drawable/rounded_background">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
+                android:layout_weight="2"
+                android:paddingTop="10dp"
+                android:gravity="center"
                 android:text="@string/sound_title"
                 android:textSize="28sp" />
 
@@ -37,7 +38,7 @@
                 android:id="@+id/selected_sound_textview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/no_sound_selected"
@@ -57,11 +58,16 @@
 
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
     <ScrollView
         android:id="@+id/sound_list_scrollview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:background="@drawable/rounded_background">
 
     </ScrollView>
 

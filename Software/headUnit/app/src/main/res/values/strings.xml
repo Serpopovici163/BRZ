@@ -44,4 +44,7 @@
     <string name="vehicle">VEHICLE</string>
     <string name="safety">SAFETY</string>
     <string name="diagnostic_message_blank">Please select a subsystem to view its status.</string>
+
+    <!-- light fragment -->
+    <string name="light_status_caption">Light status :</string>
 </resources>
