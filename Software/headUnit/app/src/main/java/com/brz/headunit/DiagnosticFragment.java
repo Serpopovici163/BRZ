@@ -19,8 +19,11 @@ import com.brz.headunit.R;
 
 public class DiagnosticFragment extends Fragment {
 
-    public DiagnosticFragment() {
+    Main main;
+
+    public DiagnosticFragment(Main parent) {
         // Required empty public constructor
+        main = parent;
     }
 
     TextView[] textViews = new TextView[14];

@@ -17,13 +17,16 @@ import com.brz.headunit.R;
 
 public class DefenceFragment extends Fragment {
 
+    Main main;
+
     static ImageButton cellJamImageButton; //ID 0
     static ImageButton radioJamImageButton; //ID 1
     static ImageButton lidarJamImageButton; //ID 2
     static ImageButton radarJamImageButton; //ID 3
 
-    public DefenceFragment() {
+    public DefenceFragment(Main parent) {
         // Required empty public constructor
+        main = parent;
     }
 
     @Override

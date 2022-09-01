@@ -1,5 +1,7 @@
 package com.brz.headunit.service;
 
+import com.brz.headunit.Main;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -18,6 +20,10 @@ public class NetworkService {
 
     private int clientID = 0;
 
+    Main main;
+
+    public NetworkService(Main parent) {main = parent;}
+
     //TODO: insert relevant addresses here
     String arduinoURL = "192.168.0.1";
     String diagnosticURL = "192.168.0.2";
@@ -28,13 +34,12 @@ public class NetworkService {
     public static int ARDUINO_ID = 0;
     public static int DIAGNOSTIC_ID = 1;
 
-    public void initiateClient(int desiredClientID) {
-        clientID = desiredClientID;
-        //also set relevant url
-        if (clientID == ARDUINO_ID)
-            relevantURL = arduinoURL;
-        else if (clientID == DIAGNOSTIC_ID)
-            relevantURL = diagnosticURL;
+    public void initiateService() {
+        //TODO: launch thread that listens for incoming packages and dispatches them to Main.java
+    }
+
+    public void handleRequest() {
+
     }
 
     public JSONObject getData(JSONObject requestData) {
@@ -69,9 +74,5 @@ public class NetworkService {
             e.printStackTrace();
         }
         return requestData;
-    }
-
-    public void sendData() {
-
     }
 }

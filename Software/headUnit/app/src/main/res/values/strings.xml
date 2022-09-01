@@ -47,4 +47,22 @@
 
     <!-- light fragment -->
     <string name="light_status_caption">Light status :</string>
+    <string name="underlight_section_title">Under-lighting Settings</string>
+    <string name="underlight_button">Solid colour</string>
+    <string name="pattern_button_1">Pattern 1</string>
+    <string name="pattern_button_2">Pattern 2</string>
+    <string name="pattern_button_3">Pattern 3</string>
+    <string name="pattern_button_4">Pattern 4</string>
+    <string name="interior_section_title">Interior Settings</string>
+    <string name="primary_interior_button">Primary colour</string>
+    <string name="secondary_interior_button">Secondary colour</string>
+    <string name="color_picker_title">Colour picker</string>
+    <string name="light_status_title">Light status</string>
+
+    <!-- settings fragment -->
+    <string name="settings_placeholder">Please select a subsystem to begin.</string>
+    <string name="distance_placeholder_string">0m</string>
+
+    <!-- miscellaneous -->
+    <string name="meter_unit">m</string>
 </resources>

@@ -23,31 +23,18 @@ import org.json.JSONObject;
 
 public class MediaFragment extends Fragment {
 
+    Main main;
+
     boolean playState = false; //keeps track of whether music is playing
 
-    public MediaFragment() {
+    public MediaFragment(Main parent) {
         // Required empty public constructor
+        main = parent;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //load network service here
-        //this is used to communicate with arduino controlling amp and bluetooth Rx
-        NetworkService networkService = new NetworkService();
-        networkService.initiateClient(NetworkService.ARDUINO_ID);
-
-        JSONObject requestData = new JSONObject();
-        JSONObject returnData = new JSONObject();
-        try {
-            requestData.put("requestType", "startup"); //TODO: probably find more concise ways of probing for data
-            requestData.put("requiredData", "media");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        returnData = networkService.getData(requestData);
-
     }
 
     @Override

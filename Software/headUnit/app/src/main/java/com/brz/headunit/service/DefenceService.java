@@ -5,8 +5,6 @@ import com.brz.headunit.Main;
 
 public class DefenceService {
 
-    NetworkService networkService = new NetworkService();
-
     Main main;
 
     public DefenceService(Main main) {
@@ -20,18 +18,13 @@ public class DefenceService {
 
     boolean legalJamState = false;
 
-    public void initiateService() {
-        networkService.initiateClient(NetworkService.DEFENCE_SERVICE);
-    }
-
     public void setLegalMode() {
         cellJamState = false;
         radarJamState = false;
         radioJamState = false;
         lidarJamState = false;
 
-        //broadcast to network
-        networkService.sendData();
+        //TODO: broadcast to network
     }
 
     public void resetJamState() { //required to make sure legal jammers are reset once legalMode is disabled

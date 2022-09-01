@@ -1,12 +1,13 @@
 package com.brz.headunit.service;
 
+import com.brz.headunit.Main;
+import com.brz.headunit.MediaFragment;
+
 public class MediaService {
 
-    NetworkService networkService = new NetworkService();
+    Main main;
 
-    public void initiateService() {
-        networkService.initiateClient(NetworkService.MEDIA_SERVICE);
-    }
+    public MediaService(Main parent) {main = parent;}
 
     public void skipSong(boolean direction) { //true is forward and false is backward
 

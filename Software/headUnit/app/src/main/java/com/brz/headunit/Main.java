@@ -22,8 +22,11 @@ import com.brz.headunit.service.DefenceService;
 import com.brz.headunit.service.DiagnosticService;
 import com.brz.headunit.service.MediaService;
 import com.brz.headunit.service.NavigationService;
+import com.brz.headunit.service.NetworkService;
 import com.brz.headunit.service.SafetyService;
 import com.brz.headunit.service.TrafficAdvisorService;
+
+import org.json.JSONObject;
 
 public class Main extends AppCompatActivity {
 
@@ -51,41 +54,55 @@ public class Main extends AppCompatActivity {
     int ls_key_left = KeyEvent.KEYCODE_N;
     int ls_key_enter = KeyEvent.KEYCODE_O;
 
+    //big fragments
     private NavigationFragment navigationFragment;
     private LightFragment lightFragment;
+    private SafetyFragment safetyFragment;
     private SettingsFragment settingsFragment;
     private DefenceFragment defenceFragment;
 
+    //small fragments
     private MediaFragment mediaFragment;
     private DiagnosticFragment diagnosticFragment;
     private SoundBoardFragment soundBoardFragment;
     private PopUpDefenceFragment popUpDefenceFragment;
     private TrafficAdvisorFragment trafficAdvisorFragment;
 
+    //fullscreen popup fragments
+    private ParkingFragment parkingFragment;
+    private MergingFragment mergingFragment;
+
     DefenceService defenceService = new DefenceService(this);
     DiagnosticService diagnosticService = new DiagnosticService(this);
-    MediaService mediaService = new MediaService();
-    NavigationService navigationService = new NavigationService();
+    MediaService mediaService = new MediaService(this);
+    NavigationService navigationService = new NavigationService(this);
     SafetyService safetyService = new SafetyService(this);
     TrafficAdvisorService trafficAdvisorService = new TrafficAdvisorService(this);
+    NetworkService networkService = new NetworkService(this);
 
     ImageView bigFragmentHighlight;
     ImageView smallFragmentHighlight;
 
     private final int navigationFragmentID = 0;
     private final int lightFragmentID = 1;
-    private final int settingsFragmentID = 2;
-    private final int defenceFragmentID = 3;
+    private final int safetyFragmentID = 2;
+    private final int settingsFragmentID = 3;
+    private final int defenceFragmentID = 4;
+
     private final int mediaFragmentID = 0;
     private final int diagnosticFragmentID = 1;
     private final int soundBoardFragmentID = 2;
     private final int popUpDefenceFragmentID = 3;
     private final int trafficAdvisorFragmentID = 4;
 
+    private final int parkingFragmentID = 0;
+    private final int mergingFragmentID = 1;
+
     private int highlightedFragmentID = 0;
     private boolean fragmentSwapState = false;
     public static int liveBigFragmentID = 0;
     public static int liveSmallFragmentID = 0;
+    public static int liveOverlayFragmentID = 0;
 
     boolean popUpDefenseFragmentState = false;
     static boolean isBigFragmentAlerting = false;
@@ -116,28 +133,37 @@ public class Main extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         //add fragments to their containers
+        //parent activity is passed if fragment provides input to service
         navigationFragment = new NavigationFragment();
-        lightFragment = new LightFragment();
+        lightFragment = new LightFragment(this);
+        safetyFragment = new SafetyFragment();
         settingsFragment = new SettingsFragment();
-        defenceFragment = new DefenceFragment();
+        defenceFragment = new DefenceFragment(this);
 
-        mediaFragment = new MediaFragment();
-        diagnosticFragment = new DiagnosticFragment();
-        soundBoardFragment = new SoundBoardFragment();
+        mediaFragment = new MediaFragment(this);
+        diagnosticFragment = new DiagnosticFragment(this);
+        soundBoardFragment = new SoundBoardFragment(this);
         trafficAdvisorFragment = new TrafficAdvisorFragment(this);
         popUpDefenceFragment = new PopUpDefenceFragment();
+
+        parkingFragment = new ParkingFragment();
+        mergingFragment = new MergingFragment();
 
 
         fragmentTransaction.add(R.id.big_fragment, navigationFragment); //ID 0
         fragmentTransaction.add(R.id.big_fragment, lightFragment); //ID 1
-        fragmentTransaction.add(R.id.big_fragment, settingsFragment); //ID 2
-        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 3
+        fragmentTransaction.add(R.id.big_fragment, safetyFragment); //ID 2
+        fragmentTransaction.add(R.id.big_fragment, settingsFragment); //ID 3
+        fragmentTransaction.add(R.id.big_fragment, defenceFragment); //ID 4
         //TODO:add convenience fragment?
         fragmentTransaction.add(R.id.small_fragment, mediaFragment); //ID 0
         fragmentTransaction.add(R.id.small_fragment, diagnosticFragment); //ID 1
         fragmentTransaction.add(R.id.small_fragment, soundBoardFragment); //ID 2
         fragmentTransaction.add(R.id.small_fragment, popUpDefenceFragment); //ID 3
         fragmentTransaction.add(R.id.small_fragment, trafficAdvisorFragment); //ID 4
+
+        fragmentTransaction.add(R.id.overlay_fragment, parkingFragment);
+        fragmentTransaction.add(R.id.overlay_fragment, mergingFragment);
 
         //show navigation and media fragments
         fragmentTransaction.hide(lightFragment);
@@ -147,17 +173,14 @@ public class Main extends AppCompatActivity {
         fragmentTransaction.hide(soundBoardFragment);
         fragmentTransaction.hide(popUpDefenceFragment);
         fragmentTransaction.hide(trafficAdvisorFragment);
-
-        liveBigFragmentID = 0;
-        liveSmallFragmentID = 0;
+        fragmentTransaction.hide(parkingFragment);
+        fragmentTransaction.hide(mergingFragment);
 
         fragmentTransaction.commit();
     }
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        //check if key is held down and cancel press if so. This will also be a mechanism to disable illegal things
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         //first portion handles fragment swapping and highlights
         if (keyCode == rs_key_back) {
             //fragment swap initiated
@@ -354,6 +377,8 @@ public class Main extends AppCompatActivity {
                 outputFragment = navigationFragment;
             else if (fragmentID == lightFragmentID)
                 outputFragment = lightFragment;
+            else if (fragmentID == safetyFragmentID)
+                outputFragment = safetyFragment;
             else if (fragmentID == settingsFragmentID)
                 outputFragment = settingsFragment;
             else { //return navigation if overshot defence
@@ -577,6 +602,13 @@ public class Main extends AppCompatActivity {
             legalMode = false;
         else
             legalModeUnlockCounter = 0;
+    }
+
+    //network passthroughs
+    public void networkRequest() { networkService.handleRequest(); }
+
+    public void handleIncomingRequest(int serviceID, JSONObject data) {
+
     }
 
     private void hideUI() {

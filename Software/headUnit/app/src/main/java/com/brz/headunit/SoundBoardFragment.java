@@ -15,10 +15,13 @@ import com.brz.headunit.R;
 
 public class SoundBoardFragment extends Fragment {
 
+    Main main;
+
     private TextView selectedSoundTextView;
 
-    public SoundBoardFragment() {
+    public SoundBoardFragment(Main parent) {
         // Required empty public constructor
+        main = parent;
     }
 
     @Override

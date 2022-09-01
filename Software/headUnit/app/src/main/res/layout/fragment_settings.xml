@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".SettingsFragment"
+    android:orientation="horizontal"
+    android:weightSum="6">
+
+    <!-- subsystem selector -->
+    <ScrollView
+        android:id="@+id/subsystem_list_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.9"/>
+
+    <!-- divider -->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:background="@drawable/rounded_background"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"/>
+
+    <!-- settings view -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <!-- scrollview is dynamically populated -->
+        <ScrollView
+            android:id="@+id/settings_list_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/placeholder_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/settings_placeholder"
+            android:textSize="32sp"
+            android:gravity="center"/>
+
+    </FrameLayout>
 
 
-
-</FrameLayout>
+</LinearLayout>

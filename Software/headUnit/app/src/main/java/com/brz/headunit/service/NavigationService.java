@@ -1,11 +1,11 @@
 package com.brz.headunit.service;
 
+import com.brz.headunit.Main;
+
 public class NavigationService {
 
-    NetworkService networkService = new NetworkService();
+    Main main;
 
-    public void initiateService() {
-        networkService.initiateClient(NetworkService.NAVIGATION_SERVICE);
-    }
+    public NavigationService(Main parent) {main = parent;}
 
 }

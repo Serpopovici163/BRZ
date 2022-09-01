@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_background"
+    android:orientation="horizontal"
+    android:weightSum="3"
+    tools:context=".MergingFragment">
+
+    <!-- camera view -->
+    <!-- TODO: figure out camera view, look at GNG app -->
+    <ImageView
+        android:id="@+id/merging_camera_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
+
+    <!-- Vehicle drawing w/ sensor data -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!-- car diagram -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="50dp">
+
+            <!-- car image -->
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/car_outline" />
+
+            <!-- left icon layout -->
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_marginStart="25dp"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <!-- top icon -->
+                <ImageView
+                    android:id="@+id/merging_top_left_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/wave_icon" />
+
+                <TextView
+                    android:id="@+id/merging_top_left_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    android:text="@string/distance_placeholder_string"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/merging_bottom_left_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    android:text="@string/distance_placeholder_string"/>
+
+                <!-- bottom icon -->
+                <ImageView
+                    android:id="@+id/merging_bottom_left_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/wave_icon" />
+
+            </LinearLayout>
+
+            <!-- right icon layout -->
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="25dp"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <!-- top icon -->
+                <ImageView
+                    android:id="@+id/merging_top_right_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/wave_icon" />
+
+                <TextView
+                    android:id="@+id/merging_top_right_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    android:text="@string/distance_placeholder_string"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/merging_bottom_right_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    android:text="@string/distance_placeholder_string"/>
+
+                <!-- bottom icon -->
+                <ImageView
+                    android:id="@+id/merging_bottom_right_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/wave_icon" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- highlight view -->
+        <ImageView
+            android:id="@+id/merging_highlight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:src="@drawable/highlight_outline"
+            app:tint="#FFFF0000"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+</LinearLayout>
