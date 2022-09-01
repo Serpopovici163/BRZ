@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DefenceFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"> <!-- TODO: ADJUST LAYOUT WEIGHTS -->
+
+        <!-- TODO: add transponder diagram - should work by showing a drawable dot around a radar-like map to scale -->
+
+        <FrameLayout
+            android:id="@+id/transponder_diagram_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <!-- not sure how this is gonna work just yet -->
+
+            <!-- TODO: fix/improve transponder image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/transponder_background" />
+
+            <!-- TODO: add layout to contain aircraft markers but not sure what type of layout -->
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <!-- have cell sniffer topside alongside jammer status icons and aircraft list below but smaller -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.25"
+                    android:orientation="vertical"
+                    android:weightSum="4"
+                    android:background="@drawable/rounded_background"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp">
+
+                    <!-- cell sniffer stuff in here -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/cell_sniffer_title"
+                        android:gravity="center"
+                        android:textSize="26sp" />
+
+                    <TextView
+                        android:id="@+id/cell_list_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="@string/no_cell_devices"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="4"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp">
+
+                    <!-- TODO: add icons for each type of jammer, scale icons, make other colours, add driving code -->
+
+                    <ImageButton
+                        android:id="@+id/cell_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/cell_jam_icon"
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
+
+                    <ImageButton
+                        android:id="@+id/radio_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/radio_jam_icon"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="5dp"
+                        android:background="#00000000"/>
+
+                    <ImageButton
+                        android:id="@+id/lidar_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/lidar_jam_icon"
+                        android:scaleType="fitCenter"
+                        android:background="#00000000"/>
+
+                    <ImageButton
+                        android:id="@+id/radar_jammer_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/radar_jam_icon"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="7dp"
+                        android:background="#00000000"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:background="@drawable/rounded_background"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <!-- here is text list for nearby aircraft -->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/transponder_title"
+                        android:textSize="26sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/aircraft_list_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="@string/no_aircraft"/>
+
+                </LinearLayout>
+
+                <!-- here are icons for whether lines are on pavement and whether aircraft is too close -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/pavement_line_icon"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pavement_line_icon" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
