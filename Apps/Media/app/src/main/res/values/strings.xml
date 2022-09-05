@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Media</string>
-    <string name="album_cover_description">Album Cover</string>
-    <string name="skip_backward">Skip backward</string>
-    <string name="play_pause">Play/pause</string>
-    <string name="skip_forward">Skip forward</string>
-    <string name="all_systems_nominal">All Systems Nominal</string>
-
-</resources>

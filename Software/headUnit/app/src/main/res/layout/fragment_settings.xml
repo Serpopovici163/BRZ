@@ -9,10 +9,17 @@
 
     <!-- subsystem selector -->
     <ScrollView
-        android:id="@+id/subsystem_list_scrollview"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.9"/>
+        android:layout_weight="1.9">
+
+            <LinearLayout
+                android:id="@+id/subsystem_list_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+    </ScrollView>>
 
     <!-- divider -->
     <ImageView
@@ -20,8 +27,8 @@
         android:layout_height="match_parent"
         android:layout_weight="0.1"
         android:background="@drawable/rounded_background"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"/>
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
 
     <!-- settings view -->
     <FrameLayout
@@ -33,7 +40,15 @@
         <ScrollView
             android:id="@+id/settings_list_scrollview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/settings_list_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </ScrollView>
 
         <TextView
             android:id="@+id/placeholder_textview"
