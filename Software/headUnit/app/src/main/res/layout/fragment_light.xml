@@ -6,180 +6,288 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LightFragment"
     android:orientation="horizontal"
+    android:padding="15dp"
     android:weightSum="3">
 
-    <!-- saved colour area -->
-    <LinearLayout
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:weightSum="6">
-
-        <!-- under-lighting settings -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/rounded_background"
-            android:gravity="center"
-            android:text="@string/underlight_section_title"
-            android:textSize="24sp" />
-
-        <!-- solid colour setting -->
+        android:layout_weight="1">
+        <!-- saved colour area -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="6">
 
-            <Button
-                android:id="@+id/solid_underlight_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/underlight_button"/>
+            <!-- under-lighting settings -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/rounded_background"
+                android:gravity="center"
+                android:text="@string/underlight_section_title"
+                android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/solid_colour_selector"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            <!-- solid colour setting -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:backgroundTint="#FFFF0000"/>
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/solid_underlight_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/solid_underlight_button"/>
+
+                    <ImageView
+                        android:id="@+id/solid_underlight_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/solid_colour_selector"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp" />
+
+            </LinearLayout>
+
+            <!-- 2x2 pre-programmed pattern matrix pt1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/pattern_button_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/underlight_pattern_button_1"/>
+
+                    <ImageView
+                        android:id="@+id/pattern_button_1_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/pattern_button_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/underlight_pattern_button_2"/>
+
+                    <ImageView
+                        android:id="@+id/pattern_button_2_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- 2x2 pre-programmed pattern matrix pt2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/pattern_button_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/underlight_pattern_button_3"/>
+
+                    <ImageView
+                        android:id="@+id/pattern_button_3_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/pattern_button_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/underlight_pattern_button_4"/>
+
+                    <ImageView
+                        android:id="@+id/pattern_button_4_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/rounded_background"
+                android:gravity="center"
+                android:text="@string/interior_section_title"
+                android:textSize="24sp" />
+
+            <!-- interior colour setting -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/primary_interior_colour_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/primary_interior_button"/>
+
+                    <ImageView
+                        android:id="@+id/primary_interior_colour_button_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/primary_interior_colour_selector"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+
+            </LinearLayout>
+
+            <!-- solid colour setting -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/secondary_interior_colour_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_background"
+                        android:text="@string/secondary_interior_button"/>
+
+                    <ImageView
+                        android:id="@+id/secondary_interior_colour_button_highlight"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/highlight_outline"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/secondary_interior_colour_selector"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <!-- 2x2 pre-programmed pattern matrix pt1 -->
-        <LinearLayout
+        <ImageView
+            android:id="@+id/colour_area_disable_imageview"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/pattern_button_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/pattern_button_1"/>
-
-            <Button
-                android:id="@+id/pattern_button_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/pattern_button_2"/>
-
-        </LinearLayout>
-
-        <!-- 2x2 pre-programmed pattern matrix pt2 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/pattern_button_3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/pattern_button_3"/>
-
-            <Button
-                android:id="@+id/pattern_button_4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/pattern_button_4"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/rounded_background"
-            android:gravity="center"
-            android:text="@string/interior_section_title"
-            android:textSize="24sp" />
-
-        <!-- solid colour setting -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/primary_interior_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/underlight_button"/>
-
-            <Button
-                android:id="@+id/primary_interior_colour_selector"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:backgroundTint="#FFFF0000"/>
-
-        </LinearLayout>
-
-        <!-- solid colour setting -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <Button
-                android:id="@+id/secondary_interior_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/underlight_button"/>
-
-            <Button
-                android:id="@+id/secondary_interior_colour_selector"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:backgroundTint="#FFFF0000"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="#aaeeeeee"
+            android:visibility="invisible"/>
+    </FrameLayout>
 
     <!-- car icon -->
     <LinearLayout
@@ -241,7 +349,45 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <!-- TODO: find something to integrate here -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/underlight_status_switch"
+                    android:textSize="24sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/underlight_light_status_switch"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/interior_status_switch"
+                    android:textSize="24sp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/interior_light_status_switch"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -269,16 +415,46 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_background">
 
-                <com.rarepebble.colorpicker.ColorPickerView
-                    android:id="@+id/color_picker"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:colorpicker_showAlpha="true"
-                    app:colorpicker_showHex="true"
-                    app:colorpicker_showPreview="true"
-                    android:rotation="90"
-                    android:scaleY="1.25"
-                    android:scaleX="1.25" />
+                    android:orientation="vertical">
+
+                    <com.rarepebble.colorpicker.ColorPickerView
+                        android:id="@+id/color_picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:colorpicker_showAlpha="true"
+                        app:colorpicker_showHex="true"
+                        app:colorpicker_showPreview="true"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/colour_picker_submit_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ok_string"
+                        android:textSize="24sp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/colour_picker_cancel_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cancel_string"
+                        android:textSize="24sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/color_picker_disable_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#aaeeeeee"/>
 
             </FrameLayout>
 

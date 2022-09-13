@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SafetyFragment">
+    tools:context=".SafetyFragment"
+    android:orientation="horizontal"
+    android:weightSum="3">
 
+    <!-- cams in 2x2 matrix on left and other proximity data on right -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/safety_fragment_previewview"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"/>
 
-
-</FrameLayout>
+</LinearLayout>

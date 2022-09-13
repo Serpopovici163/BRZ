@@ -30,8 +30,6 @@ public class SettingsFragment extends Fragment {
     private LinearLayout settingsLinearLayout;
     private TextView placeholderTextView;
 
-    private String preferenceFile = "HEAD_UNIT_SETTINGS";
-
     public SettingsFragment() {
         // Required empty public constructor
     }
@@ -88,7 +86,7 @@ public class SettingsFragment extends Fragment {
         //now get all settings
         //settings are stored using the following key format: XXX_TITLE
         //here title is a string containing setting name whereas XXX are the three first letters of the relevant subsystem
-        SharedPreferences preferences = requireContext().getSharedPreferences(preferenceFile, 0);
+        SharedPreferences preferences = requireContext().getSharedPreferences(getResources().getString(R.string.preference_file_name), 0);
 
         Map<String,?> keys = preferences.getAll();
 

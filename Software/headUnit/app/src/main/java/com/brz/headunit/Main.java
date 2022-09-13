@@ -1,5 +1,8 @@
 package com.brz.headunit;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -11,6 +14,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -167,6 +172,7 @@ public class Main extends AppCompatActivity {
 
         //show navigation and media fragments
         fragmentTransaction.hide(lightFragment);
+        fragmentTransaction.hide(safetyFragment);
         fragmentTransaction.hide(settingsFragment);
         fragmentTransaction.hide(defenceFragment);
         fragmentTransaction.hide(diagnosticFragment);
@@ -177,6 +183,10 @@ public class Main extends AppCompatActivity {
         fragmentTransaction.hide(mergingFragment);
 
         fragmentTransaction.commit();
+
+        //now check for camera permission
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED)
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
     }
 
     @Override
