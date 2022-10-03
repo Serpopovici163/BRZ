@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Trololololol/Documents/Projects/BRZ/Software/Android/headUnit/app/src/main/res/layout/fragment_navigation.xml" value="0.12087458745874588" />
+        <entry key="..\:/Users/Trololololol/Documents/Projects/BRZ/Software/Android/headUnit/app/src/main/res/layout/fragment_safety.xml" value="0.1" />
         <entry key="..\:/Users/Trololololol/Documents/Projects/BRZ/Software/headUnit/app/src/main/res/layout/fragment_settings.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/drawable/highlight_outline.xml" value="0.3405" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/drawable/rounded_background.xml" value="0.1" />
@@ -11,7 +13,7 @@
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_defence.xml" value="0.15648148148148147" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_defense.xml" value="0.1" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_diagnostic.xml" value="0.1" />
-        <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_light.xml" value="0.13255208333333332" />
+        <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_light.xml" value="0.1328443357783211" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_media.xml" value="0.1" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_merging.xml" value="0.1" />
         <entry key="..\:/Users/Trololololol/OneDrive - University of Ottawa/Documents/BRZ/Software/headUnit/app/src/main/res/layout/fragment_navigation.xml" value="0.29054842473745623" />

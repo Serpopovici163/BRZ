@@ -45,6 +45,8 @@ public class SafetyFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         //TODO: fix camera stuff (view doesn't load because fragment is hidden when this code runs)
         cameraView = requireView().requireViewById(R.id.safety_fragment_previewview);
         cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext());
@@ -60,8 +62,11 @@ public class SafetyFragment extends Fragment {
             } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
-        }, ContextCompat.getMainExecutor(getActivity().getApplicationContext()));
+        }, ContextCompat.getMainExecutor(requireContext()));
+    }
 
-        super.onViewCreated(view, savedInstanceState);
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }
