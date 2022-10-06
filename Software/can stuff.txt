@@ -1,0 +1,2 @@
+https://github.com/timurrrr/RaceChronoDiyBleDevice/blob/master/can_db/ft86.md
+https://racechrono.com/forum/discussion/1764/custom-pids-for-frs-brz-gt86
