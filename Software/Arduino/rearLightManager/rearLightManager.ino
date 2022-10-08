@@ -23,11 +23,11 @@ int licensePlateRelay = 7; //for blackout use only, solid state
 
 //led strips
 Adafruit_NeoPixel fourthBrakeLight(3, 8, NEO_GRB + NEO_KHZ800); //may need to change pin definition, pixel 0 and 2 have R and B reversed here
-Adafruit_NeoPixel rearSideLights(2, 9, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel rearSideLights(2, 9, NEO_GRB + NEO_KHZ800); //id 0 is left window, 1 is third brake light, 2 is right window
 
 //timer/status variables
 long brakeFlashCycleStart = 0; //keep this separate to ensure seamless flashing of brake lights
-int brakeCycleInitiateTime = 0; //used to keep track of initial flash trigger. is tracked to make sure brake lights flash for a minimum amount of seconds
+int brakeFlashInitiateTime = 0; //used to keep track of initial flash trigger. is tracked to make sure brake lights flash for a minimum amount of seconds
 bool isBrakeLightFlashing = false;
 long lightCycleStart = 0;
 int cycleState = 0; //0 none, 1 fast police, 2 slow police, 3 fast hazard, 4 slow hazard
@@ -60,9 +60,9 @@ void loop() {
   //handle can message
  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     if (canMsg.can_id == 209) {
-      brakePressure = canMsg.data[2]
+      brakePressure = canMsg.data[2];
     } else if (canMsg.can_id == 209) {
-      vehicleSpeed = canMsg.data[INDEX] * 0.015694; //double check multiplier and INDEX, maybe replace with average of wheel speed sensors
+      vehicleSpeed = canMsg.data[4] * 0.015694; //double check multiplier and INDEX, maybe replace with average of wheel speed sensors
     }  
   }
 
@@ -142,7 +142,7 @@ void setBrakeLightState() {
 
 void flashBrakeLight() {
   long currentTime = millis();
-  if (brakeFlashCycleStart >= (currentTime - BRAKE_FLASH_TIMER)) {`
+  if (brakeFlashCycleStart >= (currentTime - BRAKE_FLASH_TIMER)) {
     //turn lights on
     leftBrakeState = true;
     rightBrakeState = true;
@@ -165,39 +165,85 @@ void flashBrakeLight() {
 }
 
 void fastPoliceCycle() {
+  //TODO: integrate third brake light as addressable LED
   long currentTime = millis();
+  licensePlateState = false; //disable license plate light
   if (lightCycleStart >= (currentTime - LIGHT_CYCLE_TIME_STEP)) {
     //timestep 1
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
+    rightBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 2*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 2
+    rearSideLights.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
   } else if (lightCycleStart >= (currentTime - 3*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 3
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
+    rightBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 4*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 4
+    rearSideLights.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
   } else if (lightCycleStart >= (currentTime - 5*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 5
+    fourthBrakeLight.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
+    leftBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 6*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 6
+    rearSideLights.setPixelColor(0, 255, 0, 0);
   } else if (lightCycleStart >= (currentTime - 7*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 7
+    fourthBrakeLight.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
+    leftBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 8*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 8
+    rearSideLights.setPixelColor(2, 0, 0, 255);
   } else if (lightCycleStart >= (currentTime - 9*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 9
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
+    rightBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 10*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 10
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
   } else if (lightCycleStart >= (currentTime - 11*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 11
+    fourthBrakeLight.setPixelColor(1, 0, 0, 255);
+    rearSideLights.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
+    rightBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 12*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 12
+    fourthBrakeLight.setPixelColor(1, 0, 0, 255);
   } else if (lightCycleStart >= (currentTime - 13*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 13
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
+    leftBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 14*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 14
+    fourthBrakeLight.setPixelColor(0, 255, 0, 0);
+    rearSideLights.setPixelColor(1, 255, 0, 0);
   } else if (lightCycleStart >= (currentTime - 15*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 15
+    fourthBrakeLight.setPixelColor(1, 0, 0, 255);
+    rearSideLights.setPixelColor(2, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
+    leftBrakeState = true;
   } else if (lightCycleStart >= (currentTime - 16*LIGHT_CYCLE_TIME_STEP)) {
     //timestep 16
+    fourthBrakeLight.setPixelColor(1, 0, 0, 255);
+    rearSideLights.setPixelColor(1, 0, 0, 255);
   } else {
     lightCycleStart = millis();
   }
