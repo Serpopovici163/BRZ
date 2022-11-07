@@ -3,27 +3,27 @@
 #include <Adafruit_NeoPixel.h>
 
 #define BRAKE_FLASH_MINIMUM_LENGTH 1500
-#define BRAKE_FLASH_TIMER 250
+#define BRAKE_FLASH_TIMER 100
 #define LIGHT_CYCLE_TIME_STEP 100
 
 struct can_frame canMsg;
-MCP2515 mcp2515(10);
+MCP2515 mcp2515(53);
 
 //sensory pins
 int leftSignalSense = A1; //brake sense not needed since we can read data from CAN
 int rightSignalSense = A2;
 
 //output relays
-int leftBrakeRelay = 2;
-int rightBrakeRelay = 3;
-int leftSignalRelay = 4;
-int rightSignalRelay = 5;
-int topBrakeRelay = 6;
-int licensePlateRelay = 7; //for blackout use only, solid state
+int leftBrakeRelay = 17;
+int rightBrakeRelay = 19;
+int leftSignalRelay = 21;
+int rightSignalRelay = 23;
+int topBrakeRelay = 25;
+int licensePlateRelay = 27; //for blackout use only, solid state
 
 //led strips
-Adafruit_NeoPixel fourthBrakeLight(3, 8, NEO_GRB + NEO_KHZ800); //may need to change pin definition, pixel 0 and 2 have R and B reversed here
-Adafruit_NeoPixel rearSideLights(2, 9, NEO_GRB + NEO_KHZ800); //id 0 is left window, 1 is third brake light, 2 is right window
+Adafruit_NeoPixel fourthBrakeLight(3, 3, NEO_GRB + NEO_KHZ800); //may need to change pin definition, pixel 0 and 2 have R and B reversed here
+Adafruit_NeoPixel rearSideLights(2, 5, NEO_GRB + NEO_KHZ800); //id 0 is left window, 1 is third brake light, 2 is right window
 
 //timer/status variables
 long brakeFlashCycleStart = 0; //keep this separate to ensure seamless flashing of brake lights
@@ -43,7 +43,7 @@ bool rightSignalState = false;
 bool topBrakeState = false;
 bool licensePlateState = true;
 
-void setup() {
+void setup() { //TODO: add three flashes when car starts up
   mcp2515.reset();
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ); //TODO: FIGURE OUT
   mcp2515.setNormalMode();
@@ -90,7 +90,7 @@ void showLights() {
   digitalWrite(leftBrakeRelay, leftBrakeState);
   digitalWrite(rightBrakeRelay, rightBrakeState);
   digitalWrite(topBrakeRelay, topBrakeState);
-  digitalWrite(licensePlateRelay, licensePlateState);
+  digitalWrite(licensePlateRelay, !licensePlateState); //low is active, this is to waste less power
   fourthBrakeLight.show();
   rearSideLights.show();
 }
