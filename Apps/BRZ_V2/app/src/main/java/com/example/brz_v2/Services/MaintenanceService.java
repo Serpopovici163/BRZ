@@ -1,4 +1,4 @@
-package com.example.brz_v2.MediaDisplay.service;
+package com.example.brz_v2.Services;
 
 //Extends DiagnosticService but kept separate for simplicity
 public class MaintenanceService {

@@ -2,7 +2,7 @@ package com.example.brz_v2;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
@@ -28,13 +28,13 @@ import com.example.brz_v2.MediaDisplay.SafetyFragment;
 import com.example.brz_v2.MediaDisplay.SettingsFragment;
 import com.example.brz_v2.MediaDisplay.SoundBoardFragment;
 import com.example.brz_v2.MediaDisplay.TrafficAdvisorFragment;
-import com.example.brz_v2.MediaDisplay.service.DefenceService;
-import com.example.brz_v2.MediaDisplay.service.DiagnosticService;
-import com.example.brz_v2.MediaDisplay.service.MediaService;
-import com.example.brz_v2.MediaDisplay.service.NavigationService;
-import com.example.brz_v2.MediaDisplay.service.NetworkService;
-import com.example.brz_v2.MediaDisplay.service.SafetyService;
-import com.example.brz_v2.MediaDisplay.service.TrafficAdvisorService;
+import com.example.brz_v2.Services.DefenceService;
+import com.example.brz_v2.Services.DiagnosticService;
+import com.example.brz_v2.Services.MediaService;
+import com.example.brz_v2.Services.NavigationService;
+import com.example.brz_v2.Services.NetworkService;
+import com.example.brz_v2.Services.SafetyService;
+import com.example.brz_v2.Services.TrafficAdvisorService;
 import com.example.brz_v2.databinding.ActivityMediaBinding;
 
 import org.json.JSONObject;
@@ -46,7 +46,6 @@ public class MediaActivity extends AppCompatActivity {
     //this is used to count keystrokes in a code to unlock illegal features once they have been hidden
     //any time the right key is hit, the counter goes up unless the wrong key is hit in which case it goes to 0 again
     int legalModeUnlockCounter = 0;
-    private View mControlsView;
 
     //keyboard letters are defined here for ease during coding
     int rs_key_up = KeyEvent.KEYCODE_A;
@@ -127,9 +126,18 @@ public class MediaActivity extends AppCompatActivity {
         binding = ActivityMediaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        mControlsView = binding.fullscreenContentControls;
+        //hide system UI
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
 
-        hideUI();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null)
+            actionBar.hide();
     }
 
     @Override
@@ -620,27 +628,5 @@ public class MediaActivity extends AppCompatActivity {
 
     public void handleIncomingRequest(int serviceID, JSONObject data) {
 
-    }
-
-    private void hideUI() {
-        // Hide app UI first
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-        mControlsView.setVisibility(View.GONE);
-
-        //test stuff
-        WindowInsetsControllerCompat windowInsetsController =
-                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
-        if (windowInsetsController == null) {
-            return;
-        }
-        // Configure the behavior of the hidden system bars
-        windowInsetsController.setSystemBarsBehavior(
-                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        );
-        // Hide both the status bar and the navigation bar
-        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
     }
 }

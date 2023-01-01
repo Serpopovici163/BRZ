@@ -1,4 +1,4 @@
-package com.example.brz_v2.MediaDisplay.service;
+package com.example.brz_v2.Services;
 
 import com.example.brz_v2.MediaActivity;
 import com.example.brz_v2.MediaDisplay.DefenceFragment;
