@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BRZ_V2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/night_theme_window</item>
+        <item name="colorPrimaryVariant">@color/night_theme_background</item>
+        <item name="colorOnPrimary">@color/night_theme_highlight</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/night_theme_window</item>
+        <item name="colorSecondaryVariant">@color/night_theme_background</item>
+        <item name="colorOnSecondary">@color/night_theme_highlight</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ThemeOverlay.BRZ_V2.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/night_theme_background</item>
+        <item name="fullscreenTextColor">@color/night_theme_text</item>
+    </style>
+
+    <style name="Theme.BRZ_V2.TransponderContainer" parent="">
+        <item name="colorPrimary">@color/night_theme_window</item>
+        <item name="colorAccent">@color/night_theme_text</item>
+    </style>
+</resources>

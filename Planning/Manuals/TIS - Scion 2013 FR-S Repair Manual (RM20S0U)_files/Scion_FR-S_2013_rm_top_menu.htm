@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+   	 
+    
+    <!-- Release 9.0.1 T300017537 Starts -->
+    <style>
+    <!-- SIViewer -->
+    body{height: 44px;}
+    form, label, table {padding: 0  !important; margin:0 !important; }
+       	.nsearch{background:#ffffff; border:1px solid #000; display:inline-block;}
+       	
+       	.ntext {text-decoration:none;color:black; font-size:9pt;vertical-align:middle;margin-left:-1.5em;}
+       	
+       	.hide {display:none;}
+		.show (display:inline;)
+       	.noborder{border:none;}
+              #findInput input, #findInput img, #displaySearchResults input, #displaySearchResults img {border:none; vertical-align:middle; margin: 0 !important;}
+             /* #findInput{border: 1px solid red;}*/
+	.disabled{color:#ccc; }
+        td.language-buttons {width:200px;text-align:left; white-space:nowrap;}
+        td.language-buttons img, td.language-buttons a{margin:0; padding:0;}
+         .searchIcon {/*float:right;*/display:inline; position:relative; right:0px;}
+         .LeftIcon {width:12px;height:11px;}
+       	.LeftNum {text-align:right;vertical-align:middle;font-size:9pt;}
+         .searchIP {width:175px;vertical-align:middle;border:none;}  
+		.ntext {margin-left: 0; }
+		#currentSearchId, #totalSearchCountId {font-size: 9pt; vertical-align:middle;}
+		.RightIcon {width:12px; height: 11px;}
+		#displaySearchResults img {margin-left: 0.2em !important;}
+       </style>
+         <!--[if IE 5]>
+	 <style>
+	 
+	/*.searchIcon {float:none; display:inline; position:relative; right:5px;}*/
+	.searchIcon {float:none; display:inline; position:relative;}
+	#displaySearchResults input {width:29px;}
+	.ntext {margin-left:0.5em;}
+	.searchIP{width:160px;vertical-align:middle;border:none;}
+	.RightIcon {margin-left:1em;}
+	 </style>
+	<![endif]--> 
+		   <!--[if IE 7]>
+	 <style>
+	.searchIcon {float:none;display:inline; position:relative; right:-1px;}
+	.ntext {margin-left:0.5em;}
+	.LeftIcon {margin-right:-0.5em;}
+	.searchIP{width:150px;vertical-align:middle;border:none;}
+	.LeftNum {text-align:right;width:39px;font-size:9pt;}
+	 </style>
+	<![endif]--> 
+      <!-- Release 9.0.1 T300017537 Ends -->
+     
+
+   
+    <!-- compliance patch for microsoft browsers -->
+    <script language="JavaScript" src="Scion_FR-S_2013_rm_top_menu_data/all-t3.js"></script>
+    <script src="Scion_FR-S_2013_rm_nav_data/siviewermenu.js" type="text/javascript"></script>
+    
+    <script language="javascript">
+   
+    
+       function changeEnglishImage() {
+		var imagePath = document.getElementById("en").src;
+        //if (document.getElementById("en").src.contains("http://localhost:7001/t3Portal/resources/images/english_available.png"))
+        if ((imagePath.indexOf("english_available"))> -1){
+        //T300018306 BackLog Defect Fixes- Starts
+        var hrefVal=parent.manual_frame.location.href;
+        	if(hrefVal.indexOf("html") != -1){
+        		processEnglishLanguage(hrefVal);
+        	}else{
+				loadHtmlUl(hrefVal,'en');
+        	}
+        }
+    }
+     //T300018306 BackLog Defect Fixes- Ends
+     
+    function changeFrenchImage() {
+		var imagePath = document.getElementById("fr").src;
+        if ((imagePath.indexOf("french_available")) > -1) 
+        {
+        //T300018306 BackLog Defect Fixes- Starts
+        	var hrefVal=parent.manual_frame.location.href;
+        	if(hrefVal.indexOf("html") != -1){
+        		processFrenchLanguage(hrefVal);
+        	}else{
+				loadHtmlUl(hrefVal,'fr');
+        	}
+        }
+    }
+     //T300018306 BackLog Defect Fixes- Ends
+     
+    function changeSpanishImage() {
+		var imagePath = document.getElementById("es").src;
+        if ((imagePath.indexOf("spanish_available")) > -1) 
+        {
+        //T300018306 BackLog Defect Fixes- Starts
+        	var hrefVal=parent.manual_frame.location.href;
+			if(hrefVal.indexOf("html") != -1){
+				processSpanishLanguage(hrefVal);
+	        }
+	        else{
+	        	loadHtmlUl(hrefVal,'es');
+	        }
+        }
+    }
+     //T300018306 BackLog Defect Fixes- Ends
+    
+    function urlAppendMyPdr(urlAppend){
+    var modelYearSel = null;
+        	var pdrSel = null;
+        	//var urlAppend = "";
+        	urlAppend = "";
+        	if(parent.navigation_frame.document.getElementById("my")!= null && parent.navigation_frame.document.getElementById("my")!= "undefined"){
+        	modelYearSel= parent.navigation_frame.document.getElementById("my").value;
+        	urlAppend = '&modelYear=' + modelYearSel ;
+        	if(parent.navigation_frame.document.getElementById("pcd")!= null && parent.navigation_frame.document.getElementById("pcd")!= "undefined"){
+        	pdrSel =parent.navigation_frame.document.getElementById("pcd").value;
+        	var startDate=pdrSel.split("-");
+        		if(startDate!= null){
+        	var firstString = startDate[0];
+        	var secondString = null; 
+        	if(startDate.length>1){
+        	if(startDate[1].charCodeAt(0) != 160 && startDate[1].charCodeAt(0) != 32){
+	        	secondString = startDate[1];
+	        	var splitEndtDate = secondString.split("/");
+	        	if(splitEndtDate!= null && splitEndtDate.length==2){
+	        	secondString = splitEndtDate[1]+""+splitEndtDate[0];
+	        	}
+	        }
+        	}
+        	var splitStartDate = firstString.split("/");
+        	if(splitStartDate!= null && splitStartDate.length==2){
+        	var finalPdr = splitStartDate[1]+""+splitStartDate[0];
+			if(secondString != null){
+				finalPdr = finalPdr+"-"+secondString;
+			}else{
+				finalPdr = finalPdr+"-"+"      ";
+			}
+        	urlAppend = '&period=' + finalPdr;
+        	}
+        	}
+        	}
+        	urlAppend = urlAppend+'&modelYear=' + modelYearSel ;
+        	}
+        	return urlAppend;
+        	}
+        	
+        	function urlAppendForRate(){
+        	var urlAppend = "";
+		  		var modelYearSel = null;
+		       	var pdrSel = null;
+		       	//var urlAppend = "";
+		       	urlAppend = "";
+		       	if(parent.navigation_frame.document.getElementById("my")!= null && parent.navigation_frame.document.getElementById("my")!= "undefined"){
+		      	 	modelYearSel= parent.navigation_frame.document.getElementById("my").value;
+		       	
+		       	
+		     	  	if(parent.navigation_frame.document.getElementById("pcd")!= null && parent.navigation_frame.document.getElementById("pcd")!= "undefined"){
+		       	
+		      	 		pdrSel =parent.navigation_frame.document.getElementById("pcd").value;
+		      	 		
+		      	 		if(pdrSel!= null && (pdrSel.indexOf("PDR")==-1)){
+		      	 		pdrSel = checkSpecialChar(pdrSel);
+		      	 		var startDate=pdrSel.split("-");
+		      	 		var finalPdr = "";
+		      	 		if(startDate!= null){
+        					finalPdr = startDate[0];
+        					
+        					if(startDate.length>1){
+					        	if(startDate[1].charCodeAt(0) != 160 && startDate[1].charCodeAt(0) != 32){
+						        	finalPdr = finalPdr+"-"+startDate[1];
+						        }else{
+						        	finalPdr = finalPdr+"-";
+						        }
+						     }
+        				}
+		      	 		urlAppend = '&period=' + finalPdr;
+		      	 		}
+		       		}
+		       		urlAppend = urlAppend+'&modelYear=' + modelYearSel ;
+		       	
+		       	}
+		       	return urlAppend;
+        	}
+      
+ function addTofavorite(favoriteUrl) {
+
+        	 var pdrSel = null;
+        	var urlAppend = "";
+        	urlAppend = urlAppendMyPdr(urlAppend);
+        	
+            var home = document.getElementById('home').value;
+            
+            // Release 8.9.1 T300017537 Changes Start
+            favoriteUrl = favoriteUrl + '&t3id=' 
+                          + document.getElementById('t3Id').value + '&objType='                           
+                          + document.getElementById('objectType').value + '&publicationNumber='
+                          + document.getElementById('pubNo').value  + '&docTitle=' 
+                    	  + document.getElementById('docTitle').value +urlAppend ;
+					 
+            if (home && home != 'null')                
+                favoriteUrl = favoriteUrl + '&FAVORITE_FROM=RECENT';
+               	if(parent.opener && parent.opener != 'null') {
+               		//if (home && home != 'null')
+               			//{
+               			//	parent.opener.location.href=favoriteUrl;
+               			//}
+               		//else
+               			//{
+            	 //asm portal development changes- UC 1009 start
+            	//parent.opener.location.href=favoriteUrl;
+            	favoriteUrl='../../../portlets/tis/document/myFavorite/addFavoriteDocument.do?t3id=' 
+                    + document.getElementById('t3Id').value + '&docTitle=' 
+                    + document.getElementById('docTitle').value + '&objType='                           
+                    + document.getElementById('objectType').value + '&publicationNumber='
+                    + document.getElementById('pubNo').value 
+                    
+                    +'&language=en'
+                    + '&FAVORITE_FROM=RECENT'
+                   +urlAppend ;
+                
+            	new AJAXRequest("POST", favoriteUrl, "bogusData", true, 'handleFavResponse');
+            	 //asm portal development changes- UC 1009 end
+               			//}
+            } else {
+                favoriteUrl = '../../../portlets/tis/document/myFavorite/begin.do?request=ewdApp&t3id=' 
+                              + document.getElementById('t3Id').value +'&docTitle=' 
+                    		  + document.getElementById('docTitle').value + '&objType='                           
+                              + document.getElementById('objectType').value + '&publicationNumber='
+                              + document.getElementById('pubNo').value + '&language=en'  
+                           +urlAppend ;
+                 new AJAXRequest("POST", favoriteUrl, "bogusData", true, 'handleFavResponse');
+            }
+	      // Release 8.9.1 T300017537 Changes End
+	      
+         
+  }
+  
+  function handleFavResponse(AJAX) {
+    if (AJAX.readyState == 4) {
+        if (AJAX.status == 200) {
+            alert('The document has been added to the Favorite list. Please click on the Home tab to view the document');
+        }
+    }
+  }
+  	function changeLangDocTitle(){
+  	  var docTitle = "null";
+	  	return docTitle;
+  	}
+  	
+  
+  
+  // when the language switch takes place, process the request
+    function processEnglishLanguage(_keys) {
+   
+    var loc = 'en';
+  	var docTitle = changeLangDocTitle();
+  	var hrefVal=_keys;
+     
+  	var home = parent.control_frame.document.getElementById('home').value;
+  	//R 9.2.1 - T300018170 - Start
+  	var treeView = document.getElementById("treeView").value;
+  	//R 9.2.1 - T300018170 - End
+  	var docType = 'rm';
+  	parent.control_frame.document.getElementById('objectType').value = docType;
+  	
+	//T300018306 BackLog Defect Fixes- Starts	
+  	if(hrefVal.indexOf("xhtml") != -1){
+		parent.control_frame.document.getElementById("isExpandedOnLoad").value = "true";
+		//hrefVal = hrefVal.substring(hrefVal.indexOf("xhtml"),hrefVal.indexOf("?"));
+		if(hrefVal.indexOf("?")==-1)
+		hrefVal = "xhtml"+ hrefVal.split("xhtml")[1];
+		else
+		hrefVal = hrefVal.substring(hrefVal.indexOf("xhtml"),hrefVal.indexOf("?"));
+	}
+	 //T300018306 BackLog Defect Fixes- Ends
+		var modelYear ='';
+		var pcd='';
+		if(parent.navigation_frame.document.getElementById('my')){
+			modelYear  = parent.navigation_frame.document.getElementById('my').value;
+		}
+		if(parent.navigation_frame.document.getElementById('pcd')){
+			pcd = parent.navigation_frame.document.getElementById('pcd').value;
+		}
+		var modParam = '';
+		if(home == "favorites"){
+			modParam = "&modelYear=" + modelYear;
+		}else{
+			modParam = "&modelyear=" + modelYear;
+		}
+    // alert("Directory Name"+dirname);
+       
+            //R6.4 Defect:T300010359- Replace the parent.parent by parent for the objectType, docId, pubNo, t3Id, home, user in the var link. 
+            var link = "./Scion_FR-S_2013_rm_index.html?dir="+"rm/RM20S0U" +"&href="+hrefVal + "&locale=" + "en"
+                + "&objType=" + parent.control_frame.document.getElementById('objectType').value               
+                + "&docid=" + parent.control_frame.document.getElementById('docId').value
+                + "&publicationNumber=" + parent.control_frame.document.getElementById('pubNo').value
+                + "&docTitle=" + docTitle
+                + "&t3id=" + parent.control_frame.document.getElementById('t3Id').value
+                + "&home=" + home
+                + "&User=" + parent.control_frame.document.getElementById('user').value
+                +  modParam
+                + "&pcd=" + pcd
+                + "&langChanged=true"
+                + "&treeView=" + treeView
+		  + "&openSource="+"null"+"&random="+Math.random();	//R 9.2.1 - T300018170 & Rel 16.01 - Siviewer Defect fixes
+            parent.location.href = link;
+      //  }
+    }
+    function processFrenchLanguage(_keys) {
+    var loc = 'en';
+    var docTitle = changeLangDocTitle();
+    //var hrefVal = parent.manual_frame.location.href;
+    var hrefVal=_keys;
+    var home = parent.control_frame.document.getElementById('home').value;
+  	//R 9.2.1 - T300018170 - Start
+    var treeView = document.getElementById("treeView").value;
+  	//R 9.2.1 - T300018170 - End
+  	
+  		var docType = 'rm';
+  	parent.control_frame.document.getElementById('objectType').value = docType;
+  //T300018306 BackLog Defect Fixes- Starts
+  	if(hrefVal.indexOf("xhtml") != -1){
+		parent.control_frame.document.getElementById("isExpandedOnLoad").value = "true";
+		if(hrefVal.indexOf("?")==-1)
+		hrefVal = "xhtml"+ hrefVal.split("xhtml")[1];
+		else
+		hrefVal = hrefVal.substring(hrefVal.indexOf("xhtml"),hrefVal.indexOf("?"));
+	}
+	//T300018306 BackLog Defect Fixes- Ends
+	var modelYear ='';
+	var pcd='';
+	if(parent.navigation_frame.document.getElementById('my')){
+		modelYear  = parent.navigation_frame.document.getElementById('my').value;
+	}
+	if(parent.navigation_frame.document.getElementById('pcd')){
+		pcd = parent.navigation_frame.document.getElementById('pcd').value;
+	}
+	var modParam = '';
+	if(home == "favorites"){
+		modParam = "&modelYear=" + modelYear;
+	}else{
+		modParam = "&modelyear=" + modelYear;
+	}
+       
+            //R6.4 Defect:T300010359- Replace the parent.parent by parent for the objectType, docId, pubNo, t3Id, home, user in the var link. 
+            var link = "./Scion_FR-S_2013_rm_index.html?dir="+"rm/RM20S0U" +"&href="+hrefVal + "&locale=" + "fr"
+                + "&objType=" + parent.control_frame.document.getElementById('objectType').value               
+                + "&docid=" + parent.control_frame.document.getElementById('docId').value
+                + "&publicationNumber=" + parent.control_frame.document.getElementById('pubNo').value
+                + "&docTitle=" + docTitle
+                + "&t3id=" + parent.control_frame.document.getElementById('t3Id').value
+                + "&home=" + home
+                + "&User=" + parent.control_frame.document.getElementById('user').value
+                +  modParam //"&modelYear=" + modelYear changed for 
+                + "&pcd=" + pcd
+                + "&langChanged=true"
+                + "&treeView=" + treeView
+		  + "&openSource="+"null"+"&random="+Math.random();	//R 9.2.1 - T300018170 & Rel 16.01 - Siviewer Defect fixes
+            parent.location.href = link;
+      //  }
+    }
+    function processSpanishLanguage(_keys) {
+    var loc = 'en';
+    var docTitle = changeLangDocTitle();
+    //var hrefVal = parent.manual_frame.location.href;
+    var home = parent.control_frame.document.getElementById('home').value;
+    //var hrefVal=parent.manual_frame.location.href;
+     var hrefVal=_keys;
+  	//R 9.2.1 - T300018170 - Start
+    var treeView = document.getElementById("treeView").value;
+  	//R 9.2.1 - T300018170 - End
+  	
+  	var docType = 'rm';
+  	parent.control_frame.document.getElementById('objectType').value = docType;
+  	//T300018306 BackLog Defect Fixes- Starts
+  	if(hrefVal.indexOf("xhtml") != -1){
+		parent.control_frame.document.getElementById("isExpandedOnLoad").value = "true";
+		
+		if(hrefVal.indexOf("?")==-1)
+		hrefVal = "xhtml"+ hrefVal.split("xhtml")[1];
+		else
+		hrefVal = hrefVal.substring(hrefVal.indexOf("xhtml"),hrefVal.indexOf("?"));
+	}
+	//T300018306 BackLog Defect Fixes- Ends
+	var modelYear ='';
+	var pcd='';
+	if(parent.navigation_frame.document.getElementById('my')){
+		modelYear  = parent.navigation_frame.document.getElementById('my').value;
+	}
+	if(parent.navigation_frame.document.getElementById('pcd')){
+		pcd = parent.navigation_frame.document.getElementById('pcd').value;
+	}
+	var modParam = '';
+	if(home == "favorites"){
+		modParam = "&modelYear=" + modelYear;
+	}else{
+		modParam = "&modelyear=" + modelYear;
+	}
+       
+            //R6.4 Defect:T300010359- Replace the parent.parent by parent for the objectType, docId, pubNo, t3Id, home, user in the var link. 
+            var link = "./Scion_FR-S_2013_rm_index.html?dir="+"rm/RM20S0U" +"&href="+hrefVal + "&locale=" + "es"
+                + "&objType=" + parent.control_frame.document.getElementById('objectType').value               
+                + "&docid=" + parent.control_frame.document.getElementById('docId').value
+                + "&publicationNumber=" + parent.control_frame.document.getElementById('pubNo').value
+                + "&docTitle=" + docTitle
+                + "&t3id=" + parent.control_frame.document.getElementById('t3Id').value
+                + "&home=" + home
+                + "&User=" + parent.control_frame.document.getElementById('user').value
+                + modParam
+                + "&pcd=" + pcd
+                + "&langChanged=true"
+                + "&treeView=" + treeView
+		  + "&openSource="+"null"+"&random="+Math.random();	//R 9.2.1 - T300018170 & Rel 16.01 - Siviewer Defect fixes
+            parent.location.href = link;
+      //  }
+    }
+           
+  function constructDocTitle(){
+  	 var docTitle;
+	 // var docTitle ;
+	
+  	  if(parent.navigation_frame.document.getElementById("my")!= null && parent.navigation_frame.document.getElementById("my")!= "undefined"){
+  		docTitle = ' MY: '+parent.navigation_frame.document.getElementById("my").value;
+  		if(parent.navigation_frame.document.getElementById("pcd")!= null && parent.navigation_frame.document.getElementById("pcd")!= "undefined" && parent.navigation_frame.document.getElementById("pcd").value!="PDR"){
+			docTitle = docTitle  +' PDR: ['+parent.navigation_frame.document.getElementById("pcd").value+']';
+ 	 	}else{
+  			docTitle = docTitle  +' PDR: '+'Not Selected';
+  		}
+  
+  	}
+  	if(docTitle == "undefined" || typeof docTitle == 'undefined'){
+  		docTitle = "";
+  	}
+  	return docTitle;
+  }    
+           
+    function popWindow(urlVal,windowName,widthVal,heightVal,scrollBars,menuBar,reSizeable,toolBar) {
+    var paraString
+    var wt
+    var ht
+
+    // Bug fix: we are now blanking the windowName variable
+    windowName == "";
+
+    wt = widthVal;
+    ht = heightVal;
+
+    var winl = (screen.width - wt) / 2;
+    var wint = (screen.height - ht) / 2;
+        
+    paraString = "width=" + wt + ",height=" + ht + ",top=" + wint + ",left="+ winl +",toolbar=yes";
+    if (scrollBars == 1) {
+        paraString = paraString + ",scrollbars=yes";
+    } else {
+        paraString = paraString + ",scrollbars=no";
+    }
+    if (menuBar == 1) {
+        paraString = paraString + ",menubar=yes";
+    }
+    if (reSizeable == 1) {
+        paraString = paraString + ",resizable=yes";
+    }
+    if (toolBar == 1) {
+        paraString = paraString + ",toolBar=yes";
+    } else {
+        paraString = paraString + ",toolBar=no";
+    }
+//alert(urlVal+windowName);
+    poppedWindow = window.open(urlVal,windowName,paraString);
+
+    poppedWindow.focus();
+    
+}
+       
+    
+    var styleChoice = 'standardView';
+    var standardFile = '/t3Portal/stylesheets/repair_procedure.css';
+    var SEARCH_KEYWORD_MISSING = 'Please enter search keyword and retry.';
+    var SEARCH_KEYWORD_NOTFOUND = 'not found.  Reached end of document';
+
+    
+    function initializeSI() {
+        try{
+             // Add breadcrumb
+            if(parent.manual_frame.frameElement){
+            	var manFrameSrc = parent.manual_frame.frameElement.src;
+            	var hrefInfo = 'null';
+	            if(hrefInfo.indexOf("xhtml") != -1 || (manFrameSrc.indexOf("nilDocument.html") == -1 && manFrameSrc.indexOf("body.html") == -1 && manFrameSrc.indexOf("selectPcd.html") == -1)){
+	            	hrefLoc = "/t3Portal/document/rm/RM20S0U/null?locale=en";
+	            }else{
+	            	hrefLoc = "/t3Portal/document/rm/RM20S0U/null?locale=en";
+	            }
+            }else{
+            	hrefLoc = "/t3Portal/document/rm/RM20S0U/null?locale=en";
+            }
+            AddBCItem(hrefLoc,null,null);
+	    //Release 9.0.1 T300017537 starts
+            document.getElementById("si_back").style.display = "none";
+            document.getElementById("si_forw").style.display = "none";
+	    //Release 9.0.1 T300017537 ends
+	    //Release 9.2.1 T300018170 - Start
+	    var treeView = 'null';
+	    if(treeView != null && "" != treeView) {
+		    if("max" == treeView)
+		    	maxTOC();
+		    else if("hide" == treeView)
+		    	hideTOC();
+		    else
+		    	showTOC();
+	    }
+	    //Release 9.2.1 T300018170 - End
+	    
+	 //R9.3.1 T300018207 start
+     var isUniXml=false;
+      
+     if(isUniXml)
+     {
+     loadYearData();     
+     disableLangButtons(false);
+     }
+  //R9.3.1 T300018207 end
+            
+        } catch(e){}
+    }
+    
+  // R 9.3.1 T300018207 start
+  function loadYearData()
+  {
+                   
+  }  
+  function disableLangButtons()
+  {
+       var locale='en';
+       if(locale=='en')
+       {
+       
+       disableLocale('en','es','fr');
+        
+       }
+      
+       if(locale=='es')
+       {
+         disableLocale('es','en','fr');
+       }
+       
+      if(locale=='fr')
+       {
+         disableLocale('fr','en','es');
+       }
+  }
+  
+  function disableLocale(locale,locale1,locale2)
+    {
+   
+      var locale1_disable=false;
+      var locale2_disable=false;
+      var currentyears='';
+      var localeYears1;
+      var localeYears2;
+      var modelyear=null;
+        var max_year;
+      currentyears=document.getElementById(locale+'_year').value;
+     if(modelyear=='null'||modelyear==null)
+     {
+      if(currentyears!='')
+      {
+      max_year=currentyears.substring(0,4);
+      }
+     }
+     else
+     {
+     max_year=modelyear;
+     }
+    
+     localeYears1=document.getElementById(locale1+'_year').value;
+     localeYears2=document.getElementById(locale2+'_year').value;  
+    
+      if(localeYears1==null)
+      {
+       locale1_disable=true;
+      }
+      else if(localeYears1!=null && localeYears1.indexOf(max_year)==-1)
+      {
+      locale1_disable=true;
+      }
+      
+      if(localeYears2==null)
+      {
+       locale2_disable=true;
+      }
+      else if(localeYears2!=null && localeYears2.indexOf(max_year)==-1)
+      {
+       locale2_disable=true;
+      }
+      
+      if(locale1_disable)
+      {
+    	  var imgpath=document.getElementById("en").src;
+    	  var modifedPath=imgpath.substring(0,imgpath.lastIndexOf("/")+1);
+    	  document.getElementById(locale1).src=modifedPath+locale1+'_unavailable.png';
+    	  document.getElementById(locale1).style.cursor = "auto";
+
+      }
+      if(locale2_disable)
+      {
+      var imgpath=document.getElementById("en").src;
+      var modifedPath=imgpath.substring(0,imgpath.lastIndexOf("/")+1);
+      document.getElementById(locale2).src=modifedPath+locale2+'_unavailable.png';
+      document.getElementById(locale2).style.cursor = "auto";
+
+      }
+
+}
+// R 9.3.1 T300018207 end 
+     
+    //-->
+    </script>
+    <script src="Scion_FR-S_2013_rm_nav_data/siviewermenu.js" type="text/javascript">
+    /***********************************************
+    * Style Sheet Switcher v1.0-  Dynamic Drive DHTML code library (www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    ***********************************************/
+    </script>
+    
+    <link href="Scion_FR-S_2013_rm_top_menu_data/all-t3.css" rel="stylesheet" type="text/css">
+    </head>
+    <body onload="initializeSI(); parent.manual_frame.focus();" id="bodyMargin">    
+        <form id="ctrlPanel">
+        	<input type="hidden" id="changeFilter" value="">
+            <input type="hidden" name="objectType" id="objectType" value="rm">
+            <input type="hidden" name="isExpanded" id="isExpanded">
+            <input type="hidden" name="isTreeExpandedOnLoad" id="isTreeExpandedOnLoad">
+            <input type="hidden" name="isTreeExpanded" id="isTreeExpanded">
+            <input type="hidden" name="isExpandedOnLoad" id="isExpandedOnLoad">
+            <input type="hidden" name="manFrameHref" id="manFrameHref">
+            <input type="hidden" name="docTitle" id="docTitle" value="null">          
+            <input type="hidden" name="pubNo" id="pubNo" value="RM20S0U">
+            <input type="hidden" name="t3Id" id="t3Id" value="null">
+            <input type="hidden" name="docId" id="docId" value="null">
+            <input type="hidden" name="user" id="user" value="false">
+            <input type="hidden" name="home" id="home" value="null">
+            <input type="hidden" name="docToYear" id="docToYear" value="0-0">
+	      
+           <input type="hidden" name="modelYear" id="home" value="null">
+             <input type="hidden" name="period" id="home" value="null">               
+             
+             <!-- Release 9.2.1 T300018170 Changes Start -->
+             <input type="hidden" name="treeView" id="treeView" value="default">
+             <input type="hidden" name="pathVal" id="pathVal">
+             <input type="hidden" name="hrefValue" id="hrefValue">
+             <!-- Release 9.2.1 T300018170 Changes End -->
+             <!--  R 9.3.1 T300018207 start-->
+             <input type="hidden" name="en_year" id="en_year" value="2013">
+             <input type="hidden" name="es_year" id="es_year" value="">
+             <input type="hidden" name="fr_year" id="fr_year" value="2013">
+             <input type="hidden" name="locale" id="locale" value="en">
+             <!--  R 9.3.1 T300018207 start-->
+            <div class="bea-portal-body">
+          
+ 
+            <table id="mainTable" style="width:100%; height: 30px; background:url('../../../resources/images/globals/header/headerbar.bg.blu.gif') repeat 50% 50%;" cellspacing="0" cellpadding="0" border="0">
+                    <tbody><tr>
+                    
+
+				<td style="vertical-align:top; padding-top: 3px;"><span style="padding: 3px; border: solid 1px black; background-color: #eeeeee; font-size: 10pt !important;"><a href="https://gt86stuff.onrender.com/t3Portal/index.html" target="_top">Return&nbsp;to&nbsp;Main&nbsp;Page</a></span></td>
+
+                                   
+              <td id="backfor" style="vertical-align:top; width:75px; white-space:nowrap; padding-left:5px;padding-right:10px">
+                     <div style="white-space:nowrap;width:75px;">
+                    <span style="float:left;cursor:pointer;"><img id="si_back" class="align-left" alt="Backward" src="Scion_FR-S_2013_rm_top_menu_data/back.jpg" title="Back" onclick="javascript:goBack()" onmousedown="this.src = 'img/back_click.png'" onmouseup="this.src = '../../../ewdappu/images/back.jpg'" style="display: none;" border="0"></span>
+                    <span style="float:right;cursor:pointer;"><img id="si_forw" class="align-right" alt="Forward" src="Scion_FR-S_2013_rm_top_menu_data/forward.jpg" title="Forward" onclick="javascript:goForward()" onmousedown="this.src = 'img/forward_click.png'" onmouseup="this.src = '../../../ewdappu/images/forward.jpg'" style="display: none;" border="0"></span>
+                     </div>
+                    </td>                 
+                                   
+<td class="language-buttons">
+<div style="width:200px;white-space:nowrap;">
+
+<img src="Scion_FR-S_2013_rm_top_menu_data/english_selected.png" id="en" alt="" onclick="changeEnglishImage();" style="cursor: pointer;">
+
+<img src="Scion_FR-S_2013_rm_top_menu_data/french_available.png" id="fr" alt="" onclick="changeFrenchImage();" style="cursor: pointer;">
+
+<img src="Scion_FR-S_2013_rm_top_menu_data/spanish_unavailable.png" id="es" alt="" onclick="changeSpanishImage();">
+
+</div>
+</td> 
+<td style="width:83px;"></td>
+<td style="width:400px;"><div name="warningDiv" id="warningDiv" style="display:none;text-decoration : none;color:white;font-weight:bold;font-family:Verdana,sans-serif;font-size:8pt;"></div></td> <!--  T300019163 - Changes -->
+
+
+
+                                   
+                                   <input type="hidden" id="keyWordValue">
+                                   <input type="hidden" id="txtRange">
+                                   <td style="width:83px;"></td>
+                                    
+                                   <td id="findInputTD" style="vertical-align:middle; white-space:nowrap;">
+									<span id="findInput" class="nsearch">
+                                                 <input type="text" name="kword" id="searchkword" onkeyup="clearSerachFun('searchkword');" onkeypress="checkForEnter(event, 'searchkword');" class="searchIP">
+                                          <span id="displaySearchResults" class="hide">
+                                     	                   <a href="javascript:findprev('searchkword');"><span>
+                                                        <img src="Scion_FR-S_2013_rm_top_menu_data/leftArrow.gif" class="LeftIcon" border="0"></span></a>
+                                                        <!-- input type="text" class="LeftNum" readonly="readonly" id="currentSearchId" size="1"-->
+                                                              <span id="currentSearchId" class="LeftNum"></span>
+                                                               <span class="ntext">&nbsp;of&nbsp;</span> 
+                                                             
+                                                               <span id="totalSearchCountId" class=""></span>
+                                                               
+                                                               <!-- input type="text" readonly="readonly"
+                                                               id="totalSearchCountId" 	size="1" onchange="Expand(this);"--> <a href="javascript:findNext('searchkword');"><span><img src="Scion_FR-S_2013_rm_top_menu_data/rightArrow.gif" class="RightIcon" border="0"></span></a>
+                                          </span>
+                          <a href="#" onclick="SearchWordOnClick('searchkword');"><img id="srch" class="searchIcon" title="Search" src="Scion_FR-S_2013_rm_top_menu_data/search.gif" border="0"></a>
+                                            
+                                          </span> 
+
+                                   </td>
+                                   <td>&nbsp;</td>
+                                   
+
+                                   <td class="icons" style="height:22px; text-align:right; white-space:nowrap !important; vertical-align:bottom;">
+                                   <div style="width:110px !important; float:right; text-align:right;">
+                    
+                     <a href="javascript:print_manual();">        
+                        <img src="Scion_FR-S_2013_rm_top_menu_data/print.jpg" style="vertical-align:middle;" title="Print" border="0">
+                        </a>
+                         
+			 
+                    
+                    
+                    
+                        
+                        
+                         
+                        
+                        
+                         
+                        <!--<a href="javascript:addTofavorite('https://techinfo.toyota.com:443/t3Portal/appmanager/t3/ti?_nfpb=true&_pageLabel=t3_home&docid=null&language=en&myFavoriteDocumentsPortlet_actionOverride=%2Fportlets%2Ftis%2Fdocument%2FmyFavorite%2FaddFavoriteDocument')">        
+                        <img src="../../../resources/images/utils/add.favorites.gif" style="vertical-align:middle;" border="0" title="Add To Favorites"/>
+                        </a>--><!--Removed By Ripper-->
+                        
+                        
+                     	
+                        <!--<a href="javascript:popWindow('https://techinfo.toyota.com:443/t3Portal/portlets/tis/document/contentScoring/contentScore.portlet?_portlet.title=Rate+this+Document&_portlet.sskeleton=details&_portlet.skeletonPath=%252Fframework%252Fskeletons%252Ft3&_portlet.skin=details&_portlet.skinPath=%252Fframework%252Fskins%252Ft3&language=en&docid=null&objType='
+                          + document.getElementById('objectType').value +'&t3id=' 
+                          + document.getElementById('t3Id').value + '&docTitle=' 
+                          + document.getElementById('docTitle').value + '&selectedPCD=' 
+                          + constructDocTitle() + '&publicationNumber='
+                          + document.getElementById('pubNo').value+urlAppendForRate()+'&siViewer='+true,'docScorer',640,480,1,1,1)">
+                    
+                        <img src="../../../resources/images/utils/document.rating.gif" style="vertical-align:middle;" border="0" title="Rate This Document"/>
+                        </a>--><!--Removed By Ripper-->
+                       
+                        
+                          <!--<a href="javascript:popWindow('https://techinfo.toyota.com:443/t3Portal/portlets/tis/feedback/contentCorrection/ContentCorrectionFeedbackController.portlet?_portlet.title=Content+Correction+Feedback&_portlet.skeleton=details&_portlet.skeletonPath=%252Fframework%252Fskeletons%252Ft3&_portlet.skin=details&_portlet.skinPath=%252Fframework%252Fskins%252Ft3&language=en&docid=null&t3id=' 
+                          + document.getElementById('t3Id').value + '&selectedPCD=' 
+                          + constructDocTitle() +'&docTitle=' 
+                          + document.getElementById('docTitle').value + '&objType='
+                          + document.getElementById('objectType').value + '&publicationNumber='
+                          + document.getElementById('pubNo').value+urlAppendForRate()+'&siViewer='+true,'docScorer',640,480,1,1,1)"><img src="../../../resources/images/utils/content.correction.gif" align="middle" border="0" title="Submit Correction"/></a>--><!--Removed By Ripper-->
+                    
+                    </div></td>
+					
+					
+                                
+            </tr></tbody></table>
+            
+            <!-- SIViewer -->
+            
+	    <!--  table border="1" cellpadding="0" cellspacing="0"  width="100%" class="" background= "../../../resources/images/globals/header/headerbar.bg.blu.gif">
+		<tr>
+		<td style="vertical-align:top;"-->
+		
+		<div style="background-image:url('../../../resources/images/globals/header/headerbar.bg.blu.gif');">
+			<span id="close" style="display: inline;"><a href="javascript:hideTOC();" style="text-decoration : none;color:white;font-weight:bold;font-family:Verdana,sans-serif;font-size:8pt; ">Hide Tree</a></span>
+			<span id="hideSlash" style="display: inline;"> <label style="color: white;font-weight:bold;">/</label></span>
+			<span id="max" style="display: inline;"><a href="javascript:maxTOC();" style="text-decoration : none;color:white;font-weight:bold;font-family:Verdana,sans-serif;font-size:8pt; ">Max Tree</a></span>
+			<span id="maxSlash" style="display:none ; "> <label style="color: white;font-weight:bold; ">/</label></span>
+			<span id="min" style="display:none ; "><a href="javascript:showTOC();" style="text-decoration : none;font-weight:bold;color:white;font:bold;font-family:Verdana,sans-serif;font-size:8pt;">Default Tree</a></span>
+			<span id="minDisabledTreeId" class="disabled" style="display:none ; text-decoration : none;font-weight:bold;font:bold;font-family:Verdana,sans-serif;font-size:8pt;" "="">Default Tree</span>
+			<span id="lastMaxSlash" style="display:none ; "> <label style="color: white;font-weight:bold;">/</label></span>
+			<span id="lastMaxSlashDisabled" style="display:none ; " class="disabled"> <label style="font-weight:bold;">/</label> </span>
+			<span id="lastMax" style="display:none ;"><a href="javascript:maxTOC();" style="text-decoration : none;font-weight:bold;color:white;font:bold;font-family:Verdana,sans-serif;font-size:8pt; ">Max Tree</a></span>
+			<span id="lastMaxDisabledTreeId" class="disabled" style="display:none ;text-decoration : none;font-weight:bold;font:bold;font-family:Verdana,sans-serif;font-size:8pt;" "="">Max Tree</span>
+			</div>
+			
+		<!-- /td>
+	 	</tr>
+		</table-->
+            </div>
+        </form>
+        <script type="text/javascript">
+        
+            parent.manual_frame.focus();
+           //R 9.3.1 T300018207 start
+           if(document.getElementById("en_year")!='undefined')
+           {
+           document.getElementById("en_year").value='2013';
+           }
+           if(document.getElementById("es_year")!='undefined')
+           {
+           document.getElementById("es_year").value='';
+           }
+           if(document.getElementById("fr_year")!='undefined')
+           {
+           document.getElementById("fr_year").value='2013';
+           }
+           //R 9.3.1 T300018207 end 
+        	var home = parent.control_frame.document.getElementById('home').value;
+    		var en_avail='';
+    		var fr_avail='';
+    		var es_avail='disabled';
+    		var locale = 'en';
+    		var isLangChange = 'null';
+    		var personLanguage='en';
+    		// T300019163 - Changes starts
+    		var updatedLang = 'en';
+    		var updatedEnSpanish = "Warning: This document in Spanish is most current";
+    		var updatedEnEnglish = "Warning: This document in English is most current";
+    		var updatedEnFrench = "Warning: This document in French is most current";
+    		
+    		var updatedEsSpanish = "Advertencia: Este documento en espa�ol es m�s reciente";
+    		var updatedEsEnglish = "Advertencia: Este documento en Ingl�s es m�s reciente";
+    		var updatedEsFrench = "Advertencia: Este documento en franc�s es m�s reciente";
+    		
+    		var updatedFrSpanish = "Attention: Ce document en espagnol est le plus courant";
+    		var updatedFrEnglish = "Attention: Ce document en anglais est le plus courant";
+    		var updatedFrFrench = "Attention: Ce document en fran�ais est le plus courant";
+    		// T300019163 - Changes ends
+    		
+    		
+    		if(home == "favorites"){
+    			document.getElementById("en").src="../../../resources/images/language/"+locale+"/english_unavailable.png";
+    			document.getElementById("fr").src="../../../resources/images/language/"+locale+"/french_unavailable.png";
+    			document.getElementById("es").src="../../../resources/images/language/"+locale+"/spanish_unavailable.png";
+            }
+    		else {
+	    		if(personLanguage!=null && (isLangChange=="null" || isLangChange == null  )){  
+	    			document.getElementById("en").src="../../../resources/images/language/"+personLanguage+"/english_unavailable.png";
+	    			document.getElementById("fr").src="../../../resources/images/language/"+personLanguage+"/french_unavailable.png";
+	    			document.getElementById("es").src="../../../resources/images/language/"+personLanguage+"/spanish_unavailable.png";
+	    		}else{
+	    			document.getElementById("en").src="../../../resources/images/language/"+locale+"/english_unavailable.png";
+	    			document.getElementById("fr").src="../../../resources/images/language/"+locale+"/french_unavailable.png";
+	    			document.getElementById("es").src="../../../resources/images/language/"+locale+"/spanish_unavailable.png";
+	    		}
+	    	}
+	    	
+    		if(en_avail==''){
+    			var imagePath=document.getElementById("en").src;
+    			var modifedPath=imagePath.substring(0,imagePath.lastIndexOf("/")+1);
+    				if(locale=='en'){
+    					document.getElementById("en").src=modifedPath+"english_selected.png";
+    					document.getElementById("en").style.cursor = "pointer";
+    				}
+    				else{
+    					document.getElementById("en").src=modifedPath+"english_available.png";
+    					document.getElementById("en").style.cursor = "pointer";
+
+    				}
+    		}
+    		if(fr_avail==''){
+    			var imagePath=document.getElementById("fr").src;
+    			var modifedPath=imagePath.substring(0,imagePath.lastIndexOf("/")+1);
+    				if(locale=='fr'){
+    					document.getElementById("fr").src=modifedPath+"french_selected.png";
+    					document.getElementById("fr").style.cursor = "pointer";
+    				}
+    				else{
+    					document.getElementById("fr").src=modifedPath+"french_available.png";
+    					document.getElementById("fr").style.cursor = "pointer";
+    				}
+    		}
+    		if(es_avail==''){
+    			var imagePath=document.getElementById("es").src;
+    			var modifedPath=imagePath.substring(0,imagePath.lastIndexOf("/")+1);
+    				if(locale=='es'){
+    					document.getElementById("es").src=modifedPath+"spanish_selected.png";
+    					document.getElementById("es").style.cursor = "pointer";
+    				}
+    				else{
+    					document.getElementById("es").src=modifedPath+"spanish_available.png";
+    					document.getElementById("es").style.cursor = "pointer";
+    				}
+    		}
+
+    	    var keyword = 'null';
+    		if(keyword != "" && keyword != "null" && keyword != null){
+    			if(document.getElementById("searchkword")){
+    				parent.control_frame.document.getElementById("searchkword").value = keyword;
+    			}
+    		}
+    		// T300019163 - Changes starts
+    		var enSrc = document.getElementById("en").src;
+    		var esSrc = document.getElementById("es").src;
+    		var frSrc = document.getElementById("fr").src;
+    		
+    		 
+		   if(enSrc.indexOf("_selected.png") > -1){
+			  if(updatedLang.indexOf('en') == -1){
+					if(updatedLang.indexOf('es') > -1){
+						document.getElementById("warningDiv").innerHTML = updatedEnSpanish;
+						document.getElementById("warningDiv").style.display = "block";
+					}else if(updatedLang.indexOf('fr') > -1){
+						document.getElementById("warningDiv").innerHTML = updatedEnFrench;
+						document.getElementById("warningDiv").style.display = "block";
+					}else{
+						document.getElementById("warningDiv").innerHTML = "";
+						document.getElementById("warningDiv").style.display = "none";
+					}
+				}else{
+					document.getElementById("warningDiv").innerHTML = "";
+					document.getElementById("warningDiv").style.display = "none";
+				}
+		  
+		  }else if(esSrc.indexOf("_selected.png") > -1){
+		  	if(updatedLang.indexOf('es') == -1){
+				if(updatedLang.indexOf('en') > -1){
+					document.getElementById("warningDiv").innerHTML = "<span id='warningSpan'>"+updatedEsEnglish+"</span>";
+					document.getElementById("warningDiv").style.display = "block";
+				}else if(updatedLang.indexOf('fr') > -1){
+					document.getElementById("warningDiv").innerHTML = updatedEsFrench;
+					document.getElementById("warningDiv").style.display = "block";
+				}else{
+					document.getElementById("warningDiv").innerHTML = "";
+					document.getElementById("warningDiv").style.display = "none";
+				}
+			}else{
+				document.getElementById("warningDiv").innerHTML = "";
+				document.getElementById("warningDiv").style.display = "none";
+			}
+		  }else if(frSrc.indexOf("_selected.png") > -1){
+			  if(updatedLang.indexOf('fr') == -1){
+					if(updatedLang.indexOf('en') > -1){
+						document.getElementById("warningDiv").innerHTML = updatedFrEnglish;
+						document.getElementById("warningDiv").style.display = "block";
+					}else if(updatedLang.indexOf('es') > -1){
+						document.getElementById("warningDiv").innerHTML = updatedFrSpanish;
+						document.getElementById("warningDiv").style.display = "block";
+					}else{
+						document.getElementById("warningDiv").innerHTML = "";
+						document.getElementById("warningDiv").style.display = "none";
+					}
+				}else{
+					document.getElementById("warningDiv").innerHTML = "";
+					document.getElementById("warningDiv").style.display = "none";
+				}
+		  }else{
+		  }
+    		// T300019163 - Changes ends
+    		</script>
+    
+</body></html>

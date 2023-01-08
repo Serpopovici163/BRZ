@@ -1,0 +1,70 @@
+<resources>
+    <!-- miscellaneous -->
+    <string name="app_name">BRZ V2</string>
+
+    <!-- defense fragment countermeasure states -->
+    <string name="offline_caps">OFFLINE</string>
+    <string name="error_caps">ERROR</string>
+    <string name="clear_caps">CLEAR</string>
+    <string name="warn_caps">WARNING</string>
+    <string name="alert_caps">DETECTED</string>
+    <string name="radar">RADAR: </string>
+    <string name="lidar">LIDAR: </string>
+    <string name="transponder">TRNSPDR: </string>
+    <string name="cell_sniffer">CELL_SNIFF: </string>
+
+    <!-- defense fragment other strings -->
+    <string name="cell_sniffer_title">Nearby cellular devices:</string>
+    <string name="transponder_title">Nearby transponders:</string>
+    <string name="no_aircraft">No nearby aircraft.</string>
+    <string name="no_cell_devices">No cellular devices detected.</string>
+    <string name="fast_police_title">Fast police cycle</string>
+    <string name="slow_police_title">Slow police cycle</string>
+    <string name="fast_hazard_title">Fast hazard cycle</string>
+    <string name="slow_hazard_title">Slow hazard cycle</string>
+
+    <!-- soundboard fragment -->
+    <string name="no_sound_selected">No sound selected.</string>
+    <string name="sound_title">Selected sound:</string>
+
+    <!-- diagnostic fragment -->
+    <string name="primary_systems_title">Critical Systems</string>
+    <string name="secondary_systems_title">Auxiliary Systems</string>
+    <string name="engine">ENGINE</string>
+    <string name="stability">STABILITY</string>
+    <string name="fuel">FUEL</string>
+    <string name="maintenance">MAINTENANCE</string>
+    <string name="power">POWER</string>
+    <string name="network">NETWORK</string>
+    <string name="serial">SERIAL</string>
+    <string name="vision">VISION</string>
+    <string name="sensor">SENSOR</string>
+    <string name="defence">DEFENCE</string>
+    <string name="compute">COMPUTE</string>
+    <string name="vehicle">VEHICLE</string>
+    <string name="safety">SAFETY</string>
+    <string name="diagnostic_message_blank">Please select a subsystem to view its status.</string>
+
+    <!-- light fragment -->
+    <string name="light_status_caption">Light status :</string>
+    <string name="underlight_section_title">Under-lighting Settings</string>
+    <string name="underlight_button">Solid colour</string>
+    <string name="pattern_button_1">Pattern 1</string>
+    <string name="pattern_button_2">Pattern 2</string>
+    <string name="pattern_button_3">Pattern 3</string>
+    <string name="pattern_button_4">Pattern 4</string>
+    <string name="interior_section_title">Interior Settings</string>
+    <string name="primary_interior_button">Primary colour</string>
+    <string name="secondary_interior_button">Secondary colour</string>
+    <string name="color_picker_title">Colour picker</string>
+    <string name="light_status_title">Light status</string>
+
+    <!-- settings fragment -->
+    <string name="settings_placeholder">Please select a subsystem to begin.</string>
+    <string name="distance_placeholder_string">0m</string>
+
+    <!-- miscellaneous -->
+    <string name="meter_unit">m</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

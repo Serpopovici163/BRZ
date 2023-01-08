@@ -1,0 +1,39 @@
+96mm of internal vertical clearance
+RPi heat sink has 9.1mm of clearance (might need more, adjust Vertical extension feature of midHolder to change)
+--> could also change Screwhole links sketch to provide more room above RPi CPU (should easily get an extra 5mm)
+
+Audio layer:
+Clearance relative to side holes: 33mm to front cutoff (allows room for display holder) and 82mm to backplane position (literally to rear edge of metal casing)
+Side hole spacing: 174mm
+Consider vertical clearance to logic assy as 8mm down from side hole height
+Consider amp PCBs as 15mm tall (85x62 screwhole pattern)
+Vertical distance between bottom screwholes and side holes is 48-3.5=44.5mm (dist from bottom to side holes - height of bottom screwhole standoff)
+Shortest horizontal distance from frontmost screwhole to side hole is 75mm (76mm - (2mm-1mm))
+Distance from same screwhole to side of RPiAndDriverHolder is 68.5mm therefore dist from that side to sidehole is 75-68.5=6.5mm (but 7.5mm looks better)
+
+To figure out:
+Bluetooth media audio (VIM4 I think)
+
+Car shopping list:
+USB soundcard or equivalent with surround capabilities --> check linux driver compatibility
+--------------> Use two HS-100B based 2.1ch USB cards (need to add USB hub to top level because of this)
+Extensions for SMA and RP-SMA of cellular rounter (not really needed, nvm)
+Extensions for USB3/ETH in head unit
+Extensions for mic/line out for sub
+HDMI extension for center console and dashboard displays
+
+RPi 4 handles:
+GUI for media display and center console
+CANBUS interaction for simple toggles?
+Navigation
+
+VIM4 handles:
+Camera recording
+Camera streaming
+Media playback
+Alert sounds
+Audio mixing (surround)
+Computer vision
+CANBUS streaming
+Dashboard display
+Diagnostics

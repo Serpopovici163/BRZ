@@ -1,0 +1,18 @@
+Center console
+-App launcher for media display
+-Diagnostic screen
+-In depth diagnostic UI (clear and read codes, detailed messages)
+-Heated seat and sport/traction buttons
+-Soundboard screen
+-Underlighting and interior lighting controls
+-Legal mode button (probably multitouch to prevent accidental input and hides in legal mode)
+
+Media display
+-Navigation
+-Media controls
+-Countermeasure controls (Steering wheel based)
+-Safety fragment (thermal and surround cams as well as diagram of car and nearest obstacles)
+-Merging fragment (opens when signaling, shows respective side view ahead and behind vehicle)
+-Reverse camera (only opens on reverse)
+-Siren and strobe controls
+-In depth diagnostic fragment? Probable not needed I'll stick with brief breakdown on media display and keep in depth to center console
