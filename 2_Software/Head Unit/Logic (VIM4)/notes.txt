@@ -1,0 +1,3 @@
+pybluez headers: https://stackoverflow.com/questions/23436909/where-is-the-bluetooth-bluetooth-h-located-in-linux
+
+Beyond Logic adding CAN to RPi

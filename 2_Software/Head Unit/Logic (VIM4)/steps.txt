@@ -1,0 +1,8 @@
+INSTALL DEPENDENCIES
+
+ --> PYBLUEZ
+sudo apt-get install libbluetooth-dev python3-dev
+git clone https://github.com/pybluez/pybluez.git
+cd pybluez
+sudo python3 setup.py install
+

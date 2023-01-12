@@ -1,0 +1,30 @@
+Schematic notes:
+
+MOSFET_V2 includes redundant MOSFETs with summed DIAG output (5V assuming V_BATT = 12V)
+--> One MOSFET outputs 4V and the other 1V (12V/Rx where x is the resistor corresponding to MOSFET in question)
+--> Circuitry based on summing op-amp from Wikipedia
+
+MOSFETs_V2 includes an array of MOSFET_V2 sheets with op amps to generate an analog output based on DIAG output
+--> output of op-amp component is 3.3V assuming V_BATT = 12V to accomodate for higher than normal voltages 
+
+Channel list:
+
+MOSFET Channels:
+RL brake
+RL indicator
+RR brake
+RR indicator
+Rear running lights
+Rear license plate (separate from running lights?)
+FL C-light
+FR C-light
+FL indicator
+FR indicator
+
+Addressable Channels:
+
+Front bumper (includes wheel well indicator strobes and lower bumper strobes) (4)
+Headlight channel (both headlight strobes) (2)
+Rear bumper (4th brake light) (includes three leds: left, brake, and right) (3)
+Internal channel (includes rear quarter pannel strobes and third brake light) (3)
+Underlighting (one channel for whole set) (strip)
