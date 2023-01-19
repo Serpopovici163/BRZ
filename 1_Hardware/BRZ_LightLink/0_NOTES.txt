@@ -2,6 +2,7 @@ Schematic notes:
 TODO: 
 optimize 5V regulator schematic as per datasheet
 get different OP-amp IC? Currently have 3x4ch for 10ch so 2ch unused
+Flip CAN shield pinout on PCB so it can be soldered on opposite side? This breaks ground plane so could be an issue
 
 
 MOSFET_V2 includes redundant MOSFETs with summed DIAG output (5V assuming V_BATT = 12V)
