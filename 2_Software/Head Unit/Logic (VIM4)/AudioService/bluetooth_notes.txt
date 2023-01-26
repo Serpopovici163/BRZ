@@ -1,0 +1,3 @@
+DC:E5:5B:1B:90:FE
+
+dbus-send --system --print-reply --dest=org.bluez /org/bluez/hci0/dev_DC_E5_5B_1B_90_FE org.bluez.MediaControl1.Play
