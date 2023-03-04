@@ -27,9 +27,9 @@ public class DiagnosticFragment extends Fragment {
         parent = mParent;
     }
 
-    TextView[] textViews = new TextView[14];
-    ImageView[] imageViews = new ImageView[14];
-    int[] statusList = new int[14];
+    TextView[] textViews = new TextView[17];
+    ImageView[] imageViews = new ImageView[17];
+    int[] statusList = new int[17];
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,30 +52,36 @@ public class DiagnosticFragment extends Fragment {
         textViews[2] = requireView().requireViewById(R.id.engine_textview);
         textViews[3] = requireView().requireViewById(R.id.fuel_textview);
         textViews[4] = requireView().requireViewById(R.id.main_power_textview);
-        textViews[5] = requireView().requireViewById(R.id.network_textview);
-        textViews[6] = requireView().requireViewById(R.id.vision_textview);
-        textViews[7] = requireView().requireViewById(R.id.sensor_textview);
-        textViews[8] = requireView().requireViewById(R.id.serial_textview);
-        textViews[9] = requireView().requireViewById(R.id.defence_textview);
-        textViews[10] = requireView().requireViewById(R.id.compute_textview);
-        textViews[11] = requireView().requireViewById(R.id.vehicle_textview);
-        textViews[12] = requireView().requireViewById(R.id.safety_textview);
-        textViews[13] = requireView().requireViewById(R.id.aux_power_textview);
+        textViews[5] = requireView().requireViewById(R.id.canbus_textview);
+        textViews[6] = requireView().requireViewById(R.id.lighting_textview);
+        textViews[7] = requireView().requireViewById(R.id.safety_textview);
+        textViews[8] = requireView().requireViewById(R.id.network_textview);
+        textViews[9] = requireView().requireViewById(R.id.vision_textview);
+        textViews[10] = requireView().requireViewById(R.id.sensor_textview);
+        textViews[11] = requireView().requireViewById(R.id.aux_power_textview);
+        textViews[12] = requireView().requireViewById(R.id.defence_textview);
+        textViews[13] = requireView().requireViewById(R.id.compute_textview);
+        textViews[14] = requireView().requireViewById(R.id.bluetooth_textview);
+        textViews[15] = requireView().requireViewById(R.id.internet_textview);
+        textViews[16] = requireView().requireViewById(R.id.auth_textview);
 
         imageViews[0] = requireView().requireViewById(R.id.maintenance_highlight);
         imageViews[1] = requireView().requireViewById(R.id.stability_highlight);
         imageViews[2] = requireView().requireViewById(R.id.engine_highlight);
         imageViews[3] = requireView().requireViewById(R.id.fuel_highlight);
         imageViews[4] = requireView().requireViewById(R.id.main_power_highlight);
-        imageViews[5] = requireView().requireViewById(R.id.network_highlight);
-        imageViews[6] = requireView().requireViewById(R.id.vision_highlight);
-        imageViews[7] = requireView().requireViewById(R.id.sensor_highlight);
-        imageViews[8] = requireView().requireViewById(R.id.serial_highlight);
-        imageViews[9] = requireView().requireViewById(R.id.defence_highlight);
-        imageViews[10] = requireView().requireViewById(R.id.compute_highlight);
-        imageViews[11] = requireView().requireViewById(R.id.vehicle_highlight);
-        imageViews[12] = requireView().requireViewById(R.id.safety_highlight);
-        imageViews[13] = requireView().requireViewById(R.id.aux_power_highlight);
+        imageViews[5] = requireView().requireViewById(R.id.canbus_highlight);
+        imageViews[6] = requireView().requireViewById(R.id.lighting_highlight);
+        imageViews[7] = requireView().requireViewById(R.id.safety_highlight);
+        imageViews[8] = requireView().requireViewById(R.id.network_highlight);
+        imageViews[9] = requireView().requireViewById(R.id.vision_highlight);
+        imageViews[10] = requireView().requireViewById(R.id.sensor_highlight);
+        imageViews[11] = requireView().requireViewById(R.id.aux_power_highlight);
+        imageViews[12] = requireView().requireViewById(R.id.defence_highlight);
+        imageViews[13] = requireView().requireViewById(R.id.compute_highlight);
+        imageViews[14] = requireView().requireViewById(R.id.bluetooth_highlight);
+        imageViews[15] = requireView().requireViewById(R.id.internet_highlight);
+        imageViews[16] = requireView().requireViewById(R.id.auth_highlight);
 
         updateIcons();
     }
@@ -83,7 +89,7 @@ public class DiagnosticFragment extends Fragment {
     void updateIcons() {
         //TODO: implement network calls
         //for now set all to green
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < textViews.length; i++)
             setIconStatus(i, 0);
     }
 

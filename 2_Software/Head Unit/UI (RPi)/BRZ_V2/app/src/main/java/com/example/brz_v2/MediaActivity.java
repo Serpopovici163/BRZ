@@ -188,7 +188,7 @@ public class MediaActivity extends AppCompatActivity {
         fragmentTransaction.hide(lightFragment);
         fragmentTransaction.hide(settingsFragment);
         fragmentTransaction.hide(defenceFragment);
-        fragmentTransaction.hide(diagnosticFragment);
+        fragmentTransaction.hide(mediaFragment); //MODIFIED
         fragmentTransaction.hide(soundBoardFragment);
         fragmentTransaction.hide(popUpDefenceFragment);
         fragmentTransaction.hide(trafficAdvisorFragment);

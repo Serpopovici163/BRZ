@@ -93,7 +93,7 @@ void setup() { //TODO: add three flashes when car starts up
 
 void loop() {
   //handle can message
- if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
+  if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
   canBusTimeoutTimer = millis();
     if (canMsg.can_id == 209) {
       brakePressure = canMsg.data[2];

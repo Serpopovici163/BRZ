@@ -1,0 +1,18 @@
+Addressable channels:
+FR_BUMP_NP --> handles side markers and front bumper lights
+HEADLIGHTS_NP --> handles strips inside headlights
+TRUNK_NP --> handles front windshield, rear quarter panel, third brake light, and license plate lights
+R_BUMP_NP --> handles fourth brake light assy
+
+Light algorithm:
+The algorithm assigns states to each light as boolean variables and effectuates these states at the end of each cycle.
+This allows various effectors to sequentially modify the state of each light depending on their relative 'authority' prior to the state being executed.
+For example, the brake light task is always executed last to override any light cycle or inferior task.
+
+1. clear all states --> clearLights();
+2. handle running light states
+3. assign light cycle states
+4. assign turn signal states
+5. assign brake light states
+6. handle brake light flashing
+7. execute states --> showLights();

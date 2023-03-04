@@ -30,20 +30,24 @@
     <!-- diagnostic fragment -->
     <string name="primary_systems_title">Critical Systems</string>
     <string name="secondary_systems_title">Auxiliary Systems</string>
-    <string name="engine">ENGINE</string>
-    <string name="stability">STABILITY</string>
-    <string name="fuel">FUEL</string>
     <string name="maintenance">MAINTENANCE</string>
+    <string name="stability">STABILITY</string>
+    <string name="engine">ENGINE</string>
+    <string name="fuel">FUEL</string>
     <string name="power">POWER</string>
+    <string name="canbus">CANBUS</string>
+    <string name="lighting">LIGHTING</string>
+    <string name="safety">SAFETY</string>
     <string name="network">NETWORK</string>
-    <string name="serial">SERIAL</string>
     <string name="vision">VISION</string>
     <string name="sensor">SENSOR</string>
     <string name="defence">DEFENCE</string>
     <string name="compute">COMPUTE</string>
-    <string name="vehicle">VEHICLE</string>
-    <string name="safety">SAFETY</string>
-    <string name="diagnostic_message_blank">Please select a subsystem to view its status.</string>
+    <string name="bluetooth">BLUETOOTH</string>
+    <string name="internet">INTERNET</string>
+    <string name="auth">AUTH</string>
+
+    <string name="diagnostic_message_blank">Select a subsystem to view its status.</string>
 
     <!-- light fragment -->
     <string name="light_status_caption">Light status :</string>
@@ -65,6 +69,5 @@
 
     <!-- miscellaneous -->
     <string name="meter_unit">m</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">oups</string>
 </resources>
