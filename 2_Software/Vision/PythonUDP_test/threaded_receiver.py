@@ -23,7 +23,7 @@ def show_feed(port):
     # Set up socket
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     print("Socket [" + str(port) + "] OK")
-    s.bind(('127.0.0.1', port))
+    s.bind(('192.168.23.3', port))
     print("Socket [" + str(port) + "] BOUND")
     dat = b''
     dump_buffer(s)
