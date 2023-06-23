@@ -1,0 +1,72 @@
+/* 
+charcoal: #373F51 (background)
+colombia blue: #BFD1E5 (main theme)
+subaru red: #F20D2C (accent)
+*/
+
+:root {
+    --background: #373F51;
+    --dark-accent: #BFD1E5;
+    --light-accent: #F20D2C;
+}
+
+body {
+    margin: 0px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.media-info {
+    height: 50vh;
+    max-width: 100%;
+    display:flex;
+}
+
+#album-cover {
+    width: 40%;
+    float: left;
+    border-radius: 10px;
+    margin: 5%;
+}
+
+.song-details {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    float: right;
+    height: fit-content;
+    width: fit-content;
+    max-width: 40%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    padding: 2%;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: var(--dark-accent);
+}
+
+#song-name {
+    font-size: medium;
+    font-weight: bold;
+}
+
+#artist-name {
+    font-size: small;
+}
+
+.media-progress {
+    height: 15vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#song-progress-bar {
+    accent-color: var(--dark-accent);
+    width: 80%;
+}
+
+.media-buttons {
+    height: 35vh;
+    max-width: 100%;
+}

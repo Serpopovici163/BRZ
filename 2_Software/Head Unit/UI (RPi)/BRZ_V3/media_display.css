@@ -1,0 +1,41 @@
+/* 
+charcoal: 373F51 (background)
+colombia blue: BFD1E5 (main theme)
+subaru red: F20D2C (accent)
+*/
+
+:root {
+    --background: #373F51;
+    --dark-accent: #BFD1E5;
+    --light-accent: #F20D2C;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+object {
+    height: 100%;
+    width: 100%;
+}
+
+.fragment {
+    height:100vh;
+    text-align: center;
+    border-radius: 25px;
+    background-color: var(--background);
+}
+
+.big_fragment {
+    width:66%;
+    float: left;
+}
+
+.small_fragment {
+    width:33%;
+    float: right;
+}

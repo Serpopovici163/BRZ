@@ -1,0 +1,5 @@
+P.27 for body module pinout
+
+Running lights --> 3D-24
+RH HL DRL --> 3C-13 (idk)
+LH HL DRL --> 3C-12 (idk)

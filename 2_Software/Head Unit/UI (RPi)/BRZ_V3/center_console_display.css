@@ -1,0 +1,44 @@
+/* 
+charcoal: #373F51 (background)
+colombia blue: #BFD1E5 (main theme)
+subaru red: #F20D2C (accent)
+*/
+
+:root {
+    --background: #373F51;
+    --dark-accent: #BFD1E5;
+    --light-accent: #F20D2C;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+.tab-layout {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--background);
+}
+
+.tab {
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.tab-selected {
+    filter:invert()
+}
+
+.tab-icon {
+    height:45%;
+}

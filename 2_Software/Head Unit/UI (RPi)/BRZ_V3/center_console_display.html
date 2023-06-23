@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <title>Media Display</title>
+        <link type="text/css" rel="stylesheet" href="center_console_display.css" />
+        <script src="center_console_display.js"></script>
+    </head>
+    <body>
+        <!-- tab layout -->
+        <div class="tab-layout">
+            <button id="convenience-tab" class="tab" onclick="changeCenterConsoleTab(0)">
+                <img class="tab-icon" src="center_console_fragments/assets/apps_icon.png">
+                CONVENIENCE
+            </button>
+            <button id="diagnostic-tab" class="tab tab-selected" onclick="changeCenterConsoleTab(1)">
+                <img class="tab-icon" src="center_console_fragments/assets/diagnostics_icon.png">
+                DIAGNOSTICS
+            </dbuttoniv>
+            <button id="settings-tab" class="tab" onclick="changeCenterConsoleTab(2)">
+                <img class="tab-icon" src="center_console_fragments/assets/sliders_icon.png">
+                SETTINGS
+            </button>
+        </div>
+
+        <!-- main view holder -->
+        <div class="main-view-holder"></div>
+    </body>
+</html>
