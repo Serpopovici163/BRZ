@@ -75,8 +75,12 @@ public class CenterConsoleActivity extends AppCompatActivity {
 
         //populate media display
         ActivityOptions options = ActivityOptions.makeBasic();
-        options.setLaunchDisplayId(displays[1].getDisplayId());
+        options.setLaunchDisplayId(displays[0].getDisplayId());
         startActivity(new Intent(this, MediaActivity.class), options.toBundle());
+
+        //populate center console display
+        options.setLaunchDisplayId(displays[1].getDisplayId());
+        startActivity(new Intent(this, CenterConsoleActivity.class), options.toBundle());
     }
 
     @Override
