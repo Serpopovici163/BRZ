@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VCC Pin=Q1-1
+Removed Pin From Net: NetName=VCC Pin=Q1-2
+Removed Pin From Net: NetName=VCC Pin=Q1-3
+Added Component: Designator=Q3(SISH615ADN-T1-GE3-Footprint-1)
+Added Pin To Net: NetName=NetQ1_4 Pin=Q3-4
+Added Pin To Net: NetName=VCC Pin=Q3-5-6-7-8
+Change Net Name : Old Net Name=NetQ1_4 New Net Name=PMOS_SIG
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_1 Pin=Q3-1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q3-2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q3-3
+Added Net: Name=NetQ1_1
+Added Member To Class: ClassName=MAIN Member=Component Q3 SISH615ADN-T1-GE3

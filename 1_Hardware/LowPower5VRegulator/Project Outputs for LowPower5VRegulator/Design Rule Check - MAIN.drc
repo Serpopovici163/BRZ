@@ -1,9 +1,9 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Trololololol\Documents\Projects\BRZ\1_Hardware\LowPower5VRegulator\MAIN.PcbDoc
-Date     : 7/2/2023
-Time     : 12:01:45 AM
+Date     : 7/10/2023
+Time     : 1:58:44 PM
 
-Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -15,45 +15,46 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=5mil) (Max=1000mil) (Preferred=5mil) (All)
+Processing Rule : Width Constraint (Min=0.127mm) (Max=25.4mm) (Preferred=0.127mm) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (InPadClass('PowerPads'))
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=11.811mil) (Conductor Width=5mil) (Air Gap=5mil) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.3mm) (Conductor Width=0.127mm) (Air Gap=0.127mm) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Minimum Annular Ring (Minimum=3mil) (All)
+Processing Rule : Minimum Annular Ring (Minimum=0.076mm) (All)
 Rule Violations :0
 
-Processing Rule : Hole Size Constraint (Min=11.811mil) (Max=248.031mil) (All)
+Processing Rule : Hole Size Constraint (Min=0.3mm) (Max=6.3mm) (All)
 Rule Violations :0
 
-Processing Rule : Hole To Hole Clearance (Gap=9.842mil) (All),(All)
+Processing Rule : Hole To Hole Clearance (Gap=0.25mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (All),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Silk To Solder Mask (Clearance=5mil) (IsPad),(All)
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5mil) Between Arc (2233.268mil,2180.945mil) on Top Overlay And Pad R10-2(2260mil,2206.535mil) on Top Layer [Top Overlay] to [Top Solder] clearance [0mil]
+Processing Rule : Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.127mm) Between Arc (56.725mm,55.396mm) on Top Overlay And Pad R10-2(57.404mm,56.046mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]
 Rule Violations :1
 
-Processing Rule : Silk to Silk (Clearance=0mil) (All),(All)
+Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Net Antennae (Tolerance=0mil) (All)
-Rule Violations :0
-
-Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
-   Violation between Board Outline Clearance(Outline Edge): (0.867mil < 7.874mil) Between Arc (3253.898mil,3039.291mil) on Top Overlay And Board Edge 
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Via (67.818mm,74.676mm) from Top Layer to Bottom Layer 
 Rule Violations :1
 
-Processing Rule : Height Constraint (Min=0mil) (Max=71497.938mil) (Prefered=500mil) (All)
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+   Violation between Board Outline Clearance(Outline Edge): (0.046mm < 0.2mm) Between Arc (82.649mm,77.174mm) on Top Overlay And Board Edge 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
-Violations Detected : 2
+Violations Detected : 3
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01

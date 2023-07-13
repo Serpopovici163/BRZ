@@ -23,7 +23,7 @@ def show_feed(port):
     # Set up socket
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     print("Socket [" + str(port) + "] OK")
-    s.bind(('192.168.23.3', port))
+    s.bind(('192.168.23.4', port))
     print("Socket [" + str(port) + "] BOUND")
     dat = b''
     dump_buffer(s)
@@ -53,9 +53,9 @@ def main():
     try:
         print("Launching threads")
         _thread.start_new_thread(show_feed, (12345, ))
-        _thread.start_new_thread(show_feed, (12346, ))
-        _thread.start_new_thread(show_feed, (12347, ))
-        _thread.start_new_thread(show_feed, (12348, ))
+        #_thread.start_new_thread(show_feed, (12346, ))
+        #_thread.start_new_thread(show_feed, (12347, ))
+        #_thread.start_new_thread(show_feed, (12348, ))
         print("Threads launched")
         while 1:
             pass

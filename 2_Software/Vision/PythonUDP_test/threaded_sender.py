@@ -17,7 +17,7 @@ class FrameSegment(object):
     """
     MAX_DGRAM = 2**16
     MAX_IMAGE_DGRAM = MAX_DGRAM - 64 # extract 64 bytes in case UDP frame overflown
-    def __init__(self, sock, port, addr="192.168.23.3"):
+    def __init__(self, sock, port, addr="192.168.23.4"):
         self.s = sock
         self.port = port
         self.addr = addr
@@ -59,7 +59,7 @@ def main():
     """ Top level main function """
     try:
         print("Launching threads")
-        _thread.start_new_thread(broadcast_feed, (12345, 4, ))
+        _thread.start_new_thread(broadcast_feed, (12345, 0, ))
         _thread.start_new_thread(broadcast_feed, (12346, 1, ))
         _thread.start_new_thread(broadcast_feed, (12347, 2, ))
         _thread.start_new_thread(broadcast_feed, (12348, 3, ))
