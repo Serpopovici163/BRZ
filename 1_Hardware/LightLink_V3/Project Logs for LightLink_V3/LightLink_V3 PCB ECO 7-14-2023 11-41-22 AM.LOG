@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q10-3
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q13-4
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q14-4
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q15-4
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q16-4
+Removed Pin From Net: NetName=PRE_VCC Pin=R40-1
+Removed Pin From Net: NetName=PWR_MOSFET Pin=R40-2
+Added Pin To Net: NetName=PRE_12V Pin=R40-1
+Added Pin To Net: NetName=12V_MOSFET Pin=Q10-3
+Added Pin To Net: NetName=12V_MOSFET Pin=Q13-4
+Added Pin To Net: NetName=12V_MOSFET Pin=Q14-4
+Added Pin To Net: NetName=12V_MOSFET Pin=Q15-4
+Added Pin To Net: NetName=12V_MOSFET Pin=Q16-4
+Added Pin To Net: NetName=12V_MOSFET Pin=R40-2
+Added Net: Name=12V_MOSFET
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q10 SSM6N7002KFU,LF
