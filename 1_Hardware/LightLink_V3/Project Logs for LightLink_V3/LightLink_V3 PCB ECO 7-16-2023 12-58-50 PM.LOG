@@ -1,0 +1,42 @@
+Removed Pin From Net: NetName=A10 Pin=R1_M7-2
+Removed Pin From Net: NetName=A8 Pin=R1_M8-2
+Removed Pin From Net: NetName=A6 Pin=R1_M9-2
+Removed Pin From Net: NetName=A4 Pin=R1_M10-2
+Removed Pin From Net: NetName=A2 Pin=R1_M11-2
+Removed Pin From Net: NetName=A0 Pin=R1_M12-2
+Removed Pin From Net: NetName=A10 Pin=U1_M7-14
+Removed Pin From Net: NetName=A8 Pin=U1_M8-14
+Removed Pin From Net: NetName=A6 Pin=U1_M9-14
+Removed Pin From Net: NetName=A4 Pin=U1_M10-14
+Removed Pin From Net: NetName=A2 Pin=U1_M11-14
+Removed Pin From Net: NetName=A0 Pin=U1_M12-14
+Added Pin To Net: NetName=A0 Pin=R1_M1-2
+Added Pin To Net: NetName=A2 Pin=R1_M2-2
+Added Pin To Net: NetName=A4 Pin=R1_M3-2
+Added Pin To Net: NetName=A6 Pin=R1_M4-2
+Added Pin To Net: NetName=A8 Pin=R1_M5-2
+Added Pin To Net: NetName=A10 Pin=R1_M6-2
+Added Pin To Net: NetName=A0 Pin=U1_M1-14
+Added Pin To Net: NetName=A2 Pin=U1_M2-14
+Added Pin To Net: NetName=A4 Pin=U1_M3-14
+Added Pin To Net: NetName=A6 Pin=U1_M4-14
+Added Pin To Net: NetName=A8 Pin=U1_M5-14
+Added Pin To Net: NetName=A10 Pin=U1_M6-14
+Added Pin To Net: NetName=NetR1_M7_2 Pin=R1_M7-2
+Added Pin To Net: NetName=NetR1_M7_2 Pin=U1_M7-14
+Added Net: Name=NetR1_M7_2
+Added Pin To Net: NetName=NetR1_M8_2 Pin=R1_M8-2
+Added Pin To Net: NetName=NetR1_M8_2 Pin=U1_M8-14
+Added Net: Name=NetR1_M8_2
+Added Pin To Net: NetName=NetR1_M9_2 Pin=R1_M9-2
+Added Pin To Net: NetName=NetR1_M9_2 Pin=U1_M9-14
+Added Net: Name=NetR1_M9_2
+Added Pin To Net: NetName=NetR1_M10_2 Pin=R1_M10-2
+Added Pin To Net: NetName=NetR1_M10_2 Pin=U1_M10-14
+Added Net: Name=NetR1_M10_2
+Added Pin To Net: NetName=NetR1_M11_2 Pin=R1_M11-2
+Added Pin To Net: NetName=NetR1_M11_2 Pin=U1_M11-14
+Added Net: Name=NetR1_M11_2
+Added Pin To Net: NetName=NetR1_M12_2 Pin=R1_M12-2
+Added Pin To Net: NetName=NetR1_M12_2 Pin=U1_M12-14
+Added Net: Name=NetR1_M12_2

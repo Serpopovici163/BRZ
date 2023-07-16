@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=A10 Pin=R1_M7-2
+Added Pin To Net: NetName=A8 Pin=R1_M8-2
+Added Pin To Net: NetName=A6 Pin=R1_M9-2
+Added Pin To Net: NetName=A4 Pin=R1_M10-2
+Added Pin To Net: NetName=A2 Pin=R1_M11-2
+Added Pin To Net: NetName=A0 Pin=R1_M12-2
+Added Pin To Net: NetName=A10 Pin=U1_M7-14
+Added Pin To Net: NetName=A8 Pin=U1_M8-14
+Added Pin To Net: NetName=A6 Pin=U1_M9-14
+Added Pin To Net: NetName=A4 Pin=U1_M10-14
+Added Pin To Net: NetName=A2 Pin=U1_M11-14
+Added Pin To Net: NetName=A0 Pin=U1_M12-14
