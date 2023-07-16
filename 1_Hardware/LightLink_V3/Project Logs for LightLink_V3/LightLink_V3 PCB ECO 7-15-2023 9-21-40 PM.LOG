@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=D45 Pin=R35-1
+Removed Pin From Net: NetName=D45 Pin=U6-2
+Added Pin To Net: NetName=D32 Pin=R35-1
+Added Pin To Net: NetName=D32 Pin=U6-2
