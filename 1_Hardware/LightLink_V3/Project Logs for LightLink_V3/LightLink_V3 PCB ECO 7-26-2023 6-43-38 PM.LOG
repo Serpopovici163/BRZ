@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=PRE_VCC Pin=R27-2
+Added Pin To Net: NetName=DIFF_AMP_OUT Pin=R27-2
