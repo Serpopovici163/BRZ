@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=ACC_PWR Pin=P1-7
+Removed Pin From Net: NetName=KILL_SIG Pin=P1-9
+Added Pin To Net: NetName=KILL_SIG Pin=P1-7
+Added Pin To Net: NetName=ACC_PWR Pin=P1-9
