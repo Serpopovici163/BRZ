@@ -11,39 +11,51 @@
 
 #define MOSFET_OFF_STATE HIGH //might change but I believe P-channel MOSFETS are off when HIGH
 #define MOSFET_ON_STATE LOW
-#define MIN_MOSFET_PIN 2
-#define MAX_MOSFET_PIN 14 //actually pin 13 but using 14 since this is used in lots of for loops
+#define MOSFET_NUM 12 //number of MOSFETs on lightlink PCB, might change in the future
 
 //CAN I/O
 struct can_frame canMsg;
 MCP2515 mcp2515(53);
 
-//addressable channels (appended "NP" denotes a 'NeoPixel' channel) (GPIO pins 14 thru 21)
-Adafruit_NeoPixel FR_BUMP_NP(4, 14, NEO_GRB + NEO_KHZ800); //might have 6 pixels if I add extra bumper lights, should not affect cycle code much tho
-Adafruit_NeoPixel HEADLIGHTS_NP(2, 15, NEO_GRB + NEO_KHZ800); //gotta change LED cound when strips are in headlights
-Adafruit_NeoPixel TRUNK_NP(7, 16, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel R_BUMP_NP(3, 17, NEO_GRB + NEO_KHZ800);
+//addressable channels (appended "NP" denotes a 'NeoPixel' channel) 
+Adafruit_NeoPixel FR_BUMP_NP(4, 33, NEO_GRB + NEO_KHZ800); //might have 6 pixels if I add extra bumper lights, should not affect cycle code much tho
+Adafruit_NeoPixel LIGHTBARS_NP(2, 35, NEO_GRB + NEO_KHZ800); //gotta change LED count when strips are installed
+Adafruit_NeoPixel TRUNK_NP(7, 34, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800);
 
-//MOSFET channels (appended "M" denotes a MOSFET channel) (GPIO pins 2 thru 13) (11-13 unused)
-int R_HL_DRL_M = 2; //front DRLs (leave actual head light control to steering wheel stalk)
-int L_HL_DRL_M = 3;
-int R_HL_IND_M = 4; //front indicators
-int L_HL_IND_M = 5;
-int R_BL_BRK_M = 6; //rear brake lights (do not touch third brake light wiring)
-int L_BL_BRK_M = 7;
-int R_BL_IND_M = 8; //rear indicators
-int L_BL_IND_M = 9;
-int BL_RUN_M = 10; //rear running lights
+//these are in ascending order on the PCB (addr chan 1-6)
+int NP_PINS[6] = {33, 35, 34, 37, 36, 39};
 
-//status vars
-int lightCycleState = 0; //-1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
+//these variables link specific lights to the indexes within M_PINS and M_STATES
+
+int R_HL_DRL = 0; //front DRLs (leave actual head light control to steering wheel stalk)
+int L_HL_DRL = 1;
+int R_HL_IND = 2; //front indicators
+int L_HL_IND = 3;
+int R_BL_BRK = 4; //rear brake lights (do not touch third brake light wiring)
+int L_BL_BRK = 5;
+int R_BL_IND = 6; //rear indicators
+int L_BL_IND = 7;
+int BL_RUN = 8; //rear running lights
+
+//the pinout was chosen such that the front DRLs and brake lights are on the hardware PWM channels, the remaining assignments are arbitrary
+
+int M_PINS[12] = {12, 45, 29, 31, 46, 44, 30, 28, 25, 27, 24};
+
+//status vars (no NP state vars since the library kinda has inherent states)
+int lightCycleState = 0; //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
 bool isBrakeLightFlashing = false; //kept separate since lightCycleState can have a value while brake lights are flashing
-bool runningLights = false;
-bool M_states[MAX_MOSFET_PIN];
+bool M_STATES[12] = {false, false, false, false, false, false, false, false, false, false, false, false};
 
-//timers
-long brakeFlashCycleStart = 0;
-long lightCycleStart = 0;
+//request vars --> these are assigned based on CAN data and reset as soon as the request is fulfilled
+int turnSignalRequest = 0; //-1 is left, 0 is none, 2 is right
+bool brakeRequest = false; //should I keep this a bool or make it an int so it can also represent brake light flashing
+bool runningLightRequest = false;
+bool warningFlashRequest = false; //used to flash lights deliberately to warn other drivers
+
+//timers used to keep track of where we are within a light animaion cycle
+long brakeFlashCycleTimer = 0;
+long lightCycleTimer = 0;
 long canBusTimeoutTimer = 0;
 
 void setup() {
@@ -53,25 +65,11 @@ void setup() {
 
   //kept these separate in case they change in the future
   //set NP pins to OUTPUT
-  for (int i = 14; i < 22; i++) {
-    pinMode(i, OUTPUT);
+  for (int i = 0; i < sizeof(NP_PINS); i++) {
+    pinMode(NP_PINS[i], OUTPUT);
   }
 
-  //set MOSFET pins to OUTPUT and set M_states array to false
-  for (int i = MIN_MOSFET_PIN; i < MAX_MOSFET_PIN; i++) {
-    pinMode(i, OUTPUT);
-    M_states[i] = false;
-  }
-
-  //clear NP channels
-  FR_BUMP_NP.clear();
-  FR_BUMP_NP.show();
-  HEADLIGHTS_NP.clear();
-  HEADLIGHTS_NP.show();
-  TRUNK_NP.clear();
-  TRUNK_NP.show();
-  R_BUMP_NP.clear();
-  R_BUMP_NP.show();
+  lightsOff();
 
   //startup sequence here
   for (int i = 0; i < STARTUP_FLASH_COUNT; i++) {
@@ -85,27 +83,44 @@ void setup() {
 }
 
 void loop() {
-  //handle CAN messages
+  //handle CAN messages and set request variables
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
   canBusTimeoutTimer = millis(); //refresh canbus timer
-  //assign isBrakeLightFlashing
+  
+  //TODO
   //assign runningLights
-    /*if (canMsg.can_id == 209) {
+  //assign turn signals
+  //assign flash request
+  
+    if (canMsg.can_id == 209) {
+      //save brake pressure to check if we should flash brake lights
       brakePressure = canMsg.data[2];
+
+      //set brake request to true
+      if (brakePressure > 0) {
+        brakeRequest = true;
+      }
     } else if (canMsg.can_id == 212) {
+      //save vehicleSpeed
       vehicleSpeed = ((canMsg.data[0] + canMsg.data[1] + canMsg.data[2] + canMsg.data[3]) / 4) * 0.05747; //double check multiplier and INDEX, maybe replace with average of wheel speed sensors
-    }*/
+
+      //check if we should flash brakelights
+      if (false) { //TODO
+        isBrakeLightFlashing = true;
+      }
+    }
   }
 
-  //execute light functions
+  //  :::execute light functions:::
+  
   //clear lights
   clearLights();
 
   //handle running lights
-  if (runningLights) {
+  if (M_STATES[BL_RUN]) {
     //set fourth brake light to dim
     R_BUMP_NP.setPixelColor(2, 50, 50, 50);
-    M_states[BL_RUN_M] = MOSFET_ON_STATE;
+    M_STATES[BL_RUN] = MOSFET_ON_STATE;
   }
 
   //handle light cycles
@@ -129,21 +144,21 @@ void clearLights() {
 
   //clear NP channels but do not show to avoid flickering
   FR_BUMP_NP.clear();
-  HEADLIGHTS_NP.clear();
+  LIGHTBARS_NP.clear();
   TRUNK_NP.clear();
   R_BUMP_NP.clear();
 }
 
 //turns lights off
 void lightsOff() {
-  for (int i = MIN_MOSFET_PIN; i < MAX_MOSFET_PIN; i++) {
-    digitalWrite(i, MOSFET_OFF_STATE);
+  for (int i = 0; i < sizeof(M_PINS); i++) {
+    digitalWrite(M_PINS(i), MOSFET_OFF_STATE);
   }
   //clear NP channels
   FR_BUMP_NP.clear();
   FR_BUMP_NP.show();
-  HEADLIGHTS_NP.clear();
-  HEADLIGHTS_NP.show();
+  LIGHTBARS_NP.clear();
+  LIGHTBARS_NP.show();
   TRUNK_NP.clear();
   TRUNK_NP.show();
   R_BUMP_NP.clear();
@@ -158,7 +173,7 @@ void showLights() {
 
   //show NP channels
   FR_BUMP_NP.show();
-  HEADLIGHTS_NP.show();
+  LIGHTBARS_NP.show();
   TRUNK_NP.show();
   R_BUMP_NP.show();  
 }
