@@ -1,0 +1,4 @@
+Change 6 pin header footprint to match component
+add more power planes
+add status LEDs for power rails and MOSFETs
+move resistor from under op amp on back of pcb
