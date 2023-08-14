@@ -65,7 +65,6 @@ void setup() {
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);
   mcp2515.setNormalMode();
 
-  //kept these separate in case they change in the future
   //set NP pins to OUTPUT
   for (int i = 0; i < sizeof(NP_PINS); i++) {
     pinMode(NP_PINS[i], OUTPUT);
@@ -75,6 +74,11 @@ void setup() {
   LIGHTBARS_NP.begin();
   TRUNK_NP.begin();
   R_BUMP_NP.begin();
+
+  //set MOSFET pins to OUTPUT
+  for (int i = 0; i < sizeof(M_PINS); i++) {
+    pinMode(M_PINS[i], OUTPUT);
+  }
 
   lightsOff();
 
