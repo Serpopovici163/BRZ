@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Trololololol\Documents\Projects\BRZ\1_Hardware\LightLink_V3\LightLink_V3.PcbDoc
-Date     : 7/26/2023
-Time     : 10:33:07 PM
+Date     : 9/13/2023
+Time     : 11:59:39 PM
 
 Processing Rule : Clearance Constraint (Gap=0.089mm) (All),(All)
    Violation between Clearance Constraint: (0.24mm < 0.25mm) Between Hole of Pad J6-(4.23mm,45.87mm) on Multi-Layer And Pad J6-39(2.59mm,45.87mm) on Top Layer 
@@ -342,4 +342,4 @@ Rule Violations :0
 
 Violations Detected : 288
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:03
