@@ -15,6 +15,8 @@
  * ID: 2
  * DATA: [left sig (bool 0-1)] [right sig (bool 0-1)] [hazard sig (bool 0-1)] [unknown] //Haven't decided on the last one yet
  * 
+ * https://github.com/autowp/arduino-mcp2515
+ * 
  */
 
 #define KILL_PIN 3
