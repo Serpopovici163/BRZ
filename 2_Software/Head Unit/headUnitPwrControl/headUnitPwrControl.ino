@@ -26,22 +26,8 @@ void setup() {
 }
 
 void loop() { 
-  //check if power is on
-  if (analogRead(PWR_SENSE) > ON_THRESHOLD) {
-    //if so, update timer
-    pwrOnTime = millis();
-  }
-  
-  //check if we should turn off head unit
-  if (millis() - pwrOnTime >= STANDBY_TIME_MILLIS) {
-    digitalWrite(PWR_MOSFET, HIGH);
-  } else {
-    digitalWrite(PWR_MOSFET, LOW);
-  } //*/
-
-
   //check if temperature is hot and turn on fans if so
-  if ((dht.readTemperature() > TEMP_HOT_THRESHOLD) && (analogRead(PWR_SENSE) > ON_THRESHOLD)) {
+  if ((dht.readTemperature() > TEMP_HOT_THRESHOLD)) {
     digitalWrite(FAN_MOSFET, HIGH);
     isFanOn = true;
   } else {

@@ -71,5 +71,9 @@ void loop() {
 
     serCAN.sendMessage(&frame);
   }
-  
+
+  //shut down if we've exceeded the CANBUS timeout timer
+  if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {
+    digitalWrite(KILL_PIN, HIGH);
+  }
 }
