@@ -2,6 +2,8 @@
 #include <mcp2515.h>
 #include <Adafruit_NeoPixel.h>
 
+#define KILL_PIN 32
+
 #define BRAKE_FLASH_MINIMUM_LENGTH 1500 //minimum amount of time that the brake lights should flash for
 #define BRAKE_FLASH_TIME_STEP 100 //general time step for brake light flashing animation 
 #define LIGHT_CYCLE_TIME_STEP 100 //general time step for programming animations
@@ -9,7 +11,7 @@
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
 #define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
 
-#define CANBUS_TIMEOUT 500  //TODO: integrate
+#define CANBUS_TIMEOUT 500000  //TODO: integrate
 
 #define MOSFET_OFF_STATE 0  //included in case we want to swap which pin state turns a MOSFET on
 #define MOSFET_ON_STATE 1
@@ -41,7 +43,7 @@ int BL_RUN = 8;  //rear running lights
 
 //the pinout was chosen such that the front DRLs and brake lights are on the hardware PWM channels, the remaining assignments are arbitrary
 
-int M_PINS[12] = { 12, 45, 29, 31, 46, 44, 30, 28, 25, 27, 24 };
+int M_PINS[12] = { 29, 31, 30, 28, 25, 27, 26, 24, 12, 45, 46, 44 };
 
 //status vars (no NP state vars since the library kinda has inherent states)
 int lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
@@ -50,15 +52,19 @@ bool runningLightState = false;
 bool brakeLightFlashing = false;  //kept separate since lightCycleState can have a value while brake lights are flashing
 bool M_STATES[12] = { false, false, false, false, false, false, false, false, false, false, false, false };
 
+//car status vars
+int brakePressure = 0;
+int vehicleSpeed = 0;
+
 //request vars --> these are assigned based on CAN data and reset as soon as the request is fulfilled
 bool brakeRequest = false;  //should I keep this a bool or make it an int so it can also represent brake light flashing
 bool warningFlashRequest = false;  //used to flash lights deliberately to warn other drivers
 
 //timers used to keep track of where we are within a light animaion cycle
-long brakeFlashTimer = 0;
-long lightCycleTimer = 0;
-long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-long turnSignalTimer = 0;
+unsigned long brakeFlashTimer = 0;
+unsigned long lightCycleTimer = 0;
+unsigned long canBusTimeoutTimer = millis(); //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long turnSignalTimer = 0;
 
 void setup() {
   mcp2515.reset();
@@ -66,7 +72,7 @@ void setup() {
   mcp2515.setNormalMode();
 
   //set NP pins to OUTPUT
-  for (int i = 0; i < sizeof(NP_PINS); i++) {
+  for (int i = 0; i < 6; i++) {
     pinMode(NP_PINS[i], OUTPUT);
   }
 
@@ -76,9 +82,12 @@ void setup() {
   R_BUMP_NP.begin();
 
   //set MOSFET pins to OUTPUT
-  for (int i = 0; i < sizeof(M_PINS); i++) {
+  for (int i = 0; i < 12; i++) {
     pinMode(M_PINS[i], OUTPUT);
   }
+
+  //set KILL pin to OUTPUT
+  pinMode(KILL_PIN, OUTPUT);
 
   lightsOff();
 
@@ -86,10 +95,10 @@ void setup() {
   for (int i = 0; i < STARTUP_FLASH_COUNT; i++) {
     R_BUMP_NP.setPixelColor(2, 255, 255, 255);
     R_BUMP_NP.show();
-    delay(BRAKE_FLASH_TIMER);
+    delay(BRAKE_FLASH_TIME_STEP);
     R_BUMP_NP.setPixelColor(2, 0, 0, 0);
     R_BUMP_NP.show();
-    delay(BRAKE_FLASH_TIMER);
+    delay(BRAKE_FLASH_TIME_STEP);
   }
 }
 
@@ -151,6 +160,13 @@ void loop() {
 
   //execute states
   showLights();
+
+  //  :::CAN timeout shutdown:::
+
+  //shut down if we've exceeded the CANBUS timeout timer
+  if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {    
+    digitalWrite(KILL_PIN, HIGH);
+  }
 }
 
 //solely clears light states
@@ -172,7 +188,7 @@ void lightsOff() {
   //clear dumb lights
   for (int i = 0; i < sizeof(M_PINS); i++) {
     M_STATES[i] = false;
-    digitalWrite(M_PINS(i), MOSFET_OFF_STATE);
+    digitalWrite(M_PINS[i], MOSFET_OFF_STATE);
   }
 
   //clear NP channels
