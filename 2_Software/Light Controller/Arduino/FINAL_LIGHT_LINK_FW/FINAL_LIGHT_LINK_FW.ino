@@ -11,7 +11,7 @@
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
 #define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
 
-#define CANBUS_TIMEOUT 500000  //TODO: integrate
+#define CANBUS_TIMEOUT 500  //TODO: integrate
 
 #define MOSFET_OFF_STATE 0  //included in case we want to swap which pin state turns a MOSFET on
 #define MOSFET_ON_STATE 1
