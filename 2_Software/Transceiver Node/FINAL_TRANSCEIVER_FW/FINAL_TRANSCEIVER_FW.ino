@@ -57,7 +57,7 @@ void loop() {
   }
 
   //send analogread based CAN frames
-  if (millis() - canMsgTimer > CANBUS_MSG_DELAY) {
+  if (millis() - canMsgTimer > CANBUS_MSG_DELAY) { //modify turn signals to be on first byte of can msg 0 off, 1 haz, 2 left, 3 right
     struct can_frame frame;
     frame.can_id = 1;
     frame.can_dlc = 7;

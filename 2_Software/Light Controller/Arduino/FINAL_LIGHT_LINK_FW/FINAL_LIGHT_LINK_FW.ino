@@ -21,10 +21,34 @@ struct can_frame canMsg;
 MCP2515 mcp2515(42); //TODO: I think CS is 42 but double check
 
 //addressable channels (appended "NP" denotes a 'NeoPixel' channel)
-Adafruit_NeoPixel FR_BUMP_NP(4, 33, NEO_GRB + NEO_KHZ800);    //might have 6 pixels if I add extra bumper lights, should not affect cycle code much tho
-Adafruit_NeoPixel LIGHTBARS_NP(2, 35, NEO_GRB + NEO_KHZ800);  //gotta change LED count when strips are installed
-Adafruit_NeoPixel TRUNK_NP(7, 34, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel FR_BUMP_NP(4, 33, NEO_GRB + NEO_KHZ800);   
+/*   0 --> left wheel well
+ *   1 --> left front bumper
+ *   2 --> right front bumper
+ *   3 --> right wheel well
+ */
+ 
+Adafruit_NeoPixel LIGHTBARS_NP(8, 35, NEO_GRB + NEO_KHZ800);  
+/*   0 --> front left
+ *   1 --> front left-mid
+ *   2 --> front right-mid
+ *   3 --> front right
+ *   4 --> rear right
+ *   5 --> rear right-mid
+ *   6 --> rear left-mid
+ *   7 --> rear left
+ */
+ 
+Adafruit_NeoPixel TRUNK_NP(2, 34, NEO_GRB + NEO_KHZ800);
+/*   0 --> left license plate
+ *   1 --> right license plate
+ */
+
+Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800); //TODO: confirm LED IDs
+/*   0 --> left backup light 
+ *   1 --> fourth brake light
+ *   2 --> right backup light
+ */
 
 //these are in ascending order on the PCB (addr chan 1-6)
 int NP_PINS[6] = { 33, 35, 34, 37, 36, 39 };
@@ -47,7 +71,7 @@ int M_PINS[12] = { 29, 31, 30, 28, 25, 27, 26, 24, 12, 45, 46, 44 };
 
 //status vars (no NP state vars since the library kinda has inherent states)
 int lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
-int turnSignalState = 0;  //-1 is left, 0 is none, 1 is right
+int turnSignalState = 0;  //-2 is hazard, -1 is left, 0 is none, 1 is right
 bool runningLightState = false;
 bool brakeLightFlashing = false;  //kept separate since lightCycleState can have a value while brake lights are flashing
 bool M_STATES[12] = { false, false, false, false, false, false, false, false, false, false, false, false };
@@ -107,10 +131,7 @@ void loop() {
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     canBusTimeoutTimer = millis();  //refresh canbus timer
 
-    //TODO
-    //assign runningLights
-    //assign turn signals
-    //assign flash request
+    // :::brake lights:::
 
     if (canMsg.can_id == 209) {
       //save brake pressure to check if we should flash brake lights
@@ -131,8 +152,12 @@ void loop() {
         brakeLightFlashing = true;
         brakeFlashTimer = millis();
       }
-    } else if (canMsg.can_id == 1) { //TODO: figure out what ID imma use for these
-      //only set turn signal state, do not touch timer since resetting the timer messes with the minimum flash behaviour
+    } else if (canMsg.can_id == 1) { //from transceiver module --> TODO: figure out what data means what
+      //assign turn signals
+      turnSignalState = canMsg.data[0];
+      //assign runningLights
+      runningLightState = (canMsg.data[0] == 1) ? true : false;
+      //assign flash request
     } else if (canMsg.can_id == 2) {
       //assign running light state runningLightState
       //this CAN msg should persist but doesn't need to be high frequency
@@ -144,8 +169,8 @@ void loop() {
 
   //  :::execute light functions:::
 
-  //clear lights
-  clearLights();
+  //clear light states
+  clearLightStates();
 
   //handle running lights
   handleRunningLights();
@@ -170,7 +195,7 @@ void loop() {
 }
 
 //solely clears light states
-void clearLights() {
+void clearLightStates() {
   //set all MOSFET channels to off state
   for (int i = 0; i < sizeof(M_PINS); i++) {
     M_STATES[i] = false;
@@ -185,20 +210,12 @@ void clearLights() {
 
 //turns lights off and clears states
 void lightsOff() {
-  //clear dumb lights
-  for (int i = 0; i < sizeof(M_PINS); i++) {
-    M_STATES[i] = false;
-    digitalWrite(M_PINS[i], MOSFET_OFF_STATE);
-  }
+  clearLightStates();
 
   //clear NP channels
-  FR_BUMP_NP.clear();
   FR_BUMP_NP.show();
-  LIGHTBARS_NP.clear();
   LIGHTBARS_NP.show();
-  TRUNK_NP.clear();
   TRUNK_NP.show();
-  R_BUMP_NP.clear();
   R_BUMP_NP.show();
 }
 
@@ -223,7 +240,6 @@ void handleRunningLights() {
 
     //set fourth brake light to dim
     R_BUMP_NP.setPixelColor(2, 50, 50, 50);
-    M_STATES[BL_RUN] = MOSFET_ON_STATE;
   }
 }
 
@@ -231,7 +247,7 @@ void handleRunningLights() {
 void handleTurnSignals() {
 
   //we should not be flashing a turn signal if we've exceeded the minimum number of flashes and the turn signal state is 0
-  if (millis() - turnSignalTimer > 2*MIN_TURN_SIG_FLASH*TURN_SIGNAL_TIME_STEP && turnSignalState == 0) {
+  if ((millis() - turnSignalTimer) > (2*MIN_TURN_SIG_FLASH*TURN_SIGNAL_TIME_STEP) && turnSignalState == 0) {
     return;
   }
 
@@ -251,6 +267,14 @@ void handleTurnSignals() {
       M_STATES[R_HL_IND] = true;
       M_STATES[R_BL_IND] = true;
     }
+  } else {
+    if (turnSignalState == -1) { //we goin left
+      M_STATES[L_HL_IND] = false;
+      M_STATES[L_BL_IND] = false;
+    } else if (turnSignalState == 1) { //we goin right
+      M_STATES[R_HL_IND] = false;
+      M_STATES[R_BL_IND] = false;
+    }
   }
 }
 
@@ -258,14 +282,29 @@ void handleTurnSignals() {
 void handleBrakeLights() {
   if (brakeRequest) {
     //check if we should be flashing brake lights
-    if (brakeLightFlashing) {
+    if (brakeLightFlashing) { //handle brake flashing animation   
       //we should not be flashing brake lights if we've exceeded the minimum number of flashes
       if (millis() - brakeFlashTimer > BRAKE_FLASH_MINIMUM_LENGTH) {
         brakeLightFlashing = false;
       }
+
+      //if we haven't exceeded the max flash number, flash brake lights
+      if ((((millis() - brakeFlashTimer) / BRAKE_FLASH_TIME_STEP)) % 2 != 0) { //check if we are in first 'time step' of cycle (this cycle has 2 steps)
+        //set MOSFETs on
+        M_STATES[L_BL_BRK] = MOSFET_ON_STATE;
+        M_STATES[R_BL_BRK] = MOSFET_ON_STATE;
+
+        //set fourth brake light on
+        R_BUMP_NP.setPixelColor(2, 255, 255, 255);
+      } else {
+        //set MOSFETs off
+        M_STATES[L_BL_BRK] = MOSFET_ON_STATE;
+        M_STATES[R_BL_BRK] = MOSFET_ON_STATE;
+
+        //set fourth brake light off
+        R_BUMP_NP.setPixelColor(2, 0, 0, 0);
+      }
     } 
-    
-  ///LEFT OFF HERE AUG 13 3.16pm
 
     //this allows the above if to drop out and proceed with the code below if we've exceeded the minimum flash time. This prevents a brake light drop out
     if (brakeLightFlashing == false) {
