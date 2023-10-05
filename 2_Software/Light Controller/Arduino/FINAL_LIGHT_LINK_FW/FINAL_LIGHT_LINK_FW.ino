@@ -9,7 +9,7 @@
 #define LIGHT_CYCLE_TIME_STEP 100 //general time step for programming animations
 #define TURN_SIGNAL_TIME_STEP 500 //general time step for turn signal flashing animation
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
-#define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
+#define STARTUP_FLASH_COUNT 5 //number of times the fourth brake light will flash when board boots up
 
 #define CANBUS_TIMEOUT 500  //TODO: integrate
 
@@ -100,6 +100,11 @@ void setup() {
     pinMode(NP_PINS[i], OUTPUT);
   }
 
+  FR_BUMP_NP.setBrightness(255);
+  LIGHTBARS_NP.setBrightness(255);
+  TRUNK_NP.setBrightness(255);
+  R_BUMP_NP.setBrightness(255);
+
   FR_BUMP_NP.begin();
   LIGHTBARS_NP.begin();
   TRUNK_NP.begin();
@@ -166,6 +171,9 @@ void loop() {
       //these CAN packets should persist
     }
   }
+
+  //debug
+  runningLightState = true;
 
   //  :::execute light functions:::
 
@@ -239,7 +247,13 @@ void handleRunningLights() {
     M_STATES[BL_RUN] = MOSFET_ON_STATE;
 
     //set fourth brake light to dim
-    R_BUMP_NP.setPixelColor(2, 50, 50, 50);
+    R_BUMP_NP.setPixelColor(0, 0, 0, 40);
+    R_BUMP_NP.setPixelColor(1, 0, 0, 40);
+    //R_BUMP_NP.setPixelColor(2, 50, 0, 50);
+
+    //turn on license plate lights
+    TRUNK_NP.setPixelColor(0, 50, 50, 50);
+    TRUNK_NP.setPixelColor(1, 50, 50, 50);
   }
 }
 
@@ -313,6 +327,8 @@ void handleBrakeLights() {
 
       //set fourth brake light on
       R_BUMP_NP.setPixelColor(2, 255, 255, 255);
+      R_BUMP_NP.setPixelColor(0, 0, 0, 255);
+      R_BUMP_NP.setPixelColor(1, 0, 0, 255);
     }
   }
 }
