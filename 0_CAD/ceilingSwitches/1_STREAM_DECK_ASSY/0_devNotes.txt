@@ -1,0 +1,7 @@
+Display position is set in carMount and is matched using the alignment sketches in carMount and rpiAndStreamDeckHolder.
+
+rpiAndStreamDeckHolder is defined around facePlate which is defined by the display and stream deck, placed as close as possible together.
+
+carMount was designed based on car chassis and added after the facePlate and rpiAndStreamDeckHolder were cadded
+
+OCT 7 2023 - Decided not to include radar detector here for now, still gotta add mounting point for voltage regulator and ideally a cabin light
