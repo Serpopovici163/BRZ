@@ -21,14 +21,14 @@ struct can_frame canMsg;
 MCP2515 mcp2515(42); //TODO: I think CS is 42 but double check
 
 //addressable channels (appended "NP" denotes a 'NeoPixel' channel)
-Adafruit_NeoPixel FR_BUMP_NP(4, 33, NEO_GRB + NEO_KHZ800);   
+Adafruit_NeoPixel FR_BUMP_NP(2, 35, NEO_GRB + NEO_KHZ800);    //only 2 LEDs at the moment but update later
 /*   0 --> left wheel well
  *   1 --> left front bumper
  *   2 --> right front bumper
  *   3 --> right wheel well
  */
  
-Adafruit_NeoPixel LIGHTBARS_NP(8, 35, NEO_GRB + NEO_KHZ800);  
+Adafruit_NeoPixel LIGHTBARS_NP(8, 33, NEO_GRB + NEO_KHZ800);  
 /*   0 --> front left
  *   1 --> front left-mid
  *   2 --> front right-mid
@@ -89,6 +89,7 @@ unsigned long brakeFlashTimer = 0;
 unsigned long lightCycleTimer = 0;
 unsigned long canBusTimeoutTimer = millis(); //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
 unsigned long turnSignalTimer = 0;
+unsigned long runningLightTimer = 0; //used when running lights have an animation
 
 void setup() {
   mcp2515.reset();
@@ -123,10 +124,16 @@ void setup() {
   //startup sequence here
   for (int i = 0; i < STARTUP_FLASH_COUNT; i++) {
     R_BUMP_NP.setPixelColor(2, 255, 255, 255);
+    FR_BUMP_NP.setPixelColor(0, 0, 255, 0);
+    FR_BUMP_NP.setPixelColor(1, 0, 255, 0);
     R_BUMP_NP.show();
+    FR_BUMP_NP.show();
     delay(BRAKE_FLASH_TIME_STEP);
     R_BUMP_NP.setPixelColor(2, 0, 0, 0);
+    FR_BUMP_NP.setPixelColor(0, 0, 0, 0);
+    FR_BUMP_NP.setPixelColor(1, 0, 0, 0);
     R_BUMP_NP.show();
+    FR_BUMP_NP.show();
     delay(BRAKE_FLASH_TIME_STEP);
   }
 }
@@ -180,8 +187,11 @@ void loop() {
   //clear light states
   clearLightStates();
 
-  //handle running lights
-  handleRunningLights();
+//  //handle running lights
+//  handleRunningLights();
+
+  //replaced for fun oct 8 2023
+  aircraftRunningLights();
 
   //handle light cycles
 
@@ -251,9 +261,53 @@ void handleRunningLights() {
     R_BUMP_NP.setPixelColor(1, 0, 0, 40);
     //R_BUMP_NP.setPixelColor(2, 50, 0, 50);
 
-    //turn on license plate lights
-    TRUNK_NP.setPixelColor(0, 50, 50, 50);
-    TRUNK_NP.setPixelColor(1, 50, 50, 50);
+//    //turn on license plate lights //disabled because drivers are fucked - oct 8 2023
+//    TRUNK_NP.setPixelColor(0, 50, 50, 50);
+//    TRUNK_NP.setPixelColor(1, 50, 50, 50);
+  }
+}
+
+//aircraft style running lights
+void aircraftRunningLights() {
+
+  //default state
+  //set front wheel well lights
+  FR_BUMP_NP.setPixelColor(0, 50, 0, 0);
+  FR_BUMP_NP.setPixelColor(1, 0, 50, 0);
+
+  //set rear bumper lights
+  R_BUMP_NP.setPixelColor(0, 0, 0, 40);
+  R_BUMP_NP.setPixelColor(1, 0, 0, 40);
+
+  //check if we should flash
+  if ((millis() - runningLightTimer) > 3000) { //delay before any flashes
+    if ((millis() - runningLightTimer) < 3100) { //initiate front flash
+      //set front wheel well lights
+      FR_BUMP_NP.setPixelColor(0, 255, 255, 255);
+      FR_BUMP_NP.setPixelColor(1, 255, 255, 255);
+    } else if ((millis() - runningLightTimer) < 3200) { //stop front flash
+      //set front wheel well lights
+      FR_BUMP_NP.setPixelColor(0, 0, 0, 0);
+      FR_BUMP_NP.setPixelColor(1, 0, 0, 0);
+    } else if ((millis() - runningLightTimer) < 3300) { //initiate rear flash
+      //set rear bumper lights
+      R_BUMP_NP.setPixelColor(0, 255, 255, 255);
+      R_BUMP_NP.setPixelColor(1, 255, 255, 255);
+    } else if ((millis() - runningLightTimer) < 3400) { //stop rear flash
+      //set rear bumper lights
+      R_BUMP_NP.setPixelColor(0, 0, 0, 0);
+      R_BUMP_NP.setPixelColor(1, 0, 0, 0);
+    } else if ((millis() - runningLightTimer) < 3500) { //initiate rear flash
+      //set rear bumper lights
+      R_BUMP_NP.setPixelColor(0, 255, 255, 255);
+      R_BUMP_NP.setPixelColor(1, 255, 255, 255);
+    } else if ((millis() - runningLightTimer) < 3600) { //stop rear flash
+      //set rear bumper lights
+      R_BUMP_NP.setPixelColor(0, 0, 0, 0);
+      R_BUMP_NP.setPixelColor(1, 0, 0, 0);
+    } else {
+      runningLightTimer = millis();
+    }
   }
 }
 
