@@ -55,15 +55,16 @@ int NP_PINS[6] = { 33, 35, 34, 37, 36, 39 };
 
 //these variables link specific lights to the indexes within M_PINS and M_STATES
 
+//TODO: finalize these indexes
 int R_HL_DRL = 0;  //front DRLs (leave actual head light control to steering wheel stalk)
-int L_HL_DRL = 1;
-int R_HL_IND = 2;  //front indicators
-int L_HL_IND = 3;
-int R_BL_BRK = 4;  //rear brake lights (do not touch third brake light wiring)
-int L_BL_BRK = 5;
-int R_BL_IND = 6;  //rear indicators
-int L_BL_IND = 7;
-int BL_RUN = 8;  //rear running lights
+int L_HL_DRL = 0;
+int L_HL_IND = 7;  //front indicators
+int R_HL_IND = 6;
+int R_BL_BRK = 0;  //rear brake lights (do not touch third brake light wiring)
+int L_BL_BRK = 0;
+int R_BL_IND = 4;  //rear indicators
+int L_BL_IND = 5;
+int BL_RUN = 0;  //rear running lights
 
 //the pinout was chosen such that the front DRLs and brake lights are on the hardware PWM channels, the remaining assignments are arbitrary
 
@@ -136,6 +137,9 @@ void setup() {
     FR_BUMP_NP.show();
     delay(BRAKE_FLASH_TIME_STEP);
   }
+
+  //reset CANBUS timer to prevent accidental shut down
+  canBusTimeoutTimer = millis();
 }
 
 void loop() {
@@ -206,7 +210,7 @@ void loop() {
 
   //  :::CAN timeout shutdown:::
 
-  //shut down if we've exceeded the CANBUS timeout timer
+  //shut down if we've exceeded the CANBUS timeout timer TODO: seems broken
   if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {    
     digitalWrite(KILL_PIN, HIGH);
   }
@@ -241,7 +245,7 @@ void lightsOff() {
 void showLights() {
   //show MOSFET channels
   for (int i = 0; i < sizeof(M_PINS); i++) {
-    digitalWrite(i, M_STATES[i]);
+    digitalWrite(M_PINS[i], M_STATES[i]);
   }
 
   //show NP channels
@@ -276,12 +280,21 @@ void aircraftRunningLights() {
   FR_BUMP_NP.setPixelColor(1, 0, 50, 0);
 
   //set rear bumper lights
-  R_BUMP_NP.setPixelColor(0, 0, 0, 40);
-  R_BUMP_NP.setPixelColor(1, 0, 0, 40);
+  R_BUMP_NP.setPixelColor(0, 0, 0, 0);
+  R_BUMP_NP.setPixelColor(1, 0, 0, 0);
+  R_BUMP_NP.setPixelColor(2, 0, 50, 0);
 
-  //check if we should flash
+  //check if we should flash 
   if ((millis() - runningLightTimer) > 3000) { //delay before any flashes
-    if ((millis() - runningLightTimer) < 3100) { //initiate front flash
+
+      //debug oct 19
+      //turn signal test
+      M_STATES[R_HL_IND] = true;
+      M_STATES[L_HL_IND] = true;
+      M_STATES[R_BL_IND] = true;
+      M_STATES[L_BL_IND] = true;
+    
+    if ((millis() - runningLightTimer) < 3100) { //initiate front flash     
       //set front wheel well lights
       FR_BUMP_NP.setPixelColor(0, 255, 255, 255);
       FR_BUMP_NP.setPixelColor(1, 255, 255, 255);
@@ -304,7 +317,7 @@ void aircraftRunningLights() {
     } else if ((millis() - runningLightTimer) < 3600) { //stop rear flash
       //set rear bumper lights
       R_BUMP_NP.setPixelColor(0, 0, 0, 0);
-      R_BUMP_NP.setPixelColor(1, 0, 0, 0);
+      R_BUMP_NP.setPixelColor(1, 0, 0, 0);     
     } else {
       runningLightTimer = millis();
     }
