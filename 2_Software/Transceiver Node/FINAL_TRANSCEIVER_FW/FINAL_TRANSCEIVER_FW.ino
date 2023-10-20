@@ -27,13 +27,21 @@ MCP2515 carCAN(2);
 MCP2515 serCAN(4);
 
 struct can_frame canMsg;
-long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-long canMsgTimer = 0; //this is used to ensure CAN messages based on analogread values are dispatched regularly
+unsigned long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long canMsgTimer = 0; //this is used to ensure CAN messages based on analogread values are dispatched regularly
 
 int canIDsWeCareAbout[2] = {209, 212};
+
+//this computer keeps track of turn signal state
+int turnSignalState = 0; //0 is none, 1 is left, 2 is right, 3 is hazard
  
 void setup() {
   pinMode(KILL_PIN, OUTPUT);
+
+  //set pinMode for turn signals
+  pinMode(A3, INPUT_PULLUP);
+  pinMode(A4, INPUT_PULLUP);
+  pinMode(A5, INPUT_PULLUP);
 
   carCAN.reset();
   carCAN.setBitrate(CAN_500KBPS, MCP_8MHZ);
@@ -56,18 +64,29 @@ void loop() {
     }
   }
 
+  //update turn signal state
+  if (digitalRead(A5) == LOW) { //hazard
+    //right
+    turnSignalState = 3;
+  } else if (digitalRead(A3) == LOW) { //right
+    //hazard
+    turnSignalState = 2;
+  } else if (digitalRead(A4) == LOW) { //left
+    //left
+    turnSignalState = 1;
+  } else {
+    turnSignalState = 0;
+  }
+
   //send analogread based CAN frames
   if (millis() - canMsgTimer > CANBUS_MSG_DELAY) { //modify turn signals to be on first byte of can msg 0 off, 1 haz, 2 left, 3 right
     struct can_frame frame;
     frame.can_id = 1;
     frame.can_dlc = 7;
     frame.data[0] = (analogRead(A0) > 500) ? 0 : 1;
-    frame.data[1] = (analogRead(A1) > 500) ? 0 : 1;
-    frame.data[2] = (analogRead(A2) > 500) ? 0 : 1;
-    frame.data[3] = (analogRead(A3) > 500) ? 0 : 1;
-    frame.data[4] = (analogRead(A4) > 500) ? 0 : 1;
-    frame.data[5] = (analogRead(A5) > 500) ? 0 : 1;
-    frame.data[6] = (analogRead(A6) > 500) ? 0 : 1;
+    frame.data[1] = (analogRead(A1) > 500) ? 1 : 0; //reverse gear state
+    frame.data[2] = (analogRead(A2) > 500) ? 1 : 0; //running light state
+    frame.data[3] = turnSignalState;
 
     serCAN.sendMessage(&frame);
   }

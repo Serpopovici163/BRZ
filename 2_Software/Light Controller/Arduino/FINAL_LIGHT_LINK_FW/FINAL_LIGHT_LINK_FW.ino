@@ -11,10 +11,39 @@
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
 #define STARTUP_FLASH_COUNT 5 //number of times the fourth brake light will flash when board boots up
 
-#define CANBUS_TIMEOUT 500  //TODO: integrate
+#define CANBUS_TIMEOUT 500  //timeout before board shuts down from not getting CAN data
 
 #define MOSFET_OFF_STATE 0  //included in case we want to swap which pin state turns a MOSFET on
 #define MOSFET_ON_STATE 1
+
+//these are in ascending order on the PCB (addr chan 1-6)
+int NP_PINS[6] = { 33, 35, 34, 37, 36, 39 };
+
+//the pinout was chosen such that the front DRLs and brake lights are on the hardware PWM channels, the remaining assignments are arbitrary
+
+int M_PINS[12] = { 29, 31, 30, 28, 25, 27, 26, 24, 12, 45, 46, 44 };
+
+//these variables link specific lights to the indexes within M_PINS and M_STATES
+
+//TODO: finalize these indexes
+/*
+   ch1 - rear run
+   ch5 - rear left turn (maybe flipped)
+   ch6 - rear right turn
+   ch7 - front right turn
+   ch8 - front left turn
+   ch9 - front left drl (maybe flipped)
+   ch10 - frong right drl
+*/
+int R_HL_DRL = 8;  //front DRLs (leave actual head light control to steering wheel stalk)
+int L_HL_DRL = 9;
+int L_HL_IND = 7;  //front indicators
+int R_HL_IND = 6;
+int R_BL_BRK = -1;  //rear brake lights (do not touch third brake light wiring)
+int L_BL_BRK = -1;
+int R_BL_IND = 5;  //rear indicators
+int L_BL_IND = 4;
+int BL_RUN = 0;  //rear running lights
 
 //CAN I/O
 struct can_frame canMsg;
@@ -23,74 +52,55 @@ MCP2515 mcp2515(42); //TODO: I think CS is 42 but double check
 //addressable channels (appended "NP" denotes a 'NeoPixel' channel)
 Adafruit_NeoPixel FR_BUMP_NP(2, 35, NEO_GRB + NEO_KHZ800);    //only 2 LEDs at the moment but update later
 /*   0 --> left wheel well
- *   1 --> left front bumper
- *   2 --> right front bumper
- *   3 --> right wheel well
- */
- 
-Adafruit_NeoPixel LIGHTBARS_NP(8, 33, NEO_GRB + NEO_KHZ800);  
+     1 --> left front bumper
+     2 --> right front bumper
+     3 --> right wheel well
+*/
+
+Adafruit_NeoPixel LIGHTBARS_NP(8, 33, NEO_GRB + NEO_KHZ800);
 /*   0 --> front left
- *   1 --> front left-mid
- *   2 --> front right-mid
- *   3 --> front right
- *   4 --> rear right
- *   5 --> rear right-mid
- *   6 --> rear left-mid
- *   7 --> rear left
- */
- 
+     1 --> front left-mid
+     2 --> front right-mid
+     3 --> front right
+     4 --> rear right
+     5 --> rear right-mid
+     6 --> rear left-mid
+     7 --> rear left
+*/
+
 Adafruit_NeoPixel TRUNK_NP(2, 34, NEO_GRB + NEO_KHZ800);
 /*   0 --> left license plate
- *   1 --> right license plate
- */
+     1 --> right license plate
+*/
 
 Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800); //TODO: confirm LED IDs
-/*   0 --> left backup light 
- *   1 --> fourth brake light
- *   2 --> right backup light
- */
-
-//these are in ascending order on the PCB (addr chan 1-6)
-int NP_PINS[6] = { 33, 35, 34, 37, 36, 39 };
-
-//these variables link specific lights to the indexes within M_PINS and M_STATES
-
-//TODO: finalize these indexes
-int R_HL_DRL = 0;  //front DRLs (leave actual head light control to steering wheel stalk)
-int L_HL_DRL = 0;
-int L_HL_IND = 7;  //front indicators
-int R_HL_IND = 6;
-int R_BL_BRK = 0;  //rear brake lights (do not touch third brake light wiring)
-int L_BL_BRK = 0;
-int R_BL_IND = 4;  //rear indicators
-int L_BL_IND = 5;
-int BL_RUN = 0;  //rear running lights
-
-//the pinout was chosen such that the front DRLs and brake lights are on the hardware PWM channels, the remaining assignments are arbitrary
-
-int M_PINS[12] = { 29, 31, 30, 28, 25, 27, 26, 24, 12, 45, 46, 44 };
+/*   0 --> left backup light
+     1 --> fourth brake light
+     2 --> right backup light
+*/
 
 //status vars (no NP state vars since the library kinda has inherent states)
 int lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
-int turnSignalState = 0;  //-2 is hazard, -1 is left, 0 is none, 1 is right
+int turnSignalState = 3;  //0 is none, 1 is left, 2 is right, 3 is hazard
+int turnSignalStateBuffer = 3; //used to maintain turn signal state above even once its reset over CAN
 bool runningLightState = false;
 bool brakeLightFlashing = false;  //kept separate since lightCycleState can have a value while brake lights are flashing
 bool M_STATES[12] = { false, false, false, false, false, false, false, false, false, false, false, false };
 
-//car status vars
-int brakePressure = 0;
-int vehicleSpeed = 0;
+//car status vars TODO: do these need to be global?
+int brakePressure = 1;
+int vehicleSpeed = 1;
 
 //request vars --> these are assigned based on CAN data and reset as soon as the request is fulfilled
 bool brakeRequest = false;  //should I keep this a bool or make it an int so it can also represent brake light flashing
 bool warningFlashRequest = false;  //used to flash lights deliberately to warn other drivers
 
 //timers used to keep track of where we are within a light animaion cycle
-unsigned long brakeFlashTimer = 0;
-unsigned long lightCycleTimer = 0;
-unsigned long canBusTimeoutTimer = millis(); //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-unsigned long turnSignalTimer = 0;
-unsigned long runningLightTimer = 0; //used when running lights have an animation
+unsigned long brakeFlashTimer = 1;
+unsigned long lightCycleTimer = 1;
+unsigned long canBusTimeoutTimer = 1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long turnSignalTimer = 3000;
+unsigned long runningLightTimer = 1; //used when running lights have an animation
 
 void setup() {
   mcp2515.reset();
@@ -168,18 +178,11 @@ void loop() {
         brakeLightFlashing = true;
         brakeFlashTimer = millis();
       }
-    } else if (canMsg.can_id == 1) { //from transceiver module --> TODO: figure out what data means what
+    } else if (canMsg.can_id == 1) { //from transceiver module
       //assign turn signals
-      turnSignalState = canMsg.data[0];
+      turnSignalState = canMsg.data[3];
       //assign runningLights
-      runningLightState = (canMsg.data[0] == 1) ? true : false;
-      //assign flash request
-    } else if (canMsg.can_id == 2) {
-      //assign running light state runningLightState
-      //this CAN msg should persist but doesn't need to be high frequency
-    } else if (canMsg.can_id == 3) {
-      //assign warning flash STATE (don't use requests)
-      //these CAN packets should persist
+      runningLightState = (canMsg.data[2] == 1) ? true : false;
     }
   }
 
@@ -191,11 +194,8 @@ void loop() {
   //clear light states
   clearLightStates();
 
-//  //handle running lights
-//  handleRunningLights();
-
-  //replaced for fun oct 8 2023
-  aircraftRunningLights();
+  //handle running lights
+  handleRunningLights();
 
   //handle light cycles
 
@@ -211,7 +211,7 @@ void loop() {
   //  :::CAN timeout shutdown:::
 
   //shut down if we've exceeded the CANBUS timeout timer TODO: seems broken
-  if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {    
+  if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {
     digitalWrite(KILL_PIN, HIGH);
   }
 }
@@ -258,16 +258,25 @@ void showLights() {
 //handles running light behaviour
 void handleRunningLights() {
   if (runningLightState) {
-    M_STATES[BL_RUN] = MOSFET_ON_STATE;
+    if (false) { //overridden oct 20 since hazards are part of the locking animation
+      aircraftRunningLights();
+    } else {
+      //set running lights
+      M_STATES[R_HL_DRL] = true;
+      M_STATES[L_HL_DRL] = true;
+      M_STATES[BL_RUN] = true;
 
-    //set fourth brake light to dim
-    R_BUMP_NP.setPixelColor(0, 0, 0, 40);
-    R_BUMP_NP.setPixelColor(1, 0, 0, 40);
-    //R_BUMP_NP.setPixelColor(2, 50, 0, 50);
+      //set fourth brake light to dim
+      R_BUMP_NP.setPixelColor(2, 0, 50, 0);
 
-//    //turn on license plate lights //disabled because drivers are fucked - oct 8 2023
-//    TRUNK_NP.setPixelColor(0, 50, 50, 50);
-//    TRUNK_NP.setPixelColor(1, 50, 50, 50);
+      //set side markers
+      FR_BUMP_NP.setPixelColor(0, 50, 50, 0);
+      FR_BUMP_NP.setPixelColor(1, 50, 50, 0);
+
+      //    //turn on license plate lights //disabled because drivers are fucked - oct 8 2023
+      //    TRUNK_NP.setPixelColor(0, 50, 50, 50);
+      //    TRUNK_NP.setPixelColor(1, 50, 50, 50);
+    }
   }
 }
 
@@ -284,17 +293,14 @@ void aircraftRunningLights() {
   R_BUMP_NP.setPixelColor(1, 0, 0, 0);
   R_BUMP_NP.setPixelColor(2, 0, 50, 0);
 
-  //check if we should flash 
-  if ((millis() - runningLightTimer) > 3000) { //delay before any flashes
+  //set running lights
+  M_STATES[R_HL_DRL] = true;
+  M_STATES[L_HL_DRL] = true;
+  M_STATES[BL_RUN] = true;
 
-      //debug oct 19
-      //turn signal test
-      M_STATES[R_HL_IND] = true;
-      M_STATES[L_HL_IND] = true;
-      M_STATES[R_BL_IND] = true;
-      M_STATES[L_BL_IND] = true;
-    
-    if ((millis() - runningLightTimer) < 3100) { //initiate front flash     
+  //check if we should flash
+  if ((millis() - runningLightTimer) > 3000) { //delay before any flashes
+    if ((millis() - runningLightTimer) < 3100) { //initiate front flash
       //set front wheel well lights
       FR_BUMP_NP.setPixelColor(0, 255, 255, 255);
       FR_BUMP_NP.setPixelColor(1, 255, 255, 255);
@@ -317,7 +323,7 @@ void aircraftRunningLights() {
     } else if ((millis() - runningLightTimer) < 3600) { //stop rear flash
       //set rear bumper lights
       R_BUMP_NP.setPixelColor(0, 0, 0, 0);
-      R_BUMP_NP.setPixelColor(1, 0, 0, 0);     
+      R_BUMP_NP.setPixelColor(1, 0, 0, 0);
     } else {
       runningLightTimer = millis();
     }
@@ -327,35 +333,63 @@ void aircraftRunningLights() {
 //handles turn signal behaviour
 void handleTurnSignals() {
 
-  //we should not be flashing a turn signal if we've exceeded the minimum number of flashes and the turn signal state is 0
-  if ((millis() - turnSignalTimer) > (2*MIN_TURN_SIG_FLASH*TURN_SIGNAL_TIME_STEP) && turnSignalState == 0) {
+  //we should not be flashing a turn signal if we've exceeded the minimum number of flashes and the turn signal state does not require indicating
+  if ((millis() - turnSignalTimer) > (2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP) && turnSignalState == 0) {
+    turnSignalTimer = -1;
+    turnSignalStateBuffer = 0;
     return;
   }
 
+  /*
+     weird timer handling stuff
+
+     basically gonna set the turnSignalTimer to -1 when no turn signal is requested through the if statement above
+     if a turn is requested and the turnSignalTimer is -1, then we set it to millis()
+     otherwise we do not touch this timer
+  */
+
+  if (turnSignalTimer == -1) {
+    turnSignalTimer = millis();  
+  }
+
+  //update our buffer so we can maintain the turn signal state even once it has been reset over can
+  //don't update if turn signal was set to 0 since this nullifies the purpose of the buffer
+  if (turnSignalStateBuffer != turnSignalState && turnSignalState != 0) {
+    turnSignalStateBuffer = turnSignalState;
+  }
+
   //nullify all turn signal states to ensure other animations can't affect the turn signals when we're indicating
+  //TODO: is this necessary? this was removed from the LEDs since it affected running lights
   M_STATES[L_HL_IND] = false;
   M_STATES[L_BL_IND] = false;
   M_STATES[R_HL_IND] = false;
   M_STATES[R_BL_IND] = false;
 
   //now we flash
-  int turnSignalTimerMOD = turnSignalTimer % (2*TURN_SIGNAL_TIME_STEP); //this should result in a number between 0 and 999 which allows us to figure out where we should be within the flash state
+  int turnSignalTimerMOD = (millis() - turnSignalTimer) % (2 * TURN_SIGNAL_TIME_STEP); //this should result in a number between 0 and 999 which allows us to figure out where we should be within the flash state
+  
   if (turnSignalTimerMOD < TURN_SIGNAL_TIME_STEP) {
-    if (turnSignalState == -1) { //we goin left
+    if (turnSignalStateBuffer == 1) { //we goin left
       M_STATES[L_HL_IND] = true;
       M_STATES[L_BL_IND] = true;
-    } else if (turnSignalState == 1) { //we goin right
+      FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
+    } else if (turnSignalStateBuffer == 2) { //we goin right
       M_STATES[R_HL_IND] = true;
       M_STATES[R_BL_IND] = true;
+      FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
+    } else if (turnSignalStateBuffer == 3) { //hazards
+      M_STATES[R_HL_IND] = true;
+      M_STATES[R_BL_IND] = true;
+      M_STATES[L_HL_IND] = true;
+      M_STATES[L_BL_IND] = true;
+      FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
+      FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
     }
   } else {
-    if (turnSignalState == -1) { //we goin left
-      M_STATES[L_HL_IND] = false;
-      M_STATES[L_BL_IND] = false;
-    } else if (turnSignalState == 1) { //we goin right
-      M_STATES[R_HL_IND] = false;
-      M_STATES[R_BL_IND] = false;
-    }
+    M_STATES[L_HL_IND] = false;
+    M_STATES[L_BL_IND] = false;
+    M_STATES[R_HL_IND] = false;
+    M_STATES[R_BL_IND] = false;
   }
 }
 
@@ -363,7 +397,7 @@ void handleTurnSignals() {
 void handleBrakeLights() {
   if (brakeRequest) {
     //check if we should be flashing brake lights
-    if (brakeLightFlashing) { //handle brake flashing animation   
+    if (brakeLightFlashing) { //handle brake flashing animation
       //we should not be flashing brake lights if we've exceeded the minimum number of flashes
       if (millis() - brakeFlashTimer > BRAKE_FLASH_MINIMUM_LENGTH) {
         brakeLightFlashing = false;
@@ -385,7 +419,7 @@ void handleBrakeLights() {
         //set fourth brake light off
         R_BUMP_NP.setPixelColor(2, 0, 0, 0);
       }
-    } 
+    }
 
     //this allows the above if to drop out and proceed with the code below if we've exceeded the minimum flash time. This prevents a brake light drop out
     if (brakeLightFlashing == false) {
