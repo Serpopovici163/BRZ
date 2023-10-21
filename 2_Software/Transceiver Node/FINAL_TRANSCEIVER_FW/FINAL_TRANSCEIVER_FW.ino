@@ -64,6 +64,11 @@ void loop() {
     }
   }
 
+  //NOTES
+  //A1 is reverse
+  //A0 and A2 are running light related but one is dimmer 
+  //just gonna use A0 for now. Might drop running light signal from BCU in exchange for ACC PWR signal from head unit. Could be useful to decide when turn signals should register in a non-CAN-way (hopefully less processing and therefore faster but also slightly jankier IG)
+
   //update turn signal state
   if (digitalRead(A5) == LOW) { //hazard
     //right

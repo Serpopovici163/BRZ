@@ -74,7 +74,8 @@ Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800); //TODO: confirm LED ID
 int lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
 int turnSignalState = 3;  //0 is none, 1 is left, 2 is right, 3 is hazard
 int turnSignalStateBuffer = 3; //used to maintain turn signal state above even once its reset over CAN
-bool runningLightState = false;
+int runningLightState = -1;
+int reverseLightState = -1;
 bool brakeLightFlashing = false;  //kept separate since lightCycleState can have a value while brake lights are flashing
 bool M_STATES[12] = { false, false, false, false, false, false, false, false, false, false, false, false };
 
@@ -170,15 +171,20 @@ void loop() {
         brakeFlashTimer = millis();
       }
     } else if (canMsg.can_id == 1) { //from transceiver module
+
+      //0 is not used as of oct 20 but will be ACC PWR
+      //1 is reverse gear
+      //2 is running light state
+      //3 is turn signal state
+      
       //assign turn signals
       turnSignalState = canMsg.data[3];
-      //assign runningLights
-      runningLightState = (canMsg.data[2] == 1) ? true : false;
+      //assign reverse light (car's bulbs seem dead so I'm gonna make my LEDs turn on as well)
+      reverseLightState = canMsg.data[1];
+      //assign runningLights (0 is off, 1 is on)
+      runningLightState = canMsg.data[2];
     }
   }
-
-  //debug
-  runningLightState = true;
 
   //  :::execute light functions:::
 
@@ -188,7 +194,8 @@ void loop() {
   //handle running lights
   handleRunningLights();
 
-  //handle light cycles
+  //handle reverse lights
+  handleReverseLights();
 
   //handle turn signal states
   handleTurnSignals();
@@ -248,7 +255,7 @@ void showLights() {
 
 //handles running light behaviour
 void handleRunningLights() {
-  if (runningLightState) {
+  if (runningLightState == 1) {
     //set running lights
     M_STATES[R_HL_DRL] = true;
     M_STATES[L_HL_DRL] = true;
@@ -422,5 +429,15 @@ void handleBrakeLights() {
       R_BUMP_NP.setPixelColor(0, 0, 0, 255);
       R_BUMP_NP.setPixelColor(1, 0, 0, 255);
     }
+  }
+}
+
+void handleReverseLights() {
+  if (reverseLightState == 1) {
+    //turn on license plate and fourth brake light LEDs
+    TRUNK_NP.setPixelColor(0, 255, 255, 255);
+    TRUNK_NP.setPixelColor(1, 255, 255, 255);
+    R_BUMP_NP.setPixelColor(0, 255, 255, 255);
+    R_BUMP_NP.setPixelColor(1, 255, 255, 255);
   }
 }
