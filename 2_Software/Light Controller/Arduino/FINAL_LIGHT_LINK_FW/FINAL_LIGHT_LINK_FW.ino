@@ -344,6 +344,7 @@ void handleTurnSignals() {
 
   if (turnSignalTimer == -1) {
     turnSignalTimer = millis();  
+    turnSignalStateBuffer = turnSignalState;
   }
 
   //update our buffer so we can maintain the turn signal state even once it has been reset over can
