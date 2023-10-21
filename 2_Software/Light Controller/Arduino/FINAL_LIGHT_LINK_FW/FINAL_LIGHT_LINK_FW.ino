@@ -26,15 +26,6 @@ int M_PINS[12] = { 29, 31, 30, 28, 25, 27, 26, 24, 12, 45, 46, 44 };
 //these variables link specific lights to the indexes within M_PINS and M_STATES
 
 //TODO: finalize these indexes
-/*
-   ch1 - rear run
-   ch5 - rear left turn (maybe flipped)
-   ch6 - rear right turn
-   ch7 - front right turn
-   ch8 - front left turn
-   ch9 - front left drl (maybe flipped)
-   ch10 - frong right drl
-*/
 int R_HL_DRL = 8;  //front DRLs (leave actual head light control to steering wheel stalk)
 int L_HL_DRL = 9;
 int L_HL_IND = 7;  //front indicators
@@ -258,25 +249,21 @@ void showLights() {
 //handles running light behaviour
 void handleRunningLights() {
   if (runningLightState) {
-    if (false) { //overridden oct 20 since hazards are part of the locking animation
-      aircraftRunningLights();
-    } else {
-      //set running lights
-      M_STATES[R_HL_DRL] = true;
-      M_STATES[L_HL_DRL] = true;
-      M_STATES[BL_RUN] = true;
+    //set running lights
+    M_STATES[R_HL_DRL] = true;
+    M_STATES[L_HL_DRL] = true;
+    M_STATES[BL_RUN] = true;
 
-      //set fourth brake light to dim
-      R_BUMP_NP.setPixelColor(2, 0, 50, 0);
+    //set fourth brake light to dim
+    R_BUMP_NP.setPixelColor(2, 0, 50, 0);
 
-      //set side markers
-      FR_BUMP_NP.setPixelColor(0, 50, 50, 0);
-      FR_BUMP_NP.setPixelColor(1, 50, 50, 0);
+    //set side markers
+    FR_BUMP_NP.setPixelColor(0, 50, 50, 0);
+    FR_BUMP_NP.setPixelColor(1, 50, 50, 0);
 
-      //    //turn on license plate lights //disabled because drivers are fucked - oct 8 2023
-      //    TRUNK_NP.setPixelColor(0, 50, 50, 50);
-      //    TRUNK_NP.setPixelColor(1, 50, 50, 50);
-    }
+    //    //turn on license plate lights //disabled because drivers are fucked - oct 8 2023
+    //    TRUNK_NP.setPixelColor(0, 50, 50, 50);
+    //    TRUNK_NP.setPixelColor(1, 50, 50, 50);
   }
 }
 
@@ -355,6 +342,10 @@ void handleTurnSignals() {
   //update our buffer so we can maintain the turn signal state even once it has been reset over can
   //don't update if turn signal was set to 0 since this nullifies the purpose of the buffer
   if (turnSignalStateBuffer != turnSignalState && turnSignalState != 0) {
+    turnSignalTimer += 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //make sure we don't accidentally trigger turn signal in other direction
+    /*
+     * had an issue where the inertia of the turn signal stalk snapping back after a turn would very briefly cause it to actuate in the opposite direction and this code would then make the car signal 3 times in the wrong direction
+     */
     turnSignalStateBuffer = turnSignalState;
   }
 
@@ -369,20 +360,20 @@ void handleTurnSignals() {
   int turnSignalTimerMOD = (millis() - turnSignalTimer) % (2 * TURN_SIGNAL_TIME_STEP); //this should result in a number between 0 and 999 which allows us to figure out where we should be within the flash state
   
   if (turnSignalTimerMOD < TURN_SIGNAL_TIME_STEP) {
-    if (turnSignalStateBuffer == 1) { //we goin left
+    if (turnSignalStateBuffer == 3) { //hazards
+      M_STATES[R_HL_IND] = true;
+      M_STATES[R_BL_IND] = true;
+      M_STATES[L_HL_IND] = true;
+      M_STATES[L_BL_IND] = true;
+      FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
+      FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
+    } else if (turnSignalStateBuffer == 1) { //we goin left
       M_STATES[L_HL_IND] = true;
       M_STATES[L_BL_IND] = true;
       FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
     } else if (turnSignalStateBuffer == 2) { //we goin right
       M_STATES[R_HL_IND] = true;
       M_STATES[R_BL_IND] = true;
-      FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
-    } else if (turnSignalStateBuffer == 3) { //hazards
-      M_STATES[R_HL_IND] = true;
-      M_STATES[R_BL_IND] = true;
-      M_STATES[L_HL_IND] = true;
-      M_STATES[L_BL_IND] = true;
-      FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
       FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
     }
   } else {

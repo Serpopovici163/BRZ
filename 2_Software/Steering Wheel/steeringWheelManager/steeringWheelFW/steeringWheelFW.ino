@@ -12,7 +12,7 @@
 MCP2515 CAN(4);
 
 struct can_frame canMsg;
-unsigned long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long canBusTimeoutTimer = 1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
  
 void setup() {
   pinMode(KILL_PIN, OUTPUT);
@@ -20,6 +20,9 @@ void setup() {
   CAN.reset();
   CAN.setBitrate(CAN_500KBPS, MCP_8MHZ);
   CAN.setNormalMode();
+
+  //debug
+  Serial.begin(115200);
 }
 
 void loop() {
@@ -32,4 +35,6 @@ void loop() {
   if (millis() - canBusTimeoutTimer > CANBUS_TIMEOUT) {
     digitalWrite(KILL_PIN, HIGH);
   }
+
+  Serial.println(analogRead(A4));
 }
