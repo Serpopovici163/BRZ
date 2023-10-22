@@ -340,20 +340,24 @@ void handleTurnSignals() {
      basically gonna set the turnSignalTimer to -1 when no turn signal is requested through the if statement above
      if a turn is requested and the turnSignalTimer is -1, then we set it to millis()
      otherwise we do not touch this timer
+     Also, ensure this does not happen for hazards since hazards should only flash when the button is pressed 
   */
 
-  if (turnSignalTimer == -1) {
+  if (turnSignalTimer == -1 && turnSignalState != 3) { 
+    //we're just starting to flash so set our timer to now and update the turn signal buffer
     turnSignalTimer = millis();  
     turnSignalStateBuffer = turnSignalState;
   }
 
-  //update our buffer so we can maintain the turn signal state even once it has been reset over can
-  //don't update if turn signal was set to 0 since this nullifies the purpose of the buffer
+  //if the turnSignalState changes while indicating, update the timer to ensure the system stops flashing. This allows a turn signal to be cancelled by indicating in the other direction
   if (turnSignalStateBuffer != turnSignalState && turnSignalState != 0) {
-    turnSignalTimer += 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //make sure we don't accidentally trigger turn signal in other direction
     /*
      * had an issue where the inertia of the turn signal stalk snapping back after a turn would very briefly cause it to actuate in the opposite direction and this code would then make the car signal 3 times in the wrong direction
      */
+    //maybe the updating below doesn't work properly? indicating issue persists
+    //turnSignalTimer = turnSignalTimer + 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //try this line
+    turnSignalTimer += 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //make sure we nullify minimum flash timer so we don't signal in the other direction
+    //update buffer to account for change
     turnSignalStateBuffer = turnSignalState;
   }
 
