@@ -7,9 +7,10 @@
 #define BRAKE_FLASH_MINIMUM_LENGTH 1500 //minimum amount of time that the brake lights should flash for
 #define BRAKE_FLASH_TIME_STEP 100 //general time step for brake light flashing animation 
 #define LIGHT_CYCLE_TIME_STEP 100 //general time step for programming animations
-#define TURN_SIGNAL_TIME_STEP 500 //general time step for turn signal flashing animation
+#define TURN_SIGNAL_TIME_STEP 400 //general time step for turn signal flashing animation
+#define TURN_SIGNAL_COOLDOWN 100 //explain later
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
-#define STARTUP_FLASH_COUNT 5 //number of times the fourth brake light will flash when board boots up
+#define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
 
 #define CANBUS_TIMEOUT 500  //timeout before board shuts down from not getting CAN data
 
@@ -91,7 +92,8 @@ bool warningFlashRequest = false;  //used to flash lights deliberately to warn o
 unsigned long brakeFlashTimer = 1;
 unsigned long lightCycleTimer = 1;
 unsigned long canBusTimeoutTimer = 1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-unsigned long turnSignalTimer = 3000;
+unsigned long turnSignalTimer = 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP + 1; //TODO: why 3000?
+unsigned long turnSignalBufferAssignmentTimer = - (TURN_SIGNAL_COOLDOWN + 1);
 unsigned long runningLightTimer = 1; //used when running lights have an animation
 
 void setup() {
@@ -142,6 +144,9 @@ void setup() {
 
   //reset CANBUS timer to prevent accidental shut down
   canBusTimeoutTimer = millis();
+
+  //debug 
+  Serial.begin(115200);
 }
 
 void loop() {
@@ -199,6 +204,9 @@ void loop() {
 
   //handle turn signal states
   handleTurnSignals();
+
+  //handle hazards
+  handleHazards();
 
   //handle brake lights
   handleBrakeLights();
@@ -325,40 +333,37 @@ void aircraftRunningLights() {
 }
 
 //handles turn signal behaviour
+//STILL A PROBLEM (OCT 26) - going left, right, and left again triggers triple flash since buffer resets during initiall left -> right transition and is therefore 0 when we go left again
+//I don't think I care about the aforementioned problem, idk how it would happen in practice and it can be cancelled by indicating in the other way
 void handleTurnSignals() {
 
-  //we should not be flashing a turn signal if we've exceeded the minimum number of flashes and the turn signal state does not require indicating
-  if ((millis() - turnSignalTimer) > (2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP) && turnSignalState == 0) {
-    turnSignalTimer = -1;
-    turnSignalStateBuffer = 0;
+  //ignore hazards
+  if (turnSignalState == 3) {
     return;
   }
 
-  /*
-     weird timer handling stuff
+  if ((millis() - turnSignalBufferAssignmentTimer) > TURN_SIGNAL_COOLDOWN && turnSignalStateBuffer != 0) {
 
-     basically gonna set the turnSignalTimer to -1 when no turn signal is requested through the if statement above
-     if a turn is requested and the turnSignalTimer is -1, then we set it to millis()
-     otherwise we do not touch this timer
-     Also, ensure this does not happen for hazards since hazards should only flash when the button is pressed 
-  */
+    if (turnSignalState != turnSignalStateBuffer && turnSignalState != 0) {
+      turnSignalTimer -= 2 * (2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP);
+      turnSignalStateBuffer = turnSignalState;
+      turnSignalBufferAssignmentTimer = millis();
+    }
+    
+    if ((millis() - turnSignalTimer) > (2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP) && turnSignalState == 0) {
+      turnSignalStateBuffer = 0;
+      turnSignalTimer = -1;
+      return;
+    }
+    
+  } else if (turnSignalState != 0 && turnSignalStateBuffer == 0) {
 
-  if (turnSignalTimer == -1 && turnSignalState != 3) { 
-    //we're just starting to flash so set our timer to now and update the turn signal buffer
-    turnSignalTimer = millis();  
     turnSignalStateBuffer = turnSignalState;
-  }
+    turnSignalBufferAssignmentTimer = millis();
 
-  //if the turnSignalState changes while indicating, update the timer to ensure the system stops flashing. This allows a turn signal to be cancelled by indicating in the other direction
-  if (turnSignalStateBuffer != turnSignalState && turnSignalState != 0) {
-    /*
-     * had an issue where the inertia of the turn signal stalk snapping back after a turn would very briefly cause it to actuate in the opposite direction and this code would then make the car signal 3 times in the wrong direction
-     */
-    //maybe the updating below doesn't work properly? indicating issue persists
-    //turnSignalTimer = turnSignalTimer + 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //try this line
-    turnSignalTimer += 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP; //make sure we nullify minimum flash timer so we don't signal in the other direction
-    //update buffer to account for change
-    turnSignalStateBuffer = turnSignalState;
+    if (turnSignalTimer == -1) {
+      turnSignalTimer = millis();
+    }
   }
 
   //nullify all turn signal states to ensure other animations can't affect the turn signals when we're indicating
@@ -372,14 +377,7 @@ void handleTurnSignals() {
   int turnSignalTimerMOD = (millis() - turnSignalTimer) % (2 * TURN_SIGNAL_TIME_STEP); //this should result in a number between 0 and 999 which allows us to figure out where we should be within the flash state
   
   if (turnSignalTimerMOD < TURN_SIGNAL_TIME_STEP) {
-    if (turnSignalStateBuffer == 3) { //hazards
-      M_STATES[R_HL_IND] = true;
-      M_STATES[R_BL_IND] = true;
-      M_STATES[L_HL_IND] = true;
-      M_STATES[L_BL_IND] = true;
-      FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
-      FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
-    } else if (turnSignalStateBuffer == 1) { //we goin left
+    if (turnSignalStateBuffer == 1) { //we goin left
       M_STATES[L_HL_IND] = true;
       M_STATES[L_BL_IND] = true;
       FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
@@ -388,6 +386,37 @@ void handleTurnSignals() {
       M_STATES[R_BL_IND] = true;
       FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
     }
+  } else {
+    M_STATES[L_HL_IND] = false;
+    M_STATES[L_BL_IND] = false;
+    M_STATES[R_HL_IND] = false;
+    M_STATES[R_BL_IND] = false;
+  }
+}
+
+//handle hazards
+void handleHazards() {
+  if (turnSignalState != 3) {
+    return;
+  }
+
+  //nullify all turn signal states to ensure other animations can't affect the turn signals when we're indicating
+  //TODO: is this necessary? this was removed from the LEDs since it affected running lights
+  M_STATES[L_HL_IND] = false;
+  M_STATES[L_BL_IND] = false;
+  M_STATES[R_HL_IND] = false;
+  M_STATES[R_BL_IND] = false;
+
+  //now we flash
+  int turnSignalTimerMOD = (millis() - turnSignalTimer) % (2 * TURN_SIGNAL_TIME_STEP); //this should result in a number between 0 and 999 which allows us to figure out where we should be within the flash state
+  
+  if (turnSignalTimerMOD < TURN_SIGNAL_TIME_STEP) {
+    M_STATES[R_HL_IND] = true;
+    M_STATES[R_BL_IND] = true;
+    M_STATES[L_HL_IND] = true;
+    M_STATES[L_BL_IND] = true;
+    FR_BUMP_NP.setPixelColor(0, 255, 255, 0);
+    FR_BUMP_NP.setPixelColor(1, 255, 255, 0);
   } else {
     M_STATES[L_HL_IND] = false;
     M_STATES[L_BL_IND] = false;

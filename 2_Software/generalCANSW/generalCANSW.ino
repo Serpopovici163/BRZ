@@ -12,7 +12,7 @@
 MCP2515 CAN(4);
 
 struct can_frame canMsg;
-unsigned long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long canBusTimeoutTimer = -1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
  
 void setup() {
   pinMode(KILL_PIN, OUTPUT);
