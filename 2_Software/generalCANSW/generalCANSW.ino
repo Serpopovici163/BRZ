@@ -6,10 +6,10 @@
  * 
  */
 
-#define KILL_PIN 3
+#define KILL_PIN 30
 #define CANBUS_TIMEOUT 500  //currently using a CANBUS_TIMEOUT but need to replace this with proper key-related shut down
 
-MCP2515 CAN(4);
+MCP2515 CAN(31);
 
 struct can_frame canMsg;
 unsigned long canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
