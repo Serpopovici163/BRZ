@@ -2,7 +2,7 @@
 #include <mcp2515.h>
 
 struct can_frame canMsg;
-MCP2515 mcp2515(4);
+MCP2515 mcp2515(2);
 
 
 void setup() {

@@ -87,8 +87,8 @@ void loop() {
   if (millis() - canMsgTimer > CANBUS_MSG_DELAY) { //modify turn signals to be on first byte of can msg 0 off, 1 haz, 2 left, 3 right
     struct can_frame frame;
     frame.can_id = 1;
-    frame.can_dlc = 7;
-    frame.data[0] = (analogRead(A0) > 500) ? 0 : 1;
+    frame.can_dlc = 4;
+    frame.data[0] = (analogRead(A0) > 500) ? 0 : 1; //gonna be acc power or smthn idk
     frame.data[1] = (analogRead(A1) > 500) ? 1 : 0; //reverse gear state
     frame.data[2] = (analogRead(A2) > 500) ? 1 : 0; //running light state
     frame.data[3] = turnSignalState;

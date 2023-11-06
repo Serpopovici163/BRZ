@@ -12,7 +12,7 @@
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
 #define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
 
-#define CANBUS_TIMEOUT 500  //timeout before board shuts down from not getting CAN data
+#define CANBUS_TIMEOUT 30000  //timeout before board shuts down from not getting CAN data
 
 #define MOSFET_OFF_STATE 0  //included in case we want to swap which pin state turns a MOSFET on
 #define MOSFET_ON_STATE 1
@@ -72,9 +72,9 @@ Adafruit_NeoPixel R_BUMP_NP(3, 37, NEO_GRB + NEO_KHZ800); //TODO: confirm LED ID
 */
 
 //status vars (no NP state vars since the library kinda has inherent states)
-int lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
-int turnSignalState = 3;  //0 is none, 1 is left, 2 is right, 3 is hazard
-int turnSignalStateBuffer = 3; //used to maintain turn signal state above even once its reset over CAN
+int lightCycleState = -1;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
+int turnSignalState = -1;  //0 is none, 1 is left, 2 is right, 3 is hazard
+int turnSignalStateBuffer = -1; //used to maintain turn signal state above even once its reset over CAN
 int runningLightState = -1;
 int reverseLightState = -1;
 bool brakeLightFlashing = false;  //kept separate since lightCycleState can have a value while brake lights are flashing
@@ -89,12 +89,12 @@ bool brakeRequest = false;  //should I keep this a bool or make it an int so it 
 bool warningFlashRequest = false;  //used to flash lights deliberately to warn other drivers
 
 //timers used to keep track of where we are within a light animaion cycle
-unsigned long brakeFlashTimer = 1;
-unsigned long lightCycleTimer = 1;
-unsigned long canBusTimeoutTimer = 1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+unsigned long brakeFlashTimer = -1;
+unsigned long lightCycleTimer = -1;
+unsigned long canBusTimeoutTimer = -1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
 unsigned long turnSignalTimer = 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP + 1; //TODO: why 3000?
 unsigned long turnSignalBufferAssignmentTimer = - (TURN_SIGNAL_COOLDOWN + 1);
-unsigned long runningLightTimer = 1; //used when running lights have an animation
+unsigned long runningLightTimer = -1; //used when running lights have an animation
 
 void setup() {
   mcp2515.reset();
@@ -124,7 +124,28 @@ void setup() {
   //set KILL pin to OUTPUT
   pinMode(KILL_PIN, OUTPUT);
 
+  
   lightsOff();
+
+  //properly initialize state variables
+  //status vars (no NP state vars since the library kinda has inherent states)
+  lightCycleState = 0;  //denotes animation states: -1 is blackout, 0 is off/normal operation, 1 is police, 2 is fast hazard, 3 is normal hazard
+  turnSignalState = 0;  //0 is none, 1 is left, 2 is right, 3 is hazard
+  turnSignalStateBuffer = 0; //used to maintain turn signal state above even once its reset over CAN
+  runningLightState = 0;
+  reverseLightState = 0;
+  
+  //car status vars TODO: do these need to be global?
+  brakePressure = 0;
+  vehicleSpeed = 0;
+  
+  //timers used to keep track of where we are within a light animaion cycle
+  brakeFlashTimer = 0;
+  lightCycleTimer = 0;
+  canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
+  turnSignalTimer = 0; //TODO: maybe breaks?
+  turnSignalBufferAssignmentTimer = - (TURN_SIGNAL_COOLDOWN + 1);
+  runningLightTimer = 0; //used when running lights have an animation
 
   //startup sequence here
   for (int i = 0; i < STARTUP_FLASH_COUNT; i++) {
@@ -210,6 +231,17 @@ void loop() {
 
   //handle brake lights
   handleBrakeLights();
+
+//  //debug oct 28
+//  if (turnSignalState == 0) {
+//    FR_BUMP_NP.setPixelColor(0, 255, 0, 0);
+//  } else if (turnSignalState == 1) {
+//    FR_BUMP_NP.setPixelColor(0, 0, 255, 0);
+//  } else if (turnSignalState == 2) {
+//    FR_BUMP_NP.setPixelColor(0, 0, 0, 255);
+//  } else if (turnSignalState == 3) {
+//    FR_BUMP_NP.setPixelColor(0, 0, 255, 255);
+//  }
 
   //execute states
   showLights();
