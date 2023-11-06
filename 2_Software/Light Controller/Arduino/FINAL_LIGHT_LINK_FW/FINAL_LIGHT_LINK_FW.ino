@@ -8,7 +8,7 @@
 #define BRAKE_FLASH_TIME_STEP 100 //general time step for brake light flashing animation 
 #define LIGHT_CYCLE_TIME_STEP 100 //general time step for programming animations
 #define TURN_SIGNAL_TIME_STEP 400 //general time step for turn signal flashing animation
-#define TURN_SIGNAL_COOLDOWN 100 //explain later
+#define TURN_SIGNAL_DEBOUNCE 100 //explain later
 #define MIN_TURN_SIG_FLASH 3 //minimum number of times turn signals will flash when triggered
 #define STARTUP_FLASH_COUNT 3 //number of times the fourth brake light will flash when board boots up
 
@@ -92,8 +92,9 @@ bool warningFlashRequest = false;  //used to flash lights deliberately to warn o
 unsigned long brakeFlashTimer = -1;
 unsigned long lightCycleTimer = -1;
 unsigned long canBusTimeoutTimer = -1; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-unsigned long turnSignalTimer = 2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP + 1; //TODO: why 3000?
-unsigned long turnSignalBufferAssignmentTimer = - (TURN_SIGNAL_COOLDOWN + 1);
+unsigned long turnSignalTimer = -1; 
+unsigned long turnSignalDebounceTimer = -1;
+int turnSignalFlashCounter = -1;
 unsigned long runningLightTimer = -1; //used when running lights have an animation
 
 void setup() {
@@ -143,8 +144,9 @@ void setup() {
   brakeFlashTimer = 0;
   lightCycleTimer = 0;
   canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
-  turnSignalTimer = 0; //TODO: maybe breaks?
-  turnSignalBufferAssignmentTimer = - (TURN_SIGNAL_COOLDOWN + 1);
+  turnSignalTimer = 0;
+  turnSignalDebounceTimer = 0;
+  turnSignalFlashCounter = 0;
   runningLightTimer = 0; //used when running lights have an animation
 
   //startup sequence here
@@ -367,14 +369,9 @@ void aircraftRunningLights() {
 //handles turn signal behaviour
 //STILL A PROBLEM (OCT 26) - going left, right, and left again triggers triple flash since buffer resets during initiall left -> right transition and is therefore 0 when we go left again
 //I don't think I care about the aforementioned problem, idk how it would happen in practice and it can be cancelled by indicating in the other way
-void handleTurnSignals() {
 
-  //ignore hazards
-  if (turnSignalState == 3) {
-    return;
-  }
-
-  if ((millis() - turnSignalBufferAssignmentTimer) > TURN_SIGNAL_COOLDOWN && turnSignalStateBuffer != 0) {
+/* OLD CODE
+ *  if ((millis() - turnSignalBufferAssignmentTimer) > TURN_SIGNAL_COOLDOWN && turnSignalStateBuffer != 0) {
 
     if (turnSignalState != turnSignalStateBuffer && turnSignalState != 0) {
       turnSignalTimer -= 2 * (2 * MIN_TURN_SIG_FLASH * TURN_SIGNAL_TIME_STEP);
@@ -396,6 +393,44 @@ void handleTurnSignals() {
     if (turnSignalTimer == -1) {
       turnSignalTimer = millis();
     }
+  }
+ */
+ 
+void handleTurnSignals() {
+
+  //ignore hazards
+  if (turnSignalState == 3) {
+    return;
+  }
+
+  //TODO: debounce (maybe do on flasher node)
+  //if turn signal is not requested, check if we've flashed enough and nullify the turnSignalFlashCounter if that's the case/return out of this function
+  //second condition involves debounce timer which should be set every time we pass this if statement if the requested turn signal state matches the buffered turn signal state
+  if (turnSignalState == 0 && (turnSignalDebounceTimer - millis()) > TURN_SIGNAL_DEBOUNCE) { //turn signal not requested
+    
+    if (turnSignalFlashCounter > MIN_TURN_SIG_FLASH) {
+      turnSignalFlashCounter = -1;
+      turnSignalStateBuffer = 0;
+    } 
+    
+    if (turnSignalFlashCounter == -1) {
+      return;
+    }
+  }
+
+  //if turn signal is requested but we haven't initialized variables, initialize
+  if (turnSignalState != 0 && turnSignalFlashCounter == -1) {
+    turnSignalFlashCounter = 1;
+    turnSignalStateBuffer = turnSignalState;
+    turnSignalTimer = millis();
+  }
+
+  //if turn signal state changes during flash, nullify autoflash
+  if (turnSignalState != turnSignalStateBuffer) {
+    turnSignalFlashCounter += MIN_TURN_SIG_FLASH;
+  } else {
+    //set debounce timer here
+    turnSignalDebounceTimer = millis();
   }
 
   //nullify all turn signal states to ensure other animations can't affect the turn signals when we're indicating
