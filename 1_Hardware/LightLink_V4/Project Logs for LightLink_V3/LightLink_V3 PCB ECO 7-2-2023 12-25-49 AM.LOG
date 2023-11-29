@@ -1,0 +1,766 @@
+Removed Pin From Net: NetName=GND Pin=Q2_M?1-1
+Removed Pin From Net: NetName=D35 Pin=Q2_M?1-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?2-1
+Removed Pin From Net: NetName=D32 Pin=Q2_M?2-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?3-1
+Removed Pin From Net: NetName=D29 Pin=Q2_M?3-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?4-1
+Removed Pin From Net: NetName=D26 Pin=Q2_M?4-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?5-1
+Removed Pin From Net: NetName=D23 Pin=Q2_M?5-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?6-1
+Removed Pin From Net: NetName=D20 Pin=Q2_M?6-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?7-1
+Removed Pin From Net: NetName=D17 Pin=Q2_M?7-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?8-1
+Removed Pin From Net: NetName=D14 Pin=Q2_M?8-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?9-1
+Removed Pin From Net: NetName=D11 Pin=Q2_M?9-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?10-1
+Removed Pin From Net: NetName=D8 Pin=Q2_M?10-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?11-1
+Removed Pin From Net: NetName=D5 Pin=Q2_M?11-2
+Removed Pin From Net: NetName=GND Pin=Q2_M?12-1
+Removed Pin From Net: NetName=D2 Pin=Q2_M?12-2
+Removed Pin From Net: NetName=POST_SENSE_M?1 Pin=U1_M?1-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?1-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?1-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?1-4
+Removed Pin From Net: NetName=POST_SENSE_M?1 Pin=U1_M?1-6
+Removed Pin From Net: NetName=POST_SENSE_M?1 Pin=U1_M?1-10
+Removed Pin From Net: NetName=GND Pin=U1_M?1-11
+Removed Pin From Net: NetName=GND Pin=U1_M?1-11
+Removed Pin From Net: NetName=GND Pin=U1_M?1-11
+Removed Pin From Net: NetName=POST_SENSE_M?2 Pin=U1_M?2-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?2-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?2-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?2-4
+Removed Pin From Net: NetName=POST_SENSE_M?2 Pin=U1_M?2-6
+Removed Pin From Net: NetName=POST_SENSE_M?2 Pin=U1_M?2-10
+Removed Pin From Net: NetName=GND Pin=U1_M?2-11
+Removed Pin From Net: NetName=GND Pin=U1_M?2-11
+Removed Pin From Net: NetName=GND Pin=U1_M?2-11
+Removed Pin From Net: NetName=POST_SENSE_M?3 Pin=U1_M?3-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?3-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?3-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?3-4
+Removed Pin From Net: NetName=POST_SENSE_M?3 Pin=U1_M?3-6
+Removed Pin From Net: NetName=POST_SENSE_M?3 Pin=U1_M?3-10
+Removed Pin From Net: NetName=GND Pin=U1_M?3-11
+Removed Pin From Net: NetName=GND Pin=U1_M?3-11
+Removed Pin From Net: NetName=GND Pin=U1_M?3-11
+Removed Pin From Net: NetName=POST_SENSE_M?4 Pin=U1_M?4-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?4-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?4-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?4-4
+Removed Pin From Net: NetName=POST_SENSE_M?4 Pin=U1_M?4-6
+Removed Pin From Net: NetName=POST_SENSE_M?4 Pin=U1_M?4-10
+Removed Pin From Net: NetName=GND Pin=U1_M?4-11
+Removed Pin From Net: NetName=GND Pin=U1_M?4-11
+Removed Pin From Net: NetName=GND Pin=U1_M?4-11
+Removed Pin From Net: NetName=POST_SENSE_M?5 Pin=U1_M?5-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?5-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?5-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?5-4
+Removed Pin From Net: NetName=POST_SENSE_M?5 Pin=U1_M?5-6
+Removed Pin From Net: NetName=POST_SENSE_M?5 Pin=U1_M?5-10
+Removed Pin From Net: NetName=GND Pin=U1_M?5-11
+Removed Pin From Net: NetName=GND Pin=U1_M?5-11
+Removed Pin From Net: NetName=GND Pin=U1_M?5-11
+Removed Pin From Net: NetName=POST_SENSE_M?6 Pin=U1_M?6-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?6-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?6-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?6-4
+Removed Pin From Net: NetName=POST_SENSE_M?6 Pin=U1_M?6-6
+Removed Pin From Net: NetName=POST_SENSE_M?6 Pin=U1_M?6-10
+Removed Pin From Net: NetName=GND Pin=U1_M?6-11
+Removed Pin From Net: NetName=GND Pin=U1_M?6-11
+Removed Pin From Net: NetName=GND Pin=U1_M?6-11
+Removed Pin From Net: NetName=POST_SENSE_M?7 Pin=U1_M?7-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?7-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?7-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?7-4
+Removed Pin From Net: NetName=POST_SENSE_M?7 Pin=U1_M?7-6
+Removed Pin From Net: NetName=POST_SENSE_M?7 Pin=U1_M?7-10
+Removed Pin From Net: NetName=GND Pin=U1_M?7-11
+Removed Pin From Net: NetName=GND Pin=U1_M?7-11
+Removed Pin From Net: NetName=GND Pin=U1_M?7-11
+Removed Pin From Net: NetName=POST_SENSE_M?8 Pin=U1_M?8-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?8-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?8-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?8-4
+Removed Pin From Net: NetName=POST_SENSE_M?8 Pin=U1_M?8-6
+Removed Pin From Net: NetName=POST_SENSE_M?8 Pin=U1_M?8-10
+Removed Pin From Net: NetName=GND Pin=U1_M?8-11
+Removed Pin From Net: NetName=GND Pin=U1_M?8-11
+Removed Pin From Net: NetName=GND Pin=U1_M?8-11
+Removed Pin From Net: NetName=POST_SENSE_M?9 Pin=U1_M?9-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?9-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?9-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?9-4
+Removed Pin From Net: NetName=POST_SENSE_M?9 Pin=U1_M?9-6
+Removed Pin From Net: NetName=POST_SENSE_M?9 Pin=U1_M?9-10
+Removed Pin From Net: NetName=GND Pin=U1_M?9-11
+Removed Pin From Net: NetName=GND Pin=U1_M?9-11
+Removed Pin From Net: NetName=GND Pin=U1_M?9-11
+Removed Pin From Net: NetName=POST_SENSE_M?10 Pin=U1_M?10-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?10-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?10-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?10-4
+Removed Pin From Net: NetName=POST_SENSE_M?10 Pin=U1_M?10-6
+Removed Pin From Net: NetName=POST_SENSE_M?10 Pin=U1_M?10-10
+Removed Pin From Net: NetName=GND Pin=U1_M?10-11
+Removed Pin From Net: NetName=GND Pin=U1_M?10-11
+Removed Pin From Net: NetName=GND Pin=U1_M?10-11
+Removed Pin From Net: NetName=POST_SENSE_M?11 Pin=U1_M?11-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?11-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?11-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?11-4
+Removed Pin From Net: NetName=POST_SENSE_M?11 Pin=U1_M?11-6
+Removed Pin From Net: NetName=POST_SENSE_M?11 Pin=U1_M?11-10
+Removed Pin From Net: NetName=GND Pin=U1_M?11-11
+Removed Pin From Net: NetName=GND Pin=U1_M?11-11
+Removed Pin From Net: NetName=GND Pin=U1_M?11-11
+Removed Pin From Net: NetName=POST_SENSE_M?12 Pin=U1_M?12-2
+Removed Pin From Net: NetName=+5 Pin=U1_M?12-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?12-4
+Removed Pin From Net: NetName=+5 Pin=U1_M?12-4
+Removed Pin From Net: NetName=POST_SENSE_M?12 Pin=U1_M?12-6
+Removed Pin From Net: NetName=POST_SENSE_M?12 Pin=U1_M?12-10
+Removed Pin From Net: NetName=GND Pin=U1_M?12-11
+Removed Pin From Net: NetName=GND Pin=U1_M?12-11
+Removed Pin From Net: NetName=GND Pin=U1_M?12-11
+Removed Member From Class: ClassName=M?2 Member=Q2_M?2
+Removed Member From Class: ClassName=M?4 Member=Q2_M?4
+Removed Member From Class: ClassName=M?5 Member=Q2_M?5
+Removed Member From Class: ClassName=M?7 Member=Q2_M?7
+Removed Member From Class: ClassName=M?8 Member=Q2_M?8
+Removed Member From Class: ClassName=M?10 Member=Q2_M?10
+Removed Member From Class: ClassName=M?11 Member=Q2_M?11
+Removed Member From Class: ClassName=M?12 Member=Q2_M?12
+Removed Member From Class: ClassName=M?2 Member=U1_M?2
+Removed Member From Class: ClassName=M?3 Member=U1_M?3
+Removed Member From Class: ClassName=M?4 Member=U1_M?4
+Removed Member From Class: ClassName=M?5 Member=U1_M?5
+Removed Member From Class: ClassName=M?7 Member=U1_M?7
+Removed Member From Class: ClassName=M?8 Member=U1_M?8
+Removed Member From Class: ClassName=M?9 Member=U1_M?9
+Removed Member From Class: ClassName=M?10 Member=U1_M?10
+Removed Member From Class: ClassName=M?12 Member=U1_M?12
+Removed Member From Class: ClassName=MOSFET Member=M?1
+Removed Member From Class: ClassName=MOSFET Member=M?2
+Removed Member From Class: ClassName=MOSFET Member=M?3
+Removed Member From Class: ClassName=MOSFET Member=M?4
+Removed Member From Class: ClassName=MOSFET Member=M?5
+Removed Member From Class: ClassName=MOSFET Member=M?6
+Removed Member From Class: ClassName=MOSFET Member=M?7
+Removed Member From Class: ClassName=MOSFET Member=M?8
+Removed Member From Class: ClassName=MOSFET Member=M?9
+Removed Member From Class: ClassName=MOSFET Member=M?10
+Removed Member From Class: ClassName=MOSFET Member=M?11
+Removed Member From Class: ClassName=MOSFET Member=M?12
+Change Component Designator: OldDesignator=D1_M?1 NewDesignator=D1_M1
+Change Component Designator: OldDesignator=D1_M?2 NewDesignator=D1_M2
+Change Component Designator: OldDesignator=D1_M?3 NewDesignator=D1_M3
+Change Component Designator: OldDesignator=D1_M?4 NewDesignator=D1_M4
+Change Component Designator: OldDesignator=D1_M?5 NewDesignator=D1_M5
+Change Component Designator: OldDesignator=D1_M?6 NewDesignator=D1_M6
+Change Component Designator: OldDesignator=D1_M?7 NewDesignator=D1_M7
+Change Component Designator: OldDesignator=D1_M?8 NewDesignator=D1_M8
+Change Component Designator: OldDesignator=D1_M?9 NewDesignator=D1_M9
+Change Component Designator: OldDesignator=D1_M?10 NewDesignator=D1_M10
+Change Component Designator: OldDesignator=D1_M?11 NewDesignator=D1_M11
+Change Component Designator: OldDesignator=D1_M?12 NewDesignator=D1_M12
+Change Component Designator: OldDesignator=D2_M?1 NewDesignator=D2_M1
+Change Component Designator: OldDesignator=D2_M?2 NewDesignator=D2_M2
+Change Component Designator: OldDesignator=D2_M?3 NewDesignator=D2_M3
+Change Component Designator: OldDesignator=D2_M?4 NewDesignator=D2_M4
+Change Component Designator: OldDesignator=D2_M?5 NewDesignator=D2_M5
+Change Component Designator: OldDesignator=D2_M?6 NewDesignator=D2_M6
+Change Component Designator: OldDesignator=D2_M?7 NewDesignator=D2_M7
+Change Component Designator: OldDesignator=D2_M?8 NewDesignator=D2_M8
+Change Component Designator: OldDesignator=D2_M?9 NewDesignator=D2_M9
+Change Component Designator: OldDesignator=D2_M?10 NewDesignator=D2_M10
+Change Component Designator: OldDesignator=D2_M?11 NewDesignator=D2_M11
+Change Component Designator: OldDesignator=D2_M?12 NewDesignator=D2_M12
+Change Component Designator: OldDesignator=Q1_M?1 NewDesignator=Q1_M1
+Change Component Designator: OldDesignator=Q1_M?2 NewDesignator=Q1_M2
+Change Component Designator: OldDesignator=Q1_M?3 NewDesignator=Q1_M3
+Change Component Designator: OldDesignator=Q1_M?4 NewDesignator=Q1_M4
+Change Component Designator: OldDesignator=Q1_M?5 NewDesignator=Q1_M5
+Change Component Designator: OldDesignator=Q1_M?6 NewDesignator=Q1_M6
+Change Component Designator: OldDesignator=Q1_M?7 NewDesignator=Q1_M7
+Change Component Designator: OldDesignator=Q1_M?8 NewDesignator=Q1_M8
+Change Component Designator: OldDesignator=Q1_M?9 NewDesignator=Q1_M9
+Change Component Designator: OldDesignator=Q1_M?10 NewDesignator=Q1_M10
+Change Component Designator: OldDesignator=Q1_M?11 NewDesignator=Q1_M11
+Change Component Designator: OldDesignator=Q1_M?12 NewDesignator=Q1_M12
+Change Component Designator: OldDesignator=Q2_M?1 NewDesignator=Q2_M1
+Change Component Designator: OldDesignator=Q2_M?2 NewDesignator=Q2_M2
+Change Component Designator: OldDesignator=Q2_M?3 NewDesignator=Q2_M3
+Change Component Designator: OldDesignator=Q2_M?4 NewDesignator=Q2_M4
+Change Component Designator: OldDesignator=Q2_M?5 NewDesignator=Q2_M5
+Change Component Designator: OldDesignator=Q2_M?6 NewDesignator=Q2_M6
+Change Component Designator: OldDesignator=Q2_M?7 NewDesignator=Q2_M7
+Change Component Designator: OldDesignator=Q2_M?8 NewDesignator=Q2_M8
+Change Component Designator: OldDesignator=Q2_M?9 NewDesignator=Q2_M9
+Change Component Designator: OldDesignator=Q2_M?10 NewDesignator=Q2_M10
+Change Component Designator: OldDesignator=Q2_M?11 NewDesignator=Q2_M11
+Change Component Designator: OldDesignator=Q2_M?12 NewDesignator=Q2_M12
+Change Component Designator: OldDesignator=Q3_M?1 NewDesignator=Q3_M1
+Change Component Designator: OldDesignator=Q3_M?2 NewDesignator=Q3_M2
+Change Component Designator: OldDesignator=Q3_M?3 NewDesignator=Q3_M3
+Change Component Designator: OldDesignator=Q3_M?4 NewDesignator=Q3_M4
+Change Component Designator: OldDesignator=Q3_M?5 NewDesignator=Q3_M5
+Change Component Designator: OldDesignator=Q3_M?6 NewDesignator=Q3_M6
+Change Component Designator: OldDesignator=Q3_M?7 NewDesignator=Q3_M7
+Change Component Designator: OldDesignator=Q3_M?8 NewDesignator=Q3_M8
+Change Component Designator: OldDesignator=Q3_M?9 NewDesignator=Q3_M9
+Change Component Designator: OldDesignator=Q3_M?10 NewDesignator=Q3_M10
+Change Component Designator: OldDesignator=Q3_M?11 NewDesignator=Q3_M11
+Change Component Designator: OldDesignator=Q3_M?12 NewDesignator=Q3_M12
+Change Component Designator: OldDesignator=R1_M?1 NewDesignator=R1_M1
+Change Component Designator: OldDesignator=R1_M?2 NewDesignator=R1_M2
+Change Component Designator: OldDesignator=R1_M?3 NewDesignator=R1_M3
+Change Component Designator: OldDesignator=R1_M?4 NewDesignator=R1_M4
+Change Component Designator: OldDesignator=R1_M?5 NewDesignator=R1_M5
+Change Component Designator: OldDesignator=R1_M?6 NewDesignator=R1_M6
+Change Component Designator: OldDesignator=R1_M?7 NewDesignator=R1_M7
+Change Component Designator: OldDesignator=R1_M?8 NewDesignator=R1_M8
+Change Component Designator: OldDesignator=R1_M?9 NewDesignator=R1_M9
+Change Component Designator: OldDesignator=R1_M?10 NewDesignator=R1_M10
+Change Component Designator: OldDesignator=R1_M?11 NewDesignator=R1_M11
+Change Component Designator: OldDesignator=R1_M?12 NewDesignator=R1_M12
+Change Component Designator: OldDesignator=R2_M?1 NewDesignator=R2_M1
+Change Component Designator: OldDesignator=R2_M?2 NewDesignator=R2_M2
+Change Component Designator: OldDesignator=R2_M?3 NewDesignator=R2_M3
+Change Component Designator: OldDesignator=R2_M?4 NewDesignator=R2_M4
+Change Component Designator: OldDesignator=R2_M?5 NewDesignator=R2_M5
+Change Component Designator: OldDesignator=R2_M?6 NewDesignator=R2_M6
+Change Component Designator: OldDesignator=R2_M?7 NewDesignator=R2_M7
+Change Component Designator: OldDesignator=R2_M?8 NewDesignator=R2_M8
+Change Component Designator: OldDesignator=R2_M?9 NewDesignator=R2_M9
+Change Component Designator: OldDesignator=R2_M?10 NewDesignator=R2_M10
+Change Component Designator: OldDesignator=R2_M?11 NewDesignator=R2_M11
+Change Component Designator: OldDesignator=R2_M?12 NewDesignator=R2_M12
+Change Component Designator: OldDesignator=R3_M?1 NewDesignator=R3_M1
+Change Component Designator: OldDesignator=R3_M?2 NewDesignator=R3_M2
+Change Component Designator: OldDesignator=R3_M?3 NewDesignator=R3_M3
+Change Component Designator: OldDesignator=R3_M?4 NewDesignator=R3_M4
+Change Component Designator: OldDesignator=R3_M?5 NewDesignator=R3_M5
+Change Component Designator: OldDesignator=R3_M?6 NewDesignator=R3_M6
+Change Component Designator: OldDesignator=R3_M?7 NewDesignator=R3_M7
+Change Component Designator: OldDesignator=R3_M?8 NewDesignator=R3_M8
+Change Component Designator: OldDesignator=R3_M?9 NewDesignator=R3_M9
+Change Component Designator: OldDesignator=R3_M?10 NewDesignator=R3_M10
+Change Component Designator: OldDesignator=R3_M?11 NewDesignator=R3_M11
+Change Component Designator: OldDesignator=R3_M?12 NewDesignator=R3_M12
+Change Component Designator: OldDesignator=R4_M?1 NewDesignator=R4_M1
+Change Component Designator: OldDesignator=R4_M?2 NewDesignator=R4_M2
+Change Component Designator: OldDesignator=R4_M?3 NewDesignator=R4_M3
+Change Component Designator: OldDesignator=R4_M?4 NewDesignator=R4_M4
+Change Component Designator: OldDesignator=R4_M?5 NewDesignator=R4_M5
+Change Component Designator: OldDesignator=R4_M?6 NewDesignator=R4_M6
+Change Component Designator: OldDesignator=R4_M?7 NewDesignator=R4_M7
+Change Component Designator: OldDesignator=R4_M?8 NewDesignator=R4_M8
+Change Component Designator: OldDesignator=R4_M?9 NewDesignator=R4_M9
+Change Component Designator: OldDesignator=R4_M?10 NewDesignator=R4_M10
+Change Component Designator: OldDesignator=R4_M?11 NewDesignator=R4_M11
+Change Component Designator: OldDesignator=R4_M?12 NewDesignator=R4_M12
+Change Component Designator: OldDesignator=R5_M?1 NewDesignator=R5_M1
+Change Component Designator: OldDesignator=R5_M?2 NewDesignator=R5_M2
+Change Component Designator: OldDesignator=R5_M?3 NewDesignator=R5_M3
+Change Component Designator: OldDesignator=R5_M?4 NewDesignator=R5_M4
+Change Component Designator: OldDesignator=R5_M?5 NewDesignator=R5_M5
+Change Component Designator: OldDesignator=R5_M?6 NewDesignator=R5_M6
+Change Component Designator: OldDesignator=R5_M?7 NewDesignator=R5_M7
+Change Component Designator: OldDesignator=R5_M?8 NewDesignator=R5_M8
+Change Component Designator: OldDesignator=R5_M?9 NewDesignator=R5_M9
+Change Component Designator: OldDesignator=R5_M?10 NewDesignator=R5_M10
+Change Component Designator: OldDesignator=R5_M?11 NewDesignator=R5_M11
+Change Component Designator: OldDesignator=R5_M?12 NewDesignator=R5_M12
+Change Component Designator: OldDesignator=R6_M?1 NewDesignator=R6_M1
+Change Component Designator: OldDesignator=R6_M?2 NewDesignator=R6_M2
+Change Component Designator: OldDesignator=R6_M?3 NewDesignator=R6_M3
+Change Component Designator: OldDesignator=R6_M?4 NewDesignator=R6_M4
+Change Component Designator: OldDesignator=R6_M?5 NewDesignator=R6_M5
+Change Component Designator: OldDesignator=R6_M?6 NewDesignator=R6_M6
+Change Component Designator: OldDesignator=R6_M?7 NewDesignator=R6_M7
+Change Component Designator: OldDesignator=R6_M?8 NewDesignator=R6_M8
+Change Component Designator: OldDesignator=R6_M?9 NewDesignator=R6_M9
+Change Component Designator: OldDesignator=R6_M?10 NewDesignator=R6_M10
+Change Component Designator: OldDesignator=R6_M?11 NewDesignator=R6_M11
+Change Component Designator: OldDesignator=R6_M?12 NewDesignator=R6_M12
+Change Component Designator: OldDesignator=R7_M?1 NewDesignator=R7_M1
+Change Component Designator: OldDesignator=R7_M?2 NewDesignator=R7_M2
+Change Component Designator: OldDesignator=R7_M?3 NewDesignator=R7_M3
+Change Component Designator: OldDesignator=R7_M?4 NewDesignator=R7_M4
+Change Component Designator: OldDesignator=R7_M?5 NewDesignator=R7_M5
+Change Component Designator: OldDesignator=R7_M?6 NewDesignator=R7_M6
+Change Component Designator: OldDesignator=R7_M?7 NewDesignator=R7_M7
+Change Component Designator: OldDesignator=R7_M?8 NewDesignator=R7_M8
+Change Component Designator: OldDesignator=R7_M?9 NewDesignator=R7_M9
+Change Component Designator: OldDesignator=R7_M?10 NewDesignator=R7_M10
+Change Component Designator: OldDesignator=R7_M?11 NewDesignator=R7_M11
+Change Component Designator: OldDesignator=R7_M?12 NewDesignator=R7_M12
+Change Component Designator: OldDesignator=R8_M?1 NewDesignator=R8_M1
+Change Component Designator: OldDesignator=R8_M?2 NewDesignator=R8_M2
+Change Component Designator: OldDesignator=R8_M?3 NewDesignator=R8_M3
+Change Component Designator: OldDesignator=R8_M?4 NewDesignator=R8_M4
+Change Component Designator: OldDesignator=R8_M?5 NewDesignator=R8_M5
+Change Component Designator: OldDesignator=R8_M?6 NewDesignator=R8_M6
+Change Component Designator: OldDesignator=R8_M?7 NewDesignator=R8_M7
+Change Component Designator: OldDesignator=R8_M?8 NewDesignator=R8_M8
+Change Component Designator: OldDesignator=R8_M?9 NewDesignator=R8_M9
+Change Component Designator: OldDesignator=R8_M?10 NewDesignator=R8_M10
+Change Component Designator: OldDesignator=R8_M?11 NewDesignator=R8_M11
+Change Component Designator: OldDesignator=R8_M?12 NewDesignator=R8_M12
+Change Component Designator: OldDesignator=R9_M?1 NewDesignator=R9_M1
+Change Component Designator: OldDesignator=R9_M?2 NewDesignator=R9_M2
+Change Component Designator: OldDesignator=R9_M?3 NewDesignator=R9_M3
+Change Component Designator: OldDesignator=R9_M?4 NewDesignator=R9_M4
+Change Component Designator: OldDesignator=R9_M?5 NewDesignator=R9_M5
+Change Component Designator: OldDesignator=R9_M?6 NewDesignator=R9_M6
+Change Component Designator: OldDesignator=R9_M?7 NewDesignator=R9_M7
+Change Component Designator: OldDesignator=R9_M?8 NewDesignator=R9_M8
+Change Component Designator: OldDesignator=R9_M?9 NewDesignator=R9_M9
+Change Component Designator: OldDesignator=R9_M?10 NewDesignator=R9_M10
+Change Component Designator: OldDesignator=R9_M?11 NewDesignator=R9_M11
+Change Component Designator: OldDesignator=R9_M?12 NewDesignator=R9_M12
+Change Component Designator: OldDesignator=R10_M?1 NewDesignator=R10_M1
+Change Component Designator: OldDesignator=R10_M?2 NewDesignator=R10_M2
+Change Component Designator: OldDesignator=R10_M?3 NewDesignator=R10_M3
+Change Component Designator: OldDesignator=R10_M?4 NewDesignator=R10_M4
+Change Component Designator: OldDesignator=R10_M?5 NewDesignator=R10_M5
+Change Component Designator: OldDesignator=R10_M?6 NewDesignator=R10_M6
+Change Component Designator: OldDesignator=R10_M?7 NewDesignator=R10_M7
+Change Component Designator: OldDesignator=R10_M?8 NewDesignator=R10_M8
+Change Component Designator: OldDesignator=R10_M?9 NewDesignator=R10_M9
+Change Component Designator: OldDesignator=R10_M?10 NewDesignator=R10_M10
+Change Component Designator: OldDesignator=R10_M?11 NewDesignator=R10_M11
+Change Component Designator: OldDesignator=R10_M?12 NewDesignator=R10_M12
+Change Component Designator: OldDesignator=U1_M?1 NewDesignator=U1_M1
+Change Component Designator: OldDesignator=U1_M?2 NewDesignator=U1_M2
+Change Component Designator: OldDesignator=U1_M?3 NewDesignator=U1_M3
+Change Component Designator: OldDesignator=U1_M?4 NewDesignator=U1_M4
+Change Component Designator: OldDesignator=U1_M?5 NewDesignator=U1_M5
+Change Component Designator: OldDesignator=U1_M?6 NewDesignator=U1_M6
+Change Component Designator: OldDesignator=U1_M?7 NewDesignator=U1_M7
+Change Component Designator: OldDesignator=U1_M?8 NewDesignator=U1_M8
+Change Component Designator: OldDesignator=U1_M?9 NewDesignator=U1_M9
+Change Component Designator: OldDesignator=U1_M?10 NewDesignator=U1_M10
+Change Component Designator: OldDesignator=U1_M?11 NewDesignator=U1_M11
+Change Component Designator: OldDesignator=U1_M?12 NewDesignator=U1_M12
+Added Pin To Net: NetName=GND Pin=Q2_M1-1
+Added Pin To Net: NetName=D35 Pin=Q2_M1-2
+Added Pin To Net: NetName=GND Pin=Q2_M2-1
+Added Pin To Net: NetName=D32 Pin=Q2_M2-2
+Added Pin To Net: NetName=GND Pin=Q2_M3-1
+Added Pin To Net: NetName=D29 Pin=Q2_M3-2
+Added Pin To Net: NetName=GND Pin=Q2_M4-1
+Added Pin To Net: NetName=D26 Pin=Q2_M4-2
+Added Pin To Net: NetName=GND Pin=Q2_M5-1
+Added Pin To Net: NetName=D23 Pin=Q2_M5-2
+Added Pin To Net: NetName=GND Pin=Q2_M6-1
+Added Pin To Net: NetName=D20 Pin=Q2_M6-2
+Added Pin To Net: NetName=GND Pin=Q2_M7-1
+Added Pin To Net: NetName=D17 Pin=Q2_M7-2
+Added Pin To Net: NetName=GND Pin=Q2_M8-1
+Added Pin To Net: NetName=D14 Pin=Q2_M8-2
+Added Pin To Net: NetName=GND Pin=Q2_M9-1
+Added Pin To Net: NetName=D11 Pin=Q2_M9-2
+Added Pin To Net: NetName=GND Pin=Q2_M10-1
+Added Pin To Net: NetName=D8 Pin=Q2_M10-2
+Added Pin To Net: NetName=GND Pin=Q2_M11-1
+Added Pin To Net: NetName=D5 Pin=Q2_M11-2
+Added Pin To Net: NetName=GND Pin=Q2_M12-1
+Added Pin To Net: NetName=D2 Pin=Q2_M12-2
+Added Pin To Net: NetName=POST_SENSE_M?1 Pin=U1_M1-2
+Added Pin To Net: NetName=POST_SENSE_M?1 Pin=U1_M1-6
+Added Pin To Net: NetName=POST_SENSE_M?1 Pin=U1_M1-10
+Added Pin To Net: NetName=POST_SENSE_M?2 Pin=U1_M2-2
+Added Pin To Net: NetName=POST_SENSE_M?2 Pin=U1_M2-6
+Added Pin To Net: NetName=POST_SENSE_M?2 Pin=U1_M2-10
+Added Pin To Net: NetName=POST_SENSE_M?3 Pin=U1_M3-2
+Added Pin To Net: NetName=POST_SENSE_M?3 Pin=U1_M3-6
+Added Pin To Net: NetName=POST_SENSE_M?3 Pin=U1_M3-10
+Added Pin To Net: NetName=POST_SENSE_M?4 Pin=U1_M4-2
+Added Pin To Net: NetName=POST_SENSE_M?4 Pin=U1_M4-6
+Added Pin To Net: NetName=POST_SENSE_M?4 Pin=U1_M4-10
+Added Pin To Net: NetName=POST_SENSE_M?5 Pin=U1_M5-2
+Added Pin To Net: NetName=POST_SENSE_M?5 Pin=U1_M5-6
+Added Pin To Net: NetName=POST_SENSE_M?5 Pin=U1_M5-10
+Added Pin To Net: NetName=POST_SENSE_M?6 Pin=U1_M6-2
+Added Pin To Net: NetName=POST_SENSE_M?6 Pin=U1_M6-6
+Added Pin To Net: NetName=POST_SENSE_M?6 Pin=U1_M6-10
+Added Pin To Net: NetName=POST_SENSE_M?7 Pin=U1_M7-2
+Added Pin To Net: NetName=POST_SENSE_M?7 Pin=U1_M7-6
+Added Pin To Net: NetName=POST_SENSE_M?7 Pin=U1_M7-10
+Added Pin To Net: NetName=POST_SENSE_M?8 Pin=U1_M8-2
+Added Pin To Net: NetName=POST_SENSE_M?8 Pin=U1_M8-6
+Added Pin To Net: NetName=POST_SENSE_M?8 Pin=U1_M8-10
+Added Pin To Net: NetName=POST_SENSE_M?9 Pin=U1_M9-2
+Added Pin To Net: NetName=POST_SENSE_M?9 Pin=U1_M9-6
+Added Pin To Net: NetName=POST_SENSE_M?9 Pin=U1_M9-10
+Added Pin To Net: NetName=POST_SENSE_M?10 Pin=U1_M10-2
+Added Pin To Net: NetName=POST_SENSE_M?10 Pin=U1_M10-6
+Added Pin To Net: NetName=POST_SENSE_M?10 Pin=U1_M10-10
+Added Pin To Net: NetName=POST_SENSE_M?11 Pin=U1_M11-2
+Added Pin To Net: NetName=POST_SENSE_M?11 Pin=U1_M11-6
+Added Pin To Net: NetName=POST_SENSE_M?11 Pin=U1_M11-10
+Added Pin To Net: NetName=POST_SENSE_M?12 Pin=U1_M12-2
+Added Pin To Net: NetName=POST_SENSE_M?12 Pin=U1_M12-6
+Added Pin To Net: NetName=POST_SENSE_M?12 Pin=U1_M12-10
+Change Net Name : Old Net Name=NetQ2_M?1_3 New Net Name=NetQ2_M1_3
+Change Net Name : Old Net Name=NetQ2_M?2_3 New Net Name=NetQ2_M2_3
+Change Net Name : Old Net Name=NetQ2_M?3_3 New Net Name=NetQ2_M3_3
+Change Net Name : Old Net Name=NetQ2_M?4_3 New Net Name=NetQ2_M4_3
+Change Net Name : Old Net Name=NetQ2_M?5_3 New Net Name=NetQ2_M5_3
+Change Net Name : Old Net Name=NetQ2_M?6_3 New Net Name=NetQ2_M6_3
+Change Net Name : Old Net Name=NetQ2_M?7_3 New Net Name=NetQ2_M7_3
+Change Net Name : Old Net Name=NetQ2_M?8_3 New Net Name=NetQ2_M8_3
+Change Net Name : Old Net Name=NetQ2_M?9_3 New Net Name=NetQ2_M9_3
+Change Net Name : Old Net Name=NetQ2_M?10_3 New Net Name=NetQ2_M10_3
+Change Net Name : Old Net Name=NetQ2_M?11_3 New Net Name=NetQ2_M11_3
+Change Net Name : Old Net Name=NetQ2_M?12_3 New Net Name=NetQ2_M12_3
+Change Net Name : Old Net Name=NetR1_M?1_1 New Net Name=NetR1_M1_1
+Change Net Name : Old Net Name=NetR1_M?2_1 New Net Name=NetR1_M2_1
+Change Net Name : Old Net Name=NetR1_M?3_1 New Net Name=NetR1_M3_1
+Change Net Name : Old Net Name=NetR1_M?4_1 New Net Name=NetR1_M4_1
+Change Net Name : Old Net Name=NetR1_M?5_1 New Net Name=NetR1_M5_1
+Change Net Name : Old Net Name=NetR1_M?6_1 New Net Name=NetR1_M6_1
+Change Net Name : Old Net Name=NetR1_M?7_1 New Net Name=NetR1_M7_1
+Change Net Name : Old Net Name=NetR1_M?8_1 New Net Name=NetR1_M8_1
+Change Net Name : Old Net Name=NetR1_M?9_1 New Net Name=NetR1_M9_1
+Change Net Name : Old Net Name=NetR1_M?10_1 New Net Name=NetR1_M10_1
+Change Net Name : Old Net Name=NetR1_M?11_1 New Net Name=NetR1_M11_1
+Change Net Name : Old Net Name=NetR1_M?12_1 New Net Name=NetR1_M12_1
+Change Net Name : Old Net Name=NetR3_M?1_1 New Net Name=NetR3_M1_1
+Change Net Name : Old Net Name=NetR3_M?2_1 New Net Name=NetR3_M2_1
+Change Net Name : Old Net Name=NetR3_M?3_1 New Net Name=NetR3_M3_1
+Change Net Name : Old Net Name=NetR3_M?4_1 New Net Name=NetR3_M4_1
+Change Net Name : Old Net Name=NetR3_M?5_1 New Net Name=NetR3_M5_1
+Change Net Name : Old Net Name=NetR3_M?6_1 New Net Name=NetR3_M6_1
+Change Net Name : Old Net Name=NetR3_M?7_1 New Net Name=NetR3_M7_1
+Change Net Name : Old Net Name=NetR3_M?8_1 New Net Name=NetR3_M8_1
+Change Net Name : Old Net Name=NetR3_M?9_1 New Net Name=NetR3_M9_1
+Change Net Name : Old Net Name=NetR3_M?10_1 New Net Name=NetR3_M10_1
+Change Net Name : Old Net Name=NetR3_M?11_1 New Net Name=NetR3_M11_1
+Change Net Name : Old Net Name=NetR3_M?12_1 New Net Name=NetR3_M12_1
+Change Net Name : Old Net Name=POST_SENSE_M?1 New Net Name=POST_SENSE_M1
+Change Net Name : Old Net Name=POST_SENSE_M?2 New Net Name=POST_SENSE_M2
+Change Net Name : Old Net Name=POST_SENSE_M?3 New Net Name=POST_SENSE_M3
+Change Net Name : Old Net Name=POST_SENSE_M?4 New Net Name=POST_SENSE_M4
+Change Net Name : Old Net Name=POST_SENSE_M?5 New Net Name=POST_SENSE_M5
+Change Net Name : Old Net Name=POST_SENSE_M?6 New Net Name=POST_SENSE_M6
+Change Net Name : Old Net Name=POST_SENSE_M?7 New Net Name=POST_SENSE_M7
+Change Net Name : Old Net Name=POST_SENSE_M?8 New Net Name=POST_SENSE_M8
+Change Net Name : Old Net Name=POST_SENSE_M?9 New Net Name=POST_SENSE_M9
+Change Net Name : Old Net Name=POST_SENSE_M?10 New Net Name=POST_SENSE_M10
+Change Net Name : Old Net Name=POST_SENSE_M?11 New Net Name=POST_SENSE_M11
+Change Net Name : Old Net Name=POST_SENSE_M?12 New Net Name=POST_SENSE_M12
+Added Pin To Net: NetName=NetQ1_M1_4 Pin=Q1_M1-4
+Added Pin To Net: NetName=NetQ1_M1_4 Pin=Q2_M1-6
+Added Pin To Net: NetName=NetQ1_M1_4 Pin=R8_M1-1
+Added Net: Name=NetQ1_M1_4
+Added Pin To Net: NetName=NetQ1_M2_4 Pin=Q1_M2-4
+Added Pin To Net: NetName=NetQ1_M2_4 Pin=Q2_M2-6
+Added Pin To Net: NetName=NetQ1_M2_4 Pin=R8_M2-1
+Added Net: Name=NetQ1_M2_4
+Added Pin To Net: NetName=NetQ1_M3_4 Pin=Q1_M3-4
+Added Pin To Net: NetName=NetQ1_M3_4 Pin=Q2_M3-6
+Added Pin To Net: NetName=NetQ1_M3_4 Pin=R8_M3-1
+Added Net: Name=NetQ1_M3_4
+Added Pin To Net: NetName=NetQ1_M4_4 Pin=Q1_M4-4
+Added Pin To Net: NetName=NetQ1_M4_4 Pin=Q2_M4-6
+Added Pin To Net: NetName=NetQ1_M4_4 Pin=R8_M4-1
+Added Net: Name=NetQ1_M4_4
+Added Pin To Net: NetName=NetQ1_M5_4 Pin=Q1_M5-4
+Added Pin To Net: NetName=NetQ1_M5_4 Pin=Q2_M5-6
+Added Pin To Net: NetName=NetQ1_M5_4 Pin=R8_M5-1
+Added Net: Name=NetQ1_M5_4
+Added Pin To Net: NetName=NetQ1_M6_4 Pin=Q1_M6-4
+Added Pin To Net: NetName=NetQ1_M6_4 Pin=Q2_M6-6
+Added Pin To Net: NetName=NetQ1_M6_4 Pin=R8_M6-1
+Added Net: Name=NetQ1_M6_4
+Added Pin To Net: NetName=NetQ1_M7_4 Pin=Q1_M7-4
+Added Pin To Net: NetName=NetQ1_M7_4 Pin=Q2_M7-6
+Added Pin To Net: NetName=NetQ1_M7_4 Pin=R8_M7-1
+Added Net: Name=NetQ1_M7_4
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=Q1_M8-4
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=Q2_M8-6
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=R8_M8-1
+Added Net: Name=NetQ1_M8_4
+Added Pin To Net: NetName=NetQ1_M9_4 Pin=Q1_M9-4
+Added Pin To Net: NetName=NetQ1_M9_4 Pin=Q2_M9-6
+Added Pin To Net: NetName=NetQ1_M9_4 Pin=R8_M9-1
+Added Net: Name=NetQ1_M9_4
+Added Pin To Net: NetName=NetQ1_M10_4 Pin=Q1_M10-4
+Added Pin To Net: NetName=NetQ1_M10_4 Pin=Q2_M10-6
+Added Pin To Net: NetName=NetQ1_M10_4 Pin=R8_M10-1
+Added Net: Name=NetQ1_M10_4
+Added Pin To Net: NetName=NetQ1_M11_4 Pin=Q1_M11-4
+Added Pin To Net: NetName=NetQ1_M11_4 Pin=Q2_M11-6
+Added Pin To Net: NetName=NetQ1_M11_4 Pin=R8_M11-1
+Added Net: Name=NetQ1_M11_4
+Added Pin To Net: NetName=NetQ1_M12_4 Pin=Q1_M12-4
+Added Pin To Net: NetName=NetQ1_M12_4 Pin=Q2_M12-6
+Added Pin To Net: NetName=NetQ1_M12_4 Pin=R8_M12-1
+Added Net: Name=NetQ1_M12_4
+Added Pin To Net: NetName=NetR3_M1_2 Pin=R3_M1-2
+Added Pin To Net: NetName=NetR3_M1_2 Pin=U1_M1-8
+Added Pin To Net: NetName=NetR3_M1_2 Pin=U1_M1-9
+Added Net: Name=NetR3_M1_2
+Added Pin To Net: NetName=NetR3_M2_2 Pin=R3_M2-2
+Added Pin To Net: NetName=NetR3_M2_2 Pin=U1_M2-8
+Added Pin To Net: NetName=NetR3_M2_2 Pin=U1_M2-9
+Added Net: Name=NetR3_M2_2
+Added Pin To Net: NetName=NetR3_M3_2 Pin=R3_M3-2
+Added Pin To Net: NetName=NetR3_M3_2 Pin=U1_M3-8
+Added Pin To Net: NetName=NetR3_M3_2 Pin=U1_M3-9
+Added Net: Name=NetR3_M3_2
+Added Pin To Net: NetName=NetR3_M4_2 Pin=R3_M4-2
+Added Pin To Net: NetName=NetR3_M4_2 Pin=U1_M4-8
+Added Pin To Net: NetName=NetR3_M4_2 Pin=U1_M4-9
+Added Net: Name=NetR3_M4_2
+Added Pin To Net: NetName=NetR3_M5_2 Pin=R3_M5-2
+Added Pin To Net: NetName=NetR3_M5_2 Pin=U1_M5-8
+Added Pin To Net: NetName=NetR3_M5_2 Pin=U1_M5-9
+Added Net: Name=NetR3_M5_2
+Added Pin To Net: NetName=NetR3_M6_2 Pin=R3_M6-2
+Added Pin To Net: NetName=NetR3_M6_2 Pin=U1_M6-8
+Added Pin To Net: NetName=NetR3_M6_2 Pin=U1_M6-9
+Added Net: Name=NetR3_M6_2
+Added Pin To Net: NetName=NetR3_M7_2 Pin=R3_M7-2
+Added Pin To Net: NetName=NetR3_M7_2 Pin=U1_M7-8
+Added Pin To Net: NetName=NetR3_M7_2 Pin=U1_M7-9
+Added Net: Name=NetR3_M7_2
+Added Pin To Net: NetName=NetR3_M8_2 Pin=R3_M8-2
+Added Pin To Net: NetName=NetR3_M8_2 Pin=U1_M8-8
+Added Pin To Net: NetName=NetR3_M8_2 Pin=U1_M8-9
+Added Net: Name=NetR3_M8_2
+Added Pin To Net: NetName=NetR3_M9_2 Pin=R3_M9-2
+Added Pin To Net: NetName=NetR3_M9_2 Pin=U1_M9-8
+Added Pin To Net: NetName=NetR3_M9_2 Pin=U1_M9-9
+Added Net: Name=NetR3_M9_2
+Added Pin To Net: NetName=NetR3_M10_2 Pin=R3_M10-2
+Added Pin To Net: NetName=NetR3_M10_2 Pin=U1_M10-8
+Added Pin To Net: NetName=NetR3_M10_2 Pin=U1_M10-9
+Added Net: Name=NetR3_M10_2
+Added Pin To Net: NetName=NetR3_M11_2 Pin=R3_M11-2
+Added Pin To Net: NetName=NetR3_M11_2 Pin=U1_M11-8
+Added Pin To Net: NetName=NetR3_M11_2 Pin=U1_M11-9
+Added Net: Name=NetR3_M11_2
+Added Pin To Net: NetName=NetR3_M12_2 Pin=R3_M12-2
+Added Pin To Net: NetName=NetR3_M12_2 Pin=U1_M12-8
+Added Pin To Net: NetName=NetR3_M12_2 Pin=U1_M12-9
+Added Net: Name=NetR3_M12_2
+Added Pin To Net: NetName=NetR9_M1_1 Pin=R9_M1-1
+Added Pin To Net: NetName=NetR9_M1_1 Pin=U1_M1-1
+Added Net: Name=NetR9_M1_1
+Added Pin To Net: NetName=NetR9_M2_1 Pin=R9_M2-1
+Added Pin To Net: NetName=NetR9_M2_1 Pin=U1_M2-1
+Added Net: Name=NetR9_M2_1
+Added Pin To Net: NetName=NetR9_M3_1 Pin=R9_M3-1
+Added Pin To Net: NetName=NetR9_M3_1 Pin=U1_M3-1
+Added Net: Name=NetR9_M3_1
+Added Pin To Net: NetName=NetR9_M4_1 Pin=R9_M4-1
+Added Pin To Net: NetName=NetR9_M4_1 Pin=U1_M4-1
+Added Net: Name=NetR9_M4_1
+Added Pin To Net: NetName=NetR9_M5_1 Pin=R9_M5-1
+Added Pin To Net: NetName=NetR9_M5_1 Pin=U1_M5-1
+Added Net: Name=NetR9_M5_1
+Added Pin To Net: NetName=NetR9_M6_1 Pin=R9_M6-1
+Added Pin To Net: NetName=NetR9_M6_1 Pin=U1_M6-1
+Added Net: Name=NetR9_M6_1
+Added Pin To Net: NetName=NetR9_M7_1 Pin=R9_M7-1
+Added Pin To Net: NetName=NetR9_M7_1 Pin=U1_M7-1
+Added Net: Name=NetR9_M7_1
+Added Pin To Net: NetName=NetR9_M8_1 Pin=R9_M8-1
+Added Pin To Net: NetName=NetR9_M8_1 Pin=U1_M8-1
+Added Net: Name=NetR9_M8_1
+Added Pin To Net: NetName=NetR9_M9_1 Pin=R9_M9-1
+Added Pin To Net: NetName=NetR9_M9_1 Pin=U1_M9-1
+Added Net: Name=NetR9_M9_1
+Added Pin To Net: NetName=NetR9_M10_1 Pin=R9_M10-1
+Added Pin To Net: NetName=NetR9_M10_1 Pin=U1_M10-1
+Added Net: Name=NetR9_M10_1
+Added Pin To Net: NetName=NetR9_M11_1 Pin=R9_M11-1
+Added Pin To Net: NetName=NetR9_M11_1 Pin=U1_M11-1
+Added Net: Name=NetR9_M11_1
+Added Pin To Net: NetName=NetR9_M12_1 Pin=R9_M12-1
+Added Pin To Net: NetName=NetR9_M12_1 Pin=U1_M12-1
+Added Net: Name=NetR9_M12_1
+Added Pin To Net: NetName=NetR10_M1_1 Pin=R10_M1-1
+Added Pin To Net: NetName=NetR10_M1_1 Pin=U1_M1-7
+Added Net: Name=NetR10_M1_1
+Added Pin To Net: NetName=NetR10_M2_1 Pin=R10_M2-1
+Added Pin To Net: NetName=NetR10_M2_1 Pin=U1_M2-7
+Added Net: Name=NetR10_M2_1
+Added Pin To Net: NetName=NetR10_M3_1 Pin=R10_M3-1
+Added Pin To Net: NetName=NetR10_M3_1 Pin=U1_M3-7
+Added Net: Name=NetR10_M3_1
+Added Pin To Net: NetName=NetR10_M4_1 Pin=R10_M4-1
+Added Pin To Net: NetName=NetR10_M4_1 Pin=U1_M4-7
+Added Net: Name=NetR10_M4_1
+Added Pin To Net: NetName=NetR10_M5_1 Pin=R10_M5-1
+Added Pin To Net: NetName=NetR10_M5_1 Pin=U1_M5-7
+Added Net: Name=NetR10_M5_1
+Added Pin To Net: NetName=NetR10_M6_1 Pin=R10_M6-1
+Added Pin To Net: NetName=NetR10_M6_1 Pin=U1_M6-7
+Added Net: Name=NetR10_M6_1
+Added Pin To Net: NetName=NetR10_M7_1 Pin=R10_M7-1
+Added Pin To Net: NetName=NetR10_M7_1 Pin=U1_M7-7
+Added Net: Name=NetR10_M7_1
+Added Pin To Net: NetName=NetR10_M8_1 Pin=R10_M8-1
+Added Pin To Net: NetName=NetR10_M8_1 Pin=U1_M8-7
+Added Net: Name=NetR10_M8_1
+Added Pin To Net: NetName=NetR10_M9_1 Pin=R10_M9-1
+Added Pin To Net: NetName=NetR10_M9_1 Pin=U1_M9-7
+Added Net: Name=NetR10_M9_1
+Added Pin To Net: NetName=NetR10_M10_1 Pin=R10_M10-1
+Added Pin To Net: NetName=NetR10_M10_1 Pin=U1_M10-7
+Added Net: Name=NetR10_M10_1
+Added Pin To Net: NetName=NetR10_M11_1 Pin=R10_M11-1
+Added Pin To Net: NetName=NetR10_M11_1 Pin=U1_M11-7
+Added Net: Name=NetR10_M11_1
+Added Pin To Net: NetName=NetR10_M12_1 Pin=R10_M12-1
+Added Pin To Net: NetName=NetR10_M12_1 Pin=U1_M12-7
+Added Net: Name=NetR10_M12_1
+Added Pin To Net: NetName=SENSE_1_M1 Pin=D1_M1-2
+Added Pin To Net: NetName=SENSE_1_M1 Pin=Q1_M1-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M1 Pin=U1_M1-3
+Added Net: Name=SENSE_1_M1
+Added Pin To Net: NetName=SENSE_1_M2 Pin=D1_M2-2
+Added Pin To Net: NetName=SENSE_1_M2 Pin=Q1_M2-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M2 Pin=U1_M2-3
+Added Net: Name=SENSE_1_M2
+Added Pin To Net: NetName=SENSE_1_M3 Pin=D1_M3-2
+Added Pin To Net: NetName=SENSE_1_M3 Pin=Q1_M3-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M3 Pin=U1_M3-3
+Added Net: Name=SENSE_1_M3
+Added Pin To Net: NetName=SENSE_1_M4 Pin=D1_M4-2
+Added Pin To Net: NetName=SENSE_1_M4 Pin=Q1_M4-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M4 Pin=U1_M4-3
+Added Net: Name=SENSE_1_M4
+Added Pin To Net: NetName=SENSE_1_M5 Pin=D1_M5-2
+Added Pin To Net: NetName=SENSE_1_M5 Pin=Q1_M5-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M5 Pin=U1_M5-3
+Added Net: Name=SENSE_1_M5
+Added Pin To Net: NetName=SENSE_1_M6 Pin=D1_M6-2
+Added Pin To Net: NetName=SENSE_1_M6 Pin=Q1_M6-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M6 Pin=U1_M6-3
+Added Net: Name=SENSE_1_M6
+Added Pin To Net: NetName=SENSE_1_M7 Pin=D1_M7-2
+Added Pin To Net: NetName=SENSE_1_M7 Pin=Q1_M7-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M7 Pin=U1_M7-3
+Added Net: Name=SENSE_1_M7
+Added Pin To Net: NetName=SENSE_1_M8 Pin=D1_M8-2
+Added Pin To Net: NetName=SENSE_1_M8 Pin=Q1_M8-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M8 Pin=U1_M8-3
+Added Net: Name=SENSE_1_M8
+Added Pin To Net: NetName=SENSE_1_M9 Pin=D1_M9-2
+Added Pin To Net: NetName=SENSE_1_M9 Pin=Q1_M9-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M9 Pin=U1_M9-3
+Added Net: Name=SENSE_1_M9
+Added Pin To Net: NetName=SENSE_1_M10 Pin=D1_M10-2
+Added Pin To Net: NetName=SENSE_1_M10 Pin=Q1_M10-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M10 Pin=U1_M10-3
+Added Net: Name=SENSE_1_M10
+Added Pin To Net: NetName=SENSE_1_M11 Pin=D1_M11-2
+Added Pin To Net: NetName=SENSE_1_M11 Pin=Q1_M11-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M11 Pin=U1_M11-3
+Added Net: Name=SENSE_1_M11
+Added Pin To Net: NetName=SENSE_1_M12 Pin=D1_M12-2
+Added Pin To Net: NetName=SENSE_1_M12 Pin=Q1_M12-5-6-7-8
+Added Pin To Net: NetName=SENSE_1_M12 Pin=U1_M12-3
+Added Net: Name=SENSE_1_M12
+Added Pin To Net: NetName=SENSE_2_M1 Pin=D2_M1-2
+Added Pin To Net: NetName=SENSE_2_M1 Pin=Q3_M1-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M1 Pin=U1_M1-5
+Added Net: Name=SENSE_2_M1
+Added Pin To Net: NetName=SENSE_2_M2 Pin=D2_M2-2
+Added Pin To Net: NetName=SENSE_2_M2 Pin=Q3_M2-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M2 Pin=U1_M2-5
+Added Net: Name=SENSE_2_M2
+Added Pin To Net: NetName=SENSE_2_M3 Pin=D2_M3-2
+Added Pin To Net: NetName=SENSE_2_M3 Pin=Q3_M3-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M3 Pin=U1_M3-5
+Added Net: Name=SENSE_2_M3
+Added Pin To Net: NetName=SENSE_2_M4 Pin=D2_M4-2
+Added Pin To Net: NetName=SENSE_2_M4 Pin=Q3_M4-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M4 Pin=U1_M4-5
+Added Net: Name=SENSE_2_M4
+Added Pin To Net: NetName=SENSE_2_M5 Pin=D2_M5-2
+Added Pin To Net: NetName=SENSE_2_M5 Pin=Q3_M5-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M5 Pin=U1_M5-5
+Added Net: Name=SENSE_2_M5
+Added Pin To Net: NetName=SENSE_2_M6 Pin=D2_M6-2
+Added Pin To Net: NetName=SENSE_2_M6 Pin=Q3_M6-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M6 Pin=U1_M6-5
+Added Net: Name=SENSE_2_M6
+Added Pin To Net: NetName=SENSE_2_M7 Pin=D2_M7-2
+Added Pin To Net: NetName=SENSE_2_M7 Pin=Q3_M7-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M7 Pin=U1_M7-5
+Added Net: Name=SENSE_2_M7
+Added Pin To Net: NetName=SENSE_2_M8 Pin=D2_M8-2
+Added Pin To Net: NetName=SENSE_2_M8 Pin=Q3_M8-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M8 Pin=U1_M8-5
+Added Net: Name=SENSE_2_M8
+Added Pin To Net: NetName=SENSE_2_M9 Pin=D2_M9-2
+Added Pin To Net: NetName=SENSE_2_M9 Pin=Q3_M9-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M9 Pin=U1_M9-5
+Added Net: Name=SENSE_2_M9
+Added Pin To Net: NetName=SENSE_2_M10 Pin=D2_M10-2
+Added Pin To Net: NetName=SENSE_2_M10 Pin=Q3_M10-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M10 Pin=U1_M10-5
+Added Net: Name=SENSE_2_M10
+Added Pin To Net: NetName=SENSE_2_M11 Pin=D2_M11-2
+Added Pin To Net: NetName=SENSE_2_M11 Pin=Q3_M11-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M11 Pin=U1_M11-5
+Added Net: Name=SENSE_2_M11
+Added Pin To Net: NetName=SENSE_2_M12 Pin=D2_M12-2
+Added Pin To Net: NetName=SENSE_2_M12 Pin=Q3_M12-5-6-7-8
+Added Pin To Net: NetName=SENSE_2_M12 Pin=U1_M12-5
+Added Net: Name=SENSE_2_M12
+Change Class Name : Old Net Name=M?1 New Net Name=M1
+Change Class Name : Old Net Name=M?2 New Net Name=M2
+Change Class Name : Old Net Name=M?3 New Net Name=M3
+Change Class Name : Old Net Name=M?4 New Net Name=M4
+Change Class Name : Old Net Name=M?5 New Net Name=M5
+Change Class Name : Old Net Name=M?6 New Net Name=M6
+Change Class Name : Old Net Name=M?7 New Net Name=M7
+Change Class Name : Old Net Name=M?8 New Net Name=M8
+Change Class Name : Old Net Name=M?9 New Net Name=M9
+Change Class Name : Old Net Name=M?10 New Net Name=M10
+Change Class Name : Old Net Name=M?11 New Net Name=M11
+Change Class Name : Old Net Name=M?12 New Net Name=M12
+Added Member To Class: ClassName=M2 Member=Component Q2_M2 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M4 Member=Component Q2_M4 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M5 Member=Component Q2_M5 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M7 Member=Component Q2_M7 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M8 Member=Component Q2_M8 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M10 Member=Component Q2_M10 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M11 Member=Component Q2_M11 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M12 Member=Component Q2_M12 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M2 Member=Component U1_M2 (U1A) LM324D
+Added Member To Class: ClassName=M3 Member=Component U1_M3 (U1A) LM324D
+Added Member To Class: ClassName=M4 Member=Component U1_M4 (U1A) LM324D
+Added Member To Class: ClassName=M5 Member=Component U1_M5 (U1A) LM324D
+Added Member To Class: ClassName=M7 Member=Component U1_M7 (U1A) LM324D
+Added Member To Class: ClassName=M8 Member=Component U1_M8 (U1A) LM324D
+Added Member To Class: ClassName=M9 Member=Component U1_M9 (U1A) LM324D
+Added Member To Class: ClassName=M10 Member=Component U1_M10 (U1A) LM324D
+Added Member To Class: ClassName=M12 Member=Component U1_M12 (U1A) LM324D
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)
+Added Member To Class: ClassName=MOSFET Member=M (MOSFET.SchDoc)

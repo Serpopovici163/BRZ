@@ -1,0 +1,91 @@
+Change Component Designator: OldDesignator=D1_M13 NewDesignator=D1_M8
+Change Component Designator: OldDesignator=D2_M13 NewDesignator=D2_M8
+Change Component Designator: OldDesignator=Q1_M13 NewDesignator=Q1_M8
+Change Component Designator: OldDesignator=Q2_M13 NewDesignator=Q2_M8
+Change Component Designator: OldDesignator=Q3_M13 NewDesignator=Q3_M8
+Change Component Designator: OldDesignator=R1_M13 NewDesignator=R1_M8
+Change Component Designator: OldDesignator=R2_M13 NewDesignator=R2_M8
+Change Component Designator: OldDesignator=R3_M13 NewDesignator=R3_M8
+Change Component Designator: OldDesignator=R4_M13 NewDesignator=R4_M8
+Change Component Designator: OldDesignator=R5_M13 NewDesignator=R5_M8
+Change Component Designator: OldDesignator=R6_M13 NewDesignator=R6_M8
+Change Component Designator: OldDesignator=R7_M13 NewDesignator=R7_M8
+Change Component Designator: OldDesignator=R8_M13 NewDesignator=R8_M8
+Change Component Designator: OldDesignator=R9_M13 NewDesignator=R9_M8
+Change Component Designator: OldDesignator=R10_M13 NewDesignator=R10_M8
+Change Component Designator: OldDesignator=R36_M13 NewDesignator=R36_M8
+Change Component Designator: OldDesignator=R37_M13 NewDesignator=R37_M8
+Change Component Designator: OldDesignator=U1_M13 NewDesignator=U1_M8
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=D1_M8-1
+Added Pin To Net: NetName=SENSE_1_M8 Pin=D1_M8-2
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=D2_M8-1
+Added Pin To Net: NetName=SENSE_2_M8 Pin=D2_M8-2
+Added Pin To Net: NetName=VCC Pin=Q1_M8-1
+Added Pin To Net: NetName=VCC Pin=Q1_M8-2
+Added Pin To Net: NetName=VCC Pin=Q1_M8-3
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=Q1_M8-4
+Added Pin To Net: NetName=SENSE_1_M8 Pin=Q1_M8-5-6-7-8
+Added Pin To Net: NetName=GND Pin=Q2_M8-1
+Added Pin To Net: NetName=D14 Pin=Q2_M8-2
+Added Pin To Net: NetName=NetQ2_M8_3 Pin=Q2_M8-3
+Added Pin To Net: NetName=GND Pin=Q2_M8-4
+Added Pin To Net: NetName=D14 Pin=Q2_M8-5
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=Q2_M8-6
+Added Pin To Net: NetName=VCC Pin=Q3_M8-1
+Added Pin To Net: NetName=VCC Pin=Q3_M8-2
+Added Pin To Net: NetName=VCC Pin=Q3_M8-3
+Added Pin To Net: NetName=NetQ2_M8_3 Pin=Q3_M8-4
+Added Pin To Net: NetName=SENSE_2_M8 Pin=Q3_M8-5-6-7-8
+Added Pin To Net: NetName=NetR1_M8_1 Pin=R1_M8-1
+Added Pin To Net: NetName=A4 Pin=R1_M8-2
+Added Pin To Net: NetName=NetR1_M8_1 Pin=R2_M8-1
+Added Pin To Net: NetName=OUT_5 Pin=R2_M8-2
+Added Pin To Net: NetName=NetR3_M8_1 Pin=R3_M8-1
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=R3_M8-2
+Added Pin To Net: NetName=GND Pin=R4_M8-1
+Added Pin To Net: NetName=NetR3_M8_1 Pin=R4_M8-2
+Added Pin To Net: NetName=GND Pin=R5_M8-1
+Added Pin To Net: NetName=D14 Pin=R5_M8-2
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=R6_M8-1
+Added Pin To Net: NetName=OUT_5 Pin=R6_M8-2
+Added Pin To Net: NetName=NetQ2_M8_3 Pin=R7_M8-1
+Added Pin To Net: NetName=VCC Pin=R7_M8-2
+Added Pin To Net: NetName=NetQ1_M8_4 Pin=R8_M8-1
+Added Pin To Net: NetName=VCC Pin=R8_M8-2
+Added Pin To Net: NetName=NetR9_M8_1 Pin=R9_M8-1
+Added Pin To Net: NetName=D15 Pin=R9_M8-2
+Added Pin To Net: NetName=NetR10_M8_1 Pin=R10_M8-1
+Added Pin To Net: NetName=D16 Pin=R10_M8-2
+Added Pin To Net: NetName=GND Pin=R36_M8-1
+Added Pin To Net: NetName=SENSE_2_M8 Pin=R36_M8-2
+Added Pin To Net: NetName=GND Pin=R37_M8-1
+Added Pin To Net: NetName=SENSE_1_M8 Pin=R37_M8-2
+Added Pin To Net: NetName=NetR9_M8_1 Pin=U1_M8-1
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=U1_M8-2
+Added Pin To Net: NetName=SENSE_2_M8 Pin=U1_M8-3
+Added Pin To Net: NetName=VCC Pin=U1_M8-4
+Added Pin To Net: NetName=SENSE_1_M8 Pin=U1_M8-5
+Added Pin To Net: NetName=POST_SENSE_M8 Pin=U1_M8-6
+Added Pin To Net: NetName=NetR10_M8_1 Pin=U1_M8-7
+Added Pin To Net: NetName=GND Pin=U1_M8-11
+Added Pin To Net: NetName=NetR3_M8_1 Pin=U1_M8-12
+Added Pin To Net: NetName=NetR1_M8_1 Pin=U1_M8-13
+Added Pin To Net: NetName=A4 Pin=U1_M8-14
+Added Member To Class: ClassName=M8 Member=Component D1_M8 (D1) PMEG3050EP,115
+Added Member To Class: ClassName=M8 Member=Component D2_M8 (D2) PMEG3050EP,115
+Added Member To Class: ClassName=M8 Member=Component Q1_M8 (Q1) SISH615ADN-T1-GE3
+Added Member To Class: ClassName=M8 Member=Component Q2_M8 (Q2A) SSM6N7002KFU,LF
+Added Member To Class: ClassName=M8 Member=Component Q3_M8 (Q3) SISH615ADN-T1-GE3
+Added Member To Class: ClassName=M8 Member=Component R1_M8 (R1) RC0603FR-071ML
+Added Member To Class: ClassName=M8 Member=Component R2_M8 (R2) ERJ3EKF1002V
+Added Member To Class: ClassName=M8 Member=Component R3_M8 (R3) ERJ3EKF1002V
+Added Member To Class: ClassName=M8 Member=Component R4_M8 (R4) RC0603FR-071ML
+Added Member To Class: ClassName=M8 Member=Component R5_M8 (R5) ERJ3EKF1002V
+Added Member To Class: ClassName=M8 Member=Component R6_M8 (R6) MCS3264R010FER
+Added Member To Class: ClassName=M8 Member=Component R7_M8 (R7) ERJ3EKF1002V
+Added Member To Class: ClassName=M8 Member=Component R8_M8 (R8) ERJ3EKF1002V
+Added Member To Class: ClassName=M8 Member=Component R9_M8 (R9) ERJ-3EKF1001V
+Added Member To Class: ClassName=M8 Member=Component R10_M8 (R10) ERJ-3EKF1001V
+Added Member To Class: ClassName=M8 Member=Component R36_M8 (R36) ERJ-3EKF1003V
+Added Member To Class: ClassName=M8 Member=Component R37_M8 (R37) ERJ-3EKF1003V
+Added Member To Class: ClassName=M8 Member=Component U1_M8 (U1A) LM324D

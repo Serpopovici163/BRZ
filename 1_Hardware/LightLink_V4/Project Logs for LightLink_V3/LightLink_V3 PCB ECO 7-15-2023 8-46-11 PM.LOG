@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=PRE_VCC Pin=U3-10
+Removed Pin From Net: NetName=PRE_VCC Pin=U4-10
+Added Pin To Net: NetName=PRE_12V Pin=U3-10
+Added Pin To Net: NetName=PRE_12V Pin=U4-10

@@ -146,7 +146,7 @@ void setup() {
   canBusTimeoutTimer = 0; //shuts the board down if CAN communications stop for more than CANBUS_TIMEOUT milliseconds
   turnSignalTimer = 0;
   turnSignalDebounceTimer = 0;
-  turnSignalFlashCounter = 0;
+  turnSignalFlashCounter = -1;
   runningLightTimer = 0; //used when running lights have an animation
 
   //startup sequence here
@@ -407,8 +407,12 @@ void handleTurnSignals() {
   //if turn signal is not requested, check if we've flashed enough and nullify the turnSignalFlashCounter if that's the case/return out of this function
   //second condition involves debounce timer which should be set every time we pass this if statement if the requested turn signal state matches the buffered turn signal state
   if (turnSignalState == 0 && (turnSignalDebounceTimer - millis()) > TURN_SIGNAL_DEBOUNCE) { //turn signal not requested
+
+    Serial.print("CNT - ");
+    Serial.println(turnSignalFlashCounter);
     
     if (turnSignalFlashCounter > MIN_TURN_SIG_FLASH) {
+      Serial.println("4");
       turnSignalFlashCounter = -1;
       turnSignalStateBuffer = 0;
     } 
@@ -420,14 +424,18 @@ void handleTurnSignals() {
 
   //if turn signal is requested but we haven't initialized variables, initialize
   if (turnSignalState != 0 && turnSignalFlashCounter == -1) {
+
+    Serial.println("2");
+    
     turnSignalFlashCounter = 1;
     turnSignalStateBuffer = turnSignalState;
     turnSignalTimer = millis();
   }
 
   //if turn signal state changes during flash, nullify autoflash
-  if (turnSignalState != turnSignalStateBuffer) {
+  if (turnSignalState != turnSignalStateBuffer && turnSignalState != 0) {
     turnSignalFlashCounter += MIN_TURN_SIG_FLASH;
+    Serial.println("3");
   } else {
     //set debounce timer here
     turnSignalDebounceTimer = millis();
@@ -459,6 +467,10 @@ void handleTurnSignals() {
     M_STATES[R_HL_IND] = false;
     M_STATES[R_BL_IND] = false;
   }
+
+  //increment flash counter
+  turnSignalFlashCounter++;
+  
 }
 
 //handle hazards

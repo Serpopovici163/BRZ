@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=RP_MOS_LINK Pin=D4-2
+Removed Pin From Net: NetName=RP_MOS_LINK Pin=Q18-4
+Removed Pin From Net: NetName=RP_MOS_LINK Pin=Q19-4
+Removed Pin From Net: NetName=RP_MOS_LINK Pin=R30-1
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=D4-2
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=Q18-4
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=Q19-4
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=R30-1
+Added Net: Name=RP_MOS_LINK_12V

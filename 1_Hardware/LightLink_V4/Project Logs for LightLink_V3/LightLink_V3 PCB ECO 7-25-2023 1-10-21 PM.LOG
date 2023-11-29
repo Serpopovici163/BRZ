@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C3
+Change Component Designator: OldDesignator=R? NewDesignator=R14
+Change Component Designator: OldDesignator=R? NewDesignator=R15
+Change Component Designator: OldDesignator=U? NewDesignator=U3
+Change Component Designator: OldDesignator=U? NewDesignator=U4
+Change Net Name : Old Net Name=NetR?_2 New Net Name=NetR14_2
+Added Pin To Net: NetName=NetR15_2 Pin=R15-2
+Added Pin To Net: NetName=NetR15_2 Pin=U4-8
+Added Net: Name=NetR15_2
+Added Member To Class: ClassName=CAN Member=Component C3 C0402C104K8PACTU
+Added Member To Class: ClassName=CAN Member=Component R14 ERJ3EKF1002V
+Added Member To Class: ClassName=CAN Member=Component U4 MCP2551-I/SN
