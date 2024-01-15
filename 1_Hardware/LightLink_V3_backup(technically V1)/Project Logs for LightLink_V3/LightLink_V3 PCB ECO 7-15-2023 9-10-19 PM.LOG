@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=RST_1 Pin=J6-7
+Added Pin To Net: NetName=RST_1 Pin=J8-12
+Added Pin To Net: NetName=RST_1 Pin=R12-1
+Added Net: Name=RST_1
+Added Pin To Net: NetName=RST_2 Pin=J6-12
+Added Pin To Net: NetName=RST_2 Pin=J8-7
+Added Pin To Net: NetName=RST_2 Pin=R11-1
+Added Net: Name=RST_2

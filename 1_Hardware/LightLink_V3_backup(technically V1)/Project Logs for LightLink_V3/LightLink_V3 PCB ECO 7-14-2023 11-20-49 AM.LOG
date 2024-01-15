@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=GND Pin=Q10-1
+Removed Pin From Net: NetName=NetQ10_2 Pin=Q10-2
+Removed Pin From Net: NetName=PWR_MOSFET Pin=Q10-6
+Removed Member From Class: ClassName=PWR_MGMT Member=Q17
+Change Component Designator: OldDesignator=Q17 NewDesignator=Q10
+Added Pin To Net: NetName=NetQ10_2 Pin=Q10-2
+Added Pin To Net: NetName=PWR_MOSFET Pin=Q10-3
+Added Pin To Net: NetName=GND Pin=Q10-4
+Added Pin To Net: NetName=NetQ10_5 Pin=Q10-5
+Added Pin To Net: NetName=NetQ10_5 Pin=R43-2
+Added Pin To Net: NetName=NetQ10_5 Pin=R46-1
+Added Net: Name=NetQ10_5

@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=A7 Pin=C3-1
+Removed Pin From Net: NetName=A5 Pin=C3-2
+Removed Pin From Net: NetName=A5 Pin=R15-1
+Removed Pin From Net: NetName=A5 Pin=U4-2
+Removed Pin From Net: NetName=A7 Pin=U4-3
+Added Pin To Net: NetName=5V_2 Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=R15-1
+Added Pin To Net: NetName=NetR15_2 Pin=R15-2
+Added Pin To Net: NetName=GND Pin=U4-2
+Added Pin To Net: NetName=5V_2 Pin=U4-3
+Added Pin To Net: NetName=CAN_N Pin=U4-6
+Added Pin To Net: NetName=CAN_P Pin=U4-7
+Added Pin To Net: NetName=NetR15_2 Pin=U4-8
+Added Member To Class: ClassName=CAN Member=Component C2 C0402C104K8PACTU
+Added Member To Class: ClassName=CAN Member=Component C3 C0402C104K8PACTU
+Added Member To Class: ClassName=CAN Member=Component R15 ERJ3EKF1002V
+Added Member To Class: ClassName=CAN Member=Component U4 MCP2551-I/SN

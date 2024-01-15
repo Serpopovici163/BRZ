@@ -1,0 +1,25 @@
+Remove Pin=R2-2 From Net=SHUNT-
+Remove Pin=R3-2 From Net=POST_SENSE
+Remove Pin=U1A-2 From Net=POST_SENSE
+Remove Pin=U1B-6 From Net=POST_SENSE
+Change Component Designator: OldDesignator=D1 NewDesignator=D1_M13
+Change Component Designator: OldDesignator=D2 NewDesignator=D2_M13
+Change Component Designator: OldDesignator=Q1 NewDesignator=Q1_M13
+Change Component Designator: OldDesignator=Q2 NewDesignator=Q2_M13
+Change Component Designator: OldDesignator=Q2 NewDesignator=Q2_M13
+Change Component Designator: OldDesignator=Q3 NewDesignator=Q3_M13
+Change Component Designator: OldDesignator=R1 NewDesignator=R1_M13
+Change Component Designator: OldDesignator=R2 NewDesignator=R2_M13
+Change Component Designator: OldDesignator=R3 NewDesignator=R3_M13
+Change Component Designator: OldDesignator=R4 NewDesignator=R4_M13
+Change Component Designator: OldDesignator=R5 NewDesignator=R5_M13
+Change Component Designator: OldDesignator=R6 NewDesignator=R6_M13
+Change Component Designator: OldDesignator=R7 NewDesignator=R7_M13
+Change Component Designator: OldDesignator=R8 NewDesignator=R8_M13
+Change Component Designator: OldDesignator=R9 NewDesignator=R9_M13
+Change Component Designator: OldDesignator=R10 NewDesignator=R10_M13
+Change Component Designator: OldDesignator=R36 NewDesignator=R36_M13
+Change Component Designator: OldDesignator=R37 NewDesignator=R37_M13
+Change Component Designator: OldDesignator=U1 NewDesignator=U1_M13
+Change Component Designator: OldDesignator=U1 NewDesignator=U1_M13
+Change Component Designator: OldDesignator=U1 NewDesignator=U1_M13

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=DIFF_AMP_OUT Pin=U7-1
+Removed Pin From Net: NetName=DIFF_AMP_OUT Pin=U7-5
+Change Net Name : Old Net Name=DIFF_AMP_OUT New Net Name=PRE_VCC
+Added Pin To Net: NetName=DIFF_AMP_OUT Pin=U7-1
+Added Pin To Net: NetName=DIFF_AMP_OUT Pin=U7-5
+Added Net: Name=DIFF_AMP_OUT
