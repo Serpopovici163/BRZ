@@ -32,7 +32,6 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=0
-ConstraintManagerFlow=0
 IsVirtualBomDocumentRemoved=0
 OutputPath=
 LogFolderPath=
@@ -67,23 +66,6 @@ GenerateClassCluster=0
 DocumentUniqueId=WRCLDNAZ
 
 [Document2]
-DocumentPath=CAN_SW.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=5
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=RSQHXSZH
-
-[Document3]
 DocumentPath=Job1.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -100,7 +82,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document4]
+[Document3]
 DocumentPath=LightLink_V4.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -117,7 +99,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DFHDVUSI
 
-[Document5]
+[Document4]
 DocumentPath=LightLink_V4.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -134,7 +116,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FPURMVPA
 
-[Document6]
+[Document5]
 DocumentPath=STM32H753_PINOUT.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -151,7 +133,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SPENOSCV
 
-[Document7]
+[Document6]
 DocumentPath=MOSFET_BANK.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
