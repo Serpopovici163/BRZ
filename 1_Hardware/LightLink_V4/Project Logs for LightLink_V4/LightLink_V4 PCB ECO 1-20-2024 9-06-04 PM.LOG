@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=VCC Pin=LS1-LOAD+
+Removed Pin From Net: NetName=GND Pin=Q14-1
+Removed Pin From Net: NetName=BUZZ Pin=Q14-2
+Removed Pin From Net: NetName=BUZZ Pin=R27-1
+Removed Pin From Net: NetName=VCC Pin=R27-2
+Removed Pin From Net: NetName=GND Pin=R28-1
+Removed Pin From Net: NetName=BUZZ Pin=R28-2
+Removed Member From Class: ClassName=PWR_MGMT Member=LS1
+Removed Member From Class: ClassName=PWR_MGMT Member=Q14
+Removed Member From Class: ClassName=PWR_MGMT Member=R27
+Removed Member From Class: ClassName=PWR_MGMT Member=R28
+Added Member To Class: ClassName=STM32H753_PINOUT Member=Component Q14 SSM6N7002KFU,LF
