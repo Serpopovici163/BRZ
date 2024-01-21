@@ -1,0 +1,3 @@
+Change Net Name : Old Net Name=KILL New Net Name=NetD6_2
+Added Pin To Net: NetName=KILL Pin=R30-2
+Added Net: Name=KILL
