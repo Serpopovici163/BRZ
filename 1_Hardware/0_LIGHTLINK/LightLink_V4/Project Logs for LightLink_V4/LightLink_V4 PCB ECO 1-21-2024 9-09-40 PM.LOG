@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND Pin=Q17-1
+Removed Pin From Net: NetName=NetQ14_5 Pin=Q17-2
+Removed Pin From Net: NetName=BUZZ_NEG Pin=Q17-6
+Removed Member From Class: ClassName=STM32H753_PINOUT Member=Q17
+Added Pin To Net: NetName=GND Pin=Q14-1
+Added Pin To Net: NetName=NetQ14_5 Pin=Q14-2
+Added Pin To Net: NetName=BUZZ_NEG Pin=Q14-6
+Change Net Name : Old Net Name=NetQ14_5 New Net Name=NetQ14_2
