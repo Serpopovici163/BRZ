@@ -1,0 +1,36 @@
+Added Pin To Net: NetName=M5_TRIG Pin=U4-34
+Added Pin To Net: NetName=M56_STAT Pin=U4-35
+Added Pin To Net: NetName=M6_TRIG Pin=U4-36
+Added Pin To Net: NetName=M7_TRIG Pin=U4-37
+Added Pin To Net: NetName=M78_STAT Pin=U4-38
+Added Pin To Net: NetName=M8_TRIG Pin=U4-39
+Added Pin To Net: NetName=M9_TRIG Pin=U4-40
+Added Pin To Net: NetName=M910_STAT Pin=U4-45
+Added Pin To Net: NetName=M10_TRIG Pin=U4-46
+Added Pin To Net: NetName=M11_TRIG Pin=U4-47
+Added Pin To Net: NetName=M1112_STAT Pin=U4-55
+Added Pin To Net: NetName=M12_STAT Pin=U4-56
+Added Pin To Net: NetName=ADC_MISO_MOSFET_BANK1 Pin=U4-53
+Added Pin To Net: NetName=ADC_MISO_MOSFET_BANK1 Pin=U9_MOSFET_BANK1-15
+Added Net: Name=ADC_MISO_MOSFET_BANK1
+Added Pin To Net: NetName=ADC_MISO_MOSFET_BANK2 Pin=U4-43
+Added Pin To Net: NetName=ADC_MISO_MOSFET_BANK2 Pin=U9_MOSFET_BANK2-15
+Added Net: Name=ADC_MISO_MOSFET_BANK2
+Added Pin To Net: NetName=ADC_MOSI_MOSFET_BANK1 Pin=U4-54
+Added Pin To Net: NetName=ADC_MOSI_MOSFET_BANK1 Pin=U9_MOSFET_BANK1-14
+Added Net: Name=ADC_MOSI_MOSFET_BANK1
+Added Pin To Net: NetName=ADC_MOSI_MOSFET_BANK2 Pin=U4-44
+Added Pin To Net: NetName=ADC_MOSI_MOSFET_BANK2 Pin=U9_MOSFET_BANK2-14
+Added Net: Name=ADC_MOSI_MOSFET_BANK2
+Added Pin To Net: NetName=ADC_nCS_MOSFET_BANK1 Pin=U4-51
+Added Pin To Net: NetName=ADC_nCS_MOSFET_BANK1 Pin=U9_MOSFET_BANK1-1
+Added Net: Name=ADC_nCS_MOSFET_BANK1
+Added Pin To Net: NetName=ADC_nCS_MOSFET_BANK2 Pin=U4-41
+Added Pin To Net: NetName=ADC_nCS_MOSFET_BANK2 Pin=U9_MOSFET_BANK2-1
+Added Net: Name=ADC_nCS_MOSFET_BANK2
+Added Pin To Net: NetName=ADC_SCLK_MOSFET_BANK1 Pin=U4-52
+Added Pin To Net: NetName=ADC_SCLK_MOSFET_BANK1 Pin=U9_MOSFET_BANK1-16
+Added Net: Name=ADC_SCLK_MOSFET_BANK1
+Added Pin To Net: NetName=ADC_SCLK_MOSFET_BANK2 Pin=U4-42
+Added Pin To Net: NetName=ADC_SCLK_MOSFET_BANK2 Pin=U9_MOSFET_BANK2-16
+Added Net: Name=ADC_SCLK_MOSFET_BANK2

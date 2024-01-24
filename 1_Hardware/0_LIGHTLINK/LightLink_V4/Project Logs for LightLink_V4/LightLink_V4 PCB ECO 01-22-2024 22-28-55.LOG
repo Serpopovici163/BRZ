@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=M12_STAT Pin=U4-56
+Added Pin To Net: NetName=M12_TRIG Pin=U4-56

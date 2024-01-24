@@ -1,0 +1,4 @@
+Record=TopLevelDocument|FileName=VisionBETA.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=VisionBETA.SchDoc|Designator=CAMERA_INTERFACE|SchDesignator=CAMERA_INTERFACE|FileName=CAMERA_INTERFACE.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=CAMERA_INTERFACE.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=VisionBETA.SchDoc|Designator=JETSON|SchDesignator=JETSON|FileName=JETSON.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=JETSON.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=VisionBETA.SchDoc|Designator=PWR_MGMT|SchDesignator=PWR_MGMT|FileName=PWR_MGMT.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=PWR_MGMT.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

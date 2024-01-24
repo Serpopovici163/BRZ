@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=KILL_SIG Pin=D4-2
+Removed Pin From Net: NetName=COMP_AMP_OUT Pin=D5-2
+Removed Pin From Net: NetName=NetD6_1 Pin=D6-1
+Change Component Footprint: Designator=D3 Old Footprint=FP-SOD-123-IPC_A New Footprint=TS4148RCG-Footprint-1
+Change Component Footprint: Designator=D4 Old Footprint=FP-SOD-123-IPC_A New Footprint=TS4148RCG-Footprint-1
+Change Component Footprint: Designator=D5 Old Footprint=FP-SOD-123-IPC_A New Footprint=TS4148RCG-Footprint-1
+Change Component Footprint: Designator=D6 Old Footprint=FP-SOD-123-IPC_A New Footprint=TS4148RCG-Footprint-1
+Change Component Comment : Designator=D3 Old Comment=1N4148W-TP New Comment=TS4148RCG
+Change Component Comment : Designator=D4 Old Comment=1N4148W-TP New Comment=TS4148RCG
+Change Component Comment : Designator=D5 Old Comment=1N4148W-TP New Comment=TS4148RCG
+Change Component Comment : Designator=D6 Old Comment=1N4148W-TP New Comment=TS4148RCG
+Change Component Designator: OldDesignator=R? NewDesignator=R41
+Change Managed Component Library Link : Designator=D3 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 New ItemGUID=da4e7b45-3825-44b3-8b6b-8a58f2de1792 Old RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A New RevisionGUID=7069605e-b3ef-4459-93e6-4728b1b6ef63
+Change Managed Component Library Link : Designator=D4 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 New ItemGUID=da4e7b45-3825-44b3-8b6b-8a58f2de1792 Old RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A New RevisionGUID=7069605e-b3ef-4459-93e6-4728b1b6ef63
+Change Managed Component Library Link : Designator=D5 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 New ItemGUID=da4e7b45-3825-44b3-8b6b-8a58f2de1792 Old RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A New RevisionGUID=7069605e-b3ef-4459-93e6-4728b1b6ef63
+Change Managed Component Library Link : Designator=D6 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 New ItemGUID=da4e7b45-3825-44b3-8b6b-8a58f2de1792 Old RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A New RevisionGUID=7069605e-b3ef-4459-93e6-4728b1b6ef63
+Change component parameters: Designator = "D3" ("D3"); Footprint = "FP-SOD-123-IPC_A"; UniqueID = "\QTGPWKOY\XSFDKRRV" ("\QTGPWKOY\XSFDKRRV")
+Change component parameters: Designator = "D4" ("D4"); Footprint = "FP-SOD-123-IPC_A"; UniqueID = "\QTGPWKOY\OUCBEKMW" ("\QTGPWKOY\OUCBEKMW")
+Change component parameters: Designator = "D5" ("D5"); Footprint = "FP-SOD-123-IPC_A"; UniqueID = "\QTGPWKOY\MDBLYLTV" ("\QTGPWKOY\MDBLYLTV")
+Change component parameters: Designator = "D6" ("D6"); Footprint = "FP-SOD-123-IPC_A"; UniqueID = "\QTGPWKOY\ILXVNPIK" ("\QTGPWKOY\ILXVNPIK")
+Added Pin To Net: NetName=KILL_SIG Pin=D4-A
+Added Pin To Net: NetName=COMP_AMP_OUT Pin=D5-A
+Added Pin To Net: NetName=NetD6_1 Pin=D6-C
+Change Net Name : Old Net Name=NetD6_1 New Net Name=NetD6_C
+Added Pin To Net: NetName=NetD3_A Pin=D3-A
+Added Pin To Net: NetName=NetD3_A Pin=D4-C
+Added Net: Name=NetD3_A
+Added Pin To Net: NetName=NetD3_C Pin=D3-C
+Added Pin To Net: NetName=NetD3_C Pin=D5-C
+Added Pin To Net: NetName=NetD3_C Pin=R32-1
+Added Pin To Net: NetName=NetD3_C Pin=U3-4
+Added Net: Name=NetD3_C
+Added Pin To Net: NetName=NetD6_A Pin=D6-A
+Added Pin To Net: NetName=NetD6_A Pin=Q15-3
+Added Net: Name=NetD6_A

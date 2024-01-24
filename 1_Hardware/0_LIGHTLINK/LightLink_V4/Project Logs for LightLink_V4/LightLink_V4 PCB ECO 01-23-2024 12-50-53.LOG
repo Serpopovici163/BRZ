@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=ADC_MOSI_MOSFET_BANK3 Pin=U4-30
+Removed Pin From Net: NetName=ADC_MISO_MOSFET_BANK3 Pin=U4-31
+Added Pin To Net: NetName=ADC_MISO_MOSFET_BANK3 Pin=U4-30
+Added Pin To Net: NetName=ADC_MOSI_MOSFET_BANK3 Pin=U4-31

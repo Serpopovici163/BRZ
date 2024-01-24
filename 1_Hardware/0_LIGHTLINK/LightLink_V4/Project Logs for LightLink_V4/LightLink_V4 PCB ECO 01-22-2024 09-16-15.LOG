@@ -1,0 +1,6 @@
+Change Net Name : Old Net Name=X_IN New Net Name=X_P
+Change Net Name : Old Net Name=X_OUT New Net Name=X_N
+Change Net Name : Old Net Name=XIN_32 New Net Name=X32_P
+Change Net Name : Old Net Name=XOUT_32 New Net Name=X32_N
+Added Differential Pair: Name=X32
+Added Differential Pair: Name=X

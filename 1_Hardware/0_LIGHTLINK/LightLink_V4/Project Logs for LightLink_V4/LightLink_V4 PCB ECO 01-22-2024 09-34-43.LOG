@@ -1,0 +1,78 @@
+Added Pin To Net: NetName=PWR_IN Pin=F1-1
+Added Pin To Net: NetName=NetF1_2 Pin=F1-2
+Added Pin To Net: NetName=12V_IN Pin=F2-1
+Added Pin To Net: NetName=NetF2_2 Pin=F2-2
+Added Pin To Net: NetName=PRE_VCC Pin=Q1-1
+Added Pin To Net: NetName=PRE_VCC Pin=Q1-2
+Added Pin To Net: NetName=PRE_VCC Pin=Q1-3
+Added Pin To Net: NetName=RP_MOS_LINK Pin=Q1-4
+Added Pin To Net: NetName=NetF1_2 Pin=Q1-5-6-7-8
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-2
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-3
+Added Pin To Net: NetName=PWR_MOSFET Pin=Q2-4
+Added Pin To Net: NetName=PRE_VCC Pin=Q2-5-6-7-8
+Added Pin To Net: NetName=NetQ2_1 Pin=Q3-1
+Added Pin To Net: NetName=NetQ2_1 Pin=Q3-2
+Added Pin To Net: NetName=NetQ2_1 Pin=Q3-3
+Added Pin To Net: NetName=PWR_MOSFET Pin=Q3-4
+Added Pin To Net: NetName=VCC Pin=Q3-5-6-7-8
+Added Pin To Net: NetName=PRE_VCC Pin=Q4-1
+Added Pin To Net: NetName=PRE_VCC Pin=Q4-2
+Added Pin To Net: NetName=PRE_VCC Pin=Q4-3
+Added Pin To Net: NetName=RP_MOS_LINK Pin=Q4-4
+Added Pin To Net: NetName=NetF1_2 Pin=Q4-5-6-7-8
+Added Pin To Net: NetName=NetQ6_1 Pin=Q6-1
+Added Pin To Net: NetName=NetQ6_1 Pin=Q6-2
+Added Pin To Net: NetName=NetQ6_1 Pin=Q6-3
+Added Pin To Net: NetName=PWR_MOSFET Pin=Q6-4
+Added Pin To Net: NetName=PRE_VCC Pin=Q6-5-6-7-8
+Added Pin To Net: NetName=NetQ6_1 Pin=Q7-1
+Added Pin To Net: NetName=NetQ6_1 Pin=Q7-2
+Added Pin To Net: NetName=NetQ6_1 Pin=Q7-3
+Added Pin To Net: NetName=PWR_MOSFET Pin=Q7-4
+Added Pin To Net: NetName=VCC Pin=Q7-5-6-7-8
+Added Pin To Net: NetName=PRE_12V Pin=Q8-1
+Added Pin To Net: NetName=PRE_12V Pin=Q8-2
+Added Pin To Net: NetName=PRE_12V Pin=Q8-3
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=Q8-4
+Added Pin To Net: NetName=NetF2_2 Pin=Q8-5-6-7-8
+Added Pin To Net: NetName=NetQ9_1 Pin=Q9-1
+Added Pin To Net: NetName=NetQ9_1 Pin=Q9-2
+Added Pin To Net: NetName=NetQ9_1 Pin=Q9-3
+Added Pin To Net: NetName=12V_MOSFET Pin=Q9-4
+Added Pin To Net: NetName=PRE_12V Pin=Q9-5-6-7-8
+Added Pin To Net: NetName=NetQ9_1 Pin=Q10-1
+Added Pin To Net: NetName=NetQ9_1 Pin=Q10-2
+Added Pin To Net: NetName=NetQ9_1 Pin=Q10-3
+Added Pin To Net: NetName=12V_MOSFET Pin=Q10-4
+Added Pin To Net: NetName=+12 Pin=Q10-5-6-7-8
+Added Pin To Net: NetName=PRE_12V Pin=Q11-1
+Added Pin To Net: NetName=PRE_12V Pin=Q11-2
+Added Pin To Net: NetName=PRE_12V Pin=Q11-3
+Added Pin To Net: NetName=RP_MOS_LINK_12V Pin=Q11-4
+Added Pin To Net: NetName=NetF2_2 Pin=Q11-5-6-7-8
+Added Pin To Net: NetName=NetQ12_1 Pin=Q12-1
+Added Pin To Net: NetName=NetQ12_1 Pin=Q12-2
+Added Pin To Net: NetName=NetQ12_1 Pin=Q12-3
+Added Pin To Net: NetName=12V_MOSFET Pin=Q12-4
+Added Pin To Net: NetName=PRE_12V Pin=Q12-5-6-7-8
+Added Pin To Net: NetName=NetQ12_1 Pin=Q13-1
+Added Pin To Net: NetName=NetQ12_1 Pin=Q13-2
+Added Pin To Net: NetName=NetQ12_1 Pin=Q13-3
+Added Pin To Net: NetName=12V_MOSFET Pin=Q13-4
+Added Pin To Net: NetName=+12 Pin=Q13-5-6-7-8
+Added Member To Class: ClassName=PWR_MGMT Member=Component F1 0679L9150-01
+Added Member To Class: ClassName=PWR_MGMT Member=Component F2 0679L9150-01
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q1 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q2 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q3 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q4 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q6 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q7 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q8 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q9 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q10 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q11 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q12 SISH615ADN-T1-GE3
+Added Member To Class: ClassName=PWR_MGMT Member=Component Q13 SISH615ADN-T1-GE3

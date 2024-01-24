@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=R_LED Pin=U4-17
+Removed Pin From Net: NetName=G_LED Pin=U4-18
+Removed Pin From Net: NetName=ADDR_6 Pin=U4-66
+Removed Pin From Net: NetName=ADDR_5 Pin=U4-67
+Removed Pin From Net: NetName=ADDR_4 Pin=U4-68
+Removed Pin From Net: NetName=ADDR_3 Pin=U4-69
+Removed Pin From Net: NetName=ADDR_2 Pin=U4-70
+Removed Pin From Net: NetName=ADDR_1 Pin=U4-71
+Added Pin To Net: NetName=R_LED Pin=U4-15
+Added Pin To Net: NetName=G_LED Pin=U4-16
+Added Pin To Net: NetName=ADDR_6 Pin=U4-63
+Added Pin To Net: NetName=ADDR_5 Pin=U4-64
+Added Pin To Net: NetName=ADDR_4 Pin=U4-65
+Added Pin To Net: NetName=ADDR_3 Pin=U4-66
+Added Pin To Net: NetName=ADDR_2 Pin=U4-67
+Added Pin To Net: NetName=ADDR_1 Pin=U4-68

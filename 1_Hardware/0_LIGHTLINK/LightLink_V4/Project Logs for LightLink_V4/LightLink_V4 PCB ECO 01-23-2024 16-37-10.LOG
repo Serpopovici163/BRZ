@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=CAN1_RX Pin=U4-70
+Removed Pin From Net: NetName=CAN1_TX Pin=U4-71
+Change Component Designator: OldDesignator=R41 NewDesignator=R?
+Added Pin To Net: NetName=CAN1_RX Pin=U4-59
+Added Pin To Net: NetName=CAN1_TX Pin=U4-60
+Added Pin To Net: NetName=ADDR_6 Pin=U4-66
+Added Pin To Net: NetName=ADDR_5 Pin=U4-67
+Added Pin To Net: NetName=ADDR_4 Pin=U4-68
+Added Pin To Net: NetName=ADDR_3 Pin=U4-69
+Added Pin To Net: NetName=ADDR_2 Pin=U4-70
+Added Pin To Net: NetName=ADDR_1 Pin=U4-71

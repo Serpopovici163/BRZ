@@ -1,0 +1,11 @@
+Change Component Comment : Designator=R39 Old Comment=ERJ-3EKF1500V New Comment=ERJ3EKF51R0V
+Change Component Comment : Designator=R41 Old Comment=ERJ-3GEYJ820V New Comment=ERJ3EKF51R0V
+Change Managed Component Library Link : Designator=R39 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=C3DF87CB-3192-4778-881F-3B741F738367 New ItemGUID=3E9008D7-EBA0-43D0-8529-73B5B8E0DDA1 Old RevisionGUID=D290EC4D-C2D0-438B-A537-FA7F7F8978AF New RevisionGUID=5282C851-1533-43DA-B526-1050394539E1
+Change Managed Component Library Link : Designator=R41 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=71C4047B-57E5-4A54-BBF2-7FE5CA693559 New ItemGUID=3E9008D7-EBA0-43D0-8529-73B5B8E0DDA1 Old RevisionGUID=D05E3FBA-C09B-41A0-9C92-5BBA118F2D9A New RevisionGUID=5282C851-1533-43DA-B526-1050394539E1
+Change component parameters: Designator = "R39" ("R39"); Footprint = "RESC1608X55X30NL15T15"; UniqueID = "\YCPLXKSQ\KQRUIJES" ("\YCPLXKSQ\KQRUIJES")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ3EKF51R0V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R41" ("R41"); Footprint = "RESC1608X55X30NL15T15"; UniqueID = "\YCPLXKSQ\ZGQZCPGA" ("\YCPLXKSQ\ZGQZCPGA")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "ERJ3EKF51R0V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=U5-2
