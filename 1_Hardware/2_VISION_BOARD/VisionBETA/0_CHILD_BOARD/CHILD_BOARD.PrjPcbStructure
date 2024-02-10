@@ -1,0 +1,5 @@
+Record=TopLevelDocument|FileName=CHILD_BOARD.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=CHILD_BOARD.SchDoc|Designator=AMPLIFIER|SchDesignator=AMPLIFIER|FileName=AMPLIFIER.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=AMPLIFIER.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CHILD_BOARD.SchDoc|Designator=CAN|SchDesignator=CAN|FileName=CAN.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=CAN.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CHILD_BOARD.SchDoc|Designator=PWR_MGMT|SchDesignator=PWR_MGMT|FileName=PWR_MGMT.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=PWR_MGMT.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CHILD_BOARD.SchDoc|Designator=REGULATORS|SchDesignator=REGULATORS|FileName=REGULATORS.SchDoc|SheetNumber=5|SymbolType=Normal|RawFileName=REGULATORS.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
