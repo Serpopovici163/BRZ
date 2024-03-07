@@ -1,0 +1,4 @@
+Record=DiagramHierarchy|SourceDocument=VisionBETA.MbsDoc|Kind=Multi-board Schematic Module|Designator=CHILD_BOARD|Source=0_CHILD_BOARD\CHILD_BOARD.PrjPcb
+Record=SubProject|SourceDocument=VisionBETA.MbsDoc|ProjectPath=0_CHILD_BOARD\CHILD_BOARD.PrjPcb
+Record=DiagramHierarchy|SourceDocument=VisionBETA.MbsDoc|Kind=Multi-board Schematic Module|Designator=MAIN_BOARD|Source=0_MAIN_BOARD\MAIN_BOARD.PrjPcb
+Record=SubProject|SourceDocument=VisionBETA.MbsDoc|ProjectPath=0_MAIN_BOARD\MAIN_BOARD.PrjPcb

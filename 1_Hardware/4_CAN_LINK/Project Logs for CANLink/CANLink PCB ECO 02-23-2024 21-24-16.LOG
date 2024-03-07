@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=CAN1_P Pin=J3-1
+Removed Pin From Net: NetName=CAN_PWR Pin=J3-3
+Removed Pin From Net: NetName=CAN1_N Pin=J3-4
+Removed Pin From Net: NetName=GND Pin=J3-6
+Added Pin To Net: NetName=CAN_PWR Pin=J3-1
+Added Pin To Net: NetName=CAN1_P Pin=J3-3
+Added Pin To Net: NetName=GND Pin=J3-4
+Added Pin To Net: NetName=CAN1_N Pin=J3-6

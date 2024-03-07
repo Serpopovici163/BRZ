@@ -1,0 +1,4 @@
+Record=DiagramHierarchy|SourceDocument=PowerLink.MbsDoc|Kind=Multi-board Schematic Module|Designator=2|Source=PDU\BRZ_PDU.PrjPcb
+Record=SubProject|SourceDocument=PowerLink.MbsDoc|ProjectPath=PDU\BRZ_PDU.PrjPcb
+Record=DiagramHierarchy|SourceDocument=PowerLink.MbsDoc|Kind=Multi-board Schematic Module|Designator=1|Source=BATT_MGR\BRZ_BATT_MANAGER.PrjPcb
+Record=SubProject|SourceDocument=PowerLink.MbsDoc|ProjectPath=BATT_MGR\BRZ_BATT_MANAGER.PrjPcb

@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetR22_2 Pin=U1-1
+Removed Pin From Net: NetName=NetR5_1 Pin=U1-7
+Removed Pin From Net: NetName=NetR5_1 Pin=U1-8
+Removed Pin From Net: NetName=NetR7_2 Pin=U1-9
+Removed Pin From Net: NetName=NetD5_3 Pin=U1-15
+Removed Pin From Net: NetName=NetD5_3 Pin=U1-16
+Removed Member From Class: ClassName=MCU_0 Member=U1
+Added Pin To Net: NetName=NetR7_2 Pin=U1-1
+Added Pin To Net: NetName=NetR5_1 Pin=U1-15
+Added Pin To Net: NetName=NetR5_1 Pin=U1-16
+Added Pin To Net: NetName=NetR22_2 Pin=U6-1
+Added Pin To Net: NetName=NetD5_3 Pin=U6-15
+Added Pin To Net: NetName=NetD5_3 Pin=U6-16
+Added Member To Class: ClassName=SD_0 Member=Component U1 LM2902Q4T

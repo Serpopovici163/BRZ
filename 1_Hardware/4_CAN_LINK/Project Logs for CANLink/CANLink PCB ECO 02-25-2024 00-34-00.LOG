@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=INT_3V3 Pin=C3_CAN_0-2
+Added Pin To Net: NetName=INT_3V3 Pin=C3_CAN_1-2
+Added Pin To Net: NetName=INT_3V3 Pin=C4_CAN_0-2
+Added Pin To Net: NetName=INT_3V3 Pin=C4_CAN_1-2
+Added Pin To Net: NetName=INT_3V3 Pin=U2_CAN_0-3
+Added Pin To Net: NetName=INT_3V3 Pin=U2_CAN_0-5
+Added Pin To Net: NetName=INT_3V3 Pin=U2_CAN_1-3
+Added Pin To Net: NetName=INT_3V3 Pin=U2_CAN_1-5

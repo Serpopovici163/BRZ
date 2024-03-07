@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=PWR_IN Pin=F1-1
+Removed Pin From Net: NetName=PWR_IN Pin=J2-3
+Removed Pin From Net: NetName=CAN_PWR Pin=J3-3
+Added Pin To Net: NetName=CAN_PWR Pin=F1-1
+Added Pin To Net: NetName=CAN_PWR Pin=J2-3
+Added Pin To Net: NetName=PWR_IN Pin=J3-3
+Change Net Name : Old Net Name=CAN_PWR New Net Name=PWR_IN
+Change Net Name : Old Net Name=PWR_IN New Net Name=CAN_PWR

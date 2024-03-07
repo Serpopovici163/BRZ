@@ -1,0 +1,5 @@
+Record=TopLevelDocument|FileName=CamLink.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=CamLink.SchDoc|Designator=ADJ_REG|SchDesignator=ADJ_REG|FileName=ADJ_REG.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=ADJ_REG.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CamLink.SchDoc|Designator=CAM_IF|SchDesignator=CAM_IF|FileName=CAM_IF.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=CAM_IF.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CamLink.SchDoc|Designator=CONFIG_MCU|SchDesignator=CONFIG_MCU|FileName=CONFIG_MCU.SchDoc|SheetNumber=5|SymbolType=Normal|RawFileName=CONFIG_MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CamLink.SchDoc|Designator=PoC_EXTRACTOR|SchDesignator=PoC_EXTRACTOR|FileName=PoC_EXTRACTOR.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=PoC_EXTRACTOR.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

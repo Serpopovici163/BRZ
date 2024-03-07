@@ -1,0 +1,32 @@
+Removed Member From Class: ClassName=85DIFF Member=NetC60_1
+Removed Member From Class: ClassName=85DIFF Member=NetC61_1
+Removed Member From Class: ClassName=85DIFF Member=NetC62_1
+Removed Member From Class: ClassName=85DIFF Member=NetC64_1
+Removed Member From Class: ClassName=85DIFF Member=NetC65_1
+Removed Member From Class: ClassName=85DIFF Member=NetC68_1
+Removed Member From Class: ClassName=85DIFF Member=NetC69_1
+Removed Member From Class: ClassName=85DIFF Member=NetC70_1
+Change Component Footprint: Designator=MP1 Old Footprint=9774025243 New Footprint=9774025243
+Change Component Footprint: Designator=J3 Old Footprint=692141030100 New Footprint=692141030100
+Change Component Footprint: Designator=J4 Old Footprint=692141030100 New Footprint=692141030100
+Change Component Footprint: Designator=IC1_CAMIF_1 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Change Component Footprint: Designator=IC1_CAMIF_2 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Change Component Footprint: Designator=IC2 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Add Net: Net with name "CAM_I2C_SCL" already exists
+Add Net: Net with name "CAM_I2C_SDA" already exists
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists

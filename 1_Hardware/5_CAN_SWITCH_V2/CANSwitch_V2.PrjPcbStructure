@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=CANSwitch_V2.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=CANSwitch_V2.SchDoc|Designator=CAN_0|SchDesignator=CAN_0|FileName=CAN_IF.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=CAN_IF.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=CANSwitch_V2.SchDoc|Designator=PWR_MGMT|SchDesignator=PWR_MGMT|FileName=PWR_MGMT.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=PWR_MGMT.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

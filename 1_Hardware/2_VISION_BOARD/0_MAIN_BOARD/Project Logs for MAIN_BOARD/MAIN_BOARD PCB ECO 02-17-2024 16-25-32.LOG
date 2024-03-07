@@ -1,0 +1,89 @@
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_1-S1
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_1-S2
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_1-S3
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_1-S4
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_2-S1
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_2-S2
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_2-S3
+Removed Pin From Net: NetName=GND Pin=J2_CAMIF_2-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_1 Pin=J3_CAMIF_1-1
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_1-S1
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_1-S2
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_1-S3
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_1-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_2 Pin=J3_CAMIF_2-1
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_2-S1
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_2-S2
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_2-S3
+Removed Pin From Net: NetName=GND Pin=J3_CAMIF_2-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_1 Pin=J4_CAMIF_1-1
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_1-S1
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_1-S2
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_1-S3
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_1-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_2 Pin=J4_CAMIF_2-1
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_2-S1
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_2-S2
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_2-S3
+Removed Pin From Net: NetName=GND Pin=J4_CAMIF_2-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_1 Pin=J5_CAMIF_1-1
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_1-S1
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_1-S2
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_1-S3
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_1-S4
+Removed Pin From Net: NetName=POC_IN_CAMIF_2 Pin=J5_CAMIF_2-1
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_2-S1
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_2-S2
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_2-S3
+Removed Pin From Net: NetName=GND Pin=J5_CAMIF_2-S4
+Removed Member From Class: ClassName=CAMIF_1 Member=J3_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=J3_CAMIF_2
+Removed Member From Class: ClassName=CAMIF_1 Member=J4_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=J4_CAMIF_2
+Removed Member From Class: ClassName=CAMIF_1 Member=J5_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=J5_CAMIF_2
+Change Component Footprint: Designator=J2_CAMIF_1 Old Footprint=1-2291392-0-Footprint-1 New Footprint=FM4-NZRP-PCB-1-Footprint-1
+Change Component Footprint: Designator=J2_CAMIF_2 Old Footprint=1-2291392-0-Footprint-1 New Footprint=FM4-NZRP-PCB-1-Footprint-1
+Change Component Footprint: Designator=IC1_CAMIF_1 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Change Component Footprint: Designator=IC1_CAMIF_2 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Change Component Footprint: Designator=IC2 Old Footprint=TQFN50P300X300X80_HS-17N New Footprint=TQFN50P300X300X80_HS-17N
+Change Component Footprint: Designator=L1_CAMIF_1 Old Footprint=WE-SPC_4818 New Footprint=WE-SPC_4818
+Change Component Footprint: Designator=L1_CAMIF_2 Old Footprint=WE-SPC_4818 New Footprint=WE-SPC_4818
+Change Component Footprint: Designator=L2 Old Footprint=WE-SPC_4818 New Footprint=WE-SPC_4818
+Change Component Comment : Designator=J2_CAMIF_1 Old Comment=1-2291392-0 New Comment=FM4-NZRP-PCB-1
+Change Component Comment : Designator=J2_CAMIF_2 Old Comment=1-2291392-0 New Comment=FM4-NZRP-PCB-1
+Change Managed Component Library Link : Designator=J2_CAMIF_1 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=ae0fa786-f580-4a6b-9127-2c739cdac2e2 New ItemGUID=17429889-5320-4eb5-ab98-2edc5bce5937 Old RevisionGUID=fe51b0cc-d70e-4243-9351-2d43708b9431 New RevisionGUID=34afc98f-a230-43cc-b186-847117fc4767
+Change Managed Component Library Link : Designator=J2_CAMIF_2 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=ae0fa786-f580-4a6b-9127-2c739cdac2e2 New ItemGUID=17429889-5320-4eb5-ab98-2edc5bce5937 Old RevisionGUID=fe51b0cc-d70e-4243-9351-2d43708b9431 New RevisionGUID=34afc98f-a230-43cc-b186-847117fc4767
+Added Pin To Net: NetName=POC_IN_CAMIF_1 Pin=J2_CAMIF_1-2
+Added Pin To Net: NetName=POC_IN_CAMIF_1 Pin=J2_CAMIF_1-3
+Added Pin To Net: NetName=POC_IN_CAMIF_1 Pin=J2_CAMIF_1-4
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_1-MH1
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_1-MH2
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_1-MH3
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_1-MH4
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_1-MH5
+Added Pin To Net: NetName=POC_IN_CAMIF_2 Pin=J2_CAMIF_2-2
+Added Pin To Net: NetName=POC_IN_CAMIF_2 Pin=J2_CAMIF_2-3
+Added Pin To Net: NetName=POC_IN_CAMIF_2 Pin=J2_CAMIF_2-4
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_2-MH1
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_2-MH2
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_2-MH3
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_2-MH4
+Added Pin To Net: NetName=GND Pin=J2_CAMIF_2-MH5
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists
+Added Member To Class: ClassName=MAIN_BOARD Member=Component J? 22-28-4146
+Added Member To Class: ClassName=MAIN_BOARD Member=Component J? 22-28-4146
+Added Member To Class: ClassName=MAIN_BOARD Member=Component J? 22-28-4146
+Added Member To Class: ClassName=ETH0 Member=Component Q? BSS138W-7-F
+Added Member To Class: ClassName=HDMI_0 Member=Component Q? BSS138W-7-F
+Added Member To Class: ClassName=HDMI_0 Member=Component Q? BSS138W-7-F
+Added Member To Class: ClassName=HDMI_0 Member=Component Q? BSS138W-7-F
+Added Member To Class: ClassName=HDMI_0 Member=Component Q? BSS138W-7-F
+Added Member To Class: ClassName=MAIN_BOARD Member=Component Q? BSS138W-7-F

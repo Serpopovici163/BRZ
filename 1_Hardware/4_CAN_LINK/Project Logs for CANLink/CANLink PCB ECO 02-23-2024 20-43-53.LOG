@@ -1,0 +1,10 @@
+Added Component: Designator=D9_CAN_0(VCAN26A2-03G-E3-08-Footprint-1)
+Added Component: Designator=D9_CAN_1(VCAN26A2-03G-E3-08-Footprint-1)
+Added Pin To Net: NetName=CAN0_P Pin=D9_CAN_0-1
+Added Pin To Net: NetName=CAN0_N Pin=D9_CAN_0-2
+Added Pin To Net: NetName=GND Pin=D9_CAN_0-3
+Added Pin To Net: NetName=CAN1_P Pin=D9_CAN_1-1
+Added Pin To Net: NetName=CAN1_N Pin=D9_CAN_1-2
+Added Pin To Net: NetName=GND Pin=D9_CAN_1-3
+Added Member To Class: ClassName=CAN_0 Member=Component D9_CAN_0 (D9) VCAN26A2-03G-E3-08
+Added Member To Class: ClassName=CAN_1 Member=Component D9_CAN_1 (D9) VCAN26A2-03G-E3-08

@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=CAN_nCS_CAN_0 Pin=U4-28
+Removed Pin From Net: NetName=CAN_SCLK_CAN_0 Pin=U4-29
+Removed Pin From Net: NetName=CAN_MISO_CAN_0 Pin=U4-30
+Removed Pin From Net: NetName=CAN_MOSI_CAN_0 Pin=U4-31
+Added Pin To Net: NetName=CAN_SCLK_CAN_0 Pin=U4-1
+Added Pin To Net: NetName=CAN_nCS_CAN_0 Pin=U4-3
+Added Pin To Net: NetName=CAN_MISO_CAN_0 Pin=U4-4
+Added Pin To Net: NetName=CAN_MOSI_CAN_0 Pin=U4-5
+Added Pin To Net: NetName=SPI1_MISO Pin=U4-30
+Added Pin To Net: NetName=SPI1_MISO Pin=U5-15
+Added Net: Name=SPI1_MISO
+Added Pin To Net: NetName=SPI1_MOSI Pin=U4-31
+Added Pin To Net: NetName=SPI1_MOSI Pin=U5-14
+Added Net: Name=SPI1_MOSI
+Added Pin To Net: NetName=SPI1_nCS Pin=U4-28
+Added Pin To Net: NetName=SPI1_nCS Pin=U5-1
+Added Net: Name=SPI1_nCS
+Added Pin To Net: NetName=SPI1_SCLK Pin=U4-29
+Added Pin To Net: NetName=SPI1_SCLK Pin=U5-16
+Added Net: Name=SPI1_SCLK
