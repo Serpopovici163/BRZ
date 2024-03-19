@@ -1,0 +1,117 @@
+Removed Pin From Net: NetName=CAN_VSUP Pin=D3-1
+Removed Pin From Net: NetName=NetC30_2 Pin=D3-2
+Removed Pin From Net: NetName=CAN_INH Pin=D5-1
+Removed Pin From Net: NetName=12V_INH Pin=D6-1
+Removed Member From Class: ClassName=STM32H730_PINOUT Member=D3
+Removed Member From Class: ClassName=PWR_MGMT Member=D6
+Change Component Footprint: Designator=D3 Old Footprint=DIOD-SOD123-2_V New Footprint=FP-SOD-123-IPC_A
+Change Component Footprint: Designator=D5 Old Footprint=DIOD-SOD123-2_V New Footprint=FP-SOD-123-IPC_A
+Change Component Footprint: Designator=D6 Old Footprint=DIOD-SOD123-2_V New Footprint=FP-SOD-123-IPC_A
+Change Component Comment : Designator=D3 Old Comment=1N4148W-7-F New Comment=1N4148W-TP
+Change Component Comment : Designator=D5 Old Comment=1N4148W-7-F New Comment=1N4148W-TP
+Change Component Comment : Designator=D6 Old Comment=1N4148W-7-F New Comment=1N4148W-TP
+Change Managed Component Library Link : Designator=D3 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=F823AD29-621F-44F4-BA98-97744F3C2356 New ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 Old RevisionGUID=0FCB59B6-6CF2-40FF-8818-FCFF75A61028 New RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A
+Change Managed Component Library Link : Designator=D5 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=F823AD29-621F-44F4-BA98-97744F3C2356 New ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 Old RevisionGUID=0FCB59B6-6CF2-40FF-8818-FCFF75A61028 New RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A
+Change Managed Component Library Link : Designator=D6 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=F823AD29-621F-44F4-BA98-97744F3C2356 New ItemGUID=6F7D6609-292D-4FAE-A69B-39890442B964 Old RevisionGUID=0FCB59B6-6CF2-40FF-8818-FCFF75A61028 New RevisionGUID=F3077F2E-DD19-498F-B6E6-C2B955C57C3A
+Change component parameters: Designator = "D3" ("D3"); Footprint = "DIOD-SOD123-2_V"; UniqueID = "\QTGPWKOY\XBAPBTFL" ("\QTGPWKOY\XBAPBTFL")
+Change component parameters (AddParameter): Name = "Average Rectified Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "4pF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "1V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "2.85mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Forward Surge Current (Ifsm)"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "150°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Repetitive Reverse Voltage (Vrrm)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Leakage Current"; Value = "5uA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Voltage (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-65°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Output Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "3000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Peak Non-Repetitive Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Polarity"; Value = "Standard"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "400mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "1.8mm"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D5" ("D5"); Footprint = "DIOD-SOD123-2_V"; UniqueID = "\QTGPWKOY\TDJKWLWG" ("\QTGPWKOY\TDJKWLWG")
+Change component parameters (AddParameter): Name = "Average Rectified Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "4pF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "1V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "2.85mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Forward Surge Current (Ifsm)"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "150°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Repetitive Reverse Voltage (Vrrm)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Leakage Current"; Value = "5uA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Voltage (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-65°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Output Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "3000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Peak Non-Repetitive Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Polarity"; Value = "Standard"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "400mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "1.8mm"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D6" ("D6"); Footprint = "DIOD-SOD123-2_V"; UniqueID = "\YCPLXKSQ\YXYVYMRW" ("\YCPLXKSQ\YXYVYMRW")
+Change component parameters (AddParameter): Name = "Average Rectified Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "4pF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Element Configuration"; Value = "Single"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "1V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "2.85mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Forward Surge Current (Ifsm)"; Value = "1A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "150°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Repetitive Reverse Voltage (Vrrm)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Leakage Current"; Value = "5uA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Voltage (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-65°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Output Current"; Value = "150mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "3000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Peak Non-Repetitive Surge Current"; Value = "2A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Polarity"; Value = "Standard"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "400mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Recovery Time"; Value = "4ns"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "100V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "1.8mm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=CAN_INH Pin=D3-2
+Added Pin To Net: NetName=12V_INH Pin=D5-2
+Added Pin To Net: NetName=NetC30_2 Pin=D6-1
+Added Pin To Net: NetName=CAN_VSUP Pin=D6-2
+Added Pin To Net: NetName=CAN1_RX Pin=R27-1
+Added Pin To Net: NetName=CAN1_TX Pin=R37-1
+Added Pin To Net: NetName=NetD3_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_1 Pin=D5-1
+Added Pin To Net: NetName=NetD3_1 Pin=R6-1
+Added Net: Name=NetD3_1
+Added Member To Class: ClassName=PWR_MGMT Member=Component D3 1N4148W-TP
+Added Member To Class: ClassName=STM32H730_PINOUT Member=Component D6 1N4148W-TP

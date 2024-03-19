@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=3V3 Pin=U5-4
+Removed Pin From Net: NetName=NetR27_2 Pin=U5-5
+Removed Pin From Net: NetName=NetD8_2 Pin=U5-6
+Removed Pin From Net: NetName=NetD8_2 Pin=U5-7
+Removed Pin From Net: NetName=GND Pin=U5-11
+Removed Member From Class: ClassName=STM32H730_PINOUT Member=U6
+Change Component Designator: OldDesignator=U6 NewDesignator=U5
+Added Pin To Net: NetName=NetD8_2 Pin=U5-1
+Added Pin To Net: NetName=NetD8_2 Pin=U5-2
+Added Pin To Net: NetName=NetR27_2 Pin=U5-3
