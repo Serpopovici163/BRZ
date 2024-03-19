@@ -1,0 +1,25 @@
+Change Component Footprint: Designator=R60 Old Footprint=RESC1005X40X25NL05T05 New Footprint=RESC1609X55X30ML15T15
+Change Component Footprint: Designator=R61 Old Footprint=RESC1005X40X25NL05T05 New Footprint=RESC1609X55X30ML15T15
+Change Component Footprint: Designator=R62 Old Footprint=RESC1005X40X25NL05T05 New Footprint=RESC1609X55X30ML15T15
+Change Component Comment : Designator=R60 Old Comment=0402 JUMPER 0 OHM New Comment=0603 JUMPER
+Change Component Comment : Designator=R61 Old Comment=0402 JUMPER 0 OHM New Comment=0603 JUMPER
+Change Component Comment : Designator=R62 Old Comment=0402 JUMPER 0 OHM New Comment=0603 JUMPER
+Change Managed Component Library Link : Designator=R60 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=a4c947ce-eb79-4604-83af-c065752d8420 New ItemGUID=90afb036-56ab-4b9d-ab6c-0af400257a17 Old RevisionGUID=f27b6633-d713-411b-a606-499a54c29a50 New RevisionGUID=07bb0de3-3004-4be1-88e2-86c32ec4a083
+Change Managed Component Library Link : Designator=R61 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=a4c947ce-eb79-4604-83af-c065752d8420 New ItemGUID=90afb036-56ab-4b9d-ab6c-0af400257a17 Old RevisionGUID=f27b6633-d713-411b-a606-499a54c29a50 New RevisionGUID=07bb0de3-3004-4be1-88e2-86c32ec4a083
+Change Managed Component Library Link : Designator=R62 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=a4c947ce-eb79-4604-83af-c065752d8420 New ItemGUID=90afb036-56ab-4b9d-ab6c-0af400257a17 Old RevisionGUID=f27b6633-d713-411b-a606-499a54c29a50 New RevisionGUID=07bb0de3-3004-4be1-88e2-86c32ec4a083
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists

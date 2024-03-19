@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=PCIE_RST Pin=J7-50
+Added Pin To Net: NetName=PCIE_CLKREQ Pin=J7-52
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists

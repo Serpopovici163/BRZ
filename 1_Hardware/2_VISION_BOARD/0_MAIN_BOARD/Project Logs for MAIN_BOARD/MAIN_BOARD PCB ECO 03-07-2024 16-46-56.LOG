@@ -1,0 +1,46 @@
+Removed Pin From Net: NetName=CK_CAMIF_1_P Pin=R5_CAMIF_1-2
+Removed Pin From Net: NetName=CK_CAMIF_2_P Pin=R5_CAMIF_2-2
+Removed Pin From Net: NetName=CK_CAMIF_1_P Pin=R6_CAMIF_1-2
+Removed Pin From Net: NetName=CK_CAMIF_2_P Pin=R6_CAMIF_2-2
+Removed Pin From Net: NetName=CK_CAMIF_1_N Pin=R7_CAMIF_1-2
+Removed Pin From Net: NetName=CK_CAMIF_2_N Pin=R7_CAMIF_2-2
+Removed Pin From Net: NetName=CK_CAMIF_1_N Pin=R8_CAMIF_1-2
+Removed Pin From Net: NetName=CK_CAMIF_2_N Pin=R8_CAMIF_2-2
+Removed Member From Class: ClassName=CAMIF_1 Member=R5_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=R5_CAMIF_2
+Removed Member From Class: ClassName=CAMIF_1 Member=R6_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=R6_CAMIF_2
+Removed Member From Class: ClassName=CAMIF_1 Member=R7_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=R7_CAMIF_2
+Removed Member From Class: ClassName=CAMIF_1 Member=R8_CAMIF_1
+Removed Member From Class: ClassName=CAMIF_2 Member=R8_CAMIF_2
+Removed Member From Class: ClassName=100DIFF Member=CKA_CAMIF_1_N
+Removed Member From Class: ClassName=100DIFF Member=CKA_CAMIF_1_P
+Removed Member From Class: ClassName=100DIFF Member=CKA_CAMIF_2_N
+Removed Member From Class: ClassName=100DIFF Member=CKA_CAMIF_2_P
+Removed Member From Class: ClassName=100DIFF Member=CKC_CAMIF_1_N
+Removed Member From Class: ClassName=100DIFF Member=CKC_CAMIF_1_P
+Removed Member From Class: ClassName=100DIFF Member=CKC_CAMIF_2_N
+Removed Member From Class: ClassName=100DIFF Member=CKC_CAMIF_2_P
+Added Pin To Net: NetName=CK_CAMIF_1_P Pin=U1_CAMIF_1-33
+Added Pin To Net: NetName=CK_CAMIF_1_N Pin=U1_CAMIF_1-34
+Added Pin To Net: NetName=CK_CAMIF_2_P Pin=U1_CAMIF_2-33
+Added Pin To Net: NetName=CK_CAMIF_2_N Pin=U1_CAMIF_2-34
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists
+Added Room: Name=CAMIF_1
+Added Room: Name=CAMIF_2

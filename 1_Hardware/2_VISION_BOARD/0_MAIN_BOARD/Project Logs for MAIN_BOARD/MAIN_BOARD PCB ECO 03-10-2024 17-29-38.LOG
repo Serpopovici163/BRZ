@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=PLDWN_1 Pin=D30-1
+Removed Pin From Net: NetName=PLDWN_2 Pin=D30-2
+Removed Pin From Net: NetName=PLDWN_3 Pin=D30-4
+Removed Pin From Net: NetName=PLDWN_4 Pin=D30-5
+Removed Pin From Net: NetName=PLDWN_5 Pin=D32-1
+Removed Pin From Net: NetName=PLDWN_6 Pin=D32-2
+Removed Pin From Net: NetName=PLDWN_7 Pin=D32-4
+Removed Pin From Net: NetName=PLDWN_8 Pin=D32-5
+Added Pin To Net: NetName=HDMI_D2_P Pin=D30-2
+Added Pin To Net: NetName=HDMI_D2_N Pin=D30-4
+Added Pin To Net: NetName=HDMI_D1_P Pin=D30-5
+Added Pin To Net: NetName=HDMI_D1_N Pin=D32-1
+Added Pin To Net: NetName=HDMI_D0_P Pin=D32-2
+Added Pin To Net: NetName=HDMI_D0_N Pin=D32-4
+Added Pin To Net: NetName=HDMI_CLK_P Pin=D32-5
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists

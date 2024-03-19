@@ -1,0 +1,80 @@
+Removed Pin From Net: NetName=CK_CAMIF_1_P Pin=U1_CAMIF_1-33
+Removed Pin From Net: NetName=CK_CAMIF_1_N Pin=U1_CAMIF_1-34
+Removed Pin From Net: NetName=CK_CAMIF_2_P Pin=U1_CAMIF_2-33
+Removed Pin From Net: NetName=CK_CAMIF_2_N Pin=U1_CAMIF_2-34
+Added Component: Designator=R5_CAMIF_1(RESC1005X40X25NL05T05)
+Added Component: Designator=R5_CAMIF_2(RESC1005X40X25NL05T05)
+Added Component: Designator=R6_CAMIF_1(RESC1005X40X25NL05T05)
+Added Component: Designator=R6_CAMIF_2(RESC1005X40X25NL05T05)
+Added Component: Designator=R7_CAMIF_1(RESC1005X40X25NL05T05)
+Added Component: Designator=R7_CAMIF_2(RESC1005X40X25NL05T05)
+Added Component: Designator=R8_CAMIF_1(RESC1005X40X25NL05T05)
+Added Component: Designator=R8_CAMIF_2(RESC1005X40X25NL05T05)
+Added Pin To Net: NetName=CK_CAMIF_1_P Pin=R5_CAMIF_1-2
+Added Pin To Net: NetName=CK_CAMIF_2_P Pin=R5_CAMIF_2-2
+Added Pin To Net: NetName=CK_CAMIF_1_P Pin=R6_CAMIF_1-2
+Added Pin To Net: NetName=CK_CAMIF_2_P Pin=R6_CAMIF_2-2
+Added Pin To Net: NetName=CK_CAMIF_1_N Pin=R7_CAMIF_1-2
+Added Pin To Net: NetName=CK_CAMIF_2_N Pin=R7_CAMIF_2-2
+Added Pin To Net: NetName=CK_CAMIF_1_N Pin=R8_CAMIF_1-2
+Added Pin To Net: NetName=CK_CAMIF_2_N Pin=R8_CAMIF_2-2
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Added Pin To Net: NetName=CKA_CAMIF_1_N Pin=R8_CAMIF_1-1
+Added Pin To Net: NetName=CKA_CAMIF_1_N Pin=U1_CAMIF_1-40
+Added Net: Name=CKA_CAMIF_1_N
+Added Pin To Net: NetName=CKA_CAMIF_1_P Pin=R6_CAMIF_1-1
+Added Pin To Net: NetName=CKA_CAMIF_1_P Pin=U1_CAMIF_1-39
+Added Net: Name=CKA_CAMIF_1_P
+Added Pin To Net: NetName=CKA_CAMIF_2_N Pin=R8_CAMIF_2-1
+Added Pin To Net: NetName=CKA_CAMIF_2_N Pin=U1_CAMIF_2-40
+Added Net: Name=CKA_CAMIF_2_N
+Added Pin To Net: NetName=CKA_CAMIF_2_P Pin=R6_CAMIF_2-1
+Added Pin To Net: NetName=CKA_CAMIF_2_P Pin=U1_CAMIF_2-39
+Added Net: Name=CKA_CAMIF_2_P
+Added Pin To Net: NetName=CKC_CAMIF_1_N Pin=R7_CAMIF_1-1
+Added Pin To Net: NetName=CKC_CAMIF_1_N Pin=U1_CAMIF_1-34
+Added Net: Name=CKC_CAMIF_1_N
+Added Pin To Net: NetName=CKC_CAMIF_1_P Pin=R5_CAMIF_1-1
+Added Pin To Net: NetName=CKC_CAMIF_1_P Pin=U1_CAMIF_1-33
+Added Net: Name=CKC_CAMIF_1_P
+Added Pin To Net: NetName=CKC_CAMIF_2_N Pin=R7_CAMIF_2-1
+Added Pin To Net: NetName=CKC_CAMIF_2_N Pin=U1_CAMIF_2-34
+Added Net: Name=CKC_CAMIF_2_N
+Added Pin To Net: NetName=CKC_CAMIF_2_P Pin=R5_CAMIF_2-1
+Added Pin To Net: NetName=CKC_CAMIF_2_P Pin=U1_CAMIF_2-33
+Added Net: Name=CKC_CAMIF_2_P
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists
+Added Differential Pair: Name=CKA_CAMIF_1
+Added Differential Pair: Name=CKA_CAMIF_2
+Added Differential Pair: Name=CKC_CAMIF_1
+Added Differential Pair: Name=CKC_CAMIF_2
+Added Member To Class: ClassName=CAMIF_1 Member=Component R5_CAMIF_1 (R5) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_2 Member=Component R5_CAMIF_2 (R5) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_1 Member=Component R6_CAMIF_1 (R6) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_2 Member=Component R6_CAMIF_2 (R6) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_1 Member=Component R7_CAMIF_1 (R7) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_2 Member=Component R7_CAMIF_2 (R7) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_1 Member=Component R8_CAMIF_1 (R8) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=CAMIF_2 Member=Component R8_CAMIF_2 (R8) 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=100DIFF Member=Wire CKA_CAMIF_1_N
+Added Member To Class: ClassName=100DIFF Member=Wire CKA_CAMIF_1_P
+Added Member To Class: ClassName=100DIFF Member=Wire CKA_CAMIF_2_N
+Added Member To Class: ClassName=100DIFF Member=Wire CKA_CAMIF_2_P
+Added Member To Class: ClassName=100DIFF Member=Wire CKC_CAMIF_1_N
+Added Member To Class: ClassName=100DIFF Member=Wire CKC_CAMIF_1_P
+Added Member To Class: ClassName=100DIFF Member=Wire CKC_CAMIF_2_N
+Added Member To Class: ClassName=100DIFF Member=Wire CKC_CAMIF_2_P

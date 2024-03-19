@@ -1,0 +1,13 @@
+Removed Member From Class: ClassName=100DIFF Member=GBE_MD1_N
+Removed Member From Class: ClassName=100DIFF Member=GBE_MD1_P
+Added Pin To Net: NetName=GBE_MDI1_N Pin=J1-190
+Added Pin To Net: NetName=GBE_MDI1_P Pin=J1-192
+Added Pin To Net: NetName=GBE_MDI1_P Pin=J5-3
+Added Pin To Net: NetName=GBE_MDI1_N Pin=J5-4
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Added Member To Class: ClassName=100DIFF Member=Wire GBE_MDI1_N
+Added Member To Class: ClassName=100DIFF Member=Wire GBE_MDI1_P

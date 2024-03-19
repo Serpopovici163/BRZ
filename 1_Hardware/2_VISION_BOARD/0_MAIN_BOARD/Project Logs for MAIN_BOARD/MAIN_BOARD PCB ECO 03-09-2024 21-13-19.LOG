@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R112
+Change Component Designator: OldDesignator=R? NewDesignator=R113
+Change Component Designator: OldDesignator=R? NewDesignator=R114
+Change Net Name : Old Net Name=NetR?_2 New Net Name=NetR114_2
+Added Pin To Net: NetName=NetR113_2 Pin=R113-2
+Added Net: Name=NetR113_2
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Added Member To Class: ClassName=NVME Member=Component R112 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=NVME Member=Component R113 0402 JUMPER 0 OHM

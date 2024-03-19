@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=GBE_MDI0_P Pin=D5-1
+Removed Pin From Net: NetName=GBE_MDI0_N Pin=D5-2
+Removed Pin From Net: NetName=GBE_MDI1_P Pin=D5-4
+Removed Pin From Net: NetName=GBE_MDI1_N Pin=D5-5
+Removed Pin From Net: NetName=GBE_MDI2_P Pin=D12-1
+Removed Pin From Net: NetName=GBE_MDI2_N Pin=D12-2
+Removed Pin From Net: NetName=GBE_MDI3_P Pin=D12-4
+Removed Pin From Net: NetName=GBE_MDI3_N Pin=D12-5
+Added Pin To Net: NetName=GBE_MDI0_N Pin=D5-1
+Added Pin To Net: NetName=GBE_MDI0_P Pin=D5-2
+Added Pin To Net: NetName=GBE_MDI1_N Pin=D5-4
+Added Pin To Net: NetName=GBE_MDI1_P Pin=D5-5
+Added Pin To Net: NetName=GBE_MDI2_N Pin=D12-1
+Added Pin To Net: NetName=GBE_MDI2_P Pin=D12-2
+Added Pin To Net: NetName=GBE_MDI3_N Pin=D12-4
+Added Pin To Net: NetName=GBE_MDI3_P Pin=D12-5
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists

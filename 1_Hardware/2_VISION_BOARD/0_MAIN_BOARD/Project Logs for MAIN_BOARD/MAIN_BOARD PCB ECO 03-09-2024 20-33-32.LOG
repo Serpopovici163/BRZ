@@ -1,0 +1,15 @@
+Added Pin To Net: NetName=CAN_TX Pin=J10-7
+Added Pin To Net: NetName=CAN_RX Pin=J11-7
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists

@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=PCIE0_nRST Pin=J7-50
+Added Component: Designator=R?(RESC1005X40X25NL05T05)
+Added Component: Designator=R?(RESC1005X40X25NL05T05)
+Added Component: Designator=R?(RESC1005X40X25NL05T05)
+Added Pin To Net: NetName=ACT_LED Pin=R106-1
+Added Pin To Net: NetName=PCIE0_nRST Pin=R?-2
+Added Pin To Net: NetName=NetR?_2 Pin=R?-2
+Added Net: Name=NetR?_2
+Add Net: Net with name "NetR?_2" already exists
+Added Pin To Net: NetName=PCIE0_RST Pin=J7-50
+Added Net: Name=PCIE0_RST
+Added Pin To Net: NetName=PCIE_CLKREQ Pin=R?-1
+Added Net: Name=PCIE_CLKREQ
+Added Pin To Net: NetName=PCIE_RST Pin=R?-1
+Added Net: Name=PCIE_RST
+Add Net: Net with name "PCIE_WAKE" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Added Member To Class: ClassName=NVME Member=Component R? 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=NVME Member=Component R? 0402 JUMPER 0 OHM
+Added Member To Class: ClassName=NVME Member=Component R? 0402 JUMPER 0 OHM

@@ -1,0 +1,26 @@
+Added Pin To Net: NetName=PoC_B_CAMIF_1 Pin=D22_CAMIF_1-6
+Added Pin To Net: NetName=PoC_A_CAMIF_1 Pin=D22_CAMIF_1-10
+Added Pin To Net: NetName=PoC_B_CAMIF_2 Pin=D22_CAMIF_2-6
+Added Pin To Net: NetName=PoC_A_CAMIF_2 Pin=D22_CAMIF_2-10
+Added Pin To Net: NetName=PoC_D_CAMIF_1 Pin=D23_CAMIF_1-6
+Added Pin To Net: NetName=PoC_C_CAMIF_1 Pin=D23_CAMIF_1-10
+Added Pin To Net: NetName=PoC_D_CAMIF_2 Pin=D23_CAMIF_2-6
+Added Pin To Net: NetName=PoC_C_CAMIF_2 Pin=D23_CAMIF_2-10
+Add Net: Net with name "CAM_I2C_SCL" already exists
+Add Net: Net with name "CAM_I2C_SDA" already exists
+Add Net: Net with name "CAN_RX" already exists
+Add Net: Net with name "CAN_TX" already exists
+Add Net: Net with name "nMOD_SLEEP" already exists
+Add Net: Net with name "PCIE0_RX0_N" already exists
+Add Net: Net with name "PCIE0_RX0_P" already exists
+Add Net: Net with name "PCIE0_RX1_N" already exists
+Add Net: Net with name "PCIE0_RX1_P" already exists
+Add Net: Net with name "PCIE0_RX2_N" already exists
+Add Net: Net with name "PCIE0_RX2_P" already exists
+Add Net: Net with name "PCIE0_RX3_N" already exists
+Add Net: Net with name "PCIE0_RX3_P" already exists
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Add Net: Net with name "VBUS_1" already exists

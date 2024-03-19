@@ -1,0 +1,43 @@
+Change Net Name : Old Net Name=nMOD_SLEEP New Net Name=HDMI_nSLEEP
+Added Pin To Net: NetName=nMOD_SLEEP Pin=J1-178
+Added Net: Name=nMOD_SLEEP
+Added Pin To Net: NetName=PCIE_RX0_N Pin=J7-41
+Added Pin To Net: NetName=PCIE_RX0_N Pin=R104-1
+Added Net: Name=PCIE_RX0_N
+Added Pin To Net: NetName=PCIE_RX0_P Pin=J7-43
+Added Pin To Net: NetName=PCIE_RX0_P Pin=R105-1
+Added Net: Name=PCIE_RX0_P
+Added Pin To Net: NetName=PCIE_RX1_N Pin=J7-29
+Added Pin To Net: NetName=PCIE_RX1_N Pin=R101-1
+Added Net: Name=PCIE_RX1_N
+Added Pin To Net: NetName=PCIE_RX1_P Pin=J7-31
+Added Pin To Net: NetName=PCIE_RX1_P Pin=R103-1
+Added Net: Name=PCIE_RX1_P
+Added Pin To Net: NetName=PCIE_RX2_N Pin=J7-17
+Added Pin To Net: NetName=PCIE_RX2_N Pin=R99-1
+Added Net: Name=PCIE_RX2_N
+Added Pin To Net: NetName=PCIE_RX2_P Pin=J7-19
+Added Pin To Net: NetName=PCIE_RX2_P Pin=R100-1
+Added Net: Name=PCIE_RX2_P
+Added Pin To Net: NetName=PCIE_RX3_N Pin=J7-5
+Added Pin To Net: NetName=PCIE_RX3_N Pin=R97-1
+Added Net: Name=PCIE_RX3_N
+Added Pin To Net: NetName=PCIE_RX3_P Pin=J7-7
+Added Pin To Net: NetName=PCIE_RX3_P Pin=R98-1
+Added Net: Name=PCIE_RX3_P
+Add Net: Net with name "USB0_D_N" already exists
+Add Net: Net with name "USB0_D_P" already exists
+Add Net: Net with name "USB1_D_N" already exists
+Add Net: Net with name "USB1_D_P" already exists
+Added Differential Pair: Name=PCIE_RX0
+Added Differential Pair: Name=PCIE_RX1
+Added Differential Pair: Name=PCIE_RX2
+Added Differential Pair: Name=PCIE_RX3
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX0_N
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX0_P
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX1_N
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX1_P
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX2_N
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX2_P
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX3_N
+Added Member To Class: ClassName=85DIFF Member=Wire PCIE_RX3_P
