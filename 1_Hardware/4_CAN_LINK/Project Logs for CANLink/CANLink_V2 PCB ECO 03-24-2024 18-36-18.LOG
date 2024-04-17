@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=NetR6_1 Pin=U?-9
+Removed Member From Class: ClassName=SD_0 Member=U?
+Added Pin To Net: NetName=NetR6_1 Pin=U1-9

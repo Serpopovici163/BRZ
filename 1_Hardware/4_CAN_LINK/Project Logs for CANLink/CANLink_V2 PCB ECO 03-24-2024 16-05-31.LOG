@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=AN_IO_1 Pin=P1-1
+Removed Pin From Net: NetName=AN_IO_0 Pin=P1-2
+Removed Pin From Net: NetName=AN_IO_3 Pin=P1-3
+Removed Pin From Net: NetName=GND Pin=P1-5
+Removed Pin From Net: NetName=AN_IO_4 Pin=P1-6
+Added Pin To Net: NetName=AN_IO_3 Pin=P1-1
+Added Pin To Net: NetName=AN_IO_4 Pin=P1-2
+Added Pin To Net: NetName=AN_IO_1 Pin=P1-3
+Added Pin To Net: NetName=AN_IO_0 Pin=P1-5

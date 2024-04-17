@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=TRIG_0 Pin=U4-38
+Added Pin To Net: NetName=TRIG_1 Pin=U4-39
+Added Pin To Net: NetName=TRIG_2 Pin=U4-40
+Added Pin To Net: NetName=TRIG_3 Pin=U4-41
+Added Room: Name=CAN_1

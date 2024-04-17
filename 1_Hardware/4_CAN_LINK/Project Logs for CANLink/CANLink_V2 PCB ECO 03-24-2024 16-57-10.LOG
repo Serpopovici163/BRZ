@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=NetR9_1 Pin=R8-1
+Removed Pin From Net: NetName=NetR9_1 Pin=U1-1
+Added Component: Designator=U?(LM2902Q4T-Footprint-1)
+Added Pin To Net: NetName=NetR6_1 Pin=R6-2
+Added Pin To Net: NetName=NetR6_1 Pin=U1-4
+Added Pin To Net: NetName=NetR6_1 Pin=U?-9
+Added Net: Name=NetR6_1
+Added Pin To Net: NetName=NetR8_1 Pin=R8-1
+Added Pin To Net: NetName=NetR8_1 Pin=U1-1
+Added Net: Name=NetR8_1
+Added Member To Class: ClassName=SD_0 Member=Component U? LM2902Q4T
+Added Room: Name=CAN_1

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=SD_DAT0 Pin=R32-1
+Removed Pin From Net: NetName=SD_CMD Pin=R35-1
+Removed Pin From Net: NetName=CAN0_TX Pin=R36-1
+Removed Pin From Net: NetName=CAN0_RX Pin=R43-1
+Added Pin To Net: NetName=CAN0_TX Pin=R32-1
+Added Pin To Net: NetName=CAN0_RX Pin=R35-1
+Added Pin To Net: NetName=SD_DAT0 Pin=R36-1
+Added Pin To Net: NetName=SD_CMD Pin=R43-1
