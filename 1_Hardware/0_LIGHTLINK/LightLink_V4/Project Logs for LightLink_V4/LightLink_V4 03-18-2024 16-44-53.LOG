@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=PRE_CAN_N Pin=U4-12
+Removed Pin From Net: NetName=PRE_CAN_P Pin=U4-13
+Added Pin To Net: NetName=PRE_CAN_N Pin=D4-1
+Added Pin To Net: NetName=PRE_CAN_P Pin=D4-2
+Added Pin To Net: NetName=PRE_CAN_N Pin=J9-1
+Added Pin To Net: NetName=PRE_CAN_P Pin=J9-4
+Change Net Name : Old Net Name=PRE_CAN_N New Net Name=CAN_P
+Change Net Name : Old Net Name=PRE_CAN_P New Net Name=CAN_N
+Added Pin To Net: NetName=PRE_CAN_N Pin=L2-3
+Added Pin To Net: NetName=PRE_CAN_N Pin=U4-12
+Added Net: Name=PRE_CAN_N
+Added Pin To Net: NetName=PRE_CAN_P Pin=L2-2
+Added Pin To Net: NetName=PRE_CAN_P Pin=U4-13
+Added Net: Name=PRE_CAN_P
+Change Differential Pair Positive Net Name : Old Net Name=PRE_CAN_N New Net Name=PRE_CAN_P
+Change Differential Pair Negative Net Name : Old Net Name=PRE_CAN_P New Net Name=PRE_CAN_N
+Added Member To Class: ClassName=120DIFF Member=Wire PRE_CAN_P

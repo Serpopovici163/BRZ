@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=R_LED Pin=U1-1
+Removed Pin From Net: NetName=G_LED Pin=U1-2
+Added Pin To Net: NetName=R_LED Pin=U1-15
+Added Pin To Net: NetName=G_LED Pin=U1-16
+Added Member To Class: ClassName=LightLink_V4 Member=Component J5 455580003

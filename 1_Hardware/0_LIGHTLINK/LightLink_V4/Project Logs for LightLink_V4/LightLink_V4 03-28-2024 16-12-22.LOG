@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=CAN_VSUP Pin=D6-2
+Change Net Name : Old Net Name=CAN_VSUP New Net Name=PWR_IN
+Added Pin To Net: NetName=CAN_PWR Pin=D6-2
+Added Pin To Net: NetName=CAN_PWR Pin=J9-6
+Added Pin To Net: NetName=CAN_PWR Pin=R15-1
+Added Net: Name=CAN_PWR

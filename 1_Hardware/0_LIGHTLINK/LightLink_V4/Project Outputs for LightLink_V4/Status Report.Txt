@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [LightLink_V4.1.PcbDoc]
+   Generated File[LightLink_V4.1.TXT]
+   Generated File[LightLink_V4.1.LDP]
+   Generated File[LightLink_V4.1.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 17:56:10 On 03/28/2024

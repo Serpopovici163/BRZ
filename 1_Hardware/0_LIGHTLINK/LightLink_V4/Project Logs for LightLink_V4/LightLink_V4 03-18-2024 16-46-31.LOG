@@ -1,0 +1,6 @@
+Removed Member From Class: ClassName=LightLink_V4 Member=TP1
+Removed Member From Class: ClassName=LightLink_V4 Member=TP2
+Added Member To Class: ClassName=120DIFF Member=Wire CAN_N
+Added Member To Class: ClassName=120DIFF Member=Wire CAN_P
+Added Member To Class: ClassName=120DIFF Member=Wire PRE_CAN_N
+Added Member To Class: ClassName=120DIFF Member=Wire PRE_CAN_P

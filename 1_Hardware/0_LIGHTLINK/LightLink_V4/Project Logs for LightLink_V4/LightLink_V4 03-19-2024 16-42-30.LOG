@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=M9_TRIG Pin=U1-55
+Removed Pin From Net: NetName=M910_STAT Pin=U1-56
+Removed Pin From Net: NetName=M10_TRIG Pin=U1-57
+Removed Pin From Net: NetName=M11_TRIG Pin=U1-58
+Added Pin To Net: NetName=M9_TRIG Pin=U1-57
+Added Pin To Net: NetName=M910_STAT Pin=U1-58
+Added Pin To Net: NetName=M10_TRIG Pin=U1-59
+Added Pin To Net: NetName=M11_TRIG Pin=U1-60

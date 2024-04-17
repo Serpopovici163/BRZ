@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=VCC Pin=C23-1
+Removed Pin From Net: NetName=GND Pin=C23-2
+Change Component Footprint: Designator=C23 Old Footprint=FP-GRM188-0_1-e0_2_0_55-IPC_A New Footprint=CAPC2013X145X50ML20T25
+Change Component Comment : Designator=C23 Old Comment=GRM188R60J106ME47D New Comment=C0805C225K9PACTU
+Change Managed Component Library Link : Designator=C23 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=3F1FDB09-9931-43B7-B80F-88673FF926CD New ItemGUID=11516D15-BAE8-4AE7-87F9-B798F6F7954C Old RevisionGUID=937773BC-2271-489F-837A-E58975DBF117 New RevisionGUID=D5FBF4A4-911A-424C-9E8E-9A1E0B0898DE
+Change component parameters: Designator = "C23" ("C23"); Footprint = "FP-GRM188-0_1-e0_2_0_55-IPC_A"; UniqueID = "\KZOLYNJL\TQZMRDTM" ("\KZOLYNJL\TQZMRDTM")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Kemet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "C0805C225K9PACTU"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=VCC Pin=C23-2
+Added Room: Name=MOSFET_BANK1
+Added Room: Name=MOSFET_BANK2
+Added Room: Name=MOSFET_BANK3

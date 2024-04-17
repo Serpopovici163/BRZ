@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=VCC_SENSE Pin=U2-4
+Removed Pin From Net: NetName=PRE_12V_SENSE Pin=U2-5
+Removed Pin From Net: NetName=12V_SENSE Pin=U2-6
+Removed Pin From Net: NetName=INT_5V_SENSE Pin=U2-8
+Added Pin To Net: NetName=PRE_12V_SENSE Pin=U2-4
+Added Pin To Net: NetName=12V_SENSE Pin=U2-5
+Added Pin To Net: NetName=INT_5V_SENSE Pin=U2-6
+Added Pin To Net: NetName=VCC_SENSE Pin=U2-8

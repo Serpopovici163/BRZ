@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=CAN_VSUP Pin=J9-6
+Added Component: Designator=R15(RESC1609X55X30ML15T15)
+Added Pin To Net: NetName=CAN_VSUP Pin=R15-2
+Added Pin To Net: NetName=NetJ9_6 Pin=J9-6
+Added Pin To Net: NetName=NetJ9_6 Pin=R15-1
+Added Net: Name=NetJ9_6
+Added Member To Class: ClassName=LightLink_V4 Member=Component R15 0603 JUMPER

@@ -67,23 +67,6 @@ GenerateClassCluster=0
 DocumentUniqueId=WRCLDNAZ
 
 [Document2]
-DocumentPath=Job1.OutJob
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document3]
 DocumentPath=LightLink_V4.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -100,7 +83,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DFHDVUSI
 
-[Document4]
+[Document3]
 DocumentPath=LightLink_V4.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -117,7 +100,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FPURMVPA
 
-[Document5]
+[Document4]
 DocumentPath=MOSFET_BANK.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -128,13 +111,13 @@ AnnotateOrder=6
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
+ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YVCCMZGT
 
-[Document6]
+[Document5]
 DocumentPath=INTERNAL_REGULATORS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -151,7 +134,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IDXMBBOS
 
-[Document7]
+[Document6]
 DocumentPath=STM32H730_PINOUT.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -168,7 +151,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SPENOSCV
 
-[Document8]
+[Document7]
 DocumentPath=LightLink_V4.1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -185,83 +168,121 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GOBXDMVE
 
+[Document8]
+DocumentPath=Job2.OutJob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document9]
+DocumentPath=LightLink_V4.BomDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for LightLink_V3\Design Rule Check - LightLink_V3.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for LightLink_V3\NC Drill\LightLink_V3.DRR
+DocumentPath=Project Outputs for LightLink_V4\Design Rule Check - LightLink_V4.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.EXTREP
+DocumentPath=Project Outputs for LightLink_V3\NC Drill\LightLink_V3.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G1
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G2
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G1
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G3
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G2
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G4
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G3
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBL
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.G4
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBO
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBP
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBS
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GM
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GM1
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GM
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTL
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTO
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTP
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTS
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for LightLink_V3\NC Drill\LightLink_V3.LDP
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.REP
+DocumentPath=Project Outputs for LightLink_V3\NC Drill\LightLink_V3.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument20]
+DocumentPath=Project Outputs for LightLink_V3\Gerber\LightLink_V3.REP
+DItemRevisionGUID=
+
+[GeneratedDocument21]
 DocumentPath=Project Outputs for LightLink_V3\NC Drill\LightLink_V3.TXT
 DItemRevisionGUID=
 
@@ -598,6 +619,22 @@ OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+Configuration1_Name1=ColumnNameFormat
+Configuration1_Item1=CaptionAsName
+Configuration1_Name2=ForceUpdateSettings
+Configuration1_Item2=False
+Configuration1_Name3=General
+Configuration1_Item3=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=False|IncludeAlternatives=True|ShowExportOptions=True|TemplateFilename=|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=True|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=0|UseDirectApi=True|BomSetName=
+Configuration1_Name4=GroupOrder
+Configuration1_Item4=
+Configuration1_Name5=VisibleOrder
+Configuration1_Item5=Line #=53|Comment=100|Description=100|Designator=100|Revision ID=78|Revision State=120|Revision Status=97|Quantity=66|Manufacturer 1=99|Manufacturer Part Number 1=166|Manufacturer Lifecycle 1=142|Supplier 1=72|Supplier Part Number 1=138|Supplier Unit Price 1=122|Supplier Subtotal 1=116
+Configuration1_Name6=VisibleOrder_Base
+Configuration1_Item6=Line #=53|Comment=100|Description=100|Designator=100|Revision ID=78|Revision State=120|Revision Status=97|Quantity=66|Manufacturer 1=99|Manufacturer Part Number 1=166|Manufacturer Lifecycle 1=142|Supplier 1=72|Supplier Part Number 1=138|Supplier Unit Price 1=122|Supplier Subtotal 1=116
+Configuration1_Name7=VisibleOrder_Consolidated
+Configuration1_Item7=Line #=100|Comment=100|Description=100|Designator=100|Revision ID=100|Revision State=100|Revision Status=100|Quantity=100|Manufacturer 1=99|Manufacturer Part Number 1=166|Manufacturer Lifecycle 1=142|Supplier 1=72|Supplier Part Number 1=138|Supplier Unit Price 1=122|Supplier Subtotal 1=116
+Configuration1_Name8=VisibleOrder_Flat
+Configuration1_Item8=Line #=100|Comment=100|Description=100|Designator=100|Revision ID=100|Revision State=100|Revision Status=100|Manufacturer 1=99|Manufacturer Part Number 1=166|Manufacturer Lifecycle 1=142|Supplier 1=72|Supplier Part Number 1=138|Supplier Unit Price 1=122|Supplier Subtotal 1=116
 OutputType2=BOM_ReportCompare
 OutputName2=BOM Compare
 OutputDocumentPath2=

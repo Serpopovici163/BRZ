@@ -1,6 +1,0 @@
-Change Component DesignItemId : Designator=J2 Old DesignItemId=CMP-020-000000-2 New DesignItemId=CMP-020-000000-4
-Change Component DesignItemId : Designator=J3 Old DesignItemId=CMP-020-000000-2 New DesignItemId=CMP-020-000000-4
-Change Component Footprint: Designator=J2 Old Footprint=SAMTEC_HLE-103-02-L-DV-BE-TR New Footprint=SAMTEC_HLE-103-02-L-DV-BE-TR
-Change Component Footprint: Designator=J3 Old Footprint=SAMTEC_HLE-103-02-L-DV-BE-TR New Footprint=SAMTEC_HLE-103-02-L-DV-BE-TR
-Change Managed Component Library Link : Designator=J2 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=670619C5-7D85-4A2B-9D63-587BD1633CC9 New ItemGUID=670619C5-7D85-4A2B-9D63-587BD1633CC9 Old RevisionGUID=f9ef9e17-8f69-43de-a0d9-199cc3a6d5ee New RevisionGUID=a61fbef5-2f9a-4781-add6-854cc6f7e815
-Change Managed Component Library Link : Designator=J3 Old VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A New VaultGUID=D5CACE43-709A-4464-BB04-ED577B050C2A Old ItemGUID=670619C5-7D85-4A2B-9D63-587BD1633CC9 New ItemGUID=670619C5-7D85-4A2B-9D63-587BD1633CC9 Old RevisionGUID=f9ef9e17-8f69-43de-a0d9-199cc3a6d5ee New RevisionGUID=a61fbef5-2f9a-4781-add6-854cc6f7e815

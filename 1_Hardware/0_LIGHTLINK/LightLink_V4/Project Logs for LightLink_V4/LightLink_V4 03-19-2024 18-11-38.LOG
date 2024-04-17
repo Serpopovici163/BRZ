@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=PRE_VCC Pin=R10-1
+Removed Pin From Net: NetName=GND Pin=R15-1
+Removed Member From Class: ClassName=PWR_MGMT Member=R10
+Removed Member From Class: ClassName=PWR_MGMT Member=R15
+Added Member To Class: ClassName=PWR_MGMT Member=Component R11 ERJ3EKF1002V
+Added Member To Class: ClassName=PWR_MGMT Member=Component R16 ERJ3EKF2701V
