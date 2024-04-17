@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=CAN_VSUP Pin=C12-2
+Removed Pin From Net: NetName=CAN_VSUP Pin=U4-3
+Removed Member From Class: ClassName=CAN_0 Member=C10
+Removed Member From Class: ClassName=CAN_0 Member=C12
+Removed Member From Class: ClassName=CAN_0 Member=U4
+Added Pin To Net: NetName=INT_VCC Pin=C12-2
+Added Pin To Net: NetName=INT_VCC Pin=U4-3
+Added Member To Class: ClassName=PWR_MGMT Member=Component C10 C0805C225K9PACTU
+Added Member To Class: ClassName=PWR_MGMT Member=Component C12 C0402C104K8PACTU
+Added Member To Class: ClassName=PWR_MGMT Member=Component U4 AP7381-50Y-13

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=CAN_SCLK Pin=P2-1
+Removed Pin From Net: NetName=CAN_MISO Pin=P2-3
+Removed Pin From Net: NetName=CAN_MOSI Pin=P2-5
+Added Pin To Net: NetName=CAN_MISO Pin=P2-1
+Added Pin To Net: NetName=CAN_MOSI Pin=P2-3
+Added Pin To Net: NetName=CAN_SCLK Pin=P2-5

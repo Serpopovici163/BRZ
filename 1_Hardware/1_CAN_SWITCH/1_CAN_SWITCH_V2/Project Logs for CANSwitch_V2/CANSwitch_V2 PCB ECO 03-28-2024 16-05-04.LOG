@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=CAN_P Pin=J1-1
+Removed Pin From Net: NetName=CAN_N Pin=J1-4
+Removed Pin From Net: NetName=CAN_P Pin=J2-1
+Removed Pin From Net: NetName=CAN_N Pin=J2-4
+Added Component: Designator=D?(FP-SOT143B-MFG)
+Added Pin To Net: NetName=CAN_N Pin=J1-1
+Added Pin To Net: NetName=CAN_P Pin=J1-4
+Added Pin To Net: NetName=CAN_N Pin=J2-1
+Added Pin To Net: NetName=CAN_P Pin=J2-4
+Added Member To Class: ClassName=CANSwitch_V2 Member=Component D? PRTR5V0U2X,215
+Added Member To Class: ClassName=CANSwitch_V2 Member=Component TP8 TPAD6R
